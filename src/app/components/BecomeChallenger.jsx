@@ -199,37 +199,52 @@ const BecomeChallenger = () => {
   </div>
   <span className="text-2xl font-bold text-white tracking-wide">Left</span>
 </div>
-
-            <div className="inline-flex items-center gap-12 bg-black/1 backdrop-blur-lg rounded-2xl py-6 px-8 border border-white/10">
-  {["Hours", "Minutes", "Seconds"].map((unit, i) => {
-    const value = [
-      timeLeft.hours,
-      timeLeft.minutes,
-      timeLeft.seconds,
-    ][i] || "0";
-    
+<div className="
+  inline-flex items-center
+  gap-4 sm:gap-6 md:gap-12
+  bg-black/10 backdrop-blur-lg rounded-2xl
+  py-2 sm:py-4 md:py-6
+  px-3 sm:px-6 md:px-8
+  max-w-full mx-auto overflow-x-auto
+  border border-white/10
+">
+  {["Hours","Minutes","Seconds"].map((unit,i) => {
+    const value = [timeLeft.hours, timeLeft.minutes, timeLeft.seconds][i] ?? 0;
     return (
-      <div key={unit} className="flex flex-col items-center">
+      <div key={unit}
+           className="flex flex-col items-center flex-shrink-0">
         <div className="relative">
-          <span className="text-7xl md:text-8xl font-extrabold text-white leading-none tracking-tight">
-            {String(value).padStart(2, '0')}
+          <span className="
+            text-4xl sm:text-6xl md:text-7xl
+            font-extrabold text-white
+            leading-none tracking-tight
+            tabular-nums
+            min-w-[3ch] sm:min-w-[4ch] md:min-w-[5ch]
+            text-center
+          ">
+            {String(value).padStart(2,'0')}
           </span>
         </div>
-        <span className="text-sm font-medium text-white/80 uppercase tracking-widest mt-3">
+        <span className="
+          text-xs sm:text-sm font-medium
+          text-white/80 uppercase tracking-widest mt-2
+        ">
           {unit}
         </span>
       </div>
     );
   })}
-  
-  {/* Separator lines between units */}
+
   <div className="absolute inset-0 flex justify-center items-center pointer-events-none">
-    <div className="flex items-center gap-8">
-      <div className="w-px h-20 bg-white/20"></div>
-      <div className="w-px h-20 bg-white/20 ml-32"></div>
+    <div className="flex items-center gap-2 sm:gap-4">
+      <div className="w-px h-12 sm:h-16 bg-white/20"></div>
+      <div className="w-px h-12 sm:h-16 bg-white/20 ml-[calc(3ch+2rem)] sm:ml-[calc(4ch+2.5rem)]"></div>
     </div>
   </div>
 </div>
+
+  
+ 
             {/* Info Boxes */}
             <div className="flex flex-col md:flex-row justify-center items-center gap-4 mt-12">
               <div className="flex items-center gap-3 px-5 py-3 bg-[#1a1a1a] rounded-xl text-sm text-white">
