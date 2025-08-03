@@ -2,7 +2,7 @@ import Image from "next/image";
 import star from "../../../public/assests/star.svg"
 import buildplayer from "../../../public/assests/buildplayer.png"
 import buildplayer1 from "../../../public/assests/buildplayer/frame1.png"
-import helmet from "../../../public/assests/buildplayer/crickethelmet.svg"
+import helmet from "../../../public/assests/buildplayer/cricketHelmet.svg"
 
 export default function BuildplayerSection() {
   return (
