@@ -9,6 +9,7 @@ export default function SignUp() {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [loading, setLoading] = useState(false);
+   const [selected, setSelected] = useState("promoter");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -38,7 +39,7 @@ export default function SignUp() {
     <section className="min-h-screen bg-black text-white flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16 font-clash">
       <div className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-7xl mx-auto">
         <hr
-  className="
+          className="
     max-w-2xl
     mx-auto
     my-8
@@ -47,14 +48,66 @@ export default function SignUp() {
     h-0.5
     bg-gradient-to-r from-[#C6F812] via-[#d9ff00] to-[#C6F812]
     rounded-full
-    shadow-[0_0_20px_5px_#C6F812]
+    shadow-[0_0_20px_1px_#C6F812]
   "
-/>
-        <div className="text-center mb-8 sm:mb-10 lg:mb-12">
-          <h1 className="text-6xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-7xl 2xl:text-[9rem] font-bold uppercase leading-tight">
-            Sign Up
-          </h1>
-        </div>
+        />
+       <div className="text-center mb-8 sm:mb-10 lg:mb-12">
+  <h1 className="text-6xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-7xl 2xl:text-[9rem] font-bold uppercase leading-tight">
+    Sign Up
+  </h1>
+
+<div className="w-full overflow-x-auto">
+  <div className="flex justify-center gap-4 sm:gap-6 mt-6 whitespace-nowrap">
+    {/* PROMOTER Button */}
+    <button
+      onClick={() => setSelected("promoter")}
+      className="relative group"
+    >
+      <span
+        className={`inline-block 
+          px-4 sm:px-6 md:px-8 
+          py-2 sm:py-2.5 md:py-3 
+          text-xs sm:text-sm md:text-base 
+          font-bold tracking-widest 
+          transform -skew-x-[20deg] 
+          rounded-md transition-all duration-300 
+          ${
+            selected === "promoter"
+              ? "bg-[#C6FF00] text-black shadow-lg"
+              : "bg-transparent text-[#C6FF00] border border-[#C6FF00] hover:bg-[#C6FF00] hover:text-black"
+          }`}
+      >
+        <span className="block transform skew-x-[20deg]">PROMOTER</span>
+      </span>
+    </button>
+
+    {/* CHALLENGER Button */}
+    <button
+      onClick={() => setSelected("challenger")}
+      className="relative group"
+    >
+      <span
+        className={`inline-block 
+          px-4 sm:px-6 md:px-8 
+          py-2 sm:py-2.5 md:py-3 
+          text-xs sm:text-sm md:text-base 
+          font-bold tracking-widest 
+          transform -skew-x-[20deg] 
+          rounded-md transition-all duration-300 
+          ${
+            selected === "challenger"
+              ? "bg-[#C6FF00] text-black shadow-lg"
+              : "bg-transparent text-[#C6FF00] border border-[#C6FF00] hover:bg-[#C6FF00] hover:text-black"
+          }`}
+      >
+        <span className="block transform skew-x-[20deg]">CHALLENGER</span>
+      </span>
+    </button>
+  </div>
+</div>
+
+</div>
+
       </div>
 
       <div className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-4xl mx-auto">
@@ -122,8 +175,9 @@ export default function SignUp() {
               <FiArrowUpRight className="ml-2 sm:ml-4 bg-white rounded-md p-1 w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7" />
             </button>
           </div>
-        </form>     <hr
-  className="
+        </form>{" "}
+        <hr
+          className="
     max-w-2xl
     mx-auto
     mt-20
@@ -133,12 +187,11 @@ export default function SignUp() {
     h-0.5
     bg-gradient-to-r from-[#C6F812] via-[#d9ff00] to-[#C6F812]
     rounded-full
-    shadow-[0_0_20px_5px_#C6F812]
+    shadow-[0_0_20px_1px_#C6F812]
     
   "
-/>
+        />
       </div>
- 
     </section>
   );
 }
