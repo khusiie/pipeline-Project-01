@@ -104,7 +104,7 @@ export default function BuildplayerSection() {
   className="
     max-w-5xl
     mx-auto
-    my-8
+    mt-20
     border-0
     h-1
     bg-gradient-to-r from-[#C6F812] via-[#d9ff00] to-[#C6F812]

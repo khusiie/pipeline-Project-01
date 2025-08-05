@@ -35,7 +35,7 @@ const Promoter = () => {
         <div className="relative py-8 md:py-16 px-2 md:px-4">
          <div className="max-w-6xl mx-auto text-center">
                                 {/* Promoter Badge */}
-            <div className="relative inline-block mb-8">
+            <div className="relative inline-block mb-15">
               {/* Star Background */}
               <div className="absolute inset-0 flex items-center justify-center">
                 <Image 
