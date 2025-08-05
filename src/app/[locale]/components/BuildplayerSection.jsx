@@ -32,13 +32,13 @@ export default function BuildplayerSection() {
             alt="star"
           />
         </div>
-        <h2 className="text-[14px] sm:text-xl md:text-3xl lg:text-4xl xl:text-5xl font-medium uppercase tracking-widest px-2 text-white">
+        <h2 className="text-[12px] sm:text-xl md:text-3xl lg:text-4xl xl:text-5xl font-medium uppercase tracking-widest px-2 text-white">
           This isn't just another fantasy platform
         </h2>
-        <h1 className="text-5xl sm:text-4xl md:text-6xl lg:text-8xl xl:text-[140px] font-extrabold my-2 sm:my-4 text-white">
+        <h1 className="text-4xl sm:text-4xl md:text-6xl lg:text-8xl xl:text-[140px] font-extrabold my-2 sm:my-4 text-white">
           THIS IS PIPELINE
         </h1>
-        <p className="uppercase text-[14px] sm:text-base md:text-xl lg:text-2xl xl:text-[40px] tracking-widest px-2 text-white">
+        <p className="uppercase text-[12px] sm:text-base md:text-xl lg:text-2xl xl:text-[40px] tracking-widest px-2 text-white">
           Built by players – for players.
         </p>
       </div>
