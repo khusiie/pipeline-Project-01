@@ -1,17 +1,17 @@
 import Image from "next/image";
-import star from "../../../public/assests/star.svg"
-import buildplayer from "../../../public/assests/buildplayer.png"
-import buildplayer1 from "../../../public/assests/buildplayer/frame1.png"
-import helmet from "../../../public/assests/buildplayer/cricketHelmet.svg"
+import star from "../../../../public/assests/star.svg"
+import buildplayer from "../../../../public/assests/buildplayer.png"
+import buildplayer1 from "../../../../public/assests/buildplayer/frame1.png"
+import helmet from "../../../../public/assests/buildplayer/cricketHelmet.svg"
 
 export default function BuildplayerSection() {
   return (
-    <section className="text-center px-4 py-6 sm:py-10 relative">
+    <section className="text-center px-4 py-6 sm:py-10 relative bg-[#000] text-white">
       {/* Background Star */}
      
       <hr className="bg-[#C6F812] text-[#C6F812] max-w-5xl mx-auto relative z-10" />
       <div className="relative z-10 mt-8 sm:mt-16 lg:mt-30">
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-40">
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-90 -z-10">
        <Image
        width={300}
        height={300}
@@ -20,13 +20,13 @@ export default function BuildplayerSection() {
        alt="star"
        />
       </div>
-      <h2 className="text-lg sm:text-xl md:text-3xl lg:text-4xl xl:text-5xl font-bold uppercase tracking-widest px-2">
+      <h2 className="text-lg sm:text-xl md:text-3xl lg:text-4xl xl:text-5xl font-bold uppercase tracking-widest px-2 text-white">
         This isn't just another fantasy platform
       </h2>
-      <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-8xl xl:text-[140px] font-extrabold my-2 sm:my-4">
+      <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-8xl xl:text-[140px] font-extrabold my-2 sm:my-4 text-white">
         THIS IS PIPELINE
       </h1>
-      <p className="uppercase text-sm sm:text-base md:text-xl lg:text-2xl xl:text-[40px] tracking-widest px-2">
+      <p className="uppercase text-sm sm:text-base md:text-xl lg:text-2xl xl:text-[40px] tracking-widest px-2 text-white">
         Built by players – for players.
       </p>
       </div>

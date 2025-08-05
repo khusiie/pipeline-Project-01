@@ -1,0 +1,32 @@
+{
+  "navigation": {
+    "home": "હોમ",
+    "collection": "સંગ્રહ",
+    "services": "સેવાઓ",
+    "news": "સમાચાર",
+    "pricing": "કિંમત",
+    "joinToday": "આજે જોડાઓ"
+  },
+  "languages": {
+    "english": "English",
+    "hindi": "हिंदी",
+    "bengali": "বাংলা",
+    "telugu": "తెలుగు",
+    "tamil": "தமிழ்",
+    "gujarati": "ગુજરાતી",
+    "malayalam": "മലയാളം",
+    "kannada": "ಕನ್ನಡ"
+  },
+  "hero": {
+    "title": "ફેન્ટેસી ક્રિકેટ ક્રાંતિનું નેતૃત્વ કરો",
+    "subtitle": "કાનૂની રીતે, ખુલ્લેઆમ અને સન્માન સાથે તમારું સામ્રાજ્ય બનાવો",
+    "seats": "માત્ર",
+    "promoterSeats": "પ્રમોટર સીટો.",
+    "left": "બાકી",
+    "registerNow": "હવે નોંધણી કરો"
+  },
+  "promoter": {
+    "becomeA": "બનો",
+    "pipelinePromoter": "પાઇપલાઇન પ્રમોટર"
+  }
+} 

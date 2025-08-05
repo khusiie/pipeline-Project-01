@@ -1,11 +1,18 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import gridimage1 from "../../../public/assests/becomechallenger/gridimage1.png"
-import gridimage4 from "../../../public/assests/becomechallenger/gridimage4.png"
-import gridimage5 from "../../../public/assests/becomechallenger/gridimage5.png"
-import gridlogo1 from "../../../public/assests/becomechallenger/gridlogo1.svg"
-import becomechallengelogo from "../../../public/assests/becomechallenger/challange.png"
-import vectorimage from "../../../public/vector.png"
+import { FiArrowUpRight } from "react-icons/fi";
+import gridimage1 from "../../../../public/assests/becomechallenger/gridimage1.png"
+import gridimage4 from "../../../../public/assests/becomechallenger/gridimage4.png"
+import gridimage5 from "../../../../public/assests/becomechallenger/gridimage5.png"
+import gridimage2 from "../../../../public/assests/becomechallenger/gridimage2.png"
+import gridimage3 from "../../../../public/assests/becomechallenger/gridimage3.png"
+import gridlogo1 from "../../../../public/assests/becomechallenger/gridlogo1.svg"
+import gridlogo2 from "../../../../public/assests/becomechallenger/ticket-01.svg"
+import gridlogo5 from "../../../../public/assests/becomechallenger/game-controller-03.svg"
+import gridlogo3 from "../../../../public/assests/becomechallenger/credit-card-validation.svg"
+import gridlogo4 from "../../../../public/assests/becomechallenger/bot.svg"
+import becomechallengelogo from "../../../../public/assests/becomechallenger/challange.png"
+import vectorimage from "../../../../public/vector.png"
 import Image from "next/image";
 
 const BecomeChallenger = () => {
@@ -65,14 +72,14 @@ const BecomeChallenger = () => {
             />
             <div className="flex items-center gap-3 sm:gap-4 mt-auto">
               <Image
-                src={gridlogo1}
+                src={gridlogo2}
                 alt="Logo"
                 width={32}
                 height={32}
                 className="shrink-0 w-8 h-8 sm:w-10 sm:h-10"
               />
               <p className="text-black text-sm sm:text-base leading-relaxed line-clamp-3 text-left">
-                Pipeline is built with one promise: complete transparency and fair play for all users.
+               2x Pipe  Tokens   Bonus: Double  rewards  at  launch.
               </p>
             </div>
           </div>
@@ -80,7 +87,7 @@ const BecomeChallenger = () => {
           {/* Card 2 */}
           <div className="bg-white p-4 sm:p-6 rounded-lg flex flex-col h-full lg:col-span-2">
             <Image
-              src={gridimage1}
+              src={gridimage2}
               width={463}
               height={365}
               alt="No Bots, No Drama"
@@ -95,7 +102,7 @@ const BecomeChallenger = () => {
                 className="shrink-0 w-8 h-8 sm:w-10 sm:h-10"
               />
               <p className="text-black text-sm sm:text-base leading-relaxed line-clamp-3 text-left">
-                Pipeline is built with one promise: complete transparency and fair play for all users.
+                15%  Lifetime  Fee  Discount More  winnings  with  savings on  every  contest,  forever
               </p>
             </div>
           </div>
@@ -103,7 +110,7 @@ const BecomeChallenger = () => {
           {/* Card 3 */}
           <div className="bg-white p-4 sm:p-6 rounded-lg flex flex-col h-full lg:col-span-2">
             <Image
-              src={gridimage1}
+              src={gridimage3}
               width={463}
               height={365}
               alt="No Bots, No Drama"
@@ -111,14 +118,14 @@ const BecomeChallenger = () => {
             />
             <div className="flex items-center gap-3 sm:gap-4 mt-auto">
               <Image
-                src={gridlogo1}
+                src={gridlogo3}
                 alt="Logo"
                 width={32}
                 height={32}
                 className="shrink-0 w-8 h-8 sm:w-10 sm:h-10"
               />
               <p className="text-black text-sm sm:text-base leading-relaxed line-clamp-3 text-left">
-                Pipeline is built with one promise: complete transparency and fair play for all users.
+                Verified  Lineups   Play  with confidence.  Use  strategies from  trusted  Promoters,  no copycats.
               </p>
             </div>
           </div>
@@ -134,14 +141,14 @@ const BecomeChallenger = () => {
             />
             <div className="flex items-center gap-3 sm:gap-4 mt-auto">
               <Image
-                src={gridlogo1}
+                src={gridlogo4}
                 alt="Logo"
                 width={32}
                 height={32}
                 className="shrink-0 w-8 h-8 sm:w-10 sm:h-10"
               />
               <p className="text-black text-sm sm:text-base leading-relaxed line-clamp-3 text-left">
-                Pipeline is built with one promise: complete transparency and fair play for all users.
+                No  Bots,  No  Drama: Transparent matchups,  No shady  deals,  guaranteed payouts.
               </p>
             </div>
           </div>
@@ -157,14 +164,15 @@ const BecomeChallenger = () => {
             />
             <div className="flex items-center gap-3 sm:gap-4 mt-auto">
               <Image
-                src={gridlogo1}
+                src={gridlogo5}
                 alt="Logo"
                 width={32}
                 height={32}
                 className="shrink-0 w-8 h-8 sm:w-10 sm:h-10"
               />
               <p className="text-black text-sm sm:text-base leading-relaxed line-clamp-3 text-left">
-                Pipeline is built with one promise: complete transparency and fair play for all users.
+                PIPELINE  is  built  with  one promise  transparency.  All matchups  are  real.  All  data
+is  clean.
               </p>
             </div>
           </div>
@@ -172,12 +180,16 @@ const BecomeChallenger = () => {
       </div>
 
         {/* Reserve Button */}
-        <div className="flex justify-center mt-8">
-          <button className="bg-lime-400 text-black font-semibold px-6 py-3 rounded-full hover:bg-lime-500 transition">
-            RESERVE MY SPOT NOW
-          </button>
-        </div>
+     <div className="flex justify-center mt-8">
+  <button className="flex items-center bg-lime-400 text-black font-semibold px-6 py-3 rounded-xl hover:bg-lime-500 transition">
+    RESERVE MY SPOT NOW
+    <FiArrowUpRight className="ml-4 bg-white border border-black rounded-md p-1 w-7 h-7" />
+  </button>
+</div>
+<div className="w-40 sm:w-60 md:w-80 lg:w-96 h-0.5 bg-[#c8ff0081] mx-auto mb-6 mt-9 sm:mb-8 lg:mb-10"></div>
 
+
+        
         {/* Countdown */}
         <div className="bg-[url('/bg1.png')] bg-cover bg-center bg-zinc-800 mt-12 p-8 rounded-lg text-center relative">
           {/* Optional dark overlay */}
@@ -282,6 +294,7 @@ const BecomeChallenger = () => {
             <div className="flex justify-center pt-6 gap-4">
               <button className="bg-lime-400 text-black font-semibold px-6 py-3 rounded-xl hover:bg-lime-500 transition">
                 RESERVE MY SPOT NOW
+              
               </button>
               <button className="border border-lime-400 text-lime-400 font-semibold px-6 py-3 rounded-full hover:bg-lime-400 hover:text-black transition">
                 SHARE

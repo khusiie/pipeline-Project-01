@@ -1,0 +1,32 @@
+{
+  "navigation": {
+    "home": "హోమ్",
+    "collection": "సేకరణ",
+    "services": "సేవలు",
+    "news": "వార్తలు",
+    "pricing": "ధరలు",
+    "joinToday": "ఈరోజు చేరండి"
+  },
+  "languages": {
+    "english": "English",
+    "hindi": "हिंदी",
+    "bengali": "বাংলা",
+    "telugu": "తెలుగు",
+    "tamil": "தமிழ்",
+    "gujarati": "ગુજરાતી",
+    "malayalam": "മലയാളം",
+    "kannada": "ಕನ್ನಡ"
+  },
+  "hero": {
+    "title": "ఫాంటసీ క్రికెట్ విప్లవానికి నాయకత్వం వహించండి",
+    "subtitle": "చట్టబద్ధంగా, బహిరంగంగా మరియు గౌరవంతో మీ సామ్రాజ్యాన్ని నిర్మించండి",
+    "seats": "మాత్రమే",
+    "promoterSeats": "ప్రమోటర్ సీట్లు.",
+    "left": "మిగిలింది",
+    "registerNow": "ఇప్పుడు నమోదు చేయండి"
+  },
+  "promoter": {
+    "becomeA": "అవ్వండి",
+    "pipelinePromoter": "పైప్‌లైన్ ప్రమోటర్"
+  }
+} 

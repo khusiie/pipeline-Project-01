@@ -1,0 +1,32 @@
+{
+  "navigation": {
+    "home": "ഹോം",
+    "collection": "ശേഖരം",
+    "services": "സേവനങ്ങൾ",
+    "news": "വാർത്തകൾ",
+    "pricing": "വില",
+    "joinToday": "ഇന്ന് ചേരുക"
+  },
+  "languages": {
+    "english": "English",
+    "hindi": "हिंदी",
+    "bengali": "বাংলা",
+    "telugu": "తెలుగు",
+    "tamil": "தமிழ்",
+    "gujarati": "ગુજરાતી",
+    "malayalam": "മലയാളം",
+    "kannada": "ಕನ್ನಡ"
+  },
+  "hero": {
+    "title": "ഫാന്റസി ക്രിക്കറ്റ് വിപ്ലവത്തിന്റെ നേതൃത്വം വഹിക്കുക",
+    "subtitle": "നിയമപരമായി, വ്യക്തമായി, ബഹുമാനത്തോടെ നിങ്ങളുടെ സാമ്രാജ്യം നിർമ്മിക്കുക",
+    "seats": "മാത്രം",
+    "promoterSeats": "പ്രമോട്ടർ സീറ്റുകൾ.",
+    "left": "ശേഷിക്കുന്ന",
+    "registerNow": "ഇപ്പോൾ രജിസ്റ്റർ ചെയ്യുക"
+  },
+  "promoter": {
+    "becomeA": "ആകുക",
+    "pipelinePromoter": "പൈപ്പ്ലൈൻ പ്രമോട്ടർ"
+  }
+} 

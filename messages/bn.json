@@ -1,0 +1,32 @@
+{
+  "navigation": {
+    "home": "হোম",
+    "collection": "সংগ্রহ",
+    "services": "সেবা",
+    "news": "সংবাদ",
+    "pricing": "মূল্য",
+    "joinToday": "আজ যোগ দিন"
+  },
+  "languages": {
+    "english": "English",
+    "hindi": "हिंदी",
+    "bengali": "বাংলা",
+    "telugu": "తెలుగు",
+    "tamil": "தமிழ்",
+    "gujarati": "ગુજરાતી",
+    "malayalam": "മലയാളം",
+    "kannada": "ಕನ್ನಡ"
+  },
+  "hero": {
+    "title": "ফ্যান্টাসি ক্রিকেট বিপ্লবের নেতৃত্ব দিন",
+    "subtitle": "আইনগতভাবে, প্রকাশ্যে এবং সম্মানের সাথে আপনার সাম্রাজ্য গড়ুন",
+    "seats": "শুধুমাত্র",
+    "promoterSeats": "প্রমোটার আসন।",
+    "left": "বাকি",
+    "registerNow": "এখনই নিবন্ধন করুন"
+  },
+  "promoter": {
+    "becomeA": "হন",
+    "pipelinePromoter": "পাইপলাইন প্রমোটার"
+  }
+} 

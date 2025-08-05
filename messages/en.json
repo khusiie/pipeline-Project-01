@@ -1,0 +1,30 @@
+{
+  "navigation": {
+    "home": "Home",
+    "collection": "Collection",
+    "services": "Services",
+    "news": "News",
+    "pricing": "Pricing",
+    "joinToday": "Join Today"
+  },
+  "languages": {
+    "english": "English",
+    "hindi": "Hindi",
+    "bengali": "Bengali",
+    "telugu": "Telugu",
+    "tamil": "Tamil",
+    "gujarati": "Gujarati",
+    "malayalam": "Malayalam",
+    "kannada": "Kannada"
+  },
+    "Hero": {
+      "heading1": "FANTASY CRICKET'S",
+      "heading2": "YOUR GAME",
+      "subheading": "WHY LET PLATFORMS RIGG IT?",
+      "cta": "CLAIM YOUR SPOT NOW"
+    },  
+  "promoter": {
+    "becomeA": "Become a",
+    "pipelinePromoter": "PIPELINE Promoter"
+  }
+} 

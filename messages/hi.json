@@ -1,0 +1,30 @@
+{
+  "navigation": {
+    "home": "होम",
+    "collection": "संग्रह",
+    "services": "सेवाएं",
+    "news": "समाचार",
+    "pricing": "मूल्य निर्धारण",
+    "joinToday": "आज शामिल हों"
+  },
+  "languages": {
+    "english": "English",
+    "hindi": "हिंदी",
+    "bengali": "বাংলা",
+    "telugu": "తెలుగు",
+    "tamil": "தமிழ்",
+    "gujarati": "ગુજરાતી",
+    "malayalam": "മലയാളം",
+    "kannada": "ಕನ್ನಡ"
+  },
+  "Hero": {
+    "heading1": "फैंटेसी क्रिकेट का",
+    "heading2": "आपका खेल",
+    "subheading": "प्लेटफॉर्म्स को धोखा देने क्यों दें?",
+    "cta": "अपनी जगह सुरक्षित करें"
+  },
+  "promoter": {
+    "becomeA": "बनें",
+    "pipelinePromoter": "पाइपलाइन प्रमोटर"
+  }
+} 

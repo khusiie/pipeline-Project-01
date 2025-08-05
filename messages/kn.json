@@ -1,0 +1,32 @@
+{
+  "navigation": {
+    "home": "ಮುಖಪುಟ",
+    "collection": "ಸಂಗ್ರಹ",
+    "services": "ಸೇವೆಗಳು",
+    "news": "ಸುದ್ದಿಗಳು",
+    "pricing": "ಬೆಲೆ",
+    "joinToday": "ಇಂದು ಸೇರಿ"
+  },
+  "languages": {
+    "english": "English",
+    "hindi": "हिंदी",
+    "bengali": "বাংলা",
+    "telugu": "తెలుగు",
+    "tamil": "தமிழ்",
+    "gujarati": "ગુજરાતી",
+    "malayalam": "മലയാളം",
+    "kannada": "ಕನ್ನಡ"
+  },
+  "hero": {
+    "title": "ಫ್ಯಾಂಟಸಿ ಕ್ರಿಕೆಟ್ ಕ್ರಾಂತಿಗೆ ನಾಯಕತ್ವ ವಹಿಸಿ",
+    "subtitle": "ಕಾನೂನುಬದ್ಧವಾಗಿ, ಮುಕ್ತವಾಗಿ ಮತ್ತು ಗೌರವದಿಂದ ನಿಮ್ಮ ಸಾಮ್ರಾಜ್ಯವನ್ನು ನಿರ್ಮಿಸಿ",
+    "seats": "ಮಾತ್ರ",
+    "promoterSeats": "ಪ್ರಮೋಟರ್ ಸೀಟುಗಳು.",
+    "left": "ಉಳಿದ",
+    "registerNow": "ಈಗ ನೋಂದಾಯಿಸಿ"
+  },
+  "promoter": {
+    "becomeA": "ಆಗಿ",
+    "pipelinePromoter": "ಪೈಪ್‌ಲೈನ್ ಪ್ರಮೋಟರ್"
+  }
+} 

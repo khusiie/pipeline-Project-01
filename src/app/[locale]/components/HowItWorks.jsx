@@ -1,12 +1,12 @@
 import React from "react";
-import process from "../../../public/assests/howitworks/process.svg"
+import process from "../../../../public/assests/howitworks/process.svg"
 import Image from "next/image";
 import { FiArrowUpRight } from "react-icons/fi";
 
 export default function HowItWorks() {
   return (
     <div>
-      <section className="relative bg-black text-white py-12 px-4 md:px-12 w-full min-h-screen">
+      <section className="relative bg-black text-white py-12 px-4 md:px-12 w-full min-h-screen font-clash">
         {/* Section Heading */}
         <div className="max-w-5xl mx-auto text-left font-bold mb-12">
           <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold uppercase">
