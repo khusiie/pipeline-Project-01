@@ -237,12 +237,15 @@ export default function Navbar() {
             </div>
 
             {/* Mobile Join Today Button */}
-            <div className="mt-8 flex justify-center">
-              <button className="flex gap-3 items-center bg-lime-400 text-black px-6 py-3 rounded-md hover:bg-lime-500 transition">
-                Join Today 
-                <FiArrowUpRight className="ml-1 bg-white rounded-md p-1 w-7 h-7" />
-              </button>
-            </div>
+           <div className="mt-8 flex justify-center">
+  <button className="flex items-center gap-2 bg-gradient-to-r from-lime-400 to-lime-500 text-[#1D4E00] font-bold text-lg px-8 py-4 rounded-xl shadow-lg hover:brightness-110 transition">
+    Join Now
+    <span className="bg-white p-1 rounded-md">
+      <FiArrowUpRight className="w-6 h-6 text-black" />
+    </span>
+  </button>
+</div>
+
           </div>
         </div>
       )}

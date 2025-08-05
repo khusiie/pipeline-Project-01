@@ -28,7 +28,7 @@ export default function HeroSection() {
         </p>
 
         <div className="flex justify-center">
-          <button className="flex items-center justify-center bg-lime-400 text-black px-6 py-3 rounded-md font-semibold text-base md:text-lg hover:bg-lime-500 transition">
+          <button className="flex items-center justify-center bg-lime-400 text-[#1D4E00] px-6 py-3 rounded-md font-semibold text-base md:text-lg hover:bg-lime-500 transition">
             {t("cta")}
             <FiArrowUpRight className="ml-4 bg-white border border-black rounded-md p-1 w-7 h-7" />
           </button>

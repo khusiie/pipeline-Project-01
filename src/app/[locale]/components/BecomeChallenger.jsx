@@ -47,7 +47,20 @@ const BecomeChallenger = () => {
     <section className="bg-black text-white py-16 px-4">
 
            
-      <hr className="bg-[#C6F812] text-[#C6F812] max-w-5xl mx-auto  mb-10 relative z-10" />
+         
+    <hr
+  className="
+    max-w-5xl
+    mx-auto
+    mb-10
+    my-8
+    border-0
+    h-1
+    bg-gradient-to-r from-[#C6F812] via-[#d9ff00] to-[#C6F812]
+    rounded-full
+    shadow-[0_0_20px_5px_#C6F812]
+  "
+/>
       <div className="max-w-6xl mx-auto">
         {/* Heading */}
         <div className="w-full flex justify-center">
@@ -184,13 +197,25 @@ is  clean.
 
         {/* Reserve Button */}
      <div className="flex justify-center mt-8">
-  <button className="flex items-center bg-lime-400 text-black font-semibold px-6 py-3 rounded-xl hover:bg-lime-500 transition">
+  <button className="flex items-center bg-lime-400 text-[#1D4E00] font-semibold px-6 py-3 rounded-xl hover:bg-lime-500 transition">
     RESERVE MY SPOT NOW
     <FiArrowUpRight className="ml-4 bg-white border border-black rounded-md p-1 w-7 h-7" />
   </button>
 </div>
-<div className="w-40 sm:w-60 md:w-80 lg:w-96 h-0.5 bg-[#c8ff0081] mx-auto mb-6 mt-9 sm:mb-8 lg:mb-10"></div>
-
+    
+    <hr
+  className="
+    max-w-5xl
+    mx-auto
+    mt-10
+    my-8
+    border-0
+    h-1
+    bg-gradient-to-r from-[#C6F812] via-[#d9ff00] to-[#C6F812]
+    rounded-full
+    shadow-[0_0_20px_5px_#C6F812]
+  "
+/>
 
         
         {/* Countdown */}
@@ -293,16 +318,39 @@ is  clean.
                 <span>PLAYERS ALREADY IN THE REVOLUTION</span>
               </div>
             </div>
+<div className="flex flex-wrap justify-center pt-6 gap-4">
+  <button
+    className="
+      inline-flex items-center gap-2
+      bg-lime-400 text-[#1D4E00] font-semibold
+      px-6 py-3 rounded-xl
+      hover:bg-lime-500 active:bg-lime-500
+      transition
+      text-base
+      sm:px-4 sm:py-2 sm:text-sm
+    "
+  >
+    RESERVE MY SPOT NOW
+    <FiArrowUpRight className="bg-white border border-black rounded-md p-1 w-6 h-6 sm:w-5 sm:h-5" />
+  </button>
 
-            <div className="flex justify-center pt-6 gap-4">
-              <button className="bg-lime-400 text-black font-semibold px-6 py-3 rounded-xl hover:bg-lime-500 transition">
-                RESERVE MY SPOT NOW
-              
-              </button>
-              <button className="border border-lime-400 text-lime-400 font-semibold px-6 py-3 rounded-full hover:bg-lime-400 hover:text-black transition">
-                SHARE
-              </button>
-            </div>
+  <button
+    className="
+      inline-flex items-center justify-center
+      border border-lime-400 text-lime-400 font-semibold
+      px-6 py-3 rounded-full
+      hover:bg-lime-400 hover:text-[#1D4E00]
+      active:bg-lime-400 active:text-[#1D4E00]
+      transition
+      text-base
+      sm:px-4 sm:py-2 sm:text-sm
+    "
+  >
+    SHARE
+  </button>
+</div>
+
+
           </div>
         </div>
       

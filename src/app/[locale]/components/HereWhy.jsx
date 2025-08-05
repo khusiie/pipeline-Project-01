@@ -219,7 +219,7 @@ const HereWhy = () => {
 
         {/* Join Button */}
         <div className="text-center mt-8 sm:mt-10 md:mt-12">
-          <button className="inline-flex items-center bg-lime-400 text-black px-4 sm:px-6 py-2 sm:py-3 rounded-md font-semibold text-sm sm:text-base md:text-lg hover:bg-lime-500 transition-colors">
+          <button className="inline-flex items-center bg-lime-400 text-[#1D4E00] px-4 sm:px-6 py-2 sm:py-3 rounded-md font-semibold text-sm sm:text-base md:text-lg hover:bg-lime-500 transition-colors">
             JOIN NOW
             <FiArrowUpRight className="ml-2 sm:ml-4 border border-black bg-white rounded-md p-1 w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7" />
           </button>

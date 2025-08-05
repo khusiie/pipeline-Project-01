@@ -8,6 +8,7 @@ export default function HowItWorks() {
     <div>
       <section className="relative bg-black text-white py-12 px-4 md:px-12 w-full min-h-screen font-clash">
         {/* Section Heading */}
+        
         <div className="max-w-5xl mx-auto text-left font-bold mb-12">
           <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold uppercase">
             How It Works
@@ -77,7 +78,7 @@ export default function HowItWorks() {
 
         {/* Get Started Button */}
         <div className="mt-12 flex justify-end pr-4 md:pr-24">
-          <button className="bg-[#C6FF00] text-black px-6 py-3 font-medium rounded-xl hover:bg-lime-300 transition flex items-center gap-2 text-sm sm:text-base">
+          <button className="bg-[#C6FF00] text-[#1D4E00] px-6 py-3 font-medium rounded-xl hover:bg-lime-300 transition flex items-center gap-2 text-sm sm:text-base">
             Get Started
             <FiArrowUpRight className="ml-4 bg-white rounded-md p-1 w-7 h-7" />
           </button>

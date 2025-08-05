@@ -91,7 +91,7 @@ const Promoter = () => {
 
                                            {/* Register Button */}
             <div className="flex justify-center px-2 md:px-4">
-    <button className="bg-lime-400 hover:bg-lime-300 text-black font-bold py-2 px-4 md:py-3 md:px-6 lg:py-4 lg:px-8 rounded-lg text-xs sm:text-sm md:text-lg transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center gap-1 md:gap-2">
+    <button className="bg-lime-400 hover:bg-lime-300 text-[#1D4E00] font-bold py-2 px-4 md:py-3 md:px-6 lg:py-4 lg:px-8 rounded-lg text-xs sm:text-sm md:text-lg transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center gap-1 md:gap-2">
       REGISTER NOW <FiArrowUpRight className="bg-white rounded-md p-1 w-4 h-4 sm:w-5 sm:h-5 md:w-7 md:h-7" />
     </button>
   </div>

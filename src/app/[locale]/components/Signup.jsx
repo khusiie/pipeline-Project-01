@@ -37,7 +37,19 @@ export default function SignUp() {
   return (
     <section className="min-h-screen bg-black text-white flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16 font-clash">
       <div className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-7xl mx-auto">
-        <hr className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl h-0.5 sm:h-1 bg-[#C6FF00] mx-auto mb-8 sm:mt-10 lg:mt-12" />
+        <hr
+  className="
+    max-w-5xl
+    mx-auto
+    mt-10
+    my-8
+    border-0
+    h-1
+    bg-gradient-to-r from-[#C6F812] via-[#d9ff00] to-[#C6F812]
+    rounded-full
+    shadow-[0_0_20px_5px_#C6F812]
+  "
+/>
         <div className="text-center mb-8 sm:mb-10 lg:mb-12">
           <h1 className="text-6xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-7xl 2xl:text-[9rem] font-bold uppercase leading-tight">
             Sign Up
@@ -104,16 +116,28 @@ export default function SignUp() {
             <button
               type="submit"
               disabled={loading}
-              className="mt-6 sm:mt-8 lg:mt-10 w-full sm:w-auto inline-flex justify-center items-center gap-2 bg-[#C6FF00] text-black font-medium py-3 sm:py-4 lg:py-5 px-6 sm:px-8 lg:px-10 rounded-md hover:bg-lime-300 transition text-sm sm:text-base lg:text-lg"
+              className="mt-6 sm:mt-8 lg:mt-10 w-full sm:w-auto inline-flex justify-center items-center gap-2 bg-[#C6FF00] text-[#1D4E00] font-medium py-3 sm:py-4 lg:py-5 px-6 sm:px-8 lg:px-10 rounded-md hover:bg-lime-300 transition text-sm sm:text-base lg:text-lg"
             >
               {loading ? "Submitting..." : "SUBMIT"}
               <FiArrowUpRight className="ml-2 sm:ml-4 bg-white rounded-md p-1 w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7" />
             </button>
           </div>
         </form>
+             <hr
+  className="
+    max-w-5xl
+    mx-auto
+    mt-15
+    my-8
+    border-0
+    h-1
+    bg-gradient-to-r from-[#C6F812] via-[#d9ff00] to-[#C6F812]
+    rounded-full
+    shadow-[0_0_20px_5px_#C6F812]
+  "
+/>
       </div>
-
-      <hr className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl h-0.5 sm:h-1 bg-[#C6FF00] mx-auto mt-8 sm:mt-10 lg:mt-12" />
+ 
     </section>
   );
 }
