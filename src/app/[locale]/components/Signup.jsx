@@ -39,16 +39,21 @@ export default function SignUp() {
       <div className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-7xl mx-auto">
         <hr className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl h-0.5 sm:h-1 bg-[#C6FF00] mx-auto mb-8 sm:mt-10 lg:mt-12" />
         <div className="text-center mb-8 sm:mb-10 lg:mb-12">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-7xl 2xl:text-[9rem] font-bold uppercase leading-tight">
+          <h1 className="text-6xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-7xl 2xl:text-[9rem] font-bold uppercase leading-tight">
             Sign Up
           </h1>
         </div>
       </div>
 
       <div className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-4xl mx-auto">
-        <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6 lg:space-y-8">
+        <form
+          onSubmit={handleSubmit}
+          className="space-y-4 sm:space-y-6 lg:space-y-8"
+        >
           <div className="flex flex-col text-left">
-            <label className="text-xs sm:text-sm lg:text-base mb-1 sm:mb-2">Name</label>
+            <label className="text-xs sm:text-sm lg:text-base mb-1 sm:mb-2">
+              Name
+            </label>
             <input
               type="text"
               value={name}
@@ -60,7 +65,9 @@ export default function SignUp() {
           </div>
 
           <div className="flex flex-col text-left">
-            <label className="text-xs sm:text-sm lg:text-base mb-1 sm:mb-2">Email</label>
+            <label className="text-xs sm:text-sm lg:text-base mb-1 sm:mb-2">
+              Email
+            </label>
             <input
               type="email"
               value={email}
@@ -72,7 +79,9 @@ export default function SignUp() {
           </div>
 
           <div className="flex flex-col text-left">
-            <label className="text-xs sm:text-sm lg:text-base mb-1 sm:mb-2">Phone No.</label>
+            <label className="text-xs sm:text-sm lg:text-base mb-1 sm:mb-2">
+              Phone No.
+            </label>
             <div className="flex gap-2 sm:gap-3">
               <input
                 type="text"

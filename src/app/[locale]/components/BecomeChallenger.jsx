@@ -82,7 +82,7 @@ const BecomeChallenger = () => {
                 className="shrink-0 w-8 h-8 sm:w-10 sm:h-10"
               />
               <p className="text-black text-sm sm:text-base leading-relaxed line-clamp-3 text-left">
-               2x Pipe  Tokens   Bonus: Double  rewards  at  launch.
+              <span className="bg-[#C6F812] font-semibold"> 2x Pipe  Tokens  </span>  Bonus: Double  rewards  at  launch.
               </p>
             </div>
           </div>
@@ -105,7 +105,7 @@ const BecomeChallenger = () => {
                 className="shrink-0 w-8 h-8 sm:w-10 sm:h-10"
               />
               <p className="text-black text-sm sm:text-base leading-relaxed line-clamp-3 text-left">
-                15%  Lifetime  Fee  Discount More  winnings  with  savings on  every  contest,  forever
+                <span className="bg-[#C6F812]  font-semibold"> 15%  Lifetime  Fee  Discount</span> More  winnings  with  savings on  every  contest,  forever
               </p>
             </div>
           </div>
@@ -128,7 +128,7 @@ const BecomeChallenger = () => {
                 className="shrink-0 w-8 h-8 sm:w-10 sm:h-10"
               />
               <p className="text-black text-sm sm:text-base leading-relaxed line-clamp-3 text-left">
-                Verified  Lineups   Play  with confidence.  Use  strategies from  trusted  Promoters,  no copycats.
+               <span className="bg-[#C6F812] font-semibold">Verified  Lineups </span>   Play  with confidence.  Use  strategies from <span className="bg-[#C6F812] font-semibold ">trusted  Promoters</span>,  no copycats.
               </p>
             </div>
           </div>
@@ -151,7 +151,7 @@ const BecomeChallenger = () => {
                 className="shrink-0 w-8 h-8 sm:w-10 sm:h-10"
               />
               <p className="text-black text-sm sm:text-base leading-relaxed line-clamp-3 text-left">
-                No  Bots,  No  Drama: Transparent matchups,  No shady  deals,  guaranteed payouts.
+                No  Bots,  No  Drama:  <span className="bg-[#C6F812] font-semibold"> Transparent matchups </span>,  No shady  deals,  guaranteed payouts.
               </p>
             </div>
           </div>
@@ -174,7 +174,7 @@ const BecomeChallenger = () => {
                 className="shrink-0 w-8 h-8 sm:w-10 sm:h-10"
               />
               <p className="text-black text-sm sm:text-base leading-relaxed line-clamp-3 text-left">
-                PIPELINE  is  built  with  one promise  transparency.  All matchups  are  real.  All  data
+                <span className="bg-[#C6F812] font-semibold">PIPELINE </span> is  built  with  one promise  transparency.  <span className="bg-[#C6F812] font-semibold"> All matchups  are  real</span>.  All  data
 is  clean.
               </p>
             </div>
