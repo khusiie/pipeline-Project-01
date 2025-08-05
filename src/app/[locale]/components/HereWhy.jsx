@@ -123,14 +123,14 @@ const HereWhy = () => {
     <section>
       <div className="bg-black text-white py-8 sm:py-12 md:py-16 px-2 sm:px-4 md:px-8 overflow-hidden">
         {/* Heading Image */}
-        <div className="flex justify-center items-center pb-4 bg-black">
-          <Image
-            src={hereiswhy}
-            alt="Sticker"
-            className="w-32 sm:w-40 md:w-48 lg:w-160 h-auto"
-          />
-          
-        </div>
+     <div className="flex justify-center items-center pb-4 bg-black">
+  <Image
+    src={hereiswhy}
+    alt="Sticker"
+    className="w-75 sm:w-40 md:w-48 lg:w-160 h-auto"
+  />
+</div>
+
 
         {/* Carousel Container */}
         <div className="h-[320px] sm:h-[380px] md:h-[420px] lg:h-[500px] flex items-center justify-center">
@@ -179,7 +179,7 @@ const HereWhy = () => {
                       style={{ borderRadius: "19px" }}
                       draggable={false}
                     />
-             
+
                     <div
                       className={getGlassOverlayStyles(position, screen)}
                       style={{ borderRadius: "19px" }}
