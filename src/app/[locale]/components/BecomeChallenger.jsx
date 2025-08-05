@@ -1,6 +1,5 @@
 "use client";
-
-import Image2 from "/public/assests/BecomeChallenger/Image2.png"; 
+import Image2 from "../../../../public/assests/becomechallenger/Image2.png";
 import React, { useEffect, useState } from "react";
 import { FiArrowUpRight } from "react-icons/fi";
 import gridimage1 from "../../../../public/assests/becomechallenger/gridimage1.png";
