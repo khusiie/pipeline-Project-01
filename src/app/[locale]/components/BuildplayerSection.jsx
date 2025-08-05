@@ -83,8 +83,12 @@ export default function BuildplayerSection() {
             <span>Grow the winner payout % from 12–15% to 35–40%</span>
           </li>
         </ul>
+        
       </div>
+      
     </section>
+         
+      <hr className="bg-[#C6F812] text-[#C6F812] max-w-5xl mx-auto mt-10 relative z-10" />
     </section>
   );
 }

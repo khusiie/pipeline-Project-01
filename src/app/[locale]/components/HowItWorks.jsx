@@ -83,6 +83,8 @@ export default function HowItWorks() {
           </button>
         </div>
       </section>
+           
+      <hr className="bg-white text-[#FFFFFF] max-w-5xl mx-auto relative z-10" />
     </div>
   );
 }

@@ -34,7 +34,7 @@ const cards = [
     id: 977,
     title: "Develop Great Content,",
     description: "But Others Repost & Get All The Credit.",
-    image: "/assests/hereiswhy/cards/card5.jpg",
+    image: "/assests/hereiswhy/image5.jpg",
   },
 ];
 

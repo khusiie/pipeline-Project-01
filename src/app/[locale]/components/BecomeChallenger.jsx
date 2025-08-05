@@ -45,6 +45,9 @@ const BecomeChallenger = () => {
 
   return (
     <section className="bg-black text-white py-16 px-4">
+
+           
+      <hr className="bg-[#C6F812] text-[#C6F812] max-w-5xl mx-auto  mb-10 relative z-10" />
       <div className="max-w-6xl mx-auto">
         {/* Heading */}
         <div className="w-full flex justify-center">

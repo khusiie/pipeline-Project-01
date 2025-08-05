@@ -1,10 +1,8 @@
 import Image from "next/image";
-import footerlogo from "../../../../public/assests/Footer/Footerlogo.png"
+import footerlogo from "../../../../public/assests/Footer/Footerlogo.png";
+
 export default function Footer() {
   return (
-   
-
-  
     <footer className="bg-black text-white px-4 sm:px-6 md:px-12 py-12 font-clash">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 place-items-center">
         {/* Left Section */}
@@ -35,8 +33,15 @@ export default function Footer() {
                 path: "M20.45 20.45h-3.554v-5.568c0-1.328-.026-3.037-1.85-3.037-1.85 0-2.134 1.444-2.134 2.94v5.665H9.355V9h3.414v1.561h.05c.475-.9 1.637-1.85 3.368-1.85 3.6 0 4.265 2.37 4.265 5.451v6.288zM5.337 7.433c-1.144 0-2.07-.928-2.07-2.07 0-1.145.926-2.07 2.07-2.07 1.144 0 2.07.925 2.07 2.07 0 1.142-.926 2.07-2.07 2.07zM6.993 20.45H3.678V9h3.315v11.45z",
               },
             ].map((icon, index) => (
-              <a key={index} href="#" className="group bg-gray-800 hover:bg-[#C6F812] transition-colors duration-300 p-3 rounded-full">
-                <svg className="w-4 h-4 fill-current text-white group-hover:text-black" viewBox="0 0 24 24">
+              <a
+                key={index}
+                href="#"
+                className="group bg-gray-800 hover:bg-[#C6F812] focus:bg-[#C6F812] active:bg-[#C6F812] transition-colors duration-300 p-3 rounded-full"
+              >
+                <svg
+                  className="w-4 h-4 fill-current text-white group-hover:text-black group-focus:text-black group-active:text-black"
+                  viewBox="0 0 24 24"
+                >
                   <path d={icon.path} />
                 </svg>
               </a>
@@ -44,35 +49,36 @@ export default function Footer() {
           </div>
         </div>
 
-       {/* Center Section */}
-<div className="space-y-4 text-center">
-  <div className="flex items-center justify-center space-x-2">
-    <span className="h-2 w-2 rounded-full bg-lime-400"></span>
-    <h3 className="uppercase font-bold">Quick Links</h3>
-  </div>
-  <div className="flex flex-wrap justify-center gap-2">
-    {[
-      "Home",
-      "Who We Are",
-      "Pricing",
-      "Collection",
-      "Services",
-      "News",
-      "Contact Us",
-    ].map((link, index) => (
-      <button
-        key={index}
-        className="bg-gray-800 hover:bg-lime-400 text-white hover:text-black px-4 py-2 rounded-full transition duration-300"
-      >
-        {link}
-      </button>
-    ))}
-  </div>
-</div>
+        {/* Center Section */}
+        <div className="space-y-4 text-center">
+          <div className="flex items-center justify-center space-x-2">
+            <span className="h-2 w-2 rounded-full bg-lime-400"></span>
+            <h3 className="uppercase font-bold">Quick Links</h3>
+          </div>
+          <div className="flex flex-wrap justify-center gap-2">
+            {[
+              "Home",
+              "Who We Are",
+              "Pricing",
+              "Collection",
+              "Services",
+              "News",
+              "Contact Us",
+            ].map((link, index) => (
+              <button
+                key={index}
+                className="bg-gray-800 hover:bg-lime-400 focus:bg-lime-400 active:bg-lime-400
+                           text-white hover:text-black focus:text-black active:text-black
+                           px-4 py-2 rounded-full transition duration-300"
+              >
+                {link}
+              </button>
+            ))}
+          </div>
+        </div>
 
-
-       
-        <div className="space-y-6font-clash">
+        {/* Right Section */}
+        <div className="space-y-6 font-clash">
           <div className="flex items-center space-x-2">
             <span className="h-2 w-2 rounded-full bg-lime-400"></span>
             <h3 className="uppercase font-bold">Contact Us</h3>
@@ -81,8 +87,10 @@ export default function Footer() {
             <li>Pipeline@Studio.Com</li>
             <li>+(3432) 555-0107</li>
             <li>
-              4515 Washington Ave.<br />
-              Manchester,<br />
+              4515 Washington Ave.
+              <br />
+              Manchester,
+              <br />
               Kentucky 37495
             </li>
           </ul>
@@ -97,6 +105,6 @@ export default function Footer() {
           className="rounded-lg mx-auto w-120"
         />
       </div>
-   </footer>
+    </footer>
   );
 }
