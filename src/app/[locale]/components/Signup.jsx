@@ -39,12 +39,12 @@ export default function SignUp() {
       <div className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-7xl mx-auto">
         <hr
   className="
-    max-w-5xl
+    max-w-2xl
     mx-auto
-    
     my-8
+    mb-20
     border-0
-    h-1
+    h-0.5
     bg-gradient-to-r from-[#C6F812] via-[#d9ff00] to-[#C6F812]
     rounded-full
     shadow-[0_0_20px_5px_#C6F812]
@@ -124,15 +124,17 @@ export default function SignUp() {
           </div>
         </form>     <hr
   className="
-    max-w-5xl
+    max-w-2xl
     mx-auto
-    mt-10
+    mt-20
     my-8
+  
     border-0
-    h-1
+    h-0.5
     bg-gradient-to-r from-[#C6F812] via-[#d9ff00] to-[#C6F812]
     rounded-full
     shadow-[0_0_20px_5px_#C6F812]
+    
   "
 />
       </div>

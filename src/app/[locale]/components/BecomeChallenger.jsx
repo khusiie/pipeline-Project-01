@@ -47,12 +47,12 @@ const BecomeChallenger = () => {
     <section className="bg-black text-white py-16 px-4">
     <hr
   className="
-    max-w-5xl
+    max-w-2xl
     mx-auto
-    mb-10
+    mb-25
     my-8
     border-0
-    h-1
+    h-0.5
     bg-gradient-to-r from-[#C6F812] via-[#d9ff00] to-[#C6F812]
     rounded-full
     shadow-[0_0_20px_5px_#C6F812]
@@ -193,7 +193,7 @@ is  clean.
       </div>
 
         {/* Reserve Button */}
-     <div className="flex justify-center mt-8">
+     <div className="flex justify-center mt-20">
   <button className="flex items-center bg-lime-400 text-[#1D4E00] font-semibold px-6 py-3 rounded-xl hover:bg-lime-500 transition">
     RESERVE MY SPOT NOW
     <FiArrowUpRight className="ml-4 bg-white border border-black rounded-md p-1 w-7 h-7" />
@@ -202,12 +202,13 @@ is  clean.
     
     <hr
   className="
-    max-w-5xl
+    max-w-2xl
     mx-auto
-    mt-10
+    mt-25
+    mb-25
     my-8
     border-0
-    h-1
+    h-0.5
     bg-gradient-to-r from-[#C6F812] via-[#d9ff00] to-[#C6F812]
     rounded-full
     shadow-[0_0_20px_5px_#C6F812]
