@@ -85,7 +85,7 @@ export default function HowItWorks() {
         </div>
       </section>
            
-      <hr className="bg-[#ffffff5f]  text-[#ffffff5f] max-w-5xl mx-auto  relative z-10" />
+      <hr className="bg-[#ffffff5f]  text-[#fffdfd24] max-w-5xl mx-auto  relative z-10" />
     </div>
   );
 }
