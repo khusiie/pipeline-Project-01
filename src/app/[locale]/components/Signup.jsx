@@ -41,7 +41,7 @@ export default function SignUp() {
   className="
     max-w-5xl
     mx-auto
-    mt-10
+    
     my-8
     border-0
     h-1
@@ -122,12 +122,11 @@ export default function SignUp() {
               <FiArrowUpRight className="ml-2 sm:ml-4 bg-white rounded-md p-1 w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7" />
             </button>
           </div>
-        </form>
-             <hr
+        </form>     <hr
   className="
     max-w-5xl
     mx-auto
-    mt-15
+    mt-10
     my-8
     border-0
     h-1

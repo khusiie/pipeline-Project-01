@@ -45,9 +45,6 @@ const BecomeChallenger = () => {
 
   return (
     <section className="bg-black text-white py-16 px-4">
-
-           
-         
     <hr
   className="
     max-w-5xl
