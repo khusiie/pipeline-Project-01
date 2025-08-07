@@ -26,7 +26,7 @@ export default function HeroSection() {
       {/* Overlay */}
       <div className="absolute inset-0 bg-[#00000060]" />
 
-      <div className="relative z-10 max-w-7xl px-2 top-6">
+      <div className="relative z-10 max-w-7xl px-2 top-5.5">
         {/* Headings */}
         <div className="flex flex-col">
           <h1 className="text-[1.2rem] md:text-[5rem] lg:text-[4.8rem] font-semibold tracking-wider leading-none text-[#F7FFD9]">
