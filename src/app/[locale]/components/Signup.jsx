@@ -36,7 +36,7 @@ export default function SignUp() {
   };
 
   return (
-    <section className="min-h-screen bg-black text-white flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16 font-clash">
+    <section className="min-h-screen bg-[#121212] text-white flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16 font-clash">
       <div className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-7xl mx-auto">
         <hr
           className="

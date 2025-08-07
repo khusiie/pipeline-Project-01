@@ -36,7 +36,7 @@ const Promoter = () => {
   ];
 
   return (
-    <div className="bg-black text-white py-8 md:py-16 md:px-4">
+    <div className="bg-[#121212] text-white py-8 md:py-16 md:px-4">
       <div className="relative py-8 md:py-16 px-2 md:px-4">
         <div className="max-w-6xl mx-auto text-center">
           {/* Promoter Badge */}

@@ -6,7 +6,7 @@ import helmet from "../../../../public/assests/buildplayer/cricketHelmet.svg";
 
 export default function BuildplayerSection() {
   return (
-    <section className="text-center px-0 sm:px-4 py-6 sm:py-10 relative bg-[#000] text-white">
+    <section className="text-center px-0 sm:px-4 py-6 sm:py-10 relative bg-[#121212] text-white">
       {/* Background Star */}
       <hr
         className="

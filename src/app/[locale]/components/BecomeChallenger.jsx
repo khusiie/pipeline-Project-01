@@ -114,7 +114,7 @@ const BecomeChallenger = () => {
   };
 
   return (
-    <section className="bg-black text-white py-8 md:px-4">
+    <section className="bg-[#121212] text-white py-8 md:px-4">
       {/* Mobile-specific styles */}
       <style jsx>{`
         /* Hide scrollbar for mobile horizontal scroll */
