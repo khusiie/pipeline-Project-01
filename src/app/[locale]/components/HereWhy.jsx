@@ -1,5 +1,5 @@
 "use client";
-
+import Image2 from "../../../../public/Image2.png";
 import React, { useState, useEffect, useRef } from "react";
 import { FiArrowUpRight } from "react-icons/fi";
 import Image from "next/image";
@@ -121,9 +121,9 @@ const HereWhy = () => {
 
   return (
     <section>
-      <div className="bg-black text-white py-8 sm:py-12 md:py-16 px-2 sm:px-4 md:px-8 overflow-hidden">
+      <div className="bg-[#121212] text-white py-8 sm:py-12 md:py-16 px-2 sm:px-4 md:px-8 overflow-hidden">
         {/* Heading Image */}
-     <div className="flex justify-center items-center pb-4 bg-black">
+     <div className="flex justify-center items-center pb-4 bg-[#121212]">
   <Image
     src={hereiswhy}
     alt="Sticker"
@@ -217,13 +217,27 @@ const HereWhy = () => {
           </div>
         </div>
 
-        {/* Join Button */}
-        <div className="text-center mt-8 sm:mt-10 md:mt-12">
-          <button className="inline-flex items-center bg-lime-400 text-[#1D4E00] px-4 sm:px-6 py-2 sm:py-3 rounded-md font-semibold text-sm sm:text-base md:text-lg hover:bg-lime-500 transition-colors">
-            JOIN NOW
-            <FiArrowUpRight className="ml-2 sm:ml-4 border border-black bg-white rounded-md p-1 w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7" />
-          </button>
-        </div>
+      <div className="text-center mt-8 sm:mt-10 md:mt-12 font-satoshi">
+  <button
+    className="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-[#C6F812] text-[#1D4E00] rounded-lg font-semibold text-sm sm:text-base md:text-lg uppercase tracking-wide hover:bg-lime-400 transition duration-200"
+    style={{
+      boxShadow: `
+        inset 0 2px 4px rgba(0, 0, 0, 0.3),
+        0 4px 15px rgba(0, 0, 0, 0.2)
+      `
+    }}
+  >
+    JOIN TODAY
+    <span className="p-1 md:p-1.5 rounded-md flex items-center justify-center">
+      <Image
+        src={Image2}
+        alt="icon"
+        className="w-4 h-4 md:w-5 md:h-5"
+      />
+    </span>
+  </button>
+</div>
+
       </div>
     </section>
   );

@@ -3,7 +3,7 @@ import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 const NextSection = () => {
   return (
     <section>
-    <div className="bg-lime-400 w-full py-2 sm:py-3 flex items-center justify-between px-3 sm:px-4 md:px-8 gap-2 sm:gap-4">
+    <div className="bg-lime-400 w-full py-4 sm:py-3 flex items-center justify-between px-3 sm:px-4 md:px-8 gap-2 sm:gap-4 font-Satoshi ">
       <svg
         width="20"
         height="20"
@@ -19,14 +19,13 @@ const NextSection = () => {
         <path d="M34.8145 27.3148V35.6482" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round"/>
       </svg>
       
-      <p 
-        className="text-black font-semibold uppercase italic text-xs sm:text-sm md:text-base text-center flex-1 min-w-0" 
-        style={{ letterSpacing: '0.2em' }}
-      >
-        <span className="hidden sm:inline">Real Players. Real Picks. Real Wins.</span>
-        <span className="sm:hidden">Real Players. Real Wins.</span>
-      </p>
-      
+
+      <p className="text-black text-center flex-1 md:font-semibold font-medium uppercase italic text-[10px] md:text-sm sm:text-base tracking-[0.09em] md:tracking-[0.2em]">
+  <span className="inline-block md:mr-8 mr-2">Real Players.</span>
+  <span className="inline-block md:mr-8 mr-2">Real Picks.</span>
+  <span className="inline-block">Real Wins.</span>
+</p>
+
       <svg
         width="20"
         height="20"

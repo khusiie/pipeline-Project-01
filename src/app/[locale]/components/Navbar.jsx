@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { FiArrowUpRight } from "react-icons/fi";
+import Image2 from "../../../../public/Image2.png";
 import { FaChevronDown } from "react-icons/fa";
 import { useState } from "react";
 import { useTranslations } from "next-intl";
@@ -67,10 +67,11 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="max-w-7xl mx-auto fixed top-6 left-0 right-0 z-50 px-4 md:px-0">
-        <div className="rounded-[42px] bg-[#FFFFFF15] backdrop-blur text-white">
+      <nav className="max-w-7xl mx-auto fixed top-6 md:top-4  left-0 right-0 z-50 px-4 md:px-0">
+        <div className="rounded-[42px] bg-[#FFFFFF15] backdrop-blur text-white border border-[#ffffff33] shadow-[0_0_0.5px_1px_rgba(255,255,255,0.15)]">
+
           {/* Desktop Navigation */}
-          <div className="hidden md:flex justify-between items-center px-12 py-4 lg:px-[30px] lg:py-[15px]">
+          <div className="hidden md:flex justify-between items-center px-12 py-4 lg:px-[15px] lg:py-[12px]">
             <div className="flex items-center space-x-2">
               <Image src="/logo.png" alt="logo" width={120} height={40} />
             </div>
@@ -86,7 +87,7 @@ export default function Navbar() {
               <div className="relative">
                 <button
                   onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                  className="flex items-center gap-3 px-4 py-2.5 rounded-full bg-[#FFFFFF20] backdrop-blur-sm border border-[#FFFFFF30] hover:bg-[#FFFFFF25] transition-all duration-200"
+                  className="flex items-center gap-3 px-0.5 pr-1 py-0.5 rounded bg-[#FFFFFF20] backdrop-blur-sm border border-[#FFFFFF30] hover:bg-[#FFFFFF25] transition-all duration-200"
                 >
                   <div className="flex items-center justify-center w-8 h-8 rounded-[12px] bg-white/10">
                     <Image 
@@ -109,7 +110,7 @@ export default function Navbar() {
 
                 {/* Dropdown Menu */}
                 {isDropdownOpen && (
-                  <div className="absolute top-full mt-2 right-0 bg-[#000] backdrop-blur-md rounded-[16px] border border-[#FFFFFF20] overflow-hidden min-w-[180px] shadow-lg">
+                  <div className="absolute top-full mt-2 right-0 bg-[#000] backdrop-blur-md rounded-[20px] border border-[#FFFFFF20] overflow-hidden min-w-[180px] shadow-lg">
                     {languages.map((language) => (
                       <button
                         key={language.code}
@@ -135,11 +136,32 @@ export default function Navbar() {
                 )}
               </div>
 
-              <button className="flex gap-3 items-center bg-lime-400 text-black px-6 py-3 rounded-md hover:bg-lime-500 transition">
-  {t("navigation.joinToday")} 
+           <div className="flex justify-center font-satoshi">
+  <button
+    className="flex items-center gap-3 px-4 py-2 bg-[#C6F812] text-[#1D4E00] rounded-sm font-bold text-medium uppercase tracking-wide hover:bg-lime-400 transition duration-200"
+    style={{
+      boxShadow: `
+        inset 0 2px 4px rgba(0, 0, 0, 0.3),
+        0 4px 15px rgba(0, 0, 0, 0.2)
+      `
+    }}
+  >
+    {t("navigation.joinToday")}
+    <span className=" p-1.5 md:p-0.5 rounded-md flex items-center justify-center">
+      <Image
+        src={Image2}
+        alt="icon"
+        className="w-5 h-5 md:w-6 md:h-6"
+      />
+    </span>
+  </button>
+</div>
 
-                <FiArrowUpRight className="ml-1 bg-white rounded-md p-1 w-7 h-7" />
-              </button>
+               
+              
+          
+          
+        
             </div>
           </div>
 
