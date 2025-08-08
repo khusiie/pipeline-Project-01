@@ -123,7 +123,7 @@ const HereWhy = () => {
     <section>
       <div className="bg-[#121212] text-white py-8 sm:py-12 md:py-16 px-2 sm:px-4 md:px-8 overflow-hidden">
         {/* Heading Image */}
-     <div className="flex justify-center items-center pb-4 bg-[#121212]">
+     <div className="flex justify-center items-center  bg-[#121212]">
   <Image
     src={hereiswhy}
     alt="Sticker"
@@ -217,7 +217,7 @@ const HereWhy = () => {
           </div>
         </div>
 
-      <div className="text-center mt-8 sm:mt-10 md:mt-12 font-satoshi">
+      <div className="text-center mt-5 sm:mt-10 md:mt-12 font-satoshi">
   <button
     className="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-[#C6F812] text-[#1D4E00] rounded-lg font-semibold text-sm sm:text-base md:text-lg uppercase tracking-wide hover:bg-lime-400 transition duration-200"
     style={{
@@ -232,7 +232,7 @@ const HereWhy = () => {
       <Image
         src={Image2}
         alt="icon"
-        className="w-4 h-4 md:w-5 md:h-5"
+        className="w-6 h-6 md:w-5 md:h-5"
       />
     </span>
   </button>

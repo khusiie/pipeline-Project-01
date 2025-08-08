@@ -37,7 +37,7 @@ export default function HeroSection() {
           </h1>
 
           <h2
-            className="text-[5rem] md:text-[4rem] lg:text-[10rem] font-extrabold leading-[0.85] md:leading-none"
+            className="text-[6rem] md:text-[4rem] lg:text-[10rem] font-extrabold leading-[0.85] md:leading-none"
             style={{ letterSpacing: "0.08em" }}
           >
             {t("heading2")}
@@ -45,12 +45,12 @@ export default function HeroSection() {
         </div>
 
         {/* Subheading */}
-        <p className="text-[0.9rem] md:text-[1.5rem] lg:text-[1.50rem] text-[#C8C8C8] pt-4 mb-5"     style={{ letterSpacing: "0.08em" }}>
+        <p className="text-[0.9rem] md:text-[1.5rem] lg:text-[1.50rem] text-[#C8C8C8] mb-4 "     style={{ letterSpacing: "0.08em" }}>
           {t("subheading")}
         </p>
 
         {/* CTA Button */}
-        <div className="flex justify-center font-satoshi mt-1">
+        <div className="flex justify-center font-satoshi mt-1 ">
           <button
             className="flex items-center justify-center gap-2 px-5 py-2.5 bg-[#C6F812] text-[#1D4E00] rounded-lg font-semibold text-base md:text-lg uppercase tracking-wide hover:bg-lime-400 transition duration-200"
             style={{

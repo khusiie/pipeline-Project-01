@@ -3,7 +3,7 @@ import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 const NextSection = () => {
   return (
     <section>
-    <div className="bg-lime-400 w-full py-4 sm:py-3 flex items-center justify-between px-3 sm:px-4 md:px-8 gap-2 sm:gap-4 font-Satoshi ">
+    <div className="bg-lime-400 w-full py-4 sm:py-3 flex items-center justify-between px-3 sm:px-4 md:px-8 gap-2 sm:gap-4 font-Satoshi font-semibold ">
       <svg
         width="20"
         height="20"
@@ -20,7 +20,7 @@ const NextSection = () => {
       </svg>
       
 
-      <p className="text-black text-center flex-1 md:font-semibold font-medium uppercase italic text-[10px] md:text-sm sm:text-base tracking-[0.09em] md:tracking-[0.2em]">
+      <p className="text-black text-center flex-1 md:font-semibold font-bold uppercase italic text-[10px] md:text-sm sm:text-base tracking-[0.09em] md:tracking-[0.2em]">
   <span className="inline-block md:mr-8 mr-2">Real Players.</span>
   <span className="inline-block md:mr-8 mr-2">Real Picks.</span>
   <span className="inline-block">Real Wins.</span>
