@@ -67,8 +67,8 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="max-w-7xl mx-auto fixed top-6 md:top-4  left-0 right-0 z-50 px-4 md:px-0">
-        <div className="rounded-[42px] bg-[#FFFFFF15] backdrop-blur text-white border border-[#ffffff33] shadow-[0_0_0.5px_1px_rgba(255,255,255,0.15)]">
+      <nav className="max-w-7xl mx-auto fixed top-6 md:top-4  left-0 right-0 z-50 px-3 md:px-0">
+        <div className="rounded-[20px] py-1 bg-[#FFFFFF15] backdrop-blur text-white border border-[#ffffff33] shadow-[0_0_0.5px_1px_rgba(255,255,255,0.15)]">
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex justify-between items-center px-12 py-4 lg:px-[15px] lg:py-[12px]">
