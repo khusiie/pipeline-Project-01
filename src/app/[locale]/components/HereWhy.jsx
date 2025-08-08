@@ -217,7 +217,22 @@ const HereWhy = () => {
           </div>
         </div>
 
-      <div className="text-center mt-5 sm:mt-10 md:mt-12 font-satoshi">
+<div className="flex flex-wrap justify-center pt-6 gap-4 font-satoshi">
+  {/* Reserve Button */}
+  <button
+    className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#C6F812] text-[#1D4E00] rounded-lg font-semibold text-sm sm:text-base md:text-lg uppercase tracking-wide hover:bg-lime-400 transition duration-200"
+    style={{
+      boxShadow: `
+        inset 0 2px 4px rgba(0, 0, 0, 0.3),
+        0 4px 15px rgba(0, 0, 0, 0.2)
+      `
+    }}
+  >
+    RESERVE MY SPOT NOW
+    <FiArrowUpRight className="bg-white border border-black rounded-md p-1 w-6 h-6 sm:w-5 sm:h-5" />
+  </button>
+
+  {/* Share Button */}
   <button
     className="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-[#C6F812] text-[#1D4E00] rounded-lg font-semibold text-sm sm:text-base md:text-lg uppercase tracking-wide hover:bg-lime-400 transition duration-200"
     style={{
@@ -227,16 +242,11 @@ const HereWhy = () => {
       `
     }}
   >
-    JOIN TODAY
-    <span className="p-1 md:p-1.5 rounded-md flex items-center justify-center">
-      <Image
-        src={Image2}
-        alt="icon"
-        className="w-6 h-6 md:w-5 md:h-5"
-      />
-    </span>
+    SHARE
+    <Image src={Image2} alt="Share" width={20} height={20} />
   </button>
 </div>
+
 
       </div>
     </section>

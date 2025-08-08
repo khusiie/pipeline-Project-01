@@ -197,17 +197,19 @@ const Promoter = () => {
           </div>
         </div>
 
-           {/* Image Container - Mobile Full Width */}
-          <div className="w-full pb-15">
-            <div className="relative aspect-[4/5] bg-gray-800 overflow-hidden shadow-2xl">
-              <Image
-                src={promoter}
-                alt="Features showcase"
-                fill
-                className="object-cover"
-              />
-            </div>
-          </div>
+{/* Image Container - Responsive for Mobile & Desktop */}
+<div className="w-full lg:w-1/2 pb-12 lg:pb-0">
+  <div className="relative aspect-[4/5] lg:aspect-auto bg-gray-800 overflow-hidden shadow-2xl">
+    <Image
+      src={promoter}
+      alt="Features showcase"
+      fill
+      className="object-cover"
+    />
+  </div>
+</div>
+
+
 
         {/* Mobile Layout - Stacked with Full Width Image */}
         <div className="lg:hidden">
