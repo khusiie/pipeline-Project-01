@@ -26,20 +26,20 @@ export default function HeroSection() {
       {/* Overlay */}
       <div className="absolute inset-0 bg-[#00000060]" />
 
-      <div className="relative z-10 max-w-7xl px-2 top-4">
+      <div className="relative z-10 max-w-7xl px-2 top-6">
         {/* Headings */}
         <div className="flex flex-col">
           <h1 className="text-[1.2rem] md:text-[5rem] lg:text-[4.8rem] font-semibold tracking-wider leading-none text-[#F7FFD9]">
             {t("heading1")}
           </h1>
-        <h2 className="text-[6rem] md:text-[4rem] lg:text-[10rem] font-extrabold leading-[0.85] md:leading-none">
+        <h2 className="text-[5rem] md:text-[4rem] lg:text-[10rem] font-extrabold leading-[0.85] md:leading-none">
   {t("heading2")}
 </h2>
 
         </div>
 
         {/* Subheading */}
-        <p className="text-[0.9rem] md:text-[1.5rem] lg:text-[1.50rem] text-[#C8C8C8] mb-10">
+        <p className="text-[0.9rem] md:text-[1.5rem] lg:text-[1.50rem] text-[#C8C8C8] pt-4 mb-5">
           {t("subheading")}
         </p>
 
