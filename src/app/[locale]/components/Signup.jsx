@@ -36,7 +36,7 @@ export default function SignUp() {
   };
 
   return (
-    <section className="min-h-screen bg-[#121212] text-white flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8  sm:py-12 lg:py-16 font-clash">
+    <section className="min-h-screen bg-[#121212] text-white flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8  py-2 sm:py-12 lg:py-16 font-clash">
       <div className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-7xl mx-auto">
      
        <div className="text-center mb-8 sm:mb-10 lg:mb-12">
@@ -168,9 +168,9 @@ export default function SignUp() {
           className="
     max-w-2xl
     mx-auto
-    mt-20
-    my-8
-  
+    mt-10
+ 
+   mb-10
     border-0
     h-0.5
     bg-gradient-to-r from-[#C6F812] via-[#d9ff00] to-[#C6F812]
