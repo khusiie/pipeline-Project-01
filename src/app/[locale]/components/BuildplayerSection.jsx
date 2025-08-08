@@ -13,7 +13,7 @@ export default function BuildplayerSection() {
     w-4/5 md:max-w-2xl
     mx-auto
    
-    mb-8
+    mb-10
     border-0
     h-0.5
     bg-gradient-to-r from-[#C6F812] via-[#d9ff00] to-[#C6F812]
@@ -26,15 +26,16 @@ export default function BuildplayerSection() {
 
 
       <div className="relative z-10 mt-8 sm:mt-16 lg:mt-30">
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-90 -z-10">
-          <Image
-            width={300}
-            height={300}
-            className="w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 xl:w-[500px] xl:h-[500px]"
-            src={star}
-            alt="star"
-          />
-        </div>
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-90 -z-10">
+  <Image
+    width={400}
+    height={400}
+    className="w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 xl:w-[500px] xl:h-[500px]"
+    src={star}
+    alt="star"
+  />
+</div>
+
         <h2 className="text-[12px] sm:text-xl md:text-3xl lg:text-4xl xl:text-5xl font-medium uppercase tracking-widest px-2 text-white">
           This isn't just another fantasy platform
         </h2>
@@ -75,7 +76,7 @@ export default function BuildplayerSection() {
       <span className="inline-block mt-1">rather we:</span>
     </h3>
 
-    <ul className="space-y-3 sm:space-y-4 text-left ml-3 sm:ml-0">
+    <ul className="space-y-6 sm:space-y-4 text-left mx-6 sm:ml-0">
       <li className="flex items-center gap-3 sm:gap-4 text-sm sm:text-base md:text-lg sm:rounded-lg">
         <Image
           width={30}
@@ -111,18 +112,19 @@ export default function BuildplayerSection() {
 </section>
 
 
-      <hr
-        className="
-          max-w-2xl
-          mx-auto
-          mt-20
-          border-0
-          h-0.5
-          bg-gradient-to-r from-[#C6F812] via-[#d9ff00] to-[#C6F812]
-          rounded-full
-          shadow-[0_0_20px_1px_#C6F812]
-        "
-      />
+        <hr
+  className="
+    w-4/5 md:max-w-2xl
+    mx-auto
+    mt-10
+  
+    border-0
+    h-0.5
+    bg-gradient-to-r from-[#C6F812] via-[#d9ff00] to-[#C6F812]
+    rounded-full
+    shadow-[0_0_20px_1px_#C6F812]
+  "
+/>
     </section>
   );
 }
