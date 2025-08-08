@@ -3,7 +3,7 @@ import Image from "next/image";
 import promoter from "../../../../public/assests/promoter/promoter.png";
 import dotSvg from "../../../../public/assests/promoter/dot.svg";
 import starSvg from "../../../../public/assests/star.svg";
-import { FiArrowUpRight } from "react-icons/fi";
+import Image2 from "../../../../public/Image2.png";
 import image1 from "../../../../public/assests/promoter/image1.png";
 
 const Promoter = () => {
@@ -46,47 +46,46 @@ const Promoter = () => {
               <Image
                 src={starSvg}
                 alt="Star background"
-                width={800}
-                height={800}
-                className="opacity-70 w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96"
+                width={1000}
+                height={1000}
+                className="opacity-70 w-80 h-80 md:w-[28rem] md:h-[28rem] lg:w-[32rem] lg:h-[32rem]"
               />
             </div>
-
             {/* Badge Container */}
-            <div className="relative bg-gradient-to-r from-lime-400 to-yellow-300 rounded-xl p-1 shadow-2xl">
-              <div className="bg-gradient-to-r from-lime-400 to-yellow-300 rounded-xl px-3 py-2 md:px-4 md:py-3 flex items-center gap-2 md:gap-3">
-                {/* Cricket Field Icon Placeholder */}
-                <Image
-                  src={image1}
-                  alt="image1"
-                  width={40}
-                  height={40}
-                  className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12"
-                />
+           <div className="relative bg-gradient-to-r from-lime-400 to-yellow-300 rounded-sm md:rounded-xl shadow-2xl w-full max-w-lg mx-2 md:max-w-md md:w-auto">
+  <div className="bg-gradient-to-r from-lime-400 to-yellow-300 rounded-xl px-5 py-4 md:px-6 md:py-5 flex items-center gap-4 md:gap-5">
+    {/* Cricket Field Icon */}
+    <Image
+      src={image1}
+      alt="image1"
+      width={48}
+      height={48}
+      className="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16"
+    />
 
-                <div className="text-black">
-                  <div className="text-xs md:text-sm font-medium text-left">
-                    Become a
-                  </div>
+    <div className="text-black">
+      <div className="text-sm md:text-base font-medium text-left">
+        Become a
+      </div>
 
-                  <div className="text-sm md:text-lg lg:text-xl font-bold">
-                    PIPELINE <span className="font-normal"> Promoter</span>
-                  </div>
-                </div>
-              </div>
-            </div>
+      <div className="text-lg md:text-2xl lg:text-3xl font-bold">
+        PIPELINE <span className="font-normal"> Promoter</span>
+      </div>
+    </div>
+  </div>
+</div>
+
           </div>
+{/* Main Heading */}
+<div className="max-w-4xl mx-auto text-center px-2 md:px-4 -mt-4">
+  <h1 className="text-[14px] sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold mb-3 md:mb-4 leading-tight">
+    LEAD THE FANTASY CRICKET REVOLUTION
+  </h1>
 
-          {/* Main Heading */}
-          <div className="max-w-4xl mx-auto text-center px-2 md:px-4">
-            <h1 className="text-[14px] sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold mb-3 md:mb-4 leading-tight">
-              LEAD THE FANTASY CRICKET REVOLUTION
-            </h1>
-
-            <p className="text-[12px] sm:text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl text-gray-300 mb-6 md:mb-8 lg:mb-12">
-              BUILD YOUR EMPIRE LEGALLY, OPENLY, AND WITH RESPECT
-            </p>
-          </div>
+  <p className="text-[12px] sm:text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl text-gray-300 mb-6 md:mb-8 lg:mb-12">
+    BUILD YOUR EMPIRE LEGALLY, OPENLY, AND WITH RESPECT
+  </p>
+</div>
 
           {/* Seats Counter */}
           <div className="mb-6 md:mb-8 px-2 md:px-4">
@@ -105,13 +104,27 @@ const Promoter = () => {
             </div>
           </div>
 
-          {/* Register Button */}
-          <div className="flex justify-center px-2 md:px-4">
-            <button className="bg-lime-400 hover:bg-lime-300 text-[#1D4E00] font-bold py-2 px-4 md:py-3 md:px-6 lg:py-4 lg:px-8 rounded-lg text-xs sm:text-sm md:text-lg transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center gap-1 md:gap-2">
-              REGISTER NOW{" "}
-              <FiArrowUpRight className="bg-white rounded-md p-1 w-4 h-4 sm:w-5 sm:h-5 md:w-7 md:h-7" />
-            </button>
-          </div>
+       <div className="flex justify-center items-center w-full font-satoshi px-4 py-6">
+  <button
+    className="flex items-center gap-3 px-6 py-3 bg-[#C6F812] text-[#1D4E00] rounded-sm font-bold uppercase tracking-wide hover:bg-lime-400 transition duration-200"
+    style={{
+      boxShadow: `
+        inset 0 2px 4px rgba(0, 0, 0, 0.3),
+        0 4px 15px rgba(0, 0, 0, 0.2)
+      `,
+    }}
+  >
+    REGISTER NOW
+    <span className="p-1.5 md:p-0.5 rounded-md flex items-center justify-center">
+      <Image
+        src={Image2}
+        alt="icon"
+        className="w-5 h-5 md:w-6 md:h-6"
+      />
+    </span>
+  </button>
+</div>
+
         </div>
 
         {/* Dotted Border */}
