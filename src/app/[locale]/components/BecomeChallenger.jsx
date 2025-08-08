@@ -193,8 +193,13 @@ const BecomeChallenger = () => {
           }
         }
       `}</style>
-      
-      <hr className="max-w-2xl mx-auto my-8 mb-20 border-0 h-0.5 bg-gradient-to-r from-[#C6F812] via-[#d9ff00] to-[#C6F812] rounded-full shadow-[0_0_20px_1px_#C6F812]" />
+
+
+
+
+
+
+
         <div className="max-w-6xl mx-auto">
           {/* Heading */}
           <div className="w-full flex justify-center">

@@ -51,9 +51,9 @@ const Promoter = () => {
                 className="opacity-70 w-80 h-80 md:w-[28rem] md:h-[28rem] lg:w-[32rem] lg:h-[32rem]"
               />
             </div>
-            {/* Badge Container */}
-           <div className="relative bg-gradient-to-r from-lime-400 to-yellow-300 rounded-sm md:rounded-xl shadow-2xl w-full max-w-lg mx-2 md:max-w-md md:w-auto">
-  <div className="bg-gradient-to-r from-lime-400 to-yellow-300 rounded-xl px-5 py-4 md:px-6 md:py-5 flex items-center gap-4 md:gap-5">
+           {/* Badge Container */}
+<div className="relative bg-gradient-to-r from-lime-400 to-yellow-300 rounded-sm md:rounded-xl shadow-2xl w-full max-w-lg  md:max-w-md md:w-auto">
+  <div className="bg-gradient-to-r from-lime-400 to-yellow-300 rounded-xl px-5 pt-4 pb-2 md:px-6 md:pt-5 md:pb-3 flex items-center gap-4 md:gap-5">
     {/* Cricket Field Icon */}
     <Image
       src={image1}
@@ -76,54 +76,59 @@ const Promoter = () => {
 </div>
 
           </div>
-{/* Main Heading */}
-<div className="max-w-4xl mx-auto text-center px-2 md:px-4 -mt-4">
-  <h1 className="text-[14px] sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold mb-3 md:mb-4 leading-tight">
-    LEAD THE FANTASY CRICKET REVOLUTION
-  </h1>
+          {/* Main Heading */}
+          <div className="max-w-4xl mx-auto text-center px-2 md:px-4 -mt-4">
+         <h1 className="text-[14px] sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold mb-1 md:mb-4 leading-tight">
 
-  <p className="text-[12px] sm:text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl text-gray-300 mb-6 md:mb-8 lg:mb-12">
-    BUILD YOUR EMPIRE LEGALLY, OPENLY, AND WITH RESPECT
-  </p>
-</div>
+
+              LEAD THE FANTASY CRICKET REVOLUTION
+            </h1>
+
+            <p
+              className="text-[10px] sm:text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl text-gray-300 mb-2 md:mb-8 lg:mb-12"
+              style={{ wordSpacing: "0.25em" }} // adjust the value as needed
+            >
+              BUILD YOUR EMPIRE LEGALLY, OPENLY, AND WITH RESPECT
+            </p>
+          </div>
 
           {/* Seats Counter */}
-          <div className="mb-6 md:mb-8 px-2 md:px-4">
-            <div className="inline-flex items-baseline gap-1 sm:gap-2 md:gap-3 lg:gap-4 text-xs sm:text-sm md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl flex-wrap justify-center">
+          <div className="mb-6 md:mb-8 w-full px-2 md:px-6">
+            <div className="inline-flex items-baseline gap-2 sm:gap-2 md:gap-3 lg:gap-4 text-xs sm:text-sm md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl flex-wrap justify-center w-full">
               <span className="text-white">Only</span>
-              <span className="text-lime-400 font-bold text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl">
+              <span className="text-lime-400 font-bold text-xl sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl">
                 200
               </span>
               <span className="text-white">Promoter Seats.</span>
-              <span className="text-lime-400 font-bold text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl">
+              <span className="text-lime-400 font-bold text-xl sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl">
                 145
               </span>
-              <span className="text-lime-400 text-xs sm:text-sm md:text-lg lg:text-xl xl:text-2xl font-normal">
+              <span className="text-lime-400 text-xl  sm:text-sm md:text-lg lg:text-xl xl:text-2xl font-bold">
                 Left
               </span>
             </div>
           </div>
-
-       <div className="flex justify-center items-center w-full font-satoshi px-4 py-6">
+<div className="flex justify-center items-center w-full font-satoshi px-4 py-4">
   <button
-    className="flex items-center gap-3 px-6 py-3 bg-[#C6F812] text-[#1D4E00] rounded-sm font-bold uppercase tracking-wide hover:bg-lime-400 transition duration-200"
+    className="flex items-center gap-2 px-3 py-1.5 bg-[#C6F812] text-[#1D4E00] rounded-sm font-semibold uppercase text-xs sm:text-sm tracking-wide hover:bg-lime-400 transition duration-200"
     style={{
       boxShadow: `
-        inset 0 2px 4px rgba(0, 0, 0, 0.3),
-        0 4px 15px rgba(0, 0, 0, 0.2)
+        inset 0 1px 2px rgba(0, 0, 0, 0.3),
+        0 2px 8px rgba(0, 0, 0, 0.2)
       `,
     }}
   >
     REGISTER NOW
-    <span className="p-1.5 md:p-0.5 rounded-md flex items-center justify-center">
+    <span className="p-1 rounded-md flex items-center justify-center">
       <Image
         src={Image2}
         alt="icon"
-        className="w-5 h-5 md:w-6 md:h-6"
+        className="w-4 h-4 sm:w-5 sm:h-5"
       />
     </span>
   </button>
 </div>
+
 
         </div>
 
@@ -192,6 +197,18 @@ const Promoter = () => {
           </div>
         </div>
 
+           {/* Image Container - Mobile Full Width */}
+          <div className="w-full pb-15">
+            <div className="relative aspect-[4/5] bg-gray-800 overflow-hidden shadow-2xl">
+              <Image
+                src={promoter}
+                alt="Features showcase"
+                fill
+                className="object-cover"
+              />
+            </div>
+          </div>
+
         {/* Mobile Layout - Stacked with Full Width Image */}
         <div className="lg:hidden">
           {/* Features List - Mobile */}
@@ -217,7 +234,7 @@ const Promoter = () => {
                     {/* Content with Asterisk Heading */}
                     <div className="flex-1 relative">
                       {/* Asterisk Heading */}
-                      <h2 className="text-lime-400 text-2xl sm:text-3xl md:text-4xl font-bold leading-none">
+                      <h2 className="text-lime-400 text-4xl  sm:text-3xl md:text-4xl font-bold leading-none">
                         *
                       </h2>
 
@@ -236,18 +253,21 @@ const Promoter = () => {
               ))}
             </div>
           </div>
-
-          {/* Image Container - Mobile Full Width */}
-          <div className="w-full">
-            <div className="relative aspect-[4/5] bg-gray-800 overflow-hidden shadow-2xl">
-              <Image
-                src={promoter}
-                alt="Features showcase"
-                fill
-                className="object-cover"
-              />
-            </div>
-          </div>
+          
+                 <hr
+  className="
+    w-4/5 md:max-w-2xl
+    mx-auto
+    mt-10
+  
+    border-0
+    h-0.5
+    bg-gradient-to-r from-[#C6F812] via-[#d9ff00] to-[#C6F812]
+    rounded-full
+    shadow-[0_0_20px_1px_#C6F812]
+  "
+/>
+       
         </div>
       </div>
     </div>
