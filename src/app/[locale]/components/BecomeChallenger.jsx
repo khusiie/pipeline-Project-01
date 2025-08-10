@@ -444,16 +444,17 @@ const BecomeChallenger = () => {
       <div className="w-full bg-[url('/bg1.png')] bg-cover bg-center bg-zinc-800 py-8 md-10 sm:rounded-lg text-center relative">
         <div className="absolute inset-0 bg-[#0000007d] bg-opacity-60 rounded-lg"></div>
         <div className="relative z-10">
-          <h3 className="text-sm md:text-3xl uppercase font-bold mb-2" style={{ wordSpacing: "0.2rem" }}>
-            THESE BENEFITS ARE
-            <br />
-            ONLY AVAILABLE TILL
-          </h3>
+ 
+<h3 className="text-lg md:text-3xl uppercase font-bold mb-2 leading-tight" style={{ wordSpacing: "0.2rem" }}>
+  THESE BENEFITS ARE
+  <br />
+  ONLY AVAILABLE TILL
+</h3>
           <h2 className="text-2xl md:text-5xl font-bold mb-4">
             AUGUST 15TH 2025
           </h2>
           <div className="flex items-center justify-center gap-3 mb-6">
-            <span className="text-3xl font-normal text-white tracking-wide">
+            <span className="text-xl font-normal text-white tracking-wide">
               200 Total
             </span>
             <div className="flex items-center font-bold  text-3xl gap-2">
@@ -463,35 +464,35 @@ const BecomeChallenger = () => {
               Left
             </span>
           </div>
-          <div className="inline-flex items-center gap-4 sm:gap-6 md:gap-12 bg-black/10 backdrop-blur-lg rounded-2xl py-2 sm:py-4 md:py-6 px-3 sm:px-6 md:px-8 max-w-full mx-auto overflow-x-auto border border-white/10">
-          {["Days", "Hours", "Minutes"].map((unit, i) => {
-  const value =
-    [timeLeft.days, timeLeft.hours, timeLeft.minutes][i] ?? 0;
-
-              return (
-                <div
-                  key={unit}
-                  className="flex flex-col items-center flex-shrink-0"
-                >
-                  <div className="relative">
-                    <span className="text-4xl sm:text-6xl md:text-7xl font-extrabold text-white leading-none tracking-tight tabular-nums min-w-[3ch] sm:min-w-[4ch] md:min-w-[5ch] text-center">
-                      {String(value).padStart(2, "0")}
-                    </span>
-                  </div>
-                  <span className="text-xs sm:text-sm font-medium text-white/80 uppercase tracking-widest mt-2">
-                    {unit}
-                  </span>
-                </div>
-              );
-            })}
-
-            <div className="absolute inset-0 flex justify-center items-center pointer-events-none">
-              <div className="flex items-center gap-2 sm:gap-4">
-                <div className="w-px h-12 sm:h-16 bg-white/20"></div>
-                <div className="w-px h-12 sm:h-16 bg-white/20 ml-[calc(3ch+2rem)] sm:ml-[calc(4ch+2.5rem)]"></div>
-              </div>
-            </div>
-          </div>
+ <div className="inline-flex items-center gap-6 sm:gap-8 md:gap-16 bg-black/10 backdrop-blur-lg rounded-2xl py-3 sm:py-5 md:py-8 px-4 sm:px-10 md:px-16 w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-4xl mx-auto overflow-x-auto border border-white/10">
+  {["Days", "Hours", "Minutes"].map((unit, i) => {
+    const value =
+      [timeLeft.days, timeLeft.hours, timeLeft.minutes][i] ?? 0;
+    
+    return (
+      <div
+        key={unit}
+        className="flex flex-col items-center flex-shrink-0 flex-1"
+      >
+        <div className="relative">
+          <span className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold text-white leading-none tracking-tight tabular-nums min-w-[3ch] sm:min-w-[4ch] md:min-w-[5ch] lg:min-w-[6ch] text-center">
+            {String(value).padStart(2, "0")}
+          </span>
+        </div>
+        <span className="text-xs sm:text-sm md:text-base font-medium text-white/80 uppercase tracking-widest mt-2 sm:mt-3 md:mt-4">
+          {unit}
+        </span>
+      </div>
+    );
+  })}
+  
+  <div className="absolute inset-0 flex justify-center items-center pointer-events-none">
+    <div className="flex items-center gap-4 sm:gap-6 md:gap-8">
+      <div className="w-px h-12 sm:h-16 md:h-20 bg-white/20"></div>
+      <div className="w-px h-12 sm:h-16 md:h-20 bg-white/20 ml-[calc(3ch+3rem)] sm:ml-[calc(4ch+4rem)] md:ml-[calc(5ch+5rem)]"></div>
+    </div>
+  </div>
+</div>
 
 {/* Info Boxes */}
 <div className="flex flex-col md:flex-row justify-center items-center gap-4 mt-12 mx-4">
