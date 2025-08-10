@@ -48,7 +48,7 @@ export default function SignUp() {
     >
       <div className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-7xl mx-auto">
         <div className="text-center mb-6 sm:mb-10 lg:mb-12">
-          <h1 className="text-3xl sm:text-5xl md:text-6xl pt-2 lg:text-7xl xl:text-7xl py-1 2xl:text-[9rem] font-bold uppercase leading-tight">
+          <h1 className="text-5xl sm:text-5xl md:text-6xl pt-2 lg:text-7xl xl:text-7xl py-1 2xl:text-[9rem] font-bold uppercase leading-tight">
             Sign Up as
           </h1>
 
