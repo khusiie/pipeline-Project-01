@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 place-items-center">
         {/* Left Section */}
         <div className="space-y-6 ">
-          <h2 className="text-3xl font-bold uppercase leading-tight">
+          <h2 className="text-2xl font-bold uppercase leading-tight">
             Join the movement.<br />
             Shape the winners<br />
             lineup.
