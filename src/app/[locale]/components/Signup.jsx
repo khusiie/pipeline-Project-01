@@ -73,7 +73,9 @@ export default function SignUp() {
                         : "bg-transparent text-[#C6FF00] border border-[#C6FF00] hover:bg-[#C6FF00] hover:text-black"
                     }`}
                 >
-                  <span className="block transform skew-x-[20deg]">PROMOTER</span>
+                  <span className="block transform skew-x-[20deg]">
+                    PROMOTER
+                  </span>
                 </span>
               </button>
 
@@ -96,7 +98,9 @@ export default function SignUp() {
                         : "bg-transparent text-[#C6FF00] border border-[#C6FF00] hover:bg-[#C6FF00] hover:text-black"
                     }`}
                 >
-                  <span className="block transform skew-x-[20deg]">CHALLENGER</span>
+                  <span className="block transform skew-x-[20deg]">
+                    CHALLENGER
+                  </span>
                 </span>
               </button>
             </div>
@@ -109,78 +113,75 @@ export default function SignUp() {
           onSubmit={handleSubmit}
           className="space-y-3 sm:space-y-6 lg:space-y-8"
         >
-        
-{/* Name */}
-<div className="flex items-center gap-3 sm:gap-4 border-b border-gray-500 focus-within:border-[#C6FF00] transition-colors py-1.5 sm:py-3">
-  <label className="text-xs sm:text-sm lg:text-base w-20 sm:w-28">
-    Name
-  </label>
-  <input
-    type="text"
-    value={name}
-    onChange={(e) => setName(e.target.value)}
-    placeholder="Enter your name"
-    required
-    className="flex-1 bg-transparent focus:outline-none text-xs sm:text-sm lg:text-base"
-  />
-</div>
+          {/* Name */}
+          <div className="flex items-center gap-3 sm:gap-4 border-b border-gray-500 focus-within:border-[#C6FF00] transition-colors py-1.5 sm:py-3">
+            <label className="text-xs sm:text-sm lg:text-base w-20 sm:w-28">
+              Name
+            </label>
+            <input
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder="Enter your name"
+              required
+              className="flex-1 bg-transparent focus:outline-none text-xs sm:text-sm lg:text-base"
+            />
+          </div>
 
-{/* Email */}
-<div className="flex items-center gap-3 sm:gap-4 border-b border-gray-500 focus-within:border-[#C6FF00] transition-colors py-1.5 sm:py-3">
-  <label className="text-xs sm:text-sm lg:text-base w-20 sm:w-28">
-    Email
-  </label>
-  <input
-    type="email"
-    value={email}
-    onChange={(e) => setEmail(e.target.value)}
-    placeholder="demo@gmail.com"
-    required
-    className="flex-1 bg-transparent focus:outline-none text-xs sm:text-sm lg:text-base"
-  />
-</div>
+          {/* Email */}
+          <div className="flex items-center gap-3 sm:gap-4 border-b border-gray-500 focus-within:border-[#C6FF00] transition-colors py-1.5 sm:py-3">
+            <label className="text-xs sm:text-sm lg:text-base w-20 sm:w-28">
+              Email
+            </label>
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="demo@gmail.com"
+              required
+              className="flex-1 bg-transparent focus:outline-none text-xs sm:text-sm lg:text-base"
+            />
+          </div>
 
-{/* Phone No. */}
-<div className="flex items-center gap-3 sm:gap-4 border-b border-gray-500 focus-within:border-[#C6FF00] transition-colors py-1.5 sm:py-3">
-  <label className="text-xs sm:text-sm lg:text-base w-20 sm:w-28 whitespace-nowrap">
-    Phone No.
-  </label>
-  
-  <input
-    type="text"
-    value="+92"
-    readOnly
-    className="w-10 sm:w-16 lg:w-20 bg-transparent text-gray-400"
-  />
-  
-  <input
-    type="text"
-    value={phone}
-    onChange={(e) => setPhone(e.target.value)}
-    placeholder="000 - 000 - 000"
-    required
-    className="flex-1 bg-transparent focus:outline-none"
-  />
-</div>
+          {/* Phone No. */}
+          <div className="flex items-center gap-3 sm:gap-4 border-b border-gray-500 focus-within:border-[#C6FF00] transition-colors py-1.5 sm:py-3">
+            <label className="text-xs sm:text-sm lg:text-base w-20 sm:w-28 whitespace-nowrap">
+              Phone No.
+            </label>
 
+            <input
+              type="text"
+              value="+92"
+              readOnly
+              className="w-8 sm:w-16 lg:w-20 bg-transparent text-gray-400"
+            />
 
+            <input
+              type="text"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+              placeholder="000 - 000 - 000"
+              required
+              className="flex-1 bg-transparent focus:outline-none"
+            />
+          </div>
 
           <div className="flex justify-center">
-  <button
-    type="submit"
-    disabled={loading}
-    className="mt-3 sm:mt-6 lg:mt-8 w-auto sm:w-auto inline-flex justify-center items-center gap-1.5 sm:gap-2 bg-[#C6FF00] text-[#1D4E00] font-medium py-1.5 sm:py-3 lg:py-3 px-3 sm:px-6 lg:px-8 rounded-md hover:bg-lime-300 transition text-xs sm:text-sm lg:text-base"
-  >
-    {loading ? "Submitting..." : "SUBMIT"}
-    <span className="p-0.5 md:p-1 rounded-md flex items-center justify-center">
-      <Image
-        src={Image2}
-        alt="icon"
-        className="w-3 h-3 sm:w-4 sm:h-4 md:w-4 md:h-4"
-      />
-    </span>
-  </button>
-</div>
+            <button
+              type="submit"
+              disabled={loading}
+              className="mt-3 sm:mt-6 lg:mt-8 w-auto sm:w-auto inline-flex justify-center items-center gap-1.5 sm:gap-2 bg-[#C6FF00] text-[#1D4E00] font-medium py-1.5 sm:py-3 lg:py-3 px-3 sm:px-6 lg:px-8 rounded-md hover:bg-lime-300 transition text-xs sm:text-sm lg:text-base"
+            >
+              {loading ? "Submitting..." : "SUBMIT"}
+              <span className="p-0.5 md:p-1 rounded-md flex items-center justify-center">
+                <Image
+                  src={Image2}
+                  alt="icon"
+                  className="w-3 h-3 sm:w-4 sm:h-4 md:w-4 md:h-4"
+                />
+              </span>
+            </button>
+          </div>
         </form>
 
         <hr

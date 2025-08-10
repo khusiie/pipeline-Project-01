@@ -444,12 +444,12 @@ const BecomeChallenger = () => {
       <div className="w-full bg-[url('/bg1.png')] bg-cover bg-center bg-zinc-800 py-8 md-10 sm:rounded-lg text-center relative">
         <div className="absolute inset-0 bg-[#0000007d] bg-opacity-60 rounded-lg"></div>
         <div className="relative z-10">
-          <h3 className="text-2xl uppercase font-bold mb-2" style={{ wordSpacing: "0.2rem" }}>
+          <h3 className="text-sm md:text-3xl uppercase font-bold mb-2" style={{ wordSpacing: "0.2rem" }}>
             THESE BENEFITS ARE
             <br />
             ONLY AVAILABLE TILL
           </h3>
-          <h2 className="text-4xl md:text-4xl font-bold mb-4">
+          <h2 className="text-2xl md:text-5xl font-bold mb-4">
             AUGUST 15TH 2025
           </h2>
           <div className="flex items-center justify-center gap-3 mb-6">
