@@ -6,7 +6,7 @@ export default function Footer() {
     <footer className="bg-[#121212] text-white px-2 sm:px-6 md:px-12 md:py-12  font-clash">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 place-items-center">
         {/* Left Section */}
-        <div className="space-y-6 ">
+        <div className="space-y-6">
           <h2 className="text-2xl font-bold uppercase leading-tight">
             Join the movement.<br />
             Shape the winners<br />
@@ -99,7 +99,7 @@ export default function Footer() {
       </div>
 
       {/* Mobile-only Quick Links & Contact Us */}
-      <div className="md:hidden grid grid-cols-2 gap-8 max-w-md mx-auto text-center mt-12">
+      <div className="md:hidden grid grid-cols-2 gap-8 max-w-md mx-auto text-center mt-6">
         {/* Quick Links */}
         <div>
           <h3 className="uppercase font-bold mb-4 flex items-center justify-center gap-2 text-sm">
