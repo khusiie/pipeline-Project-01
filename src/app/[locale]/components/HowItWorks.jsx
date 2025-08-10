@@ -58,11 +58,11 @@ export default function HowItWorks() {
               top-[65%] sm:top-[55%] md:top-[60%] uppercase
             "
             >
-              Get access link  <br />
-             when App drops, <br />
-             you’ll receive<br/> early Access + <br />
-              your earned<br />
-               PipeToken bonus.
+                 Get access link <br />
+          when    app drops, <br />
+             you’ll  receive<br/> early access + <br />
+             your earned   <br/> <span className="font-bold text-lime-400">PipeToken</span> 
+             bonus.
             </div>
 
             {/* Block 3 */}

@@ -154,7 +154,7 @@ export default function SignUp() {
               type="text"
               value="+92"
               readOnly
-              className="w-8 sm:w-16 lg:w-20 bg-transparent text-gray-400"
+              className="w-8 sm:w-16 lg:w-20 bg-transparent text-gray-300"
             />
 
             <input

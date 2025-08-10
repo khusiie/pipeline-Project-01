@@ -97,57 +97,54 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Mobile-only Quick Links & Contact Us */}
-      <div className="md:hidden grid grid-cols-2 gap-6 max-w-full mx-auto mt-3 px-2">
-        {/* Quick Links */}
-        <div>
-          <h3 className="uppercase font-bold mb-4 flex items-center gap-2 text-sm">
-            <span className="h-1 w-1 rounded-full bg-lime-400"></span> Quick Links
-          </h3>
+     <div className="md:hidden grid grid-cols-[3fr_1fr] gap-6 max-w-full mx-auto mt-3 px-2">
+  {/* Quick Links */}
+  <div>
+    <h3 className="font-bold mb-4 flex items-center gap-2 text-sm">
+      <span className="h-1 w-1 rounded-full bg-lime-400"></span> Quick Links
+    </h3>
+    <div className="flex flex-wrap gap-2">
+      {[
+        "Home",
+        "Who We Are",
+        "Pricing",
+        "Collection",
+        "Services",
+        "News",
+        "Contact Us",
+      ].map((link, index) => (
+        <button
+          key={index}
+          className="bg-gray-800 hover:bg-lime-400 focus:bg-lime-400 active:bg-lime-400
+                     text-white hover:text-black focus:text-black active:text-black
+                     px-3 py-1.5 text-xs rounded-full transition duration-300"
+        >
+          {link}
+        </button>
+      ))}
+    </div>
+  </div>
 
-          <div className="flex flex-wrap gap-2">
-            {[
-              "Home",
-              "Who We Are",
-              "Pricing",
-              "Collection",
-              "Services",
-              "News",
-              "Contact Us",
-            ].map((link, index) => (
-              <button
-                key={index}
-                className="bg-gray-800 hover:bg-lime-400 focus:bg-lime-400 active:bg-lime-400
-                           text-white hover:text-black focus:text-black active:text-black
-                           px-3 py-1.5 text-xs rounded-full transition duration-300"
-              >
-                {link}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* Contact Us */}
-        <div>
-          <h3 className="uppercase font-bold mb-4 flex items-center gap-2 text-sm">
-            <span className="h-1 w-1 rounded-full bg-lime-400"></span> Contact Us
-          </h3>
-          <ul className="space-y-2 text-xs">
-            <li>Pipeline@Studio.Com</li>
-            <li>+(3432) 555-0107</li>
-            <li>
-              4515 Washington Ave.
-              <br />
-              Manchester,
-              <br />
-              Kentucky 37495
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      {/* Social Icons */}
-      <div className="flex mt-5 space-x-4 px-2 md:hidden text-left">
+  {/* Contact Us */}
+  <div>
+    <h3 className="font-bold mb-4 flex items-center gap-2 text-sm">
+      <span className="h-1 w-1 rounded-full bg-lime-400"></span> Contact Us
+    </h3>
+    <ul className="space-y-2 text-xs">
+      <li>Pipeline@Studio.Com</li>
+      <li>+(3432) 555-0107</li>
+      <li>
+        4515 Washington Ave.
+        <br />
+        Manchester,
+        <br />
+        Kentucky 37495
+      </li>
+    </ul>
+  </div>
+</div>
+     {/* Social Icons */}
+      <div className="flex mt-5 space-x-4 px-4 md:hidden text-left">
         {[
           {
             label: "Facebook",
