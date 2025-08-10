@@ -407,9 +407,12 @@ const BecomeChallenger = () => {
                   />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <h4 className="text-black font-bold text-base mb-2 leading-tight">
-                    {card.title}
-                  </h4>
+<h4 className="text-black font-bold text-base leading-none inline-block m-0">
+  <span className="bg-[#C6F812]">{card.title}</span>
+</h4>
+
+
+                
                   <p className="text-black text-medium leading-relaxed line-clamp-3">
                     {card.description}
                   </p>

@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
-import { FiArrowUpRight } from "react-icons/fi";
+
+
 import { supabase } from "../../../../lib/supabaseClient"; // adjust path if neededi
 import Image from "next/image";
 import Image2 from "../../../../public/Image2.png";

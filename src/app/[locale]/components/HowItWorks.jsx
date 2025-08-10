@@ -87,7 +87,7 @@ export default function HowItWorks() {
         </div>
 
      {/* Get Started Button */}
-<div className="mt-8 sm:mt-12 flex justify-end pr-2 sm:pr-4 pb-2 md:pr-24 font-satoshi">
+<div className="mt-10 sm:mt-12 flex justify-end pr-2 sm:pr-4 pb-2  md:pr-24 font-satoshi">
   <button className="bg-[#C6FF00] text-[#1D4E00] px-3 py-1.5 sm:px-6 sm:py-3 font-semibold rounded-sm sm:rounded-xl hover:bg-lime-300 transition flex items-center gap-1 sm:gap-2 text-xs sm:text-base">
     GET STARTED
     <span className="p-0.5 sm:p-1 rounded-md flex items-center justify-center">
