@@ -222,7 +222,7 @@ const BecomeChallenger = () => {
             {/* DESKTOP VERSION - Original Grid Layout (Hidden on Mobile) */}
             <div className="hidden lg:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-4 sm:gap-6">
               {/* Card 1 */}
-              <div className="bg-white p-4 sm:p-6 rounded-lg flex flex-col h-full lg:col-span-2">
+              <div className="bg-white p-4  sm:p-6 rounded-lg flex flex-col h-full lg:col-span-2">
                 <Image
                   src={gridimage1}
                   width={463}
