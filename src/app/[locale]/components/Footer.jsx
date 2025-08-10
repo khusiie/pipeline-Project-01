@@ -3,7 +3,7 @@ import footerlogo from "../../../../public/assests/Footer/Footerlogo.png";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#121212] text-white px-4 sm:px-6 md:px-12 md:py-12  font-clash">
+    <footer className="bg-[#121212] text-white px-2 sm:px-6 md:px-12 md:py-12  font-clash">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 place-items-center">
         {/* Left Section */}
         <div className="space-y-6 ">

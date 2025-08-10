@@ -7,7 +7,7 @@ import { FiArrowUpRight } from "react-icons/fi";
 export default function HowItWorks() {
   return (
     <div>
-      <section className="relative bg-[#121212] text-white px-2 md:px-12 w-full pb-6 md:py-16 font-clash">
+      <section className="relative bg-[#121212] text-white px-2 md:px-12 w-full pb-6 md:py-16  font-clash">
         {/* Section Heading */}
         <div className="max-w-5xl mx-auto text-left font-bold md:mb-6">
           <h2 className="text-4xl sm:text-4xl md:text-7xl font-bold uppercase px-4">
