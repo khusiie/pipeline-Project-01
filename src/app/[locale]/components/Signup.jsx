@@ -161,7 +161,7 @@ export default function SignUp() {
               type="text"
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
-              placeholder="000 - 000 - 000"
+              placeholder="000 - 000 - 0000"
               required
               className="flex-1 bg-transparent focus:outline-none"
             />
