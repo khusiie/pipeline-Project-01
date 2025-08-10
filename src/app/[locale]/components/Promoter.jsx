@@ -5,6 +5,7 @@ import dotSvg from "../../../../public/assests/promoter/dot.svg";
 import starSvg from "../../../../public/assests/star.svg";
 import Image2 from "../../../../public/Image2.png";
 import image1 from "../../../../public/assests/promoter/image1.png";
+import Image4 from "../../../../public/assests/promoter/Vector.png";
 
 const Promoter = () => {
   const features = [
@@ -162,9 +163,17 @@ const Promoter = () => {
                     {/* Content with Asterisk Heading */}
                     <div className="flex-1 relative">
                       {/* Asterisk Heading */}
-                      <h2 className="text-lime-400 text-5xl font-bold leading-none">
-                        *
-                      </h2>
+                
+  {/* Star Image replacing the * */}
+  <Image 
+    src={Image4} 
+    alt="Star icon" 
+    width={20}  // specify actual width
+    height={20} // specify actual height
+    className="w-4 h-4"
+  />
+
+
 
                       {/* Feature Title */}
                       <h3 className="text-base font-bold uppercase tracking-wider mb-2 text-white mt-2">
@@ -198,7 +207,8 @@ const Promoter = () => {
         </div>
 
 {/* Image Container - Responsive for Mobile & Desktop */}
-<div className="w-full lg:w-1/2 pb-12 lg:pb-0">
+<div className="w-full lg:w-1/2 pb-10
+ lg:pb-0">
   <div className="relative aspect-[4/5] lg:aspect-auto bg-gray-800 overflow-hidden shadow-2xl">
     <Image
       src={promoter}
@@ -236,14 +246,22 @@ const Promoter = () => {
                     {/* Content with Asterisk Heading */}
                     <div className="flex-1 relative">
                       {/* Asterisk Heading */}
-                      <h2 className="text-lime-400 text-4xl  sm:text-3xl md:text-4xl font-bold leading-none -mt-8">
-                        *
-                      </h2>
+                
+  {/* Star Image replacing the * */}
+  <Image 
+    src={Image4} 
+    alt="Star icon" 
+    width={20}  // specify actual width
+    height={20} // specify actual height
+    className="w-4 h-4 mb-4 -mt-6"
+  />
+
+
 
         <h3 className="text-[12px] sm:text-sm md:text-base font-bold uppercase tracking-wider  md:mb-2 text-white -mt-1">
   {feature.title}
 </h3>
-<p className="text-gray-300 text-[10px] sm:text-sm md:text-base leading-relaxed -mt-1 mb-4">
+<p className="text-gray-300 text-[12px] sm:text-sm md:text-base leading-relaxed -mt-1 mb-4">
   {feature.description}
 </p>
 

@@ -14,6 +14,7 @@ import gridlogo3 from "../../../../public/assests/becomechallenger/credit-card-v
 import gridlogo4 from "../../../../public/assests/becomechallenger/bot.svg";
 import becomechallengelogo from "../../../../public/assests/becomechallenger/challange.png";
 import vectorimage from "../../../../public/vector.png";
+import Image4 from "../../../../public/assests/becomechallenger/Vector.png";
 import Image from "next/image";
 
 import Image3 from '../../../../public/Image2.png';
@@ -441,10 +442,9 @@ const BecomeChallenger = () => {
     rounded-full shadow-[0_0_20px_1px_#C6F812]
   `}
 />
-
 <div className="mx-2 sm:mx-0 bg-[url('/bg1.png')] bg-cover bg-center bg-zinc-800 py-8 md:py-10 rounded-lg sm:rounded-none text-center relative">
-        <div className="absolute inset-0 bg-[#0000007d] bg-opacity-60 rounded-lg"></div>
-        <div className="relative z-10">
+  <div className="absolute inset-0 bg-gradient-to-b from-black to-transparent rounded-lg"></div>
+  <div className="relative z-10">
  
 <h3 className="text-lg md:text-3xl uppercase font-bold mb-2 leading-tight" style={{ wordSpacing: "0.2rem" }}>
   THESE BENEFITS ARE
@@ -452,7 +452,7 @@ const BecomeChallenger = () => {
   ONLY AVAILABLE TILL
 </h3>
           <h2 className="text-2xl md:text-5xl font-bold mb-4">
-            AUGUST 15TH 2025
+            SEPTEMBER 16TH 2025
           </h2>
           <div className="flex items-center justify-center gap-3 mb-6">
             <span className="text-xl font-normal text-white tracking-wide">
@@ -519,7 +519,7 @@ const BecomeChallenger = () => {
   <div className="flex items-start gap-3 px-5 py-3 bg-black/35 backdrop-blur-2xl rounded-xl text-sm text-white border border-white/10 max-w-xs">
     <Image src={vectorimage} alt="Joined Players" width={60} height={60} />
     <p className="leading-snug text-left">
-      <span className="font-bold">JOINED 2,347 </span>
+      <span className="font-bold">JOINED 2,347 :  </span>
       PLAYERS ALREADY IN THE REVOLUTION
     </p>
   </div>
@@ -530,7 +530,7 @@ const BecomeChallenger = () => {
   <div className="flex flex-col sm:flex-row justify-center items-center w-full font-satoshi px-4 py-10 gap-4">
   {/* Register Button */}
   <button
-    className="flex items-center gap-3 px-6 py-3 bg-[#C6F812] text-[#1D4E00] rounded-md font-semibold uppercase text-base sm:text-lg tracking-wide hover:bg-lime-400 transition duration-200"
+    className="flex items-center gap-1 px-3 py-2 bg-[#C6F812] text-[#1D4E00] rounded-md font-semibold uppercase text-base sm:text-lg tracking-wide hover:bg-lime-400 transition duration-200"
     style={{
       boxShadow: `
         inset 0 1px 2px rgba(0, 0, 0, 0.3),
@@ -546,7 +546,7 @@ const BecomeChallenger = () => {
 
   {/* Share Button */}
   <button
-    className="flex items-center gap-3 px-6 py-3 bg-[#C6F812] text-[#1D4E00] rounded-full font-semibold uppercase text-base sm:text-lg tracking-wide hover:bg-lime-400 transition duration-200"
+    className="flex items-center gap-1 px-3 py-2 bg-[#C6F812] text-[#1D4E00] rounded-full font-semibold uppercase text-base sm:text-lg tracking-wide hover:bg-lime-400 transition duration-200"
     style={{
       boxShadow: `
         inset 0 1px 2px rgba(0, 0, 0, 0.3),
