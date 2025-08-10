@@ -497,38 +497,33 @@ const BecomeChallenger = () => {
 
 {/* Info Boxes */}
 <div className="flex flex-col md:flex-row justify-center items-center gap-4 mt-12 mx-4">
-  <div className="flex items-center gap-3 px-5 py-3 bg-black/35 backdrop-blur-2xl rounded-xl text-sm text-white border border-white/10">
-    <Image
-      src={vectorimage}
-      alt="Promoter Spots"
-      width={60}
-      height={60}
-    />
-    <span className="font-bold">PROMOTER SPOTS:</span>
-    <span>ONLY 200 TOTAL (145 LEFT)</span>
+  {/* Box 1 */}
+  <div className="flex items-start gap-3 px-5 py-3 bg-black/35 backdrop-blur-2xl rounded-xl text-sm text-white border border-white/10 max-w-xs">
+    <Image src={vectorimage} alt="Promoter Spots" width={60} height={60} />
+    <p className="leading-snug text-left">
+      <span className="font-bold">PROMOTER SPOTS: </span>
+      ONLY 200 TOTAL (145 LEFT)
+    </p>
   </div>
-  <div className="flex items-center gap-3 px-5 py-3 bg-black/35 backdrop-blur-2xl rounded-xl text-sm text-white border border-white/10">
-    <Image
-      src={vectorimage}
-      alt="Challenger Perks"
-      width={60}
-      height={60}
-    />
-    <span className="font-bold">CHALLENGER PERKS:</span>
-    <span>ONLY FOR PRE-LAUNCH SIGNUPS</span>
+
+  {/* Box 2 */}
+  <div className="flex items-start gap-3 px-5 py-3 bg-black/35 backdrop-blur-2xl rounded-xl text-sm text-white border border-white/10 max-w-xs">
+    <Image src={vectorimage} alt="Challenger Perks" width={60} height={60} />
+    <p className="leading-snug text-left">
+      <span className="font-bold">CHALLENGER PERKS: </span>
+      ONLY FOR PRE-LAUNCH SIGNUPS
+    </p>
   </div>
-  <div className="flex items-center gap-3 px-5 py-3 bg-black/35 backdrop-blur-2xl rounded-xl text-sm text-white border border-white/10">
-    <Image
-      src={vectorimage}
-      alt="Joined Players"
-      width={60}
-      height={60}
-    />
-    <span className="font-bold">JOINED 2,347</span>
-    <span>PLAYERS ALREADY IN THE REVOLUTION</span>
+
+  {/* Box 3 */}
+  <div className="flex items-start gap-3 px-5 py-3 bg-black/35 backdrop-blur-2xl rounded-xl text-sm text-white border border-white/10 max-w-xs">
+    <Image src={vectorimage} alt="Joined Players" width={60} height={60} />
+    <p className="leading-snug text-left">
+      <span className="font-bold">JOINED 2,347 </span>
+      PLAYERS ALREADY IN THE REVOLUTION
+    </p>
   </div>
 </div>
-
 
 
  

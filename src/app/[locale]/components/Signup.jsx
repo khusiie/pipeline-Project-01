@@ -145,7 +145,7 @@ export default function SignUp() {
           </div>
 
           {/* Phone No. */}
-          <div className="flex items-center gap-3 sm:gap-4 border-b border-gray-500 focus-within:border-[#C6FF00] transition-colors py-1.5 sm:py-3">
+          <div className="flex items-center gap-4 sm:gap-4 border-b border-gray-500 focus-within:border-[#C6FF00] transition-colors py-1.5 sm:py-3">
             <label className="text-xs sm:text-sm lg:text-base w-20 sm:w-28 whitespace-nowrap">
               Phone No.
             </label>
