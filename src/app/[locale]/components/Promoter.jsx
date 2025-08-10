@@ -227,8 +227,8 @@ const Promoter = () => {
                       <Image
                         src={dotSvg}
                         alt="Feature dot"
-                        width={24}
-                        height={24}
+                        width={18}
+                        height={18}
                         className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 z-10 relative"
                       />
                     </div>
@@ -236,19 +236,17 @@ const Promoter = () => {
                     {/* Content with Asterisk Heading */}
                     <div className="flex-1 relative">
                       {/* Asterisk Heading */}
-                      <h2 className="text-lime-400 text-4xl  sm:text-3xl md:text-4xl font-bold leading-none">
+                      <h2 className="text-lime-400 text-4xl  sm:text-3xl md:text-4xl font-bold leading-none -mt-8">
                         *
                       </h2>
 
-                      {/* Feature Title */}
-                      <h3 className="text-xs sm:text-sm md:text-base font-bold uppercase tracking-wider mb-1 md:mb-2 text-white mt-1 md:mt-2">
-                        {feature.title}
-                      </h3>
+        <h3 className="text-[12px] sm:text-sm md:text-base font-bold uppercase tracking-wider  md:mb-2 text-white -mt-1">
+  {feature.title}
+</h3>
+<p className="text-gray-300 text-[10px] sm:text-sm md:text-base leading-relaxed -mt-1 mb-4">
+  {feature.description}
+</p>
 
-                      {/* Feature Description */}
-                      <p className="text-gray-300 text-xs sm:text-sm md:text-base leading-relaxed">
-                        {feature.description}
-                      </p>
                     </div>
                   </div>
                 </div>
