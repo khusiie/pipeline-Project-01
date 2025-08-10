@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="md: max-w-7xl mx-2 py-10 md:mx-autp grid grid-cols-1 md:grid-cols-3 gap-10 md:place-items-centr place-items-left">
         {/* Left Section */}
         <div className="space-y-2  md:max-w-none">
-          <h2 className="text-2xl font-bold uppercase leading-tight">
+          <h2 className="text-3xl font-bold uppercase leading-tight">
             Join the movement.<br />
             Shape the winners<br />
             lineup.
@@ -147,7 +147,7 @@ export default function Footer() {
       </div>
 
       {/* Social Icons */}
-      <div className="flex mt-5 space-x-4 md:hidden justify-center">
+      <div className="flex mt-5 space-x-4 px-2 md:hidden text-left">
         {[
           {
             label: "Facebook",
