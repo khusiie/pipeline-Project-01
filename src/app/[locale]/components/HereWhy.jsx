@@ -135,7 +135,7 @@ const HereWhy = () => {
         {/* Carousel Container */}
         <div className="h-[320px] pb-8 sm:h-[380px] md:h-[420px] lg:h-[500px] flex items-center justify-center">
           <div className="max-w-7xl mx-auto flex justify-center">
-            <div className="flex items-center justify-center gap-2 sm:gap-3 md:gap-4 lg:gap-6 transition-all duration-500">
+            <div className="flex items-center justify-center gap-2 sm:gap-3 md:gap-4 lg:gap-6 mb-8 transition-all duration-500">
               {visibleIndices.map((cardIndex, i) => {
                 const position = i - 2;
                 const card = cards[cardIndex];
@@ -217,7 +217,7 @@ const HereWhy = () => {
         <div className="flex flex-wrap justify-center pt-6 gap-4 font-satoshi">
           {/* Reserve Button */}
           <button
-            className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#C6F812] text-[#1D4E00] rounded-lg font-semibold text-sm sm:text-base md:text-lg uppercase tracking-wide hover:bg-lime-400 transition duration-200"
+            className="inline-flex items-center pr-3 gap-2 px-5 py-2.5 bg-[#C6F812] text-[#1D4E00] rounded-lg font-semibold text-sm sm:text-base md:text-lg uppercase tracking-wide hover:bg-lime-400 transition duration-200"
             style={{
               boxShadow: `
         inset 0 2px 4px rgba(0, 0, 0, 0.3),
@@ -225,22 +225,8 @@ const HereWhy = () => {
       `,
             }}
           >
-            RESERVE MY SPOT NOW
+            JOIN TODAY
             <FiArrowUpRight className="bg-white border border-black rounded-md p-1 w-6 h-6 sm:w-5 sm:h-5" />
-          </button>
-
-          {/* Share Button */}
-          <button
-            className="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-[#C6F812] text-[#1D4E00] rounded-lg font-semibold text-sm sm:text-base md:text-lg uppercase tracking-wide hover:bg-lime-400 transition duration-200"
-            style={{
-              boxShadow: `
-        inset 0 2px 4px rgba(0, 0, 0, 0.3),
-        0 4px 15px rgba(0, 0, 0, 0.2)
-      `,
-            }}
-          >
-            SHARE
-            <Image src={Image2} alt="Share" width={20} height={20} />
           </button>
         </div>
       </div>
