@@ -75,21 +75,24 @@ const HereWhy = () => {
 
   const getCardSize = (position, screenSize) => {
     const sizes = {
-      desktop: {
-        center: { width: 400, height: 400 },
-        adjacent: { width: 300, height: 300 },
-        outer: { width: 250, height: 250 },
-      },
+     desktop: {
+  center:   { width: 400, height: 500 }, // +100 for rectangle look
+  adjacent: { width: 300, height: 380 }, // +80
+  outer:    { width: 250, height: 320 }, // +70
+},
+
       tablet: {
         center: { width: 320, height: 320 },
         adjacent: { width: 240, height: 240 },
         outer: { width: 180, height: 180 },
       },
-      mobile: {
-        center: { width: 280, height: 280 },
-        adjacent: { width: 200, height: 200 },
-        outer: { width: 150, height: 150 },
-      },
+mobile: {         
+  center:   { width: 280, height: 350 }, 
+  adjacent: { width: 200, height: 260 }, 
+  outer:    { width: 150, height: 200 }, 
+}
+
+
     };
     const sizeCategory =
       position === 0
@@ -121,19 +124,19 @@ const HereWhy = () => {
 
   return (
     <section>
-      <div className="bg-[#121212] text-white py-8 sm:py-12 md:py-16 px-2 sm:px-4 md:px-8 overflow-hidden">
+      <div className="bg-[#121212] text-white  py-8 sm:py-12 md:py-16 px-2 sm:px-4 md:px-8 overflow-hidden">
         {/* Heading Image */}
      <div className="flex justify-center items-center  bg-[#121212]">
   <Image
     src={hereiswhy}
     alt="Sticker"
-    className="w-75 sm:w-40 md:w-48 lg:w-160 h-auto"
+    className="w-75 sm:w-40 md:w-48 lg:w-160 h-auto lg:mb:0 mb-12"
   />
 </div>
 
 
         {/* Carousel Container */}
-        <div className="h-[320px] sm:h-[380px] md:h-[420px] lg:h-[500px] flex items-center justify-center">
+        <div className="h-[320px] pb-8 sm:h-[380px] md:h-[420px] lg:h-[500px] flex items-center justify-center">
           <div className="max-w-7xl mx-auto flex justify-center">
             <div className="flex items-center justify-center gap-2 sm:gap-3 md:gap-4 lg:gap-6 transition-all duration-500">
               {visibleIndices.map((cardIndex, i) => {

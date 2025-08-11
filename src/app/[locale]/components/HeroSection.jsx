@@ -29,7 +29,7 @@ export default function HeroSection() {
         {/* Headings */}
         <div className="flex flex-col">
           <h1
-            className="text-[1.55em] md:text-[5rem] -mt-8 lg:text-[4.8rem] font-semibold  leading-[2rem] text-[#F7FFD9]"
+            className="text-[1.55em] md:text-[5rem] -mt-8 lg:-mt-6 lg:text-[5.5rem] font-semibold  leading-[2rem] text-[#F7FFD9]"
             style={{ letterSpacing: "0.04em" }}
           >
             {t("heading1")}
