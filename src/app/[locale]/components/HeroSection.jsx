@@ -29,11 +29,17 @@ export default function HeroSection() {
         {/* Headings */}
         <div className="flex flex-col">
           <h1
-            className="text-[1.55em] md:text-[5rem] -mt-8 lg:-mt-6 lg:text-[5.5rem] font-semibold  leading-[2rem] text-[#F7FFD9]"
-            style={{ letterSpacing: "0.04em" }}
-          >
-            {t("heading1")}
-          </h1>
+  className="
+    text-[1.55em] leading-[2rem]     /* Mobile */
+    md:text-[5rem] md:leading-[5.5rem] /* Tablet/Desktop */
+    lg:-mt-6 lg:text-[5.5rem] lg:leading-[3rem] /* Large screens */
+    -mt-8 font-semibold text-[#F7FFD9]
+  "
+  style={{ letterSpacing: "0.04em" }}
+>
+  {t("heading1")}
+</h1>
+
   
              <h2
             className="text-[6rem] md:text-[4rem] lg:text-[10rem] font-extrabold leading-[0.85]  lg:pb-1 pb-2 md:leading-none"

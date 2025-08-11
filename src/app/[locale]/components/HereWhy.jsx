@@ -8,33 +8,33 @@ import hereiswhy from "../../../../public/assests/hereiswhy/Heading.png";
 const cards = [
   {
     id: 973,
-    title: "You Build Winning Teams,",
-    description: "But Others Copy Them & Never Pay You For It.",
-    image: "/assests/hereiswhy/left.png",
+    title: "Winning teams, but no payout.,",
+
+    image: "/assests/hereiswhyimage/Winning.jpg",
   },
   {
     id: 974,
-    title: "Create Perfect Strategies,",
-    description: "But Competitors Steal & Profit From Your Ideas.",
-    image: "/assests/hereiswhy/imagecenter.png",
+    title: "Shady deals, full tension.",
+
+    image: "/assests/hereiswhyimage/Shady.jpg"
   },
   {
     id: 975,
-    title: "Design Amazing Products,",
-    description: "But Others Launch Copies & Take Your Market.",
-    image: "/assests/hereiswhy/right.png",
+    title: " Bots win, you lose.",
+
+    image: "/assests/hereiswhyimage/Bots.jpg",
   },
   {
     id: 976,
-    title: "Build Strong Communities,",
-    description: "But Rivals Poach Members & Use Your Methods.",
-    image: "/assests/hereiswhy/image4.jpeg",
+    title: "To win more, pay more.",
+
+    image: "/assests/hereiswhyimage/Towin.jpg",
   },
   {
     id: 977,
-    title: "Develop Great Content,",
-    description: "But Others Repost & Get All The Credit.",
-    image: "/assests/hereiswhy/image5.jpg",
+    title: "Your grind, their profit.",
+
+    image: "/assests/hereiswhyimage/Yourgrind.jpg",
   },
 ];
 
@@ -75,24 +75,22 @@ const HereWhy = () => {
 
   const getCardSize = (position, screenSize) => {
     const sizes = {
-     desktop: {
-  center:   { width: 400, height: 500 }, // +100 for rectangle look
-  adjacent: { width: 300, height: 380 }, // +80
-  outer:    { width: 250, height: 320 }, // +70
-},
+      desktop: {
+        center: { width: 400, height: 500 }, // +100 for rectangle look
+        adjacent: { width: 300, height: 380 }, // +80
+        outer: { width: 250, height: 320 }, // +70
+      },
 
       tablet: {
         center: { width: 320, height: 320 },
         adjacent: { width: 240, height: 240 },
         outer: { width: 180, height: 180 },
       },
-mobile: {         
-  center:   { width: 280, height: 350 }, 
-  adjacent: { width: 200, height: 260 }, 
-  outer:    { width: 150, height: 200 }, 
-}
-
-
+      mobile: {
+        center: { width: 280, height: 350 },
+        adjacent: { width: 200, height: 260 },
+        outer: { width: 150, height: 200 },
+      },
     };
     const sizeCategory =
       position === 0
@@ -117,7 +115,7 @@ mobile: {
   const getTextStyles = (position, screenSize) => {
     const isCenter = position === 0;
     return {
-      title: "text-white text-xs font-medium mb-0",
+      title: "text-white font-bold  text-center text-[15px] md:text-xl font-medium mb-0",
       description: "text-white text-xs leading-tight",
     };
   };
@@ -126,14 +124,13 @@ mobile: {
     <section>
       <div className="bg-[#121212] text-white  py-8 sm:py-12 md:py-16 px-2 sm:px-4 md:px-8 overflow-hidden">
         {/* Heading Image */}
-     <div className="flex justify-center items-center  bg-[#121212]">
-  <Image
-    src={hereiswhy}
-    alt="Sticker"
-    className="w-75 sm:w-40 md:w-48 lg:w-160 h-auto lg:mb:0 mb-12"
-  />
-</div>
-
+        <div className="flex justify-center items-center  bg-[#121212]">
+          <Image
+            src={hereiswhy}
+            alt="Sticker"
+            className="w-75 sm:w-40 md:w-48 lg:w-160 h-auto lg:mb:0 mb-12"
+          />
+        </div>
 
         {/* Carousel Container */}
         <div className="h-[320px] pb-8 sm:h-[380px] md:h-[420px] lg:h-[500px] flex items-center justify-center">
@@ -189,16 +186,13 @@ mobile: {
                     >
                       <div className="flex items-center justify-between">
                         <div className="flex-1">
-                          <h2 className={getTextStyles(position, screen).title}>
+                          <h2
+                            className={`${
+                              getTextStyles(position, screen).title
+                            } text-4xl`}
+                          >
                             {card.title}
                           </h2>
-                          <p
-                            className={
-                              getTextStyles(position, screen).description
-                            }
-                          >
-                            {card.description}
-                          </p>
                         </div>
                         <div className="ml-2 bg-white rounded-full p-1 flex-shrink-0">
                           <FiArrowUpRight className="text-black w-3 h-3" />
@@ -220,37 +214,35 @@ mobile: {
           </div>
         </div>
 
-<div className="flex flex-wrap justify-center pt-6 gap-4 font-satoshi">
-  {/* Reserve Button */}
-  <button
-    className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#C6F812] text-[#1D4E00] rounded-lg font-semibold text-sm sm:text-base md:text-lg uppercase tracking-wide hover:bg-lime-400 transition duration-200"
-    style={{
-      boxShadow: `
+        <div className="flex flex-wrap justify-center pt-6 gap-4 font-satoshi">
+          {/* Reserve Button */}
+          <button
+            className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#C6F812] text-[#1D4E00] rounded-lg font-semibold text-sm sm:text-base md:text-lg uppercase tracking-wide hover:bg-lime-400 transition duration-200"
+            style={{
+              boxShadow: `
         inset 0 2px 4px rgba(0, 0, 0, 0.3),
         0 4px 15px rgba(0, 0, 0, 0.2)
-      `
-    }}
-  >
-    RESERVE MY SPOT NOW
-    <FiArrowUpRight className="bg-white border border-black rounded-md p-1 w-6 h-6 sm:w-5 sm:h-5" />
-  </button>
+      `,
+            }}
+          >
+            RESERVE MY SPOT NOW
+            <FiArrowUpRight className="bg-white border border-black rounded-md p-1 w-6 h-6 sm:w-5 sm:h-5" />
+          </button>
 
-  {/* Share Button */}
-  <button
-    className="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-[#C6F812] text-[#1D4E00] rounded-lg font-semibold text-sm sm:text-base md:text-lg uppercase tracking-wide hover:bg-lime-400 transition duration-200"
-    style={{
-      boxShadow: `
+          {/* Share Button */}
+          <button
+            className="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-[#C6F812] text-[#1D4E00] rounded-lg font-semibold text-sm sm:text-base md:text-lg uppercase tracking-wide hover:bg-lime-400 transition duration-200"
+            style={{
+              boxShadow: `
         inset 0 2px 4px rgba(0, 0, 0, 0.3),
         0 4px 15px rgba(0, 0, 0, 0.2)
-      `
-    }}
-  >
-    SHARE
-    <Image src={Image2} alt="Share" width={20} height={20} />
-  </button>
-</div>
-
-
+      `,
+            }}
+          >
+            SHARE
+            <Image src={Image2} alt="Share" width={20} height={20} />
+          </button>
+        </div>
       </div>
     </section>
   );
