@@ -25,18 +25,18 @@ export default function HeroSection() {
     >
       {/* Overlay */}
       <div className="absolute inset-0 bg-[#00000060]" />
-<div className="relative z-10 max-w-7xl px-2 top-10">
+      <div className="relative z-10 max-w-7xl px-2 top-10">
         {/* Headings */}
         <div className="flex flex-col">
           <h1
             className="text-[1.55em] md:text-[5rem] -mt-8 lg:text-[4.8rem] font-semibold  leading-[2rem] text-[#F7FFD9]"
-            style={{ letterSpacing: "0.08em" }}
+            style={{ letterSpacing: "0.04em" }}
           >
             {t("heading1")}
           </h1>
-
-          <h2
-            className="text-[6rem] md:text-[4rem] lg:text-[10rem] font-extrabold leading-[0.85]  pb-6 md:leading-none"
+  
+             <h2
+            className="text-[6rem] md:text-[4rem] lg:text-[10rem] font-extrabold leading-[0.85]  lg:pb-1 pb-2 md:leading-none"
             style={{ letterSpacing: "0.08em" }}
           >
             {t("heading2")}
@@ -44,15 +44,17 @@ export default function HeroSection() {
         </div>
 
         {/* Subheading */}
-        <p className="text-[0.9rem] font-medium md:text-[1.5rem] lg:text-[1.50rem]  text-[#C8C8C8] top-[20px] pb-10 " 
-            style={{ letterSpacing: "0.08em" }}>
+        <p
+          className="text-[1.0rem] font-[490] md:text-[1.5rem] lg:text-[1.50rem]  text-[#F7FFD9] top-[20px] lg:pb-0 pb-10  "
+          style={{ letterSpacing: "0.04em" }}
+        >
           {t("subheading")}
         </p>
 
         {/* CTA Button */}
-        <div className="flex justify-center font-satoshi ">
+        <div className="flex justify-center font-satoshi py-3">
           <button
-            className="flex items-center justify-center gap-3 pr-2  px-4 py-1.5 bg-[#C6F812] text-[#1D4E00] rounded-lg font-semibold text-base md:text-lg uppercase tracking-wide hover:bg-lime-400 transition duration-200"
+            className="flex items-center justify-center gap-3 pr-2 lg:pr-2  lg:px-4 lg:py-4  px-4 py-1.5 bg-[#C6F812] text-[#1D4E00] rounded-lg font-semibold text-base md:text-lg uppercase tracking-wide hover:bg-lime-400 transition duration-200"
             style={{
               boxShadow: `
         inset 0 2px 4px rgba(0, 0, 0, 0.3),
@@ -74,19 +76,3 @@ export default function HeroSection() {
     </section>
   );
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  

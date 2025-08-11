@@ -67,10 +67,10 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className=" max-w-7xl mx-auto fixed top-6 md:top-4  left-0 right-0 z-50 px-4  md:px-0">
-        <div className="rounded-[20px] bg-[#FFFFFF15] backdrop-blur text-white border border-[#ffffff33] shadow-[0_0_0.5px_1px_rgba(255,255,255,0.15)]">
+      <nav className="md:px-0 mx-auto fixed top-6 lg:top-6  left-0 right-0 z-50 s lg:px-4 px-2">
+        <div className="lg:rounded-[50px] rounded-2xl bg-[#0e0c0c15] backdrop-blur text-white border border-[#ffffff33] shadow-[0_0_0.5px_1px_rgba(255,255,255,0.15)]">
           {/* Desktop Navigation */}
-          <div className="hidden md:flex justify-between items-center px-12 py-4 lg:px-[15px] lg:py-[12px]">
+          <div className="hidden md:flex justify-between items-center px-12 py-4  lg:px-[15px] lg:py-[12px]">
             <div className="flex items-center space-x-2">
               <Image src="/logo.png" alt="logo" width={120} height={40} />
             </div>
@@ -183,7 +183,7 @@ export default function Navbar() {
           </div>
 
           {/* Mobile Navigation */}
-          <div className="md:hidden flex justify-between items-center px-6 py-4">
+          <div className="md:hidden flex justify-between items-center py-2 px-2">
             <div className="flex items-center space-x-2">
               <Image src="/logo.png" alt="logo" width={100} height={32} />
             </div>
