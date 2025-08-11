@@ -133,9 +133,9 @@ const HereWhy = () => {
         </div>
 
         {/* Carousel Container */}
-        <div className="h-[320px] pb-8 sm:h-[380px] md:h-[420px] lg:h-[500px] flex items-center justify-center">
+        <div className="h-[320px] mb-8 sm:h-[380px] md:h-[420px] lg:h-[500px] flex items-center justify-center">
           <div className="max-w-7xl mx-auto flex justify-center">
-            <div className="flex items-center justify-center gap-2 sm:gap-3 md:gap-4 lg:gap-6 mb-8 transition-all duration-500">
+            <div className="flex items-center justify-center gap-2 sm:gap-3 md:gap-4 lg:gap-6 mb-4 transition-all duration-500">
               {visibleIndices.map((cardIndex, i) => {
                 const position = i - 2;
                 const card = cards[cardIndex];
