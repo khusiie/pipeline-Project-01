@@ -90,7 +90,7 @@ const Promoter = () => {
 
           {/* Seats Counter */}
           <div className="mb-6 md:mb-8 w-full py-2 px-2 md:px-6">
-            <div className="inline-flex items-baseline gap-2 sm:gap-2 md:gap-3 lg:gap-4 text-xl sm:text-sm md:text-lg lg:text-xl xl:text-xl 2xl:text-3xl flex-wrap justify-center w-full">
+            <div className="inline-flex items-baseline gap-2 sm:gap-2 md:gap-3 lg:gap-4 text-base sm:text-sm md:text-lg lg:text-xl xl:text-xl 2xl:text-3xl flex-wrap justify-center w-full">
               <span className="text-white">Only</span>
               <span className="text-lime-400 font-bold text-base sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl">
                 200

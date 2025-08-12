@@ -55,12 +55,12 @@ export default function BuildplayerSection() {
   {/* Mobile version */}
   <div
     className="relative block sm:hidden flex justify-center"
-    style={{ width: "376px", height: "251px", flexShrink: 0 }}
+    style={{ width: "376px", height: "225px", flexShrink: 0 }}
   >
     <Image
       src={twins}
       alt="Pipeline Cricket Player"
-      className="shadow-lg w-[95%] h-full object-cover px-1 rounded-lg mx-auto"
+      className="shadow-lg w-[95%] h-full object-cover mx-2 rounded-lg "
     />
     {/* Gradient behind text */}
     <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent px-3 py-2">
@@ -94,13 +94,13 @@ export default function BuildplayerSection() {
 
 
 
-  <section className="grid grid-cols-1 lg:grid-cols-2 items-center justify-center px-2 sm:px-4 py-0 sm:py-8 max-w-6xl mx-auto gap-6 lg:gap-12">
+  <section className="grid grid-cols-1 lg:grid-cols-2 items-center justify-center px-2 sm:px-4 py-0 sm:py-8 max-w-6xl mx-auto gap-6 lg:gap-12  bg-[#121212]">
   {/* Image */}
   <div className="flex justify-center lg:justify-end">
     <Image
       width={300}
       height={300}
-      className="w-full h-auto sm:w-80 px-2 sm:h-80 md:w-96 md:h-96 lg:w-[400px] lg:h-[400px] rounded-none sm:rounded-xl"
+      className="w-full h-auto sm:w-80 mx-2 sm:h-80 md:w-96 md:h-96 lg:w-[400px] lg:h-[400px] rounded-none sm:rounded-xl"
       src={buildplayer1}
       alt="Your Brand Banner"
     />
