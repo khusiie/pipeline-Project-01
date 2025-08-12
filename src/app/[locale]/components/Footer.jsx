@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="md: max-w-7xl mx-2 py-10 md:mx-autp grid grid-cols-1 md:grid-cols-3 gap-10 md:place-items-centr place-items-left">
         {/* Left Section */}
         <div className="space-y-2  md:max-w-none">
-          <h2 className="text-3xl font-bold uppercase leading-tight">
+          <h2 className="text-[35px] font-bold uppercase leading-tight">
             Join the movement.<br />
             Shape the winners<br />
             lineup.
@@ -67,8 +67,8 @@ export default function Footer() {
             ].map((link, index) => (
               <button
                 key={index}
-                className="bg-gray-800 hover:bg-lime-400 focus:bg-lime-400 active:bg-lime-400
-                           text-white hover:text-black focus:text-black active:text-black
+                className="bg-white hover:bg-lime-400 focus:bg-lime-400 active:bg-lime-400
+                           text-black hover:text-black focus:text-black active:text-black
                            px-4 py-2 rounded-full transition duration-300"
               >
                 {link}
@@ -115,7 +115,7 @@ export default function Footer() {
       ].map((link, index) => (
         <button
           key={index}
-          className="bg-gray-800 hover:bg-lime-400 focus:bg-lime-400 active:bg-lime-400
+          className="bg-[#171717] hover:bg-lime-400 focus:bg-lime-400 active:bg-lime-400
                      text-white hover:text-black focus:text-black active:text-black
                      px-3 py-1.5 text-xs rounded-full transition duration-300"
         >
@@ -166,7 +166,7 @@ export default function Footer() {
           <a
             key={index}
             href="#"
-            className="group bg-gray-800 hover:bg-[#C6F812] focus:bg-[#C6F812] active:bg-[#C6F812] transition-colors duration-300 p-3 rounded-full"
+            className="group bg-[#171717] hover:bg-[#C6F812] focus:bg-[#C6F812] active:bg-[#C6F812] transition-colors duration-300 p-3 rounded-full"
           >
             <svg
               className="w-4 h-4 fill-current text-white group-hover:text-black group-focus:text-black group-active:text-black"
