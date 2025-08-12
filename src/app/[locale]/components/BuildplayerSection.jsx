@@ -33,7 +33,7 @@ export default function BuildplayerSection() {
     alt="star"
   />
 </div>
-<h2 className="text-[12px] sm:text-xl md:text-3xl lg:text-4xl xl:text-5xl font-medium uppercase tracking-widest px-2 text-white leading-tight [word-spacing:0.3rem]">
+<h2 className="text-[12px] sm:text-xl md:text-3xl lg:text-2xl xl:text-5xl font-medium uppercase tracking-widest px-2 text-white leading-tight [word-spacing:0.3rem]">
   This isn't just another fantasy platform
 </h2>
 
@@ -87,7 +87,7 @@ export default function BuildplayerSection() {
     <Image
       src={mobile2}
       alt="Pipeline Cricket Player - Website"
-      className="shadow-lg w-full h-[240px] sm:h-[500px] lg:h-[350px] object-cover rounded-lg"
+      className="shadow-lg w-full h-[240px] sm:h-[500px] lg:h-[350px] object-contain rounded-lg"
     />
      {/* Overlay Image (Centered) */}
   <Image
@@ -97,7 +97,7 @@ export default function BuildplayerSection() {
 />
 
     {/* Text at bottom without heavy gradient */}
-    <div className="absolute inset-0 flex items-end justify-center  pb-4 sm:pb-8">
+    <div className="absolute inset-0 flex items-end justify-center px-6  pb-4 sm:pb-8">
       <h2 className="text-white text-lg lg:text-xl font-normal  max-w-[95%] text-center drop-shadow-md">
         We’re taking back control. Total transparency, zero celebrity gimmicks,
         and the lowest platform fee in the game, starts as low as 3%.
