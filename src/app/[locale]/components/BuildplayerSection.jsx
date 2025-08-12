@@ -35,16 +35,18 @@ export default function BuildplayerSection() {
     alt="star"
   />
 </div>
+<h2 className="text-[12px] sm:text-xl md:text-3xl lg:text-4xl xl:text-5xl font-medium uppercase tracking-widest px-2 text-white leading-tight">
+  This isn't just another fantasy platform
+</h2>
 
-        <h2 className="text-[12px] sm:text-xl md:text-3xl lg:text-4xl xl:text-5xl font-medium uppercase tracking-widest px-2 text-white">
-          This isn't just another fantasy platform
-        </h2>
-        <h1 className="text-4xl sm:text-4xl md:text-6xl lg:text-8xl xl:text-[140px] font-extrabold my-2 sm:my-4 text-white">
-          THIS IS PIPELINE
-        </h1>
-        <p className="uppercase text-[12px] sm:text-base md:text-xl lg:text-2xl xl:text-[40px] tracking-widest px-2 text-white">
-          Built by players – for players.
-        </p>
+<h1 className="text-4xl sm:text-4xl md:text-6xl lg:text-8xl xl:text-[140px] font-extrabold my-1 sm:my-2 text-white leading-none">
+  THIS IS PIPELINE
+</h1>
+
+<p className="uppercase text-[12px] sm:text-base md:text-xl lg:text-2xl xl:text-[40px] tracking-widest px-2 text-white leading-tight">
+  Built by players – for players.
+</p>
+
       </div>
 
       <div className="mt-6 sm:mt-8 flex justify-center px-0 sm:px-2">
@@ -69,44 +71,46 @@ export default function BuildplayerSection() {
 
   {/* Text */}
   <div className="text-center lg:text-left flex flex-col justify-center items-center lg:items-start gap-4 lg:gap-6">
-    <h3 className="text-left text-3xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-[40px] leading-snug sm:leading-snug lg:leading-[3rem] mb-4 sm:mb-6 ml-3 sm:ml-0">
-      We will not blow your <br className="hidden sm:block" />
-      <span className="inline-block mt-1">money on IPL ads, and</span> <br className="hidden sm:block" />
-      <span className="inline-block mt-1">team sponsorships,</span> <br className="hidden sm:block" />
-      <span className="inline-block mt-1">rather we:</span>
-    </h3>
+   <h3 className="text-left text-3xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-[40px] leading-snug sm:leading-snug lg:leading-[3rem] mb-4 sm:mb-6 ml-3 sm:ml-0 [word-spacing:0.3rem] sm:[word-spacing:normal]">
+  We will not blow your <br className="hidden sm:block" />
+  <span className="inline-block mt-1">money on IPL ads, and</span> <br className="hidden sm:block" />
+  <span className="inline-block mt-1">team sponsorships,</span> <br className="hidden sm:block" />
+  <span className="inline-block mt-1">rather we:</span>
+</h3>
+
 
     <ul className="space-y-6 sm:space-y-4 text-left mx-6 sm:ml-0">
-      <li className="flex items-center gap-3 sm:gap-4 text-sm sm:text-base md:text-lg sm:rounded-lg">
+      <li className="flex items-center gap-6 sm:gap-4 text-sm sm:text-base md:text-lg sm:rounded-lg">
         <Image
           width={30}
           height={30}
-          className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 flex-shrink-0"
+          className="w-8 h-8 sm:w-8 sm:h-8 md:w-10 md:h-10 flex-shrink-0"
           src={helmet}
           alt="helmet"
         />
         <span>Reward you with real Pipe Tokens</span>
       </li>
-      <li className="flex items-center gap-3 sm:gap-4 text-sm sm:text-base md:text-lg">
+      <li className="flex items-center gap-6  sm:gap-4 text-sm sm:text-base md:text-lg">
         <Image
           width={30}
           height={30}
-          className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 flex-shrink-0"
+          className="w-8 h-8 sm:w-8 sm:h-8 md:w-10 md:h-10 flex-shrink-0"
           src={helmet}
           alt="helmet"
         />
         <span>Let you monetize your skill legally</span>
       </li>
-      <li className="flex items-center gap-3 sm:gap-4 text-sm sm:text-base md:text-lg">
-        <Image
-          width={30}
-          height={30}
-          className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 flex-shrink-0"
-          src={helmet}
-          alt="helmet"
-        />
-        <span>Grow the winner payout % from 12–15% to 35–40%</span>
-      </li>
+<li className="flex items-center gap-6 sm:gap-8 text-sm sm:text-base md:text-lg">
+  <Image
+    width={30}
+    height={30}
+    className="w-8 h-8 sm:w-8 sm:h-8 md:w-10 md:h-10 flex-shrink-0"
+    src={helmet}
+    alt="helmet"
+  />
+  <span>How to grow the winner payout % from (industryavg) 12–15% to 35–40%</span>
+</li>
+
     </ul>
   </div>
 </section>

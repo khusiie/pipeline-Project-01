@@ -52,36 +52,33 @@ const Promoter = () => {
                 className="opacity-70 w-80 h-80 md:w-[28rem] md:h-[28rem] lg:w-[32rem] lg:h-[32rem]"
               />
             </div>
-           {/* Badge Container */}
-<div className="relative bg-gradient-to-r from-lime-400 to-yellow-300 rounded-sm md:rounded-xl shadow-2xl w-full max-w-lg  md:max-w-md md:w-auto">
-  <div className="bg-gradient-to-r from-lime-400 to-yellow-300 rounded-xl px-5 pt-4 pb-2 md:px-6 md:pt-5 md:pb-3 flex items-center gap-4 md:gap-5">
-    {/* Cricket Field Icon */}
-    <Image
-      src={image1}
-      alt="image1"
-      width={48}
-      height={48}
-      className="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16"
-    />
+            {/* Badge Container */}
+            <div className="relative bg-gradient-to-r from-lime-400 to-yellow-300 rounded-sm md:rounded-xl shadow-2xl w-full max-w-lg  md:max-w-md md:w-auto">
+              <div className="bg-gradient-to-r from-lime-400 to-yellow-300 rounded-xl px-5 pt-4 pb-2 md:px-6 md:pt-5 md:pb-3 flex items-center gap-4 md:gap-5">
+                {/* Cricket Field Icon */}
+                <Image
+                  src={image1}
+                  alt="image1"
+                  width={48}
+                  height={48}
+                  className="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16"
+                />
 
-    <div className="text-black">
-      <div className="text-sm md:text-base font-medium text-left">
-        Become a
-      </div>
+                <div className="text-black">
+                  <div className="text-sm md:text-base font-medium text-left">
+                    Become a
+                  </div>
 
-      <div className="text-lg md:text-2xl lg:text-3xl font-bold">
-        PIPELINE <span className="font-normal"> Promoter</span>
-      </div>
-    </div>
-  </div>
-</div>
-
+                  <div className="text-lg md:text-2xl lg:text-3xl font-bold">
+                    PIPELINE <span className="font-normal"> Promoter</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           {/* Main Heading */}
           <div className="max-w-4xl mx-auto text-center px-2 md:px-4 -mt-4">
-         <h1 className="text-[14px] sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold mb-1 md:mb-4 leading-tight">
-
-
+            <h1 className="text-[14px] sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold mb-1 md:mb-4 leading-tight">
               LEAD THE FANTASY CRICKET REVOLUTION
             </h1>
 
@@ -109,28 +106,26 @@ const Promoter = () => {
               </span>
             </div>
           </div>
-<div className="flex justify-center items-center w-full font-satoshi px-4 py-4">
-  <button
-    className="flex items-center gap-2 px-3 py-1.5 bg-[#C6F812] text-[#1D4E00] rounded-sm font-semibold uppercase text-xs sm:text-sm tracking-wide hover:bg-lime-400 transition duration-200"
-    style={{
-      boxShadow: `
+          <div className="flex justify-center items-center w-full font-satoshi px-4 py-4">
+            <button
+              className="flex items-center gap-2 px-3 py-1.5 bg-[#C6F812] text-[#1D4E00] rounded-sm font-semibold uppercase text-xs sm:text-sm tracking-wide hover:bg-lime-400 transition duration-200"
+              style={{
+                boxShadow: `
         inset 0 1px 2px rgba(0, 0, 0, 0.3),
         0 2px 8px rgba(0, 0, 0, 0.2)
       `,
-    }}
-  >
-    REGISTER NOW
-    <span className="p-1 rounded-md flex items-center justify-center">
-      <Image
-        src={Image2}
-        alt="icon"
-        className="w-4 h-4 sm:w-5 sm:h-5"
-      />
-    </span>
-  </button>
-</div>
-
-
+              }}
+            >
+              REGISTER NOW
+              <span className="p-1 rounded-md flex items-center justify-center">
+                <Image
+                  src={Image2}
+                  alt="icon"
+                  className="w-4 h-4 sm:w-5 sm:h-5"
+                />
+              </span>
+            </button>
+          </div>
         </div>
 
         {/* Dotted Border */}
@@ -163,17 +158,15 @@ const Promoter = () => {
                     {/* Content with Asterisk Heading */}
                     <div className="flex-1 relative">
                       {/* Asterisk Heading */}
-                
-  {/* Star Image replacing the * */}
-  <Image 
-    src={Image4} 
-    alt="Star icon" 
-    width={20}  // specify actual width
-    height={20} // specify actual height
-    className="w-4 h-4"
-  />
 
-
+                      {/* Star Image replacing the * */}
+                      <Image
+                        src={Image4}
+                        alt="Star icon"
+                        width={20} // specify actual width
+                        height={20} // specify actual height
+                        className="w-4 h-4"
+                      />
 
                       {/* Feature Title */}
                       <h3 className="text-base font-bold uppercase tracking-wider mb-2 text-white mt-2">
@@ -206,20 +199,20 @@ const Promoter = () => {
           </div>
         </div>
 
-{/* Image Container - Responsive for Mobile & Desktop */}
-<div className="w-full lg:w-1/2 pb-10
- lg:pb-0">
-  <div className="relative aspect-[4/5] lg:aspect-auto bg-gray-800 overflow-hidden shadow-2xl">
-    <Image
-      src={promoter}
-      alt="Features showcase"
-      fill
-      className="object-cover"
-    />
-  </div>
-</div>
-
-
+        {/* Image Container - Responsive for Mobile & Desktop */}
+        <div
+          className="w-full lg:w-1/2 pb-10
+ lg:pb-0"
+        >
+          <div className="relative aspect-[4/5] lg:aspect-auto bg-gray-800 overflow-hidden shadow-2xl">
+            <Image
+              src={promoter}
+              alt="Features showcase"
+              fill
+              className="object-cover"
+            />
+          </div>
+        </div>
 
         {/* Mobile Layout - Stacked with Full Width Image */}
         <div className="lg:hidden">
@@ -246,34 +239,31 @@ const Promoter = () => {
                     {/* Content with Asterisk Heading */}
                     <div className="flex-1 relative">
                       {/* Asterisk Heading */}
-                
-  {/* Star Image replacing the * */}
-  <Image 
-    src={Image4} 
-    alt="Star icon" 
-    width={20}  // specify actual width
-    height={20} // specify actual height
-    className="w-4 h-4 mb-4 -mt-6"
-  />
 
+                      {/* Star Image replacing the * */}
+                      <Image
+                        src={Image4}
+                        alt="Star icon"
+                        width={20} // specify actual width
+                        height={20} // specify actual height
+                        className="w-4 h-4 mb-4 -mt-6"
+                      />
 
-
-        <h3 className="text-[12px] sm:text-sm md:text-base font-bold uppercase tracking-wider  md:mb-2 text-white -mt-1">
-  {feature.title}
-</h3>
-<p className="text-gray-300 text-[12px] sm:text-sm md:text-base leading-relaxed -mt-1 mb-4">
-  {feature.description}
-</p>
-
+                      <h3 className="text-[12px] sm:text-sm md:text-base font-bold uppercase tracking-wider  md:mb-2 text-white -mt-1">
+                        {feature.title}
+                      </h3>
+                      <p className="text-gray-300 text-[12px] sm:text-sm md:text-base leading-relaxed -mt-1 mb-4">
+                        {feature.description}
+                      </p>
                     </div>
                   </div>
                 </div>
               ))}
             </div>
           </div>
-          
-                 <hr
-  className="
+
+          <hr
+            className="
     w-4/5 md:max-w-2xl
     mx-auto
     mt-10
@@ -284,8 +274,7 @@ const Promoter = () => {
     rounded-full
     shadow-[0_0_20px_1px_#C6F812]
   "
-/>
-       
+          />
         </div>
       </div>
     </div>
