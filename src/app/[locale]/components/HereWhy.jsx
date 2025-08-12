@@ -67,7 +67,7 @@ const HereWhy = () => {
     if (!isPaused) {
       autoSlideRef.current = setInterval(() => {
         nextSlide();
-      }, 5000);
+      }, 4000);
     }
 
     return () => clearInterval(autoSlideRef.current);
@@ -214,7 +214,7 @@ const HereWhy = () => {
           </div>
         </div>
 
-        <div className="flex flex-wrap justify-center py-6 gap-4  font-satoshi">
+        <div className="flex flex-wrap justify-center pt-6 pb-4  gap-4  font-satoshi">
           {/* Reserve Button */}
           <button
             className="inline-flex items-center pr-3 gap-2 px-5 py-2.5 bg-[#C6F812] text-[#1D4E00] rounded-lg font-semibold text-sm sm:text-base md:text-lg uppercase tracking-wide hover:bg-lime-400 transition duration-200"

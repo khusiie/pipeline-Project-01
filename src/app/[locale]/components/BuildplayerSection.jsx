@@ -3,6 +3,7 @@ import star from "../../../../public/assests/star.svg";
 import buildplayer from "../../../../public/assests/buildplayer.png";
 import buildplayer1 from "../../../../public/assests/buildplayer/frame1.png";
 import helmet from "../../../../public/assests/buildplayer/cricketHelmet.svg";
+import twins from "../../../../public/assests/buildplayer/twins.png";
 
 export default function BuildplayerSection() {
   return (
@@ -35,35 +36,38 @@ export default function BuildplayerSection() {
     alt="star"
   />
 </div>
-<h2 className="text-[12px] sm:text-xl md:text-3xl lg:text-4xl xl:text-5xl font-medium uppercase tracking-widest px-2 text-white leading-tight">
+<h2 className="text-[12px] sm:text-xl md:text-3xl lg:text-4xl xl:text-5xl font-medium uppercase tracking-widest px-2 text-white leading-tight [word-spacing:0.3rem]">
   This isn't just another fantasy platform
 </h2>
 
-<h1 className="text-4xl sm:text-4xl md:text-6xl lg:text-8xl xl:text-[140px] font-extrabold my-1 sm:my-2 text-white leading-none">
+<h1 className="text-4xl sm:text-4xl md:text-6xl lg:text-8xl xl:text-[140px] font-extrabold my-1 sm:my-2 text-white leading-none [word-spacing:0.5rem]">
   THIS IS PIPELINE
 </h1>
 
-<p className="uppercase text-[12px] sm:text-base md:text-xl lg:text-2xl xl:text-[40px] tracking-widest px-2 text-white leading-tight">
+<p className="uppercase text-[12px] sm:text-base md:text-xl lg:text-2xl xl:text-[40px] tracking-widest px-2 text-white leading-tight [word-spacing:0.2rem]">
   Built by players – for players.
 </p>
 
+
       </div>
 
-      <div className="mt-6 sm:mt-8 flex justify-center px-0 sm:px-2">
-        <Image
-          src={buildplayer}
-          alt="Pipeline Cricket Player"
-          className="shadow-lg w-full h-auto sm:max-w-4xl"
-        />
+      <div className="py-6 sm:mt-8 flex justify-center px-1 rounded-2 sm:px-2">
+<Image
+  src={buildplayer}
+  alt="Pipeline Cricket Player"
+  className="shadow-lg w-full h-[240px] sm:h-[500px] lg:h-[650px] sm:max-w-4xl object-cover"
+/>
+
+
       </div>
 
-  <section className="grid grid-cols-1 lg:grid-cols-2 items-center justify-center px-0 sm:px-4 py-0 sm:py-8 max-w-6xl mx-auto gap-6 lg:gap-12">
+  <section className="grid grid-cols-1 lg:grid-cols-2 items-center justify-center px-2 sm:px-4 py-0 sm:py-8 max-w-6xl mx-auto gap-6 lg:gap-12">
   {/* Image */}
   <div className="flex justify-center lg:justify-end">
     <Image
       width={300}
       height={300}
-      className="w-full h-auto sm:w-80 sm:h-80 md:w-96 md:h-96 lg:w-[400px] lg:h-[400px] rounded-none sm:rounded-xl"
+      className="w-full h-auto sm:w-80 px-2 sm:h-80 md:w-96 md:h-96 lg:w-[400px] lg:h-[400px] rounded-none sm:rounded-xl"
       src={buildplayer1}
       alt="Your Brand Banner"
     />

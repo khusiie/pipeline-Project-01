@@ -54,7 +54,7 @@ const Promoter = () => {
             </div>
             {/* Badge Container */}
             <div className="relative bg-gradient-to-r from-lime-400 to-yellow-300 rounded-sm md:rounded-xl shadow-2xl w-full max-w-lg  md:max-w-md md:w-auto">
-              <div className="bg-gradient-to-r from-lime-400 to-yellow-300 rounded-xl px-3 pt-4 pb-2 md:px-6 md:pt-5 md:pb-3 flex items-center gap-4 md:gap-5">
+              <div className="bg-gradient-to-r from-lime-400 to-yellow-300 rounded-xl px-3 py-4  md:px-6 md:pt-5 md:pb-3 flex items-center gap-4 md:gap-5">
                 {/* Cricket Field Icon */}
                 <Image
                   src={image1}
@@ -76,25 +76,23 @@ const Promoter = () => {
               </div>
             </div>
           </div>
-          {/* Main Heading */}
-          <div className="max-w-4xl mx-auto text-center px-2 md:px-4 -mt-10">
-            <h1 className="text-[14px] sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold mb-1 md:mb-4 leading-tight">
-              LEAD THE FANTASY CRICKET REVOLUTION
-            </h1>
+    {/* Main Heading */}
+<div className="max-w-4xl mx-auto text-center px-2 md:px-4 -mt-10">
+  <h1 className="text-[14px] sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold mb-1 md:mb-4 leading-tight [word-spacing:0.3em]">
+    LEAD THE FANTASY CRICKET REVOLUTION
+  </h1>
 
-            <p
-              className="text-[10px] sm:text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl text-gray-300 mb-2 md:mb-8 lg:mb-12"
-              style={{ wordSpacing: "0.25em" }} // adjust the value as needed
-            >
-              BUILD YOUR EMPIRE LEGALLY, OPENLY, AND WITH RESPECT
-            </p>
-          </div>
+  <p className="text-[10px] sm:text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl text-gray-300 mb-2 md:mb-8 lg:mb-12 [word-spacing:0.50em]">
+    BUILD YOUR EMPIRE LEGALLY, OPENLY, AND WITH RESPECT
+  </p>
+</div>
+
 
           {/* Seats Counter */}
           <div className="mb-6 md:mb-8 w-full py-2 px-2 md:px-6">
-            <div className="inline-flex items-baseline gap-2 sm:gap-2 md:gap-3 lg:gap-4 text-xs sm:text-sm md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl flex-wrap justify-center w-full">
+            <div className="inline-flex items-baseline gap-2 sm:gap-2 md:gap-3 lg:gap-4 text-xl sm:text-sm md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl flex-wrap justify-center w-full">
               <span className="text-white">Only</span>
-              <span className="text-lime-400 font-bold text-xl sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl">
+              <span className="text-lime-400 font-bold text-base sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl">
                 200
               </span>
               <span className="text-white">Promoter Seats.</span>
