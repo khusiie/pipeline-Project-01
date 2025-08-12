@@ -54,14 +54,14 @@ const Promoter = () => {
             </div>
             {/* Badge Container */}
             <div className="relative bg-gradient-to-r from-lime-400 to-yellow-300 rounded-sm md:rounded-xl shadow-2xl w-full max-w-lg  md:max-w-md md:w-auto">
-              <div className="bg-gradient-to-r from-lime-400 to-yellow-300 rounded-xl px-4 pt-4 pb-2 md:px-6 md:pt-5 md:pb-3 flex items-center gap-4 md:gap-5">
+              <div className="bg-gradient-to-r from-lime-400 to-yellow-300 rounded-xl px-3 pt-4 pb-2 md:px-6 md:pt-5 md:pb-3 flex items-center gap-4 md:gap-5">
                 {/* Cricket Field Icon */}
                 <Image
                   src={image1}
                   alt="image1"
                   width={45}
                   height={45}
-                  className="w-20 h-16 md:w-14 md:h-14 lg:w-16 lg:h-16"
+                  className="w-16 h-16 md:w-14 md:h-14 lg:w-16 lg:h-16"
                 />
 
                 <div className="text-black">
@@ -70,7 +70,7 @@ const Promoter = () => {
                   </div>
 
                   <div className="text-xl  md:text-2xl lg:text-3xl font-bold">
-                    PIPELINE  <span className="font-normal text-xl"> Promoter</span>
+                    PIPELINE  <span className="font-normal text-2xl"> Promoter</span>
                   </div>
                 </div>
               </div>
