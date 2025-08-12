@@ -60,7 +60,7 @@ export default function BuildplayerSection() {
     <Image
       src={twins}
       alt="Pipeline Cricket Player"
-      className="shadow-lg w-[95%] h-full object-cover rounded-lg mx-auto"
+      className="shadow-lg w-[95%] h-full object-cover px-1 rounded-lg mx-auto"
     />
     {/* Gradient behind text */}
     <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent px-3 py-2">
