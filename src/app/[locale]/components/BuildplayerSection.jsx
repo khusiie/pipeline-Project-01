@@ -51,16 +51,16 @@ export default function BuildplayerSection() {
 
       </div>
 
-<div className="py-6 sm:mt-8 flex justify-center px-1 rounded-2 sm:px-2">
+<div className="py-6 sm:mt-8 flex justify-center mx-2 rounded-2 sm:px-2">
   {/* Mobile version */}
   <div
-    className="relative block sm:hidden"
+    className="relative block sm:hidden flex justify-center"
     style={{ width: "376px", height: "251px", flexShrink: 0 }}
   >
     <Image
       src={twins}
       alt="Pipeline Cricket Player"
-      className="shadow-lg w-full h-full object-cover rounded-lg"
+      className="shadow-lg w-[95%] h-full object-cover rounded-lg mx-auto"
     />
     {/* Gradient behind text */}
     <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent px-3 py-2">
@@ -71,12 +71,13 @@ export default function BuildplayerSection() {
     </div>
   </div>
 
+
   {/* Tablet & desktop version */}
   <div className="hidden sm:block relative w-full sm:max-w-4xl">
     <Image
       src={twins}
       alt="Pipeline Cricket Player"
-      className="shadow-lg w-full h-[240px] sm:h-[500px] lg:h-[650px] object-cover rounded-lg"
+      className="shadow-lg w-full h-[240px] sm:h-[500px] lg:h-[350px] object-cover rounded-lg"
     />
     {/* Text at bottom without heavy gradient */}
     <div className="absolute inset-0 flex items-end justify-center pb-2 sm:pb-8">
