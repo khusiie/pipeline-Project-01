@@ -120,7 +120,7 @@ export default function BuildplayerSection() {
   className="
     w-4/5 md:max-w-2xl
     mx-auto
-    mt-10
+    mt-12
   
     border-0
     h-0.5

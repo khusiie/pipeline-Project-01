@@ -37,7 +37,7 @@ const Promoter = () => {
   ];
 
   return (
-    <div className="bg-[#121212] text-white py-8 md:py-16 md:px-4">
+    <div className="bg-[#121212] text-white py-12 md:py-16 md:px-4">
       <div className="relative py-8 md:py-16 px-2 md:px-4">
         <div className="max-w-6xl mx-auto text-center">
           {/* Promoter Badge */}
@@ -59,17 +59,17 @@ const Promoter = () => {
                 <Image
                   src={image1}
                   alt="image1"
-                  width={48}
-                  height={48}
+                  width={45}
+                  height={45}
                   className="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16"
                 />
 
                 <div className="text-black">
-                  <div className="text-sm md:text-base font-medium text-left">
+                  <div className="text-lg md:text-base  text-left">
                     Become a
                   </div>
 
-                  <div className="text-lg md:text-2xl lg:text-3xl font-bold">
+                  <div className="text-xl  md:text-2xl lg:text-3xl font-bold">
                     PIPELINE <span className="font-normal"> Promoter</span>
                   </div>
                 </div>
@@ -77,7 +77,7 @@ const Promoter = () => {
             </div>
           </div>
           {/* Main Heading */}
-          <div className="max-w-4xl mx-auto text-center px-2 md:px-4 -mt-4">
+          <div className="max-w-4xl mx-auto text-center px-2 md:px-4 -mt-10">
             <h1 className="text-[14px] sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold mb-1 md:mb-4 leading-tight">
               LEAD THE FANTASY CRICKET REVOLUTION
             </h1>
@@ -91,7 +91,7 @@ const Promoter = () => {
           </div>
 
           {/* Seats Counter */}
-          <div className="mb-6 md:mb-8 w-full px-2 md:px-6">
+          <div className="mb-6 md:mb-8 w-full py-2 px-2 md:px-6">
             <div className="inline-flex items-baseline gap-2 sm:gap-2 md:gap-3 lg:gap-4 text-xs sm:text-sm md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl flex-wrap justify-center w-full">
               <span className="text-white">Only</span>
               <span className="text-lime-400 font-bold text-xl sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl">
