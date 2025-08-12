@@ -51,15 +51,47 @@ export default function BuildplayerSection() {
 
       </div>
 
-      <div className="py-6 sm:mt-8 flex justify-center px-1 rounded-2 sm:px-2">
-<Image
-  src={buildplayer}
-  alt="Pipeline Cricket Player"
-  className="shadow-lg w-full h-[240px] sm:h-[500px] lg:h-[650px] sm:max-w-4xl object-cover"
-/>
+<div className="py-6 sm:mt-8 flex justify-center px-1 rounded-2 sm:px-2">
+  {/* Mobile version */}
+  <div
+    className="relative block sm:hidden"
+    style={{ width: "376px", height: "251px", flexShrink: 0 }}
+  >
+    <Image
+      src={twins}
+      alt="Pipeline Cricket Player"
+      className="shadow-lg w-full h-full object-cover rounded-lg"
+    />
+    {/* Gradient behind text */}
+    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent px-3 py-2">
+      <h2 className="text-white text-[12px] font-normal text-center">
+        We’re taking back control. Total transparency, zero celebrity gimmicks,
+        and the lowest platform fee in the game, starts as low as 3%.
+      </h2>
+    </div>
+  </div>
+
+  {/* Tablet & desktop version */}
+  <div className="hidden sm:block relative w-full sm:max-w-4xl">
+    <Image
+      src={twins}
+      alt="Pipeline Cricket Player"
+      className="shadow-lg w-full h-[240px] sm:h-[500px] lg:h-[650px] object-cover rounded-lg"
+    />
+    {/* Text at bottom without heavy gradient */}
+    <div className="absolute inset-0 flex items-end justify-center pb-2 sm:pb-8">
+      <h2 className="text-white text-lg lg:text-xl font-normal px-2 max-w-[95%] text-center drop-shadow-md">
+        We’re taking back control. Total transparency, zero celebrity gimmicks,
+        and the lowest platform fee in the game, starts as low as 3%.
+      </h2>
+    </div>
+  </div>
+</div>
 
 
-      </div>
+
+
+
 
   <section className="grid grid-cols-1 lg:grid-cols-2 items-center justify-center px-2 sm:px-4 py-0 sm:py-8 max-w-6xl mx-auto gap-6 lg:gap-12">
   {/* Image */}
