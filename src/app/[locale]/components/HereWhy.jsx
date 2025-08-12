@@ -67,7 +67,7 @@ const HereWhy = () => {
     if (!isPaused) {
       autoSlideRef.current = setInterval(() => {
         nextSlide();
-      }, 3000);
+      }, 5000);
     }
 
     return () => clearInterval(autoSlideRef.current);
@@ -135,7 +135,7 @@ const HereWhy = () => {
         {/* Carousel Container */}
         <div className="h-[320px] mb-8 sm:h-[380px] md:h-[420px] lg:h-[500px] flex items-center justify-center">
           <div className="max-w-7xl mx-auto flex justify-center">
-            <div className="flex items-center justify-center gap-2 sm:gap-3 md:gap-4 lg:gap-6 mb-4 transition-all duration-500">
+            <div className="flex items-center justify-center gap-6 sm:gap-3 md:gap-4 lg:gap-6 mb-4 transition-all duration-500">
               {visibleIndices.map((cardIndex, i) => {
                 const position = i - 2;
                 const card = cards[cardIndex];
@@ -214,7 +214,7 @@ const HereWhy = () => {
           </div>
         </div>
 
-        <div className="flex flex-wrap justify-center pt-6 gap-4 font-satoshi">
+        <div className="flex flex-wrap justify-center py-6 gap-4  font-satoshi">
           {/* Reserve Button */}
           <button
             className="inline-flex items-center pr-3 gap-2 px-5 py-2.5 bg-[#C6F812] text-[#1D4E00] rounded-lg font-semibold text-sm sm:text-base md:text-lg uppercase tracking-wide hover:bg-lime-400 transition duration-200"
