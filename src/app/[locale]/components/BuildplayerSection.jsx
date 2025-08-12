@@ -1,9 +1,10 @@
 import Image from "next/image";
 import star from "../../../../public/assests/star.svg";
-import buildplayer from "../../../../public/assests/buildplayer.png";
+
 import buildplayer1 from "../../../../public/assests/buildplayer/frame1.png";
 import helmet from "../../../../public/assests/buildplayer/cricketHelmet.svg";
-import twins from "../../../../public/assests/buildplayer/twins.png";
+import pipline from"../../../../public/assests/buildplayer/pipline.png";
+import mobile2 from "../../../../public/assests/buildplayer/mobile2.png";
 
 export default function BuildplayerSection() {
   return (
@@ -22,10 +23,6 @@ export default function BuildplayerSection() {
     shadow-[0_0_20px_1px_#C6F812]
   "
 />
-
-
-
-
       <div className="relative z-10    py-8     sm:mt-16 lg:mt-30">
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-90 -z-10">
   <Image
@@ -52,36 +49,56 @@ export default function BuildplayerSection() {
       </div>
 
 <div className="py-6 sm:mt-8 flex justify-center mx-2 rounded-2 sm:px-2">
-  {/* Mobile version */}
-  <div
-    className="relative block sm:hidden flex justify-center"
-    style={{ width: "376px", height: "225px", flexShrink: 0 }}
-  >
-    <Image
-      src={twins}
-      alt="Pipeline Cricket Player"
-      className="shadow-lg w-[95%] h-full object-cover mx-2 rounded-lg "
-    />
-    {/* Gradient behind text */}
-    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent px-3 py-2">
-      <h2 className="text-white text-[12px] font-normal text-center">
-        We’re taking back control. Total transparency, zero celebrity gimmicks,
-        and the lowest platform fee in the game, starts as low as 3%.
-      </h2>
-    </div>
+{/* Mobile version */}
+<div
+  className="relative block sm:hidden flex justify-center"
+  style={{ width: "376px", height: "251px", flexShrink: 0 }}
+>
+  {/* Main Image */}
+  <Image
+    src={mobile2}
+    alt="Pipeline Cricket Player - Mobile"
+    className="shadow-lg w-[95%] h-full object-cover object-center mx-2 rounded-lg"
+  />
+
+  {/* Overlay Image (Centered) */}
+  <Image
+  src={pipline} // <-- your overlay image import
+  alt="Overlay Graphic"
+  className="absolute top-1/2 left-1/2 w-25 h-25 object-contain object-center transform -translate-x-1/2 -translate-y-[20%]"
+/>
+
+
+  {/* Gradient & text */}
+  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent px-3">
+    <h2 className="text-white text-[12px] font-medium text-center py-4">
+      We’re taking back control. Total transparency, zero <br />
+      celebrity gimmicks,
+      and the lowest platform fee <br />
+      in the game, starts as low as 3%.
+    </h2>
   </div>
+</div>
+
 
 
   {/* Tablet & desktop version */}
   <div className="hidden sm:block relative w-full sm:max-w-4xl">
     <Image
-      src={twins}
-      alt="Pipeline Cricket Player"
+      src={mobile2}
+      alt="Pipeline Cricket Player - Website"
       className="shadow-lg w-full h-[240px] sm:h-[500px] lg:h-[350px] object-cover rounded-lg"
     />
+     {/* Overlay Image (Centered) */}
+  <Image
+  src={pipline} // <-- your overlay image import
+  alt="Overlay Graphic"
+  className="absolute top-1/2 left-1/2 w-45 h-45 object-contain object-center transform -translate-x-1/2 -translate-y-[20%]"
+/>
+
     {/* Text at bottom without heavy gradient */}
-    <div className="absolute inset-0 flex items-end justify-center pb-2 sm:pb-8">
-      <h2 className="text-white text-lg lg:text-xl font-normal px-2 max-w-[95%] text-center drop-shadow-md">
+    <div className="absolute inset-0 flex items-end justify-center  pb-4 sm:pb-8">
+      <h2 className="text-white text-lg lg:text-xl font-normal  max-w-[95%] text-center drop-shadow-md">
         We’re taking back control. Total transparency, zero celebrity gimmicks,
         and the lowest platform fee in the game, starts as low as 3%.
       </h2>
@@ -108,7 +125,7 @@ export default function BuildplayerSection() {
 
   {/* Text */}
   <div className="text-center lg:text-left flex flex-col justify-center items-center lg:items-start gap-4 lg:gap-6">
-   <h3 className="text-left text-3xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-[40px] leading-snug sm:leading-snug lg:leading-[3rem] mb-4 sm:mb-6 ml-3 sm:ml-0 [word-spacing:0.3rem] sm:[word-spacing:normal]">
+   <h3 className="text-left text-3xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-[40px]  leading-snug sm:leading-snug lg:leading-[3rem] mb-4 sm:mb-6 ml-3 sm:ml-0 [word-spacing:0.3rem] sm:[word-spacing:normal]">
   We will not blow your <br className="hidden sm:block" />
   <span className="inline-block mt-1">money on IPL ads, and</span> <br className="hidden sm:block" />
   <span className="inline-block mt-1">team sponsorships,</span> <br className="hidden sm:block" />
