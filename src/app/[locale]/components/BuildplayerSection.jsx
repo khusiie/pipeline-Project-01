@@ -63,14 +63,13 @@ export default function BuildplayerSection() {
 
   {/* Overlay Image (Centered) */}
   <Image
-  src={pipline} // <-- your overlay image import
-  alt="Overlay Graphic"
-  className="absolute top-1/2 left-1/2 w-30 h-30 object-contain object-center transform -translate-x-1/2 -translate-y-[20%]"
-/>
+    src={pipline} // <-- your overlay image import
+    alt="Overlay Graphic"
+    className="absolute top-1/2 left-1/2 w-30 h-30 object-contain object-center transform -translate-x-1/2 -translate-y-[20%]"
+  />
 
-
-  {/* Gradient & text */}
-  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent px-3">
+  {/* Gradient & text — width matches image */}
+  <div className="absolute bottom-0 left-1/2 w-[95%] -translate-x-1/2 bg-gradient-to-t from-black/70 to-transparent px-4 rounded-b-lg">
     <h2 className="text-white text-[12px] font-medium text-center py-4">
       We’re taking back control. Total transparency, zero <br />
       celebrity gimmicks,
@@ -79,6 +78,7 @@ export default function BuildplayerSection() {
     </h2>
   </div>
 </div>
+
 
 
 
