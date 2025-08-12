@@ -48,7 +48,7 @@ export default function BuildplayerSection() {
 
       </div>
 
-<div className="py-6 sm:mt-8 flex justify-center mx-2 rounded-2 sm:px-2">
+<div className="py-6 px-2  sm:mt-8 flex justify-center  mx-2 rounded-2 sm:px-2">
 {/* Mobile version */}
 <div
   className="relative block sm:hidden flex justify-center"
@@ -65,7 +65,7 @@ export default function BuildplayerSection() {
   <Image
   src={pipline} // <-- your overlay image import
   alt="Overlay Graphic"
-  className="absolute top-1/2 left-1/2 w-25 h-25 object-contain object-center transform -translate-x-1/2 -translate-y-[20%]"
+  className="absolute top-1/2 left-1/2 w-30 h-30 object-contain object-center transform -translate-x-1/2 -translate-y-[20%]"
 />
 
 
