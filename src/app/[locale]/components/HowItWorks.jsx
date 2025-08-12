@@ -19,76 +19,81 @@ export default function HowItWorks() {
 
         {/* Image + Positioned Text */}
         <div className="relative max-w-5xl mx-auto">
-          <div className="w-full h-[100px] relative">
-            {/* SVG Line */}
-            <Image
-              src={process}
-              alt="curved line"
-              className="absolute top-1/2 left-0 w-full -translate-y-1/2 pointer-events-none"
-            />
+         <div className="w-full h-[100px] relative">
+  {/* SVG Line */}
+<Image
+  src={process}
+  alt="curved line"
+  className="
+    absolute top-1/2 left-1/2 
+    w-[250%] sm:w-[220%] md:w-[250%]
+    h-auto 
+    -translate-x-1/2 -translate-y-1/2 
+    pointer-events-none
+  "
+/>
 
-            {/* Block 1 */}
-            <div
-              className="
-              absolute 
-              text-left 
-              text-[6px] sm:text-sm md:text-base 
-              leading-tight
-              w-[70%] sm:w-[60%] md:w-[30%]
-              left-[11%] sm:left-[10%] md:left-[8%]
-              top-[110%] sm:top-[90%] md:top-[95%] uppercase
-            "
-            >
-              
-              Sign up as a
-             
-              <br />
-                Promoter
-              or <br/>  Challenger
-             
-            </div>
 
-            {/* Block 2 */}
-            <div
-              className="
-              absolute 
-              text-left 
-              text-[6px] sm:text-sm md:text-base 
-              leading-tight
-              w-[60%] sm:w-[65%] md:w-[30%]
-              left-[40%] sm:left-[25%] md:left-[40%]
-              top-[75%] sm:top-[55%] md:top-[60%] uppercase
-            "
-            >
-                Get access link <br />
-          when    app drops, <br />
-             you’ll  receive<br/> early access + <br />
-             your earned   <br/>
-             PipeToken 
-             bonus.
-               
-          
-            </div>
 
-            {/* Block 3 */}
-            <div
-              className="
-              absolute 
-              text-left 
-              text-[6px] sm:text-sm md:text-base 
-              leading-tight
-              w-[25%] sm:w-[65%] md:w-[30%]
-              right-[6%] sm:right-[5%] md:right-[1%]
-              top-[2%] sm:top-[10%] md:top-[5%] uppercase
-            "
-            >
-                Get access link <br />
-          when    app drops, <br />
-             you’ll  receive<br/> early access + <br />
-             your earned   <br/> <span className="font-bold text-lime-400">PipeToken</span> 
-             bonus.
-            </div>
-          </div>
+
+
+
+  {/* Block 1 */}
+  <div
+    className="
+      absolute 
+      text-left 
+      text-[8px] sm:text-sm md:text-base 
+      leading-tight
+      w-[70%] sm:w-[60%] md:w-[30%]
+      left-[10%] sm:left-[10%] md:left-[8%]
+      top-[100%] sm:top-[90%] md:top-[95%] uppercase
+    "
+  >
+    Sign up as a
+    <br />
+    Promoter or <br /> Challenger
+  </div>
+
+  {/* Block 2 */}
+  <div
+    className="
+      absolute 
+      text-left 
+      text-[8px] sm:text-sm md:text-base 
+      leading-tight
+      w-[60%] sm:w-[65%] md:w-[30%]
+      left-[38%] sm:left-[25%] md:left-[40%]
+      top-[65%] sm:top-[55%] md:top-[60%] uppercase
+    "
+  >
+    Get access link <br />
+    when app drops, <br />
+    you’ll receive <br /> early access + <br />
+    your earned <br />
+    PipeToken bonus.
+  </div>
+
+  {/* Block 3 */}
+  <div
+    className="
+      absolute 
+      text-left 
+      text-[8px] font-medium sm:text-sm md:text-base 
+      leading-tight
+      w-[25%] sm:w-[65%] md:w-[30%]
+      right-[5%] sm:right-[5%] md:right-[1%]
+      top-[6%] sm:top-[10%] md:top-[5%] uppercase
+    "
+  >
+    Get access  <br />
+   link when  <br />
+     app drops,  you’ll<br />  receive early access + your <br />
+    earned  <span className="font-bold text-lime-400">PipeToken</span><br />
+    bonus.
+  </div>
+</div>
+
         </div>
 
      {/* Get Started Button */}
