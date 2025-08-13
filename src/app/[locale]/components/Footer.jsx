@@ -4,7 +4,7 @@ import footerlogo from "../../../../public/assests/Footer/Footerlogo.svg";
 export default function Footer() {
   return (
     <footer className="bg-[#121212] text-white px-2 sm:px-6 md:px-12 pt-4 md:py-12  font-clash">
-  <div className="max-w-7xl mx-auto md:py-10 grid grid-cols-1 md:grid-cols-3 gap-10 place-items-center text-center">
+  <div className="max-w-7xl mx-auto md:py-10 grid grid-cols-1 md:grid-cols-3 gap-8 place-items-center text-center">
   {/* Left Section */}
   <div className="space-y-6 hidden md:flex flex-col items-center md:items-start">
     <h2 className="text-white font-clash  lg:text-[25px] font-bold uppercase lg:max-w-[900px] mx-auto md:mx-0 lg:text-left">
