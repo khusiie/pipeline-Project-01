@@ -178,15 +178,15 @@ export default function Footer() {
         ))}
       </div>
 {/* Footer Image */}
-<div className="mt-12 mb-4 px-2 text-center">
+<div className="mt-12 px-2 text-center pb-4">
   <Image
     src={footerlogo}
     alt="Your Brand Banner"
-    width={425} // mobile display width
-    height={147} // proportional height
-    className="rounded-lg mx-auto md:w-60"
+    width={425}
+    className="rounded-lg mx-auto h-auto w-auto"
   />
 </div>
+
 
 
     </footer>

@@ -186,7 +186,8 @@ export default function Navbar() {
           {/* Mobile Navigation */}
           <div className="md:hidden flex justify-between items-center py-2 px-2">
             <div className="flex items-center space-x-2">
-              <Image src="/logo.png" alt="logo" width={100} height={32} />
+              <Image src={Logo}
+               alt="logo" width={100} height={32} />
             </div>
             <button onClick={toggleMobileMenu} className="w-8 h-8 p-1">
               <Image
