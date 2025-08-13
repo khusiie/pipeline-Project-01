@@ -72,7 +72,7 @@ export default function Navbar() {
         <div className="lg:rounded-[50px] rounded-2xl bg-[#0e0c0c15] backdrop-blur text-white border border-[#ffffff33] shadow-[0_0_0.5px_1px_rgba(255,255,255,0.15)]">
           {/* Desktop Navigation */}
           <div className="hidden md:flex justify-between items-center px-12 py-4  lg:px-[15px] lg:py-[12px]">
-            <div className="flex items-center space-x-2">
+            <div className="flex items-center py-1 space-x-2">
               <Image src={Logo} alt="logo" width={120} height={40} />
             </div>
             <ul className="flex space-x-8 text-sm uppercase tracking-wider">
@@ -183,20 +183,20 @@ export default function Navbar() {
             </div>
           </div>
 
-          {/* Mobile Navigation */}
-          <div className="md:hidden flex justify-between items-center py-2 px-2">
-            <div className="flex items-center space-x-2">
-              <Image src={Logo}
-               alt="logo" width={100} height={32} />
-            </div>
-            <button onClick={toggleMobileMenu} className="w-8 h-8 p-1">
-              <Image
-                src={menu}
-                alt="Mobile Menu Icon"
-                className="w-full h-full object-contain transition-transform duration-300"
-              />
-            </button>
-          </div>
+        {/* Mobile Navigation */}
+<div className="md:hidden flex justify-between items-center py-2 px-4">
+  <div className="flex items-center space-x-2">
+    <Image src={Logo} alt="logo" width={80} height={26} />
+  </div>
+  <button onClick={toggleMobileMenu} className="w-8 h-8 p-1">
+    <Image
+      src={menu}
+      alt="Mobile Menu Icon"
+      className="w-full h-full object-contain transition-transform duration-300"
+    />
+  </button>
+</div>
+
         </div>
       </nav>
 
