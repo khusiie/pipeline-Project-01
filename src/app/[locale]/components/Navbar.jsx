@@ -183,21 +183,18 @@ export default function Navbar() {
             </div>
           </div>
 
-        {/* Mobile Navigation */}
-{/* Mobile Navigation */}
-<div className="md:hidden flex justify-between items-center px-4 py-2">
+<div className="md:hidden flex justify-between items-center px-4 py-4">
   {/* Logo */}
-  <div className="flex items-center space-x-2">
+  <div className="flex items-center h-9"> {/* Same height as menu icon */}
     <Image
       src={Logo}
       alt="logo"
-      width={96}  // Increased size
-      height={32}
+      className="h-full w-auto object-contain" // keeps aspect ratio
     />
   </div>
 
   {/* Menu Icon */}
-  <button onClick={toggleMobileMenu} className="w-8 h-8">
+  <button onClick={toggleMobileMenu} className="w-9 h-9">
     <Image
       src={menu}
       alt="Mobile Menu Icon"
@@ -205,6 +202,7 @@ export default function Navbar() {
     />
   </button>
 </div>
+
 
 
         </div>
