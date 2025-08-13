@@ -1,7 +1,6 @@
 "use client";
 import Image2 from "../../../../public/assests/becomechallenger/Image2.png";
 import React, { useEffect, useState, useRef } from "react";
-import { FiArrowUpRight } from "react-icons/fi";
 import gridimage1 from "../../../../public/assests/becomechallenger/gridimage1.png";
 import gridimage4 from "../../../../public/assests/becomechallenger/gridimage4.png";
 import gridimage5 from "../../../../public/assests/becomechallenger/gridimage5.png";
@@ -21,7 +20,7 @@ import Image3 from '../../../../public/Image2.png';
 const BecomeChallenger = () => {
   // Countdown logic
   const calculateTimeLeft = () => {
-    const targetDate = new Date("2025-08-15T23:59:59");
+  const targetDate = new Date("2025-09-16T23:59:59");
     const now = new Date();
     const difference = targetDate - now;
 

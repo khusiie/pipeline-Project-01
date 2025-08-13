@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import Logo  from "../../../../public/logo.svg";
 import Image2 from "../../../../public/Image2.png";
 import menu from "../../../../public/menu-11.png";
 import { FaChevronDown } from "react-icons/fa";
@@ -72,7 +73,7 @@ export default function Navbar() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex justify-between items-center px-12 py-4  lg:px-[15px] lg:py-[12px]">
             <div className="flex items-center space-x-2">
-              <Image src="/logo.png" alt="logo" width={120} height={40} />
+              <Image src={Logo} alt="logo" width={120} height={40} />
             </div>
             <ul className="flex space-x-8 text-sm uppercase tracking-wider">
               <li>

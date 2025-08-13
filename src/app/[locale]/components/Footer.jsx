@@ -1,5 +1,5 @@
 import Image from "next/image";
-import footerlogo from "../../../../public/assests/Footer/Footerlogo.png";
+import footerlogo from "../../../../public/assests/Footer/Footerlogo.svg";
 
 export default function Footer() {
   return (
@@ -177,15 +177,18 @@ export default function Footer() {
           </a>
         ))}
       </div>
+{/* Footer Image */}
+<div className="mt-12 mb-4 px-2 text-center">
+  <Image
+    src={footerlogo}
+    alt="Your Brand Banner"
+    width={425} // mobile display width
+    height={147} // proportional height
+    className="rounded-lg mx-auto md:w-60"
+  />
+</div>
 
-      {/* Footer Image */}
-      <div className="mt-12 text-center">
-        <Image
-          src={footerlogo}
-          alt="Your Brand Banner"
-          className="rounded-lg mx-auto w-120"
-        />
-      </div>
+
     </footer>
   );
 }
