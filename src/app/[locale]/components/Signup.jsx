@@ -1,11 +1,10 @@
 "use client";
 
 import React, { useState } from "react";
-
-
-import { supabase } from "../../../../lib/supabaseClient"; // adjust path if neededi
+import { supabase } from "../../../../lib/supabaseClient"; // adjust path if needed
 import Image from "next/image";
 import Image2 from "../../../../public/Image2.png";
+
 export default function SignUp() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -17,7 +16,27 @@ export default function SignUp() {
     e.preventDefault();
     setLoading(true);
 
-    const { data, error } = await supabase.from("profile").insert([
+    // 1️⃣ Check if email already exists
+    const { data: existingUser, error: fetchError } = await supabase
+      .from("profile")
+      .select("id")
+      .eq("email", email)
+      .single();
+
+    if (fetchError && fetchError.code !== "PGRST116") {
+      alert("Error checking email: " + fetchError.message);
+      setLoading(false);
+      return;
+    }
+
+    if (existingUser) {
+      alert("This email is already registered!");
+      setLoading(false);
+      return;
+    }
+
+    // 2️⃣ Insert new record
+    const { error: insertError } = await supabase.from("profile").insert([
       {
         name,
         email,
@@ -25,8 +44,12 @@ export default function SignUp() {
       },
     ]);
 
-    if (error) {
-      alert("Failed to sign up: " + error.message);
+    if (insertError) {
+      if (insertError.code === "23505") {
+        alert("This email is already registered!");
+      } else {
+        alert("Failed to sign up: " + insertError.message);
+      }
     } else {
       alert("Signup successful!");
       setName("");
