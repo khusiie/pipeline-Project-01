@@ -15,53 +15,68 @@ export default function SignUp() {
   const [loading, setLoading] = useState(false);
   const [selected, setSelected] = useState("promoter");
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  setLoading(true);
 
-
-    const { data: existingUser, error: fetchError } = await supabase
-      .from("profile")
-      .select("id")
-      .eq("email", email)
-      .single();
-
-    if (fetchError && fetchError.code !== "PGRST116") {
-      alert("Error checking email: " + fetchError.message);
-      setLoading(false);
-      return;
-    }
-
-    if (existingUser) {
-      alert("This email is already registered!");
-      setLoading(false);
-      return;
-    }
-
-    // 2️⃣ Insert new record
-    const { error: insertError } = await supabase.from("profile").insert([
-      {
-        name,
-        email,
-        phone: `+${phone}`
-      },
-    ]);
-
-    if (insertError) {
-      if (insertError.code === "23505") {
-        alert("This email is already registered!");
-      } else {
-        alert("Failed to sign up: " + insertError.message);
-      }
-    } else {
-      alert("Signup successful!");
-      setName("");
-      setEmail("");
-      setPhone("");
-    }
-
+  // Email format check
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    alert("Please enter a valid email address!");
     setLoading(false);
-  };
+    return;
+  }
+
+  // Phone number length check
+  if (phone.length < 10 || phone.length > 15) {
+    alert("Please enter a valid phone number!");
+    setLoading(false);
+    return;
+  }
+
+  // 1️⃣ Check if email already exists
+  const { data: existingUser, error: fetchError } = await supabase
+    .from("profile")
+    .select("id")
+    .eq("email", email)
+    .single();
+
+  if (fetchError && fetchError.code !== "PGRST116") {
+    alert("Error checking email: " + fetchError.message);
+    setLoading(false);
+    return;
+  }
+
+  if (existingUser) {
+    alert("This email is already registered!");
+    setLoading(false);
+    return;
+  }
+
+  // 2️⃣ Insert new record
+  const { error: insertError } = await supabase.from("profile").insert([
+    {
+      name,
+      email,
+      phone: `+${phone}`
+    },
+  ]);
+
+  if (insertError) {
+    if (insertError.code === "23505") {
+      alert("This email is already registered!");
+    } else {
+      alert("Failed to sign up: " + insertError.message);
+    }
+  } else {
+    alert("Signup successful!");
+    setName("");
+    setEmail("");
+    setPhone("");
+  }
+
+  setLoading(false);
+};
 
   return (
     <section
