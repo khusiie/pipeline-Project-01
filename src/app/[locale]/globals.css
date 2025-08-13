@@ -46,18 +46,18 @@ body {
 }
 
 
-/* Phone input dropdown background black */
+/* Set dropdown background to #121212 */
 .react-tel-input .country-list {
-  background-color: #000 !important;
+  background-color: #121212 !important;
   border: 1px solid #333 !important;
 }
 
-/* White text for countries */
+/* Set text color of countries to white */
 .react-tel-input .country-list .country {
   color: white !important;
 }
 
-/* Highlight selected country */
+/* Highlight selected country with green background and black text */
 .react-tel-input .country-list .country.highlight {
   background-color: #C6FF00 !important;
   color: #000 !important;
@@ -72,10 +72,6 @@ body {
 .react-tel-input .flag-dropdown {
   background: transparent !important;
   border: none !important;
-}
-
-.react-tel-input .flag-dropdown:hover {
-  background: transparent !important;
 }
 
 /* Dark search input inside dropdown */

@@ -171,7 +171,7 @@ export default function SignUp() {
           </div>
 
        {/* Phone No. */}
-{/* Phone No. */}
+
 <div className="flex items-center gap-4 border-b border-gray-500 focus-within:border-[#C6FF00] transition-colors py-2">
   <label className="text-xs sm:text-sm lg:text-base w-20 sm:w-28 whitespace-nowrap text-gray-300">
     Phone No.
@@ -203,6 +203,14 @@ export default function SignUp() {
       containerStyle={{
         width: "100%",
         position: "relative",
+      }}
+      dropdownStyle={{
+        width: "auto", // Adjust width as needed
+        maxWidth: "300px", // Set a maximum width
+        minWidth: "200px", // Set a minimum width
+        backgroundColor: "#121212",
+        border: "1px solid #333",
+        color: "white",
       }}
     />
   </div>
