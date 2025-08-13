@@ -182,14 +182,13 @@ export default function Navbar() {
               </div>
             </div>
           </div>
-
-<div className="md:hidden flex items-center justify-between px-3 py-3 mx-auto">
+<div className="md:hidden flex items-center justify-between px-4 py-3 mx-auto">
   {/* Logo */}
   <div className="flex items-center h-full">
     <Image
       src={Logo}
       alt="logo"
-      className="h-[26px] w-auto object-contain" // Slightly larger logo
+      className="h-[24px] w-auto object-contain"
     />
   </div>
 
@@ -202,6 +201,7 @@ export default function Navbar() {
     />
   </button>
 </div>
+
 
 
 
