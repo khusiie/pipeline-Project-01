@@ -3,7 +3,7 @@ import footerlogo from "../../../../public/assests/Footer/Footerlogo.svg";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#121212] text-white px-2 sm:px-6 md:px-12 pt-4 md:py-12 font-clash">
+    <footer className="bg-[#121212] text-white px-2 sm:px-6 md:px-12 pt-4 md:py-12  font-clash">
       <div className="md: max-w-7xl mx-2 py-10 md:mx-autp grid grid-cols-1 md:grid-cols-3 gap-10 md:place-items-centr place-items-left">
         {/* Left Section */}
         <div className="space-y-2  md:max-w-none">
@@ -178,14 +178,15 @@ export default function Footer() {
         ))}
       </div>
 {/* Footer Image */}
-<div className="mt-12 px-2 text-center pb-4">
+<div className="mt-12  pb-4 px-2 text-center ">
   <Image
     src={footerlogo}
     alt="Your Brand Banner"
     width={425}
-    className="rounded-lg mx-auto h-auto w-auto"
+    className=" mx-auto h-auto w-auto"
   />
 </div>
+
 
 
 
