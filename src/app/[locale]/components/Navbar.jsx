@@ -184,11 +184,20 @@ export default function Navbar() {
           </div>
 
         {/* Mobile Navigation */}
-<div className="md:hidden flex justify-between items-center py-2 px-4">
+{/* Mobile Navigation */}
+<div className="md:hidden flex justify-between items-center px-4 py-2">
+  {/* Logo */}
   <div className="flex items-center space-x-2">
-    <Image src={Logo} alt="logo" width={80} height={26} />
+    <Image
+      src={Logo}
+      alt="logo"
+      width={96}  // Increased size
+      height={32}
+    />
   </div>
-  <button onClick={toggleMobileMenu} className="w-8 h-8 p-1">
+
+  {/* Menu Icon */}
+  <button onClick={toggleMobileMenu} className="w-8 h-8">
     <Image
       src={menu}
       alt="Mobile Menu Icon"
@@ -196,6 +205,7 @@ export default function Navbar() {
     />
   </button>
 </div>
+
 
         </div>
       </nav>
