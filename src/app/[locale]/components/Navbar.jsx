@@ -188,7 +188,7 @@ export default function Navbar() {
     <Image
       src={Logo}
       alt="logo"
-      className="h-[24px] w-auto object-contain"
+      className="h-[26px] w-auto object-contain"
     />
   </div>
 
