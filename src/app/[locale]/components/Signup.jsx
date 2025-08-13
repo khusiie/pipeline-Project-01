@@ -4,6 +4,9 @@ import React, { useState } from "react";
 import { supabase } from "../../../../lib/supabaseClient"; // adjust path if needed
 import Image from "next/image";
 import Image2 from "../../../../public/Image2.png";
+import PhoneInput from "react-phone-input-2";
+import 'react-phone-input-2/lib/style.css';
+
 
 export default function SignUp() {
   const [name, setName] = useState("");
@@ -16,7 +19,7 @@ export default function SignUp() {
     e.preventDefault();
     setLoading(true);
 
-    // 1️⃣ Check if email already exists
+
     const { data: existingUser, error: fetchError } = await supabase
       .from("profile")
       .select("id")
@@ -40,7 +43,7 @@ export default function SignUp() {
       {
         name,
         email,
-        phone,
+        phone: `+${phone}`
       },
     ]);
 
@@ -167,28 +170,45 @@ export default function SignUp() {
             />
           </div>
 
-          {/* Phone No. */}
-          <div className="flex items-center gap-4 sm:gap-4 border-b border-gray-500 focus-within:border-[#C6FF00] transition-colors py-1.5 sm:py-3">
-            <label className="text-xs sm:text-sm lg:text-base w-20 sm:w-28 whitespace-nowrap">
-              Phone No.
-            </label>
+       {/* Phone No. */}
+{/* Phone No. */}
+<div className="flex items-center gap-4 border-b border-gray-500 focus-within:border-[#C6FF00] transition-colors py-2">
+  <label className="text-xs sm:text-sm lg:text-base w-20 sm:w-28 whitespace-nowrap text-gray-300">
+    Phone No.
+  </label>
 
-            <input
-              type="text"
-              value="+92"
-              readOnly
-              className="w-8 sm:w-16 lg:w-20 bg-transparent text-gray-300"
-            />
+  <div className="flex-1">
+    <PhoneInput
+      country={'in'} // Default to India
+      value={phone}
+      onChange={(value) => setPhone(value)}
+      placeholder="000 - 000 - 0000"
+      inputStyle={{
+        width: "100%",
+        background: "transparent",
+        border: "none",
+        outline: "none",
+        fontSize: "14px",
+        color: "white",
+        paddingLeft: "48px", // space for country flag
+      }}
+      buttonStyle={{
+        border: "none",
+        background: "transparent",
+        padding: 0,
+        margin: 0,
+        position: "absolute",
+        left: "0"
+      }}
+      containerStyle={{
+        width: "100%",
+        position: "relative",
+      }}
+    />
+  </div>
+</div>
 
-            <input
-              type="text"
-              value={phone}
-              onChange={(e) => setPhone(e.target.value)}
-              placeholder="000 - 000 - 0000"
-              required
-              className="flex-1 bg-transparent focus:outline-none"
-            />
-          </div>
+
 
           <div className="flex justify-center">
             <button

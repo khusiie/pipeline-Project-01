@@ -44,3 +44,64 @@ body {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
+
+/* Phone input dropdown background black */
+.react-tel-input .country-list {
+  background-color: #000 !important;
+  border: 1px solid #333 !important;
+}
+
+/* White text for countries */
+.react-tel-input .country-list .country {
+  color: white !important;
+}
+
+/* Highlight selected country */
+.react-tel-input .country-list .country.highlight {
+  background-color: #C6FF00 !important;
+  color: #000 !important;
+}
+
+/* Hover effect for list items */
+.react-tel-input .country-list .country:hover {
+  background-color: #111 !important;
+}
+
+/* Remove white background from flag area */
+.react-tel-input .flag-dropdown {
+  background: transparent !important;
+  border: none !important;
+}
+
+.react-tel-input .flag-dropdown:hover {
+  background: transparent !important;
+}
+
+/* Dark search input inside dropdown */
+.react-tel-input .search {
+  background-color: #000 !important;
+  color: white !important;
+  border: 1px solid #333 !important;
+}
+
+/* Focus neon border for flag dropdown */
+.react-tel-input .flag-dropdown.open {
+  border: 1px solid #C6FF00 !important;
+}
+
+/* Selected flag background fix */
+.react-tel-input .selected-flag {
+  background-color: #121212 !important;
+}
+
+/* Dropdown button (flag area) when open */
+.react-tel-input .flag-dropdown.open {
+  background-color: #121212 !important;
+  border: 1px solid #C6FF00 !important; /* green border when open */
+}
+
+/* On hover over selected flag */
+.react-tel-input .selected-flag:hover {
+  background-color: #121212 !important;
+}
