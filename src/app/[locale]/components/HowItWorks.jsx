@@ -46,8 +46,8 @@ export default function HowItWorks() {
       text-[8px] sm:text-sm md:text-base 
       leading-tight
       w-[70%] sm:w-[60%] md:w-[30%]
-      left-[10%] sm:left-[10%] md:left-[8%]
-      top-[100%] sm:top-[90%] md:top-[95%] uppercase
+      left-[9%] sm:left-[10%] md:left-[8%]
+      top-[102%] sm:top-[90%] md:top-[95%] uppercase
     "
   >
     Sign up as a
