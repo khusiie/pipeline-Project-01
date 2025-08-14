@@ -210,6 +210,7 @@
         "minutes": "Minutes"
       }
     },
+
     "infoBoxes": {
       "box1": {
         "title": "PROMOTER SPOTS:",
@@ -231,6 +232,23 @@
       "shareText": "Become a challenger and unlock exclusive perks!",
       "shareCopied": "Link copied to clipboard!"
     }
+
+    ,
+"mobileCards": {
+  "card1_title": "2x Pipe Tokens",
+  "card1_description": "Bonus: Double rewards at launch.",
+  "card2_title": "15% Lifetime Fee Discount",
+  "card2_description": "Win more with savings on every contest, forever.",
+  "card3_title": "Verified Lineups",
+  "card3_description": "Play with confidence. Use strategies from trusted Promoters, no copycats.",
+  "card4_title": "Transparent Matchups",
+  "card4_description": "No Bots, No Drama: No shady deals, guaranteed payouts.",
+  "card5_title": "PIPELINE Promise",
+  "card5_description": "PIPELINE is built with transparency. All matchups are real. All data is clean."
+}
+
+
+
   },
  
   "Promoter": {

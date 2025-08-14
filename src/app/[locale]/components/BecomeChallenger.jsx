@@ -50,47 +50,54 @@ const BecomeChallenger = () => {
     return () => clearInterval(timer);
   }, []);
 
-  // Mobile card data
-  const mobileCardData = [
+
+  // Images & logos arrays
+const images = [gridimage1, gridimage2, gridimage3, gridimage4, gridimage5];
+const logos = [gridlogo2, gridlogo1, gridlogo3, gridlogo4, gridlogo5];
+
+
+const cards = [
     {
-      id: 1,
-      image: gridimage1,
-      logo: gridlogo2,
-      title: "2x Pipe Tokens",
-      description: "Bonus: Double rewards at launch.",
+      title: t("mobileCards.card1_title"),
+      description: t("mobileCards.card1_description"),
+      image: images[0],
+      logo: logos[0],
+      id: 1
     },
     {
-      id: 2,
-      image: gridimage2,
-      logo: gridlogo1,
-      title: "15% Lifetime Fee Discount",
-      description: "More winnings with savings on every contest, forever",
+      title: t("mobileCards.card2_title"),
+      description: t("mobileCards.card2_description"),
+      image: images[1],
+      logo: logos[1],
+      id: 2
     },
     {
-      id: 3,
-      image: gridimage3,
-      logo: gridlogo3,
-      title: "Verified Lineups",
-      description:
-        "Play with confidence. Use strategies from trusted Promoters, no copycats.",
+      title: t("mobileCards.card3_title"),
+      description: t("mobileCards.card3_description"),
+      image: images[2],
+      logo: logos[2],
+      id: 3
     },
     {
-      id: 4,
-      image: gridimage4,
-      logo: gridlogo4,
-      title: "Transparent Matchups",
-      description: "No Bots, No Drama: No shady deals, guaranteed payouts.",
+      title: t("mobileCards.card4_title"),
+      description: t("mobileCards.card4_description"),
+      image: images[3],
+      logo: logos[3],
+      id: 4
     },
     {
-      id: 5,
-      image: gridimage5,
-      logo: gridlogo5,
-      title: "PIPELINE Promise",
-      description:
-        "Built with transparency. All matchups are real. All data is clean.",
+      title: t("mobileCards.card5_title"),
+      description: t("mobileCards.card5_description"),
+      image: images[4],
+      logo: logos[4],
+      id: 5
     },
   ];
 
+ 
+
+
+  
   // Mobile scroll functionality
   useEffect(() => {
     const container = scrollContainerRef.current;
@@ -107,7 +114,7 @@ const BecomeChallenger = () => {
 
     container.addEventListener("scroll", handleScroll, { passive: true });
     return () => container.removeEventListener("scroll", handleScroll);
-  }, [mobileCardData.length]);
+  }, [cards.length]);
 
   // Scroll to specific card (mobile)
   const scrollToCard = (index) => {
@@ -358,7 +365,7 @@ const BecomeChallenger = () => {
                   className="flex gap-6 pb-6"
                   style={{ width: "max-content" }}
                 >
-                  {mobileCardData.map((card, index) => (
+                  {cards.map((card, index) => (
                     <div
                       key={card.id}
                       className="bg-white border-white border-[6px] rounded-2xl flex flex-col flex-shrink-0 snap-center shadow-md overflow-hidden mobile-card-animation"
