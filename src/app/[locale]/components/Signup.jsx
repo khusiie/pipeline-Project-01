@@ -1,5 +1,5 @@
 "use client";
-
+import { isValidPhoneNumber, parsePhoneNumberFromString } from 'libphonenumber-js'
 import React, { useState } from "react";
 import { supabase } from "../../../../lib/supabaseClient"; // adjust path if needed
 import Image from "next/image";
@@ -29,8 +29,10 @@ const handleSubmit = async (e) => {
     return;
   }
 
-  // Phone number length check
-  if (phone.length < 10 || phone.length > 15) {
+   const fullNumber = "+" + phone; // phone includes country code from react-phone-input-2
+  const parsedNumber = parsePhoneNumberFromString(fullNumber);
+
+  if (!parsedNumber || !parsedNumber.isValid()) {
     alert("Please enter a valid phone number!");
     setLoading(false);
     return;
@@ -195,41 +197,44 @@ const handleSubmit = async (e) => {
   </label>
 
   <div className="flex-1">
-    <PhoneInput
-      country={'in'} // Default to India
-      value={phone}
-      onChange={(value) => setPhone(value)}
-     placeholder={t("phonePlaceholder")}
-      inputStyle={{
-        width: "100%",
-        background: "transparent",
-        border: "none",
-        outline: "none",
-        fontSize: "14px",
-        color: "white",
-        paddingLeft: "48px", // space for country flag
-      }}
-      buttonStyle={{
-        border: "none",
-        background: "transparent",
-        padding: 0,
-        margin: 0,
-        position: "absolute",
-        left: "0"
-      }}
-      containerStyle={{
-        width: "100%",
-        position: "relative",
-      }}
-      dropdownStyle={{
-        width: "auto", // Adjust width as needed
-        maxWidth: "300px", // Set a maximum width
-        minWidth: "200px", // Set a minimum width
-        backgroundColor: "#121212",
-        border: "1px solid #333",
-        color: "white",
-      }}
-    />
+   <PhoneInput
+  country={'in'}
+  value={phone}
+  onChange={(value) => setPhone(value)}
+  placeholder={t("phonePlaceholder")}
+  inputStyle={{
+    width: "100%",
+    background: "transparent",
+    border: "none",
+    outline: "none",
+    fontSize: "14px",
+    color: "white",
+    paddingLeft: "52px", 
+  }}
+  buttonStyle={{
+    border: "none",
+    background: "transparent",
+    padding: 0,
+    margin: 0,
+    position: "absolute",
+    left: "0",
+    transform: "scale(1.4)", // increase size
+    transformOrigin: "center", // keep it aligned
+  }}
+  containerStyle={{
+    width: "100%",
+    position: "relative",
+  }}
+  dropdownStyle={{
+    width: "auto",
+    maxWidth: "300px",
+    minWidth: "200px",
+    backgroundColor: "#121212",
+    border: "1px solid #333",
+    color: "white",
+  }}
+/>
+
   </div>
 </div>
 

@@ -101,3 +101,19 @@ body {
 .react-tel-input .selected-flag:hover {
   background-color: #121212 !important;
 }
+
+/* Hide scrollbar for all devices */
+html, body {
+  overflow-y: scroll; /* Keep scrolling but hide bar */
+}
+
+/* Chrome, Safari, Edge */
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+/* Firefox */
+html {
+  scrollbar-width: none;
+}

@@ -63,7 +63,7 @@ const HereWhy = () => {
     if (!isPaused) {
       autoSlideRef.current = setInterval(() => {
         nextSlide();
-      }, 4000);
+      }, 3500);
     }
     return () => clearInterval(autoSlideRef.current);
   }, [isPaused, currentIndex]);
