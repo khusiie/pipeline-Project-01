@@ -2,6 +2,7 @@ import Image from "next/image";
 import footerlogo from "../../../../public/assests/Footer/Footerlogo.svg";
 
 export default function Footer() {
+  
   return (
     <footer className="bg-[#121212] text-white px-2 sm:px-6 md:px-12 pt-4 md:py-12  font-clash">
   <div className="max-w-7xl mx-auto md:py-10 grid grid-cols-1 md:grid-cols-3 gap-8 place-items-center text-center">

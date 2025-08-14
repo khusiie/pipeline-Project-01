@@ -6,9 +6,11 @@ import Image from "next/image";
 import Image2 from "../../../../public/Image2.png";
 import PhoneInput from "react-phone-input-2";
 import 'react-phone-input-2/lib/style.css';
+import { useTranslations } from "next-intl";
 
 
 export default function SignUp() {
+    const  t  = useTranslations("SignUp");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
@@ -88,10 +90,10 @@ const handleSubmit = async (e) => {
         font-clash
       "
     >
-      <div className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-7xl mt-2 mx-auto">
+      <div id="signup" className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-7xl mt-2 mx-auto">
         <div className="text-center mb-6 sm:mb-10 lg:mb-12">
           <h1 className="text-5xl sm:text-5xl md:text-6xl pt-2 lg:text-7xl xl:text-7xl py-1 2xl:text-[9rem] font-bold uppercase leading-tight">
-            Sign Up as
+                   {t("title")}
           </h1>
 
           <div className="w-full overflow-x-auto">
@@ -116,7 +118,7 @@ const handleSubmit = async (e) => {
                     }`}
                 >
                   <span className="block transform skew-x-[20deg]">
-                    PROMOTER
+               {t("promoter")}
                   </span>
                 </span>
               </button>
@@ -141,7 +143,7 @@ const handleSubmit = async (e) => {
                     }`}
                 >
                   <span className="block transform skew-x-[20deg]">
-                    CHALLENGER
+                      {t("challenger")}
                   </span>
                 </span>
               </button>
@@ -158,13 +160,13 @@ const handleSubmit = async (e) => {
           {/* Name */}
           <div className="flex items-center gap-3 sm:gap-4 border-b border-gray-500 focus-within:border-[#C6FF00] transition-colors py-1.5 sm:py-3">
             <label className="text-xs sm:text-sm lg:text-base w-20 sm:w-28">
-              Name
+             {t("nameLabel")}
             </label>
             <input
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              placeholder="Enter your name"
+              placeholder={t("namePlaceholder")}
               required
               className="flex-1 bg-transparent focus:outline-none text-xs sm:text-sm lg:text-base"
             />
@@ -173,13 +175,13 @@ const handleSubmit = async (e) => {
           {/* Email */}
           <div className="flex items-center gap-3 sm:gap-4 border-b border-gray-500 focus-within:border-[#C6FF00] transition-colors py-1.5 sm:py-3">
             <label className="text-xs sm:text-sm lg:text-base w-20 sm:w-28">
-              Email
+            {t("emailLabel")}
             </label>
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="demo@gmail.com"
+               placeholder={t("emailPlaceholder")}
               required
               className="flex-1 bg-transparent focus:outline-none text-xs sm:text-sm lg:text-base"
             />
@@ -189,7 +191,7 @@ const handleSubmit = async (e) => {
 
 <div className="flex items-center gap-4 border-b border-gray-500 focus-within:border-[#C6FF00] transition-colors py-2">
   <label className="text-xs sm:text-sm lg:text-base w-20 sm:w-28 whitespace-nowrap text-gray-300">
-    Phone No.
+   {t("phoneLabel")}
   </label>
 
   <div className="flex-1">
@@ -197,7 +199,7 @@ const handleSubmit = async (e) => {
       country={'in'} // Default to India
       value={phone}
       onChange={(value) => setPhone(value)}
-      placeholder="000 - 000 - 0000"
+     placeholder={t("phonePlaceholder")}
       inputStyle={{
         width: "100%",
         background: "transparent",
@@ -239,7 +241,7 @@ const handleSubmit = async (e) => {
               disabled={loading}
               className="mt-3 sm:mt-6 lg:mt-8 w-auto sm:w-auto inline-flex justify-center items-center gap-1.5 sm:gap-2 bg-[#C6FF00] text-[#1D4E00] font-medium py-1.5 sm:py-3 lg:py-3 px-3 sm:px-6 lg:px-8 rounded-md hover:bg-lime-300 transition text-xs sm:text-sm lg:text-base"
             >
-              {loading ? "Submitting..." : "SUBMIT"}
+               {loading ? t("submitting") : t("submit")}
               <span className="p-0.5 md:p-1 rounded-md flex items-center justify-center">
                 <Image
                   src={Image2}

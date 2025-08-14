@@ -1,49 +1,113 @@
+"use client";
+
 import React from "react";
-import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
+import { useTranslations } from "next-intl";
+
 const NextSection = () => {
+  const  t  = useTranslations("nextSection"); // namespace
+
   return (
     <section>
-    <div className="bg-lime-400 w-full py-4 sm:py-3 flex items-center justify-between px-3 sm:px-4 md:px-8 gap-2 sm:gap-4 font-Satoshi font-semibold ">
-      <svg
-        width="20"
-        height="20"
-        viewBox="0 0 41 41"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        className="text-black flex-shrink-0 sm:w-6 sm:h-6"
-      >
-        <path d="M35.6491 16.38C33.4744 10.0878 27.3988 5.64819 20.2438 5.64819C11.2628 5.64819 3.98242 12.7832 3.98242 21.5847C3.98242 26.4865 6.24069 30.8715 9.79326 33.7949C12.0422 35.6455 14.3841 35.6234 17.2054 35.6234C19.1681 35.6234 21.8588 35.9752 23.0494 34.0315C25.1408 30.6179 21.0998 25.8652 23.7423 22.3565C24.5219 21.3214 25.8153 20.747 28.4018 19.5984L35.6491 16.38ZM35.6491 16.38L37.3158 15.6399" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-        <path d="M17.3215 28.9816H17.3125" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-        <path d="M37.3151 27.1672L30.0393 28.0944C27.0074 28.4807 24.1158 26.7547 23.1484 23.9816" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-        <path d="M27.3145 20.6482L28.3221 29.7177C28.6356 32.5387 28.7923 33.949 29.7415 34.7987C30.6908 35.6482 32.1098 35.6482 34.9481 35.6482H37.3145" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-        <path d="M34.8145 27.3148V35.6482" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round"/>
-      </svg>
-      
+      <div className="bg-lime-400 w-full py-4 sm:py-3 flex items-center justify-between px-3 sm:px-4 md:px-8 gap-2 sm:gap-4 font-Satoshi font-semibold ">
+        {/* Left Icon */}
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 41 41"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="text-black flex-shrink-0 sm:w-6 sm:h-6"
+        >
+          <path
+            d="M35.6491 16.38C33.4744 10.0878 27.3988 5.64819 20.2438 5.64819C11.2628 5.64819 3.98242 12.7832 3.98242 21.5847C3.98242 26.4865 6.24069 30.8715 9.79326 33.7949C12.0422 35.6455 14.3841 35.6234 17.2054 35.6234C19.1681 35.6234 21.8588 35.9752 23.0494 34.0315C25.1408 30.6179 21.0998 25.8652 23.7423 22.3565C24.5219 21.3214 25.8153 20.747 28.4018 19.5984L35.6491 16.38ZM35.6491 16.38L37.3158 15.6399"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M17.3215 28.9816H17.3125"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M37.3151 27.1672L30.0393 28.0944C27.0074 28.4807 24.1158 26.7547 23.1484 23.9816"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M27.3145 20.6482L28.3221 29.7177C28.6356 32.5387 28.7923 33.949 29.7415 34.7987C30.6908 35.6482 32.1098 35.6482 34.9481 35.6482H37.3145"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M34.8145 27.3148V35.6482"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinejoin="round"
+          />
+        </svg>
 
-      <p className="text-black text-center flex-1 md:font-semibold font-bold uppercase italic text-[10px] md:text-sm sm:text-base tracking-[0.09em] md:tracking-[0.2em]">
-  <span className="inline-block md:mr-8 mr-2">Real Players.</span>
-  <span className="inline-block md:mr-8 mr-2">Real Picks.</span>
-  <span className="inline-block">Real Wins.</span>
-</p>
+        {/* Translated Text */}
+        <p className="text-black text-center flex-1 md:font-semibold font-bold uppercase italic text-[10px] md:text-sm sm:text-base tracking-[0.09em] md:tracking-[0.2em]">
+          <span className="inline-block md:mr-8 mr-2">{t("realPlayers")}</span>
+          <span className="inline-block md:mr-8 mr-2">{t("realPicks")}</span>
+          <span className="inline-block">{t("realWins")}</span>
+        </p>
 
-      <svg
-        width="20"
-        height="20"
-        viewBox="0 0 41 41"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        className="text-black flex-shrink-0 sm:w-6 sm:h-6"
-        style={{ transform: 'scaleX(-1)' }}
-      >
-        <path d="M35.6491 16.38C33.4744 10.0878 27.3988 5.64819 20.2438 5.64819C11.2628 5.64819 3.98242 12.7832 3.98242 21.5847C3.98242 26.4865 6.24069 30.8715 9.79326 33.7949C12.0422 35.6455 14.3841 35.6234 17.2054 35.6234C19.1681 35.6234 21.8588 35.9752 23.0494 34.0315C25.1408 30.6179 21.0998 25.8652 23.7423 22.3565C24.5219 21.3214 25.8153 20.747 28.4018 19.5984L35.6491 16.38ZM35.6491 16.38L37.3158 15.6399" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-        <path d="M17.3215 28.9816H17.3125" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-        <path d="M37.3151 27.1672L30.0393 28.0944C27.0074 28.4807 24.1158 26.7547 23.1484 23.9816" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-        <path d="M27.3145 20.6482L28.3221 29.7177C28.6356 32.5387 28.7923 33.949 29.7415 34.7987C30.6908 35.6482 32.1098 35.6482 34.9481 35.6482H37.3145" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-        <path d="M34.8145 27.3148V35.6482" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round"/>
-      </svg>
-    </div>
-  </section>
-     
+        {/* Right Icon (mirrored) */}
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 41 41"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="text-black flex-shrink-0 sm:w-6 sm:h-6"
+          style={{ transform: "scaleX(-1)" }}
+        >
+          <path
+            d="M35.6491 16.38C33.4744 10.0878 27.3988 5.64819 20.2438 5.64819C11.2628 5.64819 3.98242 12.7832 3.98242 21.5847C3.98242 26.4865 6.24069 30.8715 9.79326 33.7949C12.0422 35.6455 14.3841 35.6234 17.2054 35.6234C19.1681 35.6234 21.8588 35.9752 23.0494 34.0315C25.1408 30.6179 21.0998 25.8652 23.7423 22.3565C24.5219 21.3214 25.8153 20.747 28.4018 19.5984L35.6491 16.38ZM35.6491 16.38L37.3158 15.6399"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M17.3215 28.9816H17.3125"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M37.3151 27.1672L30.0393 28.0944C27.0074 28.4807 24.1158 26.7547 23.1484 23.9816"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M27.3145 20.6482L28.3221 29.7177C28.6356 32.5387 28.7923 33.949 29.7415 34.7987C30.6908 35.6482 32.1098 35.6482 34.9481 35.6482H37.3145"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M34.8145 27.3148V35.6482"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </div>
+    </section>
   );
 };
 

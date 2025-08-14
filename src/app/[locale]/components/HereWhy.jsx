@@ -4,41 +4,38 @@ import React, { useState, useEffect, useRef } from "react";
 import { FiArrowUpRight } from "react-icons/fi";
 import Image from "next/image";
 import hereiswhy from "../../../../public/assests/hereiswhy/Heading.png";
+import { useTranslations } from "next-intl";
 
 const cards = [
   {
     id: 973,
-    title: "Winning teams, but no payout.,",
-
+    titleKey: "cards.winningTeams", // <-- translation key
     image: "/assests/hereiswhyimage/Winning.jpg",
   },
   {
     id: 974,
-    title: "Shady deals, full tension.",
-
-    image: "/assests/hereiswhyimage/Shady.jpg"
+    titleKey: "cards.shadyDeals",
+    image: "/assests/hereiswhyimage/Shady.jpg",
   },
   {
     id: 975,
-    title: " Bots win, you lose.",
-
+    titleKey: "cards.botsWin",
     image: "/assests/hereiswhyimage/Bots.jpg",
   },
   {
     id: 976,
-    title: "To win more, pay more.",
-
+    titleKey: "cards.payMore",
     image: "/assests/hereiswhyimage/Towin.jpg",
   },
   {
     id: 977,
-    title: "Your grind, their profit.",
-
+    titleKey: "cards.grindProfit",
     image: "/assests/hereiswhyimage/Yourgrind.jpg",
   },
 ];
 
 const HereWhy = () => {
+  const t = useTranslations("HereWhy"); // namespace
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const autoSlideRef = useRef(null);
@@ -62,25 +59,22 @@ const HereWhy = () => {
     setCurrentIndex((prev) => getIndex(prev + 1));
   };
 
-  // Auto-slide every 3 seconds if not paused
   useEffect(() => {
     if (!isPaused) {
       autoSlideRef.current = setInterval(() => {
         nextSlide();
       }, 4000);
     }
-
     return () => clearInterval(autoSlideRef.current);
   }, [isPaused, currentIndex]);
 
   const getCardSize = (position, screenSize) => {
     const sizes = {
       desktop: {
-        center: { width: 400, height: 500 }, // +100 for rectangle look
-        adjacent: { width: 300, height: 380 }, // +80
-        outer: { width: 250, height: 320 }, // +70
+        center: { width: 400, height: 500 },
+        adjacent: { width: 300, height: 380 },
+        outer: { width: 250, height: 320 },
       },
-
       tablet: {
         center: { width: 320, height: 320 },
         adjacent: { width: 240, height: 240 },
@@ -113,21 +107,20 @@ const HereWhy = () => {
   };
 
   const getTextStyles = (position, screenSize) => {
-    const isCenter = position === 0;
     return {
-      title: "text-white font-bold  text-center text-[15px] md:text-xl font-medium mb-0",
+      title: "text-white font-bold text-center text-[15px] md:text-xl font-medium mb-0",
       description: "text-white text-xs leading-tight",
     };
   };
 
   return (
     <section>
-      <div className="bg-[#121212] text-white  py-8 sm:py-12 md:py-16 px-2 sm:px-4 md:px-8 overflow-hidden">
+      <div className="bg-[#121212] text-white py-8 sm:py-12 md:py-16 px-2 sm:px-4 md:px-8 overflow-hidden">
         {/* Heading Image */}
-        <div className="flex justify-center items-center  bg-[#121212]">
+        <div className="flex justify-center items-center bg-[#121212]">
           <Image
             src={hereiswhy}
-            alt="Sticker"
+            alt={t("headingAlt")}
             className="w-75 sm:w-40 md:w-48 lg:w-160 h-auto lg:mb:0 mb-12"
           />
         </div>
@@ -145,7 +138,6 @@ const HereWhy = () => {
                   if (!isCenter) {
                     setCurrentIndex(cardIndex);
                     setIsPaused(true);
-                    // Optional: Resume after 10s
                     setTimeout(() => setIsPaused(false), 10000);
                   }
                 };
@@ -173,13 +165,12 @@ const HereWhy = () => {
                   >
                     <Image
                       src={card.image}
-                      alt={card.title}
+                      alt={t(card.titleKey)}
                       fill
                       className="object-cover rounded-[19px]"
                       style={{ borderRadius: "19px" }}
                       draggable={false}
                     />
-
                     <div
                       className={getGlassOverlayStyles(position, screen)}
                       style={{ borderRadius: "19px" }}
@@ -187,11 +178,9 @@ const HereWhy = () => {
                       <div className="flex items-center justify-between">
                         <div className="flex-1">
                           <h2
-                            className={`${
-                              getTextStyles(position, screen).title
-                            } text-4xl`}
+                            className={`${getTextStyles(position, screen).title} text-4xl`}
                           >
-                            {card.title}
+                            {t(card.titleKey)}
                           </h2>
                         </div>
                         <div className="ml-2 bg-white rounded-full p-1 flex-shrink-0">
@@ -214,21 +203,35 @@ const HereWhy = () => {
           </div>
         </div>
 
-        <div className="flex flex-wrap justify-center pt-6 pb-4  gap-4  font-satoshi">
-          {/* Reserve Button */}
-          <button
-            className="inline-flex items-center pr-3 gap-2 px-5 py-2.5 bg-[#C6F812] text-[#1D4E00] rounded-lg font-semibold text-sm sm:text-base md:text-lg uppercase tracking-wide hover:bg-lime-400 transition duration-200"
-            style={{
-              boxShadow: `
+   <div className="flex flex-wrap justify-center pt-6 pb-4 gap-4 font-satoshi">
+  <button
+    onClick={() => {
+      const el = document.getElementById("signup");
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+      } else {
+        console.warn("Signup section not found in DOM");
+      }
+    }}
+    className="inline-flex items-center pr-3 gap-2 px-5 py-2.5 bg-[#C6F812] text-[#1D4E00] rounded-lg font-semibold text-sm sm:text-base md:text-lg uppercase tracking-wide hover:bg-lime-400 transition duration-200"
+    style={{
+      boxShadow: `
         inset 0 2px 4px rgba(0, 0, 0, 0.3),
         0 4px 15px rgba(0, 0, 0, 0.2)
       `,
-            }}
-          >
-            JOIN TODAY
-            <FiArrowUpRight className="bg-white border border-black rounded-md p-1 w-6 h-6 sm:w-5 sm:h-5" />
-          </button>
-        </div>
+    }}
+  >
+    {t("joinToday")}
+   <span className="p-1 md:p-1.5 rounded-md flex items-center justify-center">
+      <Image
+        src={Image2}
+        alt="icon"
+        className="w-6 h-6 md:w-5 md:h-5"
+      />
+    </span>
+  </button>
+</div>
+
       </div>
     </section>
   );

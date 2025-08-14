@@ -57,27 +57,31 @@ export default function HeroSection() {
           {t("subheading")}
         </p>
 
-        {/* CTA Button */}
-        <div className="flex justify-center font-satoshi py-3">
-          <button
-            className="flex items-center justify-center gap-3 pr-2 lg:pr-2  lg:px-4 lg:py-4  px-4 py-1.5 bg-[#C6F812] text-[#1D4E00] rounded-lg font-semibold text-base md:text-lg uppercase tracking-wide hover:bg-lime-400 transition duration-200"
-            style={{
-              boxShadow: `
+     {/* CTA Button */}
+<div className="flex justify-center font-satoshi py-3">
+  <button
+    onClick={() => {
+      document.getElementById("signup")?.scrollIntoView({ behavior: "smooth" });
+    }}
+    className="flex items-center justify-center gap-3 pr-2 lg:pr-2 lg:px-4 lg:py-4 px-4 py-1.5 bg-[#C6F812] text-[#1D4E00] rounded-lg font-semibold text-base md:text-lg uppercase tracking-wide hover:bg-lime-400 transition duration-200"
+    style={{
+      boxShadow: `
         inset 0 2px 4px rgba(0, 0, 0, 0.3),
         0 4px 15px rgba(0, 0, 0, 0.2)
       `,
-            }}
-          >
-            {isMobile ? t("joinToday") : t("cta")}
-            <span className="p-1 md:p-1.5 rounded-md flex items-center justify-center">
-              <Image
-                src={Image2}
-                alt="icon"
-                className="w-6 h-6 md:w-5 md:h-5"
-              />
-            </span>
-          </button>
-        </div>
+    }}
+  >
+    {isMobile ? t("joinToday") : t("cta")}
+    <span className="p-1 md:p-1.5 rounded-md flex items-center justify-center">
+      <Image
+        src={Image2}
+        alt="icon"
+        className="w-6 h-6 md:w-5 md:h-5"
+      />
+    </span>
+  </button>
+</div>
+
       </div>
     </section>
   );

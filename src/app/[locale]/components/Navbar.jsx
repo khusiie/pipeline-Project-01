@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import Logo  from "../../../../public/logo.svg";
+import Logo from "../../../../public/logo.svg";
 import Image2 from "../../../../public/Image2.png";
 import menu from "../../../../public/menu-11.png";
 import { FaChevronDown } from "react-icons/fa";
@@ -161,50 +161,54 @@ export default function Navbar() {
               </div>
 
               <div className="flex justify-center font-satoshi">
-                <button
-                  className="flex items-center gap-3 px-4 py-2 bg-[#C6F812] text-[#1D4E00] rounded-sm font-bold text-medium uppercase tracking-wide hover:bg-lime-400 transition duration-200"
-                  style={{
-                    boxShadow: `
-        inset 0 2px 4px rgba(0, 0, 0, 0.3),
-        0 4px 15px rgba(0, 0, 0, 0.2)
-      `,
-                  }}
-                >
-                  {t("navigation.joinToday")}
-                  <span className=" p-1.5 md:p-0.5 rounded-md flex items-center justify-center">
-                    <Image
-                      src={Image2}
-                      alt="icon"
-                      className="w-5 h-5 md:w-6 md:h-6"
-                    />
-                  </span>
-                </button>
+         <button
+  onClick={() => {
+    const el = document.getElementById("signup");
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    } else {
+      console.warn("Signup section not found in DOM");
+    }
+  }}
+  className="flex items-center gap-3 px-4 py-2 bg-[#C6F812] text-[#1D4E00] rounded-sm font-bold text-medium uppercase tracking-wide hover:bg-lime-400 transition duration-200"
+  style={{
+    boxShadow: `
+      inset 0 2px 4px rgba(0, 0, 0, 0.3),
+      0 4px 15px rgba(0, 0, 0, 0.2)
+    `,
+  }}
+>
+  {t("navigation.joinToday")}
+  <span className="p-1.5 md:p-0.5 rounded-md flex items-center justify-center">
+    <Image
+      src={Image2}
+      alt="icon"
+      className="w-5 h-5 md:w-6 md:h-6"
+    />
+  </span>
+</button>
               </div>
             </div>
           </div>
-<div className="md:hidden flex items-center justify-between px-4 py-3 mx-auto">
-  {/* Logo */}
-  <div className="flex items-center h-full">
-    <Image
-      src={Logo}
-      alt="logo"
-      className="h-[26px] w-auto object-contain"
-    />
-  </div>
+          <div className="md:hidden flex items-center justify-between px-4 py-3 mx-auto">
+            {/* Logo */}
+            <div className="flex items-center h-full">
+              <Image
+                src={Logo}
+                alt="logo"
+                className="h-[26px] w-auto object-contain"
+              />
+            </div>
 
-  {/* Menu Icon */}
-  <button onClick={toggleMobileMenu} className="h-[24px] w-[24px]">
-    <Image
-      src={menu}
-      alt="Mobile Menu Icon"
-      className="h-full w-full object-contain transition-transform duration-300"
-    />
-  </button>
-</div>
-
-
-
-
+            {/* Menu Icon */}
+            <button onClick={toggleMobileMenu} className="h-[24px] w-[24px]">
+              <Image
+                src={menu}
+                alt="Mobile Menu Icon"
+                className="h-full w-full object-contain transition-transform duration-300"
+              />
+            </button>
+          </div>
         </div>
       </nav>
 

@@ -1,3 +1,4 @@
+"use client";  
 import React from "react";
 import Image from "next/image";
 import promoter from "../../../../public/assests/promoter/promoter.png";
@@ -55,13 +56,12 @@ const Promoter = () => {
             {/* Badge Container */}
             <div className="relative bg-gradient-to-r from-lime-400 to-yellow-300 rounded-sm md:rounded-xl shadow-2xl w-full max-w-lg  md:max-w-md md:w-auto">
               <div className="bg-gradient-to-r from-lime-400 to-yellow-300 rounded-xl px-3 py-4  md:px-6 md:pt-5 md:pb-3 flex items-center gap-4 md:gap-5">
-                {/* Cricket Field Icon */}
                 <Image
                   src={image1}
                   alt="image1"
-                  width={45}
-                  height={45}
-                  className="w-16 h-16 md:w-14 md:h-14 lg:w-16 lg:h-16"
+                  width={45} // intrinsic width
+                  height={45} // intrinsic height
+                  className="w-16 h-16 md:w-16 md:h-16 lg:w-36 lg:h-36"
                 />
 
                 <div className="text-black">
@@ -70,23 +70,23 @@ const Promoter = () => {
                   </div>
 
                   <div className="text-xl  md:text-2xl lg:text-3xl font-bold">
-                    PIPELINE  <span className="font-normal text-2xl"> Promoter</span>
+                    PIPELINE{" "}
+                    <span className="font-normal text-2xl"> Promoter</span>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-    {/* Main Heading */}
-<div className="max-w-4xl mx-auto text-center px-2 md:px-4 -mt-10">
-  <h1 className="text-[14px] sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold mb-1 md:mb-4 leading-tight [word-spacing:0.3em]">
-    LEAD THE FANTASY CRICKET REVOLUTION
-  </h1>
+          {/* Main Heading */}
+          <div className="max-w-4xl mx-auto text-center px-2 md:px-4 -mt-10">
+            <h1 className="text-[14px] sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold mb-1 md:mb-4 leading-tight [word-spacing:0.3em]">
+              LEAD THE FANTASY CRICKET REVOLUTION
+            </h1>
 
-  <p className="text-[10px] sm:text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl text-gray-300 mb-2 md:mb-8 lg:mb-12 [word-spacing:0.50em]">
-    BUILD YOUR EMPIRE LEGALLY, OPENLY, AND WITH RESPECT
-  </p>
-</div>
-
+            <p className="text-[10px] sm:text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl text-gray-300 mb-2 md:mb-8 lg:mb-12 [word-spacing:0.50em]">
+              BUILD YOUR EMPIRE LEGALLY, OPENLY, AND WITH RESPECT
+            </p>
+          </div>
 
           {/* Seats Counter */}
           <div className="mb-6 md:mb-8 w-full py-2 px-2 md:px-6">
@@ -105,24 +105,32 @@ const Promoter = () => {
             </div>
           </div>
           <div className="flex justify-center items-center w-full font-satoshi px-4 py-4">
-            <button
-              className="flex items-center gap-2 px-3 py-1.5 bg-[#C6F812] text-[#1D4E00] rounded-sm font-semibold uppercase text-xs sm:text-sm tracking-wide hover:bg-lime-400 transition duration-200"
-              style={{
-                boxShadow: `
-        inset 0 1px 2px rgba(0, 0, 0, 0.3),
-        0 2px 8px rgba(0, 0, 0, 0.2)
-      `,
-              }}
-            >
-              REGISTER NOW
-              <span className="p-1 rounded-md flex items-center justify-center">
-                <Image
-                  src={Image2}
-                  alt="icon"
-                  className="w-4 h-4 sm:w-5 sm:h-5"
-                />
-              </span>
-            </button>
+           <button
+      onClick={() => {
+        const el = document.getElementById("signup");
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth", block: "start" });
+        } else {
+          console.warn("Signup section not found in DOM");
+        }
+      }}
+      className="flex items-center gap-2 px-3 py-1.5 bg-[#C6F812] text-[#1D4E00] rounded-sm font-semibold uppercase text-xs sm:text-sm tracking-wide hover:bg-lime-400 transition duration-200"
+      style={{
+        boxShadow: `
+          inset 0 1px 2px rgba(0, 0, 0, 0.3),
+          0 2px 8px rgba(0, 0, 0, 0.2)
+        `,
+      }}
+    >
+      REGISTER NOW
+      <span className="p-1 rounded-md flex items-center justify-center">
+        <Image
+          src={Image2}
+          alt="icon"
+          className="w-4 h-4 sm:w-5 sm:h-5"
+        />
+      </span>
+    </button>
           </div>
         </div>
 
@@ -221,49 +229,44 @@ const Promoter = () => {
               <div className="absolute left-3 top-0 bottom-0 w-px bg-gray-700"></div>
 
               {features.map((feature, index) => (
-               <div key={index} className="relative pb-4 md:pb-6 last:pb-0">
-  <div className="flex items-start gap-3 md:gap-4">
-    {/* Dot positioned at heading level */}
-    <div className="relative flex-shrink-0">
-      <Image
-        src={dotSvg}
-        alt="Feature dot"
-        width={18}
-        height={18}
-        className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 z-10 relative"
-      />
-    </div>
+                <div key={index} className="relative pb-4 md:pb-6 last:pb-0">
+                  <div className="flex items-start gap-3 md:gap-4">
+                    {/* Dot positioned at heading level */}
+                    <div className="relative flex-shrink-0">
+                      <Image
+                        src={dotSvg}
+                        alt="Feature dot"
+                        width={18}
+                        height={18}
+                        className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 z-10 relative"
+                      />
+                    </div>
 
-<div className="flex-1 relative -mt-6 ">
-  <div className="flex flex-col items-start ">
-    {/* Star */}
-    <Image
-      src={Image4}
-      alt="Star icon"
-      width={20}
-      height={20}
-      className="w-5 h-5 mb-3"
-         // consistent space below
-    />
+                    <div className="flex-1 relative -mt-6 ">
+                      <div className="flex flex-col items-start ">
+                        {/* Star */}
+                        <Image
+                          src={Image4}
+                          alt="Star icon"
+                          width={20}
+                          height={20}
+                          className="w-5 h-5 mb-3"
+                          // consistent space below
+                        />
 
-    {/* Title + Description */}
-    <div className="flex flex-col gap-1 mb-6">
-      <h3 className="text-[12px] sm:text-sm md:text-base font-bold uppercase tracking-wider text-white leading-snug">
-        {feature.title}
-      </h3>
-      <p className="text-gray-300 text-[12px] sm:text-sm md:text-base leading-relaxed">
-        {feature.description}
-      </p>
-    </div>
-  </div>
-</div>
-
-
-
-
-  </div>
-</div>
-
+                        {/* Title + Description */}
+                        <div className="flex flex-col gap-1 mb-6">
+                          <h3 className="text-[12px] sm:text-sm md:text-base font-bold uppercase tracking-wider text-white leading-snug">
+                            {feature.title}
+                          </h3>
+                          <p className="text-gray-300 text-[12px] sm:text-sm md:text-base leading-relaxed">
+                            {feature.description}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               ))}
             </div>
           </div>

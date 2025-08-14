@@ -24,8 +24,119 @@
       "cta": "CLAIM YOUR SPOT NOW",
       "joinToday": "Join Today"
     },  
-  "promoter": {
-    "becomeA": "Become a",
-    "pipelinePromoter": "PIPELINE Promoter"
-  }
+
+
+  "nextSection":{
+    
+  "realPlayers": "Real Players.",
+  "realPicks": "Real Picks.",
+  "realWins": "Real Wins."
+},
+
+  "HereWhy": {
+    "headingAlt": "Here is Why Heading",
+    "joinToday": "JOIN TODAY",
+    "cards": {
+      "winningTeams": "Winning teams, but no payout.",
+      "shadyDeals": "Shady deals, full tension.",
+      "botsWin": "Bots win, you lose.",
+      "payMore": "To win more, pay more.",
+      "grindProfit": "Your grind, their profit."
+    }
+  
+},
+
+
+  "BuildPlayerSection": {
+    "headingAlt": "This isn't just another fantasy platform",
+    "mainHeading": "THIS IS PIPELINE",
+    "subheading": "Built by players – for players.",
+    "mobileText": "We’re taking back control. Total transparency, zero celebrity gimmicks, and the lowest platform fee in the game, starts as low as 3%.",
+    "desktopText": "We’re taking back control. Total transparency, zero celebrity gimmicks, and the lowest platform fee in the game, starts as low as 3%.",
+    "sectionHeading": "We will not blow your money on IPL ads, and rather we:",
+    "sectionList": {
+      "item1": "Reward you with real Pipe Tokens",
+      "item2": "Let you monetize your skill legally",
+      "item3": "How to grow the winner payout % from (industryavg) 12–15% to 35–40%"
+    }
+
 } 
+
+
+
+
+
+,
+  "promoterSection": {
+    "mainHeading": "LEAD THE FANTASY CRICKET REVOLUTION",
+    "subHeading": "BUILD YOUR EMPIRE LEGALLY, OPENLY, AND WITH RESPECT",
+    "badge": {
+      "become": "Become a",
+      "pipelinePromoter": "PIPELINE Promoter"
+    },
+    "seats": {
+      "only": "Only",
+      "totalSeats": "200",
+      "left": "Left",
+      "remainingSeats": "145",
+      "promoterSeats": "Promoter Seats."
+    },
+    "button": {
+      "registerNow": "REGISTER NOW"
+    },
+    "features": [
+      {
+        "title": "MONETIZE YOUR TALENT",
+        "description": "Monetize your talent, earn up-to 10% royalties every time your lineups win for others."
+      },
+      {
+        "title": "DITCH RISKY GROUPS",
+        "description": "Monetize your talent, earn up-to 10% royalties every time your lineups win for others."
+      },
+      {
+        "title": "LIFETIME SAVINGS",
+        "description": "Monetize your talent, earn up-to 10% royalties every time your lineups win for others."
+      },
+      {
+        "title": "INVITE & EARN",
+        "description": "Monetize your talent, earn up-to 10% royalties every time your lineups win for others."
+      },
+      {
+        "title": "INVITE & EARN",
+        "description": "Monetize your talent, earn up-to 10% royalties every time your lineups win for others."
+      }
+    ]
+  },
+
+  "SignUp":{
+  "title": "Sign Up as",
+  "promoter": "PROMOTER",
+  "challenger": "CHALLENGER",
+  "nameLabel": "Name",
+  "namePlaceholder": "Enter your name",
+  "emailLabel": "Email",
+  "emailPlaceholder": "demo@gmail.com",
+  "phoneLabel": "Phone No.",
+  "phonePlaceholder": "000 - 000 - 0000",
+  "submit": "SUBMIT",
+  "submitting": "Submitting...",
+  "alerts": {
+    "invalidEmail": "Please enter a valid email address!",
+    "invalidPhone": "Please enter a valid phone number!",
+    "emailExists": "This email is already registered!",
+    "signupSuccess": "Signup successful!",
+    "signupFailed": "Failed to sign up: "
+  }
+
+}
+
+
+  
+  
+}
+
+
+
+
+
+
