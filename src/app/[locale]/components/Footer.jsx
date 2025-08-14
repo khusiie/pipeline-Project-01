@@ -54,32 +54,33 @@ export default function Footer() {
           </div>
         </div>
 
-      <div className="space-y-4 hidden md:flex flex-col items-center">
-      <div className="flex items-center justify-center space-x-2">
-        <span className="h-2 w-2 rounded-full bg-lime-400"></span>
-        <h3 className="uppercase font-bold">{t('quickLinksTitle')}</h3>
-      </div>
-      <div className="flex flex-wrap justify-center gap-2">
-        {[
-          t('quickLinks.home'),
+        {/* Center Section */}
+        <div className="space-y-4 hidden md:flex flex-col items-center">
+          <div className="flex items-center justify-center space-x-2">
+            <span className="h-2 w-2 rounded-full bg-lime-400"></span>
+            <h3 className="uppercase font-bold">{t("quickLinksTitle")}</h3>
+          </div>
+          <div className="flex flex-wrap justify-center gap-2">
+            {[
+                t('quickLinks.home'),
           t('quickLinks.whoWeAre'),
           t('quickLinks.pricing'),
           t('quickLinks.collection'),
           t('quickLinks.services'),
           t('quickLinks.news'),
           t('quickLinks.contactUs')
-        ].map((link, index) => (
-          <button
-            key={index}
-            className="bg-[#171717] hover:bg-lime-400 focus:bg-lime-400 active:bg-lime-400
-                       text-white hover:text-black focus:text-black active:text-black
-                       px-4 py-2 rounded-full transition duration-300"
-          >
-            {link}
-          </button>
-        ))}
-      </div>
-    </div>
+            ].map((link, index) => (
+              <button
+                key={index}
+                className="bg-[#171717] hover:bg-lime-400 focus:bg-lime-400 active:bg-lime-400
+                     text-white hover:text-black focus:text-black active:text-black
+                     px-4 py-2 rounded-full transition duration-300"
+              >
+                {link}
+              </button>
+            ))}
+          </div>
+        </div>
 
         {/* Right Section */}
         <div className="space-y-6 hidden md:flex flex-col items-center md:items-start">
@@ -112,18 +113,18 @@ export default function Footer() {
         {/* Quick Links */}
         <div>
           <h3 className="font-bold mb-4 flex items-center gap-2 text-sm">
-            <span className="h-1 w-1 rounded-full bg-lime-400"></span> Quick
-            Links
+            <span className="h-1 w-1 rounded-full bg-lime-400"></span>
+           {t("quickLinksTitle")}
           </h3>
           <div className="flex flex-wrap gap-2">
             {[
-              "Home",
-              "Who We Are",
-              "Pricing",
-              "Collection",
-              "Services",
-              "News",
-              "Contact Us",
+            t('quickLinks.home'),
+          t('quickLinks.whoWeAre'),
+          t('quickLinks.pricing'),
+          t('quickLinks.collection'),
+          t('quickLinks.services'),
+          t('quickLinks.news'),
+          t('quickLinks.contactUs')
             ].map((link, index) => (
               <button
                 key={index}
@@ -143,9 +144,16 @@ export default function Footer() {
             <span className="h-1 w-1 rounded-full bg-lime-400"></span> {t("contactTitle")}
           </h3>
           <ul className="space-y-2 text-xs">
-           <li>{t("contact.email")}</li>
+            <li>{t("contact.email")}</li>
            <li>{t("contact.phone")}</li>
-          
+            <li>
+              {t("contact.address").split("\n").map((line, i) => (
+        <span key={i}>
+          {line}
+          <br />
+        </span>
+      ))}
+            </li>
           </ul>
         </div>
       </div>
