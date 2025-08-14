@@ -128,12 +128,168 @@
     "signupFailed": "Failed to sign up: "
   }
 
+},
+
+"Footer":
+{
+  "heading": "Join the movement.\nShape the winners\nlineup.",
+  "social": {
+    "facebook": "Facebook",
+    "instagram": "Instagram",
+    "youtube": "YouTube",
+    "linkedin": "LinkedIn"
+  },
+ 
+
+  "quickLinksTitle": "Quick Links",
+  "quickLinks": {
+    "home": "Home",
+    "whoWeAre": "Who We Are",
+    "pricing": "Pricing",
+    "collection": "Collection",
+    "services": "Services",
+    "news": "News",
+    "contactUs": "Contact Us"
+  }
+,
+
+
+
+  "contactTitle": "Contact Us",
+  "contact": {
+    "email": "Pipeline@Studio.Com",
+    "phone": "+(3432) 555-0107",
+    "address": "4515 Washington Ave.\nManchester,\nKentucky 37495"
+  }
+
+
+},
+"HowItWorks": {
+  "heading": "How it\nWorks",
+  "block1": "Sign up as a\nPromoter or\nChallenger",
+  "block2": "When the app launches,\nyou will receive an access link,\nearly access, and your earned\nPipeToken bonus.",
+  "block3": "When the app launches,\nyou will receive an access link,\nearly access, and your earned\nPipeToken bonus.",
+  "buttonLabel": "Get Started"
+}
+,
+
+  "BecomeChallenger": {
+    "headingAlt": "BECOME CHALLENGER",
+    "cards": [
+      {
+        "title": "2x Pipe Tokens",
+        "description": "Bonus: Double rewards at launch."
+      },
+      {
+        "title": "15% Lifetime Fee Discount",
+        "description": "More winnings with savings on every contest, forever."
+      },
+      {
+        "title": "Verified Lineups",
+        "description": "Play with confidence. Use strategies from trusted Promoters, no copycats."
+      },
+      {
+        "title": "Transparent Matchups",
+        "description": "No Bots, No Drama: Transparent matchups, No shady deals, guaranteed payouts."
+      },
+      {
+        "title": "PIPELINE Promise",
+        "description": "PIPELINE is built with one promise transparency. All matchups are real. All data is clean."
+      }
+    ],
+
+
+    "benefitsSection": {
+      "title": "THESE BENEFITS ARE ONLY AVAILABLE TILL",
+      "date": "SEPTEMBER 16TH 2025",
+      "spotsTotal": "200 Total",
+      "spotsLeft": "Left",
+      "countdown": {
+        "days": "Days",
+        "hours": "Hours",
+        "minutes": "Minutes"
+      }
+    },
+    "infoBoxes": {
+      "box1": {
+        "title": "PROMOTER SPOTS:",
+        "description": "ONLY 200 TOTAL (145 LEFT)"
+      },
+      "box2": {
+        "title": "CHALLENGER PERKS:",
+        "description": "ONLY FOR PRE-LAUNCH SIGNUPS"
+      },
+      "box3": {
+        "title": "JOINED 2,347 :",
+        "description": "PLAYERS ALREADY IN THE REVOLUTION"
+      }
+    },
+    "buttons": {
+      "reserveSpot": "RESERVE MY SPOT NOW",
+      "share": "SHARE",
+      "shareTitle": "Join The Challenge!",
+      "shareText": "Become a challenger and unlock exclusive perks!",
+      "shareCopied": "Link copied to clipboard!"
+    }
+  },
+ 
+  "Promoter": {
+    "badge": {
+      "becomeA": "Become a",
+      "pipeline": "PIPELINE",
+      "promoter": "Promoter"
+    },
+    "heading": {
+      "main": "Lead the Fantasy Cricket Revolution",
+      "sub": "Build your empire legally, openly, and with respect"
+    },
+    "seatsCounter": {
+      "only": "Only",
+      "promoterSeats": "Promoter Seats",
+      "left": "Left"
+    },
+    "button": {
+      "registerNow": "Register Now"
+    },
+    "imagesAlt": {
+      "starBackground": "Star background",
+      "image1": "Image 1",
+      "icon": "Icon"
+    },
+
+      "features": [
+    {
+      "title": "MONETIZE YOUR TALENT",
+      "description": "Monetize your talent, earn up-to 10% royalties every time your lineups win for others."
+    },
+    {
+      "title": "DITCH RISKY GROUPS",
+      "description": "Avoid risky groups and secure your wins."
+    },
+    {
+      "title": "LIFETIME SAVINGS",
+      "description": "Save more with every contest and maximize your profits."
+    },
+    {
+      "title": "INVITE & EARN",
+      "description": "Invite friends and earn rewards when they play."
+    },
+    {
+      "title": "PIPELINE PROMISE",
+      "description": "Built with transparency. All matchups are real. All data is clean."
+    }
+  ]
+
+
+  }
+
 }
 
 
-  
-  
-}
+
+
+
+
 
 
 

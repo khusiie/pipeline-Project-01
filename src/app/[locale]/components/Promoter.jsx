@@ -1,4 +1,4 @@
-"use client";  
+"use client";
 import React from "react";
 import Image from "next/image";
 import promoter from "../../../../public/assests/promoter/promoter.png";
@@ -7,35 +7,32 @@ import starSvg from "../../../../public/assests/star.svg";
 import Image2 from "../../../../public/Image2.png";
 import image1 from "../../../../public/assests/promoter/image1.png";
 import Image4 from "../../../../public/assests/promoter/Vector.png";
-
+import { useTranslations } from "next-intl";
 const Promoter = () => {
-  const features = [
+  const t = useTranslations("Promoter");
+ const features = [
     {
-      title: "MONETIZE YOUR TALENT",
-      description:
-        "Monetize your talent, earn up-to 10% royalties every time your lineups win for others.",
+      title: t("features.0.title"),
+      description: t("features.0.description"),
     },
     {
-      title: "DITCH RISKY GROUPS",
-      description:
-        "Monetize your talent, earn up-to 10% royalties every time your lineups win for others.",
+      title: t("features.1.title"),
+      description: t("features.1.description"),
     },
     {
-      title: "LIFETIME SAVINGS",
-      description:
-        "Monetize your talent, earn up-to 10% royalties every time your lineups win for others.",
+      title: t("features.2.title"),
+      description: t("features.2.description"),
     },
     {
-      title: "INVITE & EARN",
-      description:
-        "Monetize your talent, earn up-to 10% royalties every time your lineups win for others.",
+      title: t("features.3.title"),
+      description: t("features.3.description"),
     },
     {
-      title: "INVITE & EARN",
-      description:
-        "Monetize your talent, earn up-to 10% royalties every time your lineups win for others.",
+      title: t("features.4.title"),
+      description: t("features.4.description"),
     },
   ];
+
 
   return (
     <div className="bg-[#121212] text-white py-12 md:py-16 md:px-4">
@@ -66,12 +63,14 @@ const Promoter = () => {
 
                 <div className="text-black">
                   <div className="text-2xl md:text-base  text-left">
-                    Become a
+                    {t("badge.becomeA")}
                   </div>
 
                   <div className="text-xl  md:text-2xl lg:text-3xl font-bold">
-                    PIPELINE{" "}
-                    <span className="font-normal text-2xl"> Promoter</span>
+                    {t("badge.pipeline")}{" "}
+                    <span className="font-normal text-2xl">
+                      {t("badge.promoter")}
+                    </span>
                   </div>
                 </div>
               </div>
@@ -80,57 +79,59 @@ const Promoter = () => {
           {/* Main Heading */}
           <div className="max-w-4xl mx-auto text-center px-2 md:px-4 -mt-10">
             <h1 className="text-[14px] sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold mb-1 md:mb-4 leading-tight [word-spacing:0.3em]">
-              LEAD THE FANTASY CRICKET REVOLUTION
+              {t("heading.main")}
             </h1>
 
             <p className="text-[10px] sm:text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl text-gray-300 mb-2 md:mb-8 lg:mb-12 [word-spacing:0.50em]">
-              BUILD YOUR EMPIRE LEGALLY, OPENLY, AND WITH RESPECT
+              {t("heading.sub")}
             </p>
           </div>
 
           {/* Seats Counter */}
           <div className="mb-6 md:mb-8 w-full py-2 px-2 md:px-6">
             <div className="inline-flex items-baseline gap-2 sm:gap-2 md:gap-3 lg:gap-4 text-base sm:text-sm md:text-lg lg:text-xl xl:text-xl 2xl:text-3xl flex-wrap justify-center w-full">
-              <span className="text-white">Only</span>
+              <span className="text-white">{t("seatsCounter.only")}</span>
               <span className="text-lime-400 font-bold text-base sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl">
                 200
               </span>
-              <span className="text-white">Promoter Seats.</span>
+              <span className="text-white">
+                {t("seatsCounter.promoterSeats")}
+              </span>
               <span className="text-lime-400 font-bold text-xl sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl">
                 145
               </span>
               <span className="text-lime-400 text-xl  sm:text-sm md:text-lg lg:text-xl xl:text-2xl font-bold">
-                Left
+                {t("seatsCounter.left")}
               </span>
             </div>
           </div>
           <div className="flex justify-center items-center w-full font-satoshi px-4 py-4">
-           <button
-      onClick={() => {
-        const el = document.getElementById("signup");
-        if (el) {
-          el.scrollIntoView({ behavior: "smooth", block: "start" });
-        } else {
-          console.warn("Signup section not found in DOM");
-        }
-      }}
-      className="flex items-center gap-2 px-3 py-1.5 bg-[#C6F812] text-[#1D4E00] rounded-sm font-semibold uppercase text-xs sm:text-sm tracking-wide hover:bg-lime-400 transition duration-200"
-      style={{
-        boxShadow: `
+            <button
+              onClick={() => {
+                const el = document.getElementById("signup");
+                if (el) {
+                  el.scrollIntoView({ behavior: "smooth", block: "start" });
+                } else {
+                  console.warn("Signup section not found in DOM");
+                }
+              }}
+              className="flex items-center gap-2 px-3 py-1.5 bg-[#C6F812] text-[#1D4E00] rounded-sm font-semibold uppercase text-xs sm:text-sm tracking-wide hover:bg-lime-400 transition duration-200"
+              style={{
+                boxShadow: `
           inset 0 1px 2px rgba(0, 0, 0, 0.3),
           0 2px 8px rgba(0, 0, 0, 0.2)
         `,
-      }}
-    >
-      REGISTER NOW
-      <span className="p-1 rounded-md flex items-center justify-center">
-        <Image
-          src={Image2}
-          alt="icon"
-          className="w-4 h-4 sm:w-5 sm:h-5"
-        />
-      </span>
-    </button>
+              }}
+            >
+              {t("button.registerNow")}
+              <span className="p-1 rounded-md flex items-center justify-center">
+                <Image
+                  src={Image2}
+                  alt="icon"
+                  className="w-4 h-4 sm:w-5 sm:h-5"
+                />
+              </span>
+            </button>
           </div>
         </div>
 

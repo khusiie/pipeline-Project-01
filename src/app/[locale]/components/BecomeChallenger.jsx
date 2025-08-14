@@ -1,4 +1,6 @@
 "use client";
+import { useTranslations } from "next-intl";
+
 import Image2 from "../../../../public/assests/becomechallenger/Image2.png";
 import React, { useEffect, useState, useRef } from "react";
 import gridimage1 from "../../../../public/assests/becomechallenger/gridimage1.png";
@@ -18,6 +20,7 @@ import Image from "next/image";
 
 import Image3 from "../../../../public/Image2.png";
 const BecomeChallenger = () => {
+  const t = useTranslations("BecomeChallenger");
   // Countdown logic
   const calculateTimeLeft = () => {
     const targetDate = new Date("2025-09-16T23:59:59");
@@ -204,7 +207,7 @@ const BecomeChallenger = () => {
         <div className="w-full flex justify-center">
           <Image
             src={becomechallengelogo}
-            alt="BECOME CHALLENGER"
+            alt={t("headingAlt")}
             className="w-full md:w-auto h-auto max-h-[260px] md:max-h-[250px] object-contain"
             width={800} // bigger base size for clarity
             height={400}
@@ -223,7 +226,7 @@ const BecomeChallenger = () => {
                 src={gridimage1}
                 width={463}
                 height={365}
-                alt="2x Pipe Tokens"
+                alt={t("cards.0.title")}
                 className="w-full h-auto object-cover rounded-md mb-4"
               />
               <div className="flex items-center gap-3 sm:gap-4 mt-auto">
@@ -237,9 +240,9 @@ const BecomeChallenger = () => {
                 <p className="text-black text-sm sm:text-base leading-relaxed line-clamp-3 text-left">
                   <span className="bg-[#C6F812] font-semibold">
                     {" "}
-                    2x Pipe Tokens{" "}
+                    {t("cards.0.title")}
                   </span>{" "}
-                  Bonus: Double rewards at launch.
+                  {t("cards.0.description")}
                 </p>
               </div>
             </div>
@@ -264,9 +267,9 @@ const BecomeChallenger = () => {
                 <p className="text-black text-sm sm:text-base leading-relaxed line-clamp-3 text-left">
                   <span className="bg-[#C6F812]  font-semibold">
                     {" "}
-                    15% Lifetime Fee Discount
+                    {t("cards.1.title")}
                   </span>{" "}
-                  More winnings with savings on every contest, forever
+                  {t("cards.1.description")}
                 </p>
               </div>
             </div>
@@ -290,13 +293,9 @@ const BecomeChallenger = () => {
                 />
                 <p className="text-black text-sm sm:text-base leading-relaxed line-clamp-3 text-left">
                   <span className="bg-[#C6F812] font-semibold">
-                    Verified Lineups{" "}
+                    {t("cards.2.title")}
                   </span>{" "}
-                  Play with confidence. Use strategies from{" "}
-                  <span className="bg-[#C6F812] font-semibold ">
-                    trusted Promoters
-                  </span>
-                  , no copycats.
+                  {t("cards.2.description")}
                 </p>
               </div>
             </div>
@@ -307,7 +306,7 @@ const BecomeChallenger = () => {
                 src={gridimage4}
                 width={699}
                 height={520}
-                alt="Transparent Matchups"
+                alt={t("cards.3.title")}
                 className="w-full h-auto object-cover rounded-md mb-4"
               />
               <div className="flex items-center gap-3 sm:gap-4 mt-auto">
@@ -319,12 +318,7 @@ const BecomeChallenger = () => {
                   className="shrink-0 w-8 h-8 sm:w-10 sm:h-10"
                 />
                 <p className="text-black text-sm sm:text-base leading-relaxed line-clamp-3 text-left">
-                  No Bots, No Drama:{" "}
-                  <span className="bg-[#C6F812] font-semibold">
-                    {" "}
-                    Transparent matchups{" "}
-                  </span>
-                  , No shady deals, guaranteed payouts.
+                  {t("cards.3.description")}
                 </p>
               </div>
             </div>
@@ -347,13 +341,7 @@ const BecomeChallenger = () => {
                   className="shrink-0 w-8 h-8 sm:w-10 sm:h-10"
                 />
                 <p className="text-black text-sm sm:text-base leading-relaxed line-clamp-3 text-left">
-                  <span className="bg-[#C6F812] font-semibold">PIPELINE </span>{" "}
-                  is built with one promise transparency.{" "}
-                  <span className="bg-[#C6F812] font-semibold">
-                    {" "}
-                    All matchups are real
-                  </span>
-                  . All data is clean.
+                  {t("cards.4.description")}
                 </p>
               </div>
             </div>
@@ -442,22 +430,20 @@ const BecomeChallenger = () => {
             className="text-lg md:text-3xl uppercase font-bold mb-2 leading-tight"
             style={{ wordSpacing: "0.2rem" }}
           >
-            THESE BENEFITS ARE
-            <br />
-            ONLY AVAILABLE TILL
+            {t("benefitsSection.title")}
           </h3>
           <h2 className="text-2xl md:text-5xl font-bold mb-4">
-            SEPTEMBER 16TH 2025
+            {t("benefitsSection.date")}
           </h2>
           <div className="flex items-center justify-center gap-3 mb-6">
             <span className="text-xl font-normal text-white tracking-wide">
-              200 Total
+              {t("benefitsSection.spotsTotal")}
             </span>
             <div className="flex items-center font-bold  text-3xl gap-2">
               145
             </div>
             <span className="text-2xl font-bold text-white tracking-wide">
-              Left
+              {t("benefitsSection.spotsLeft")}
             </span>
           </div>
           <div className="inline-flex items-center gap-6 sm:gap-8 md:gap-16 bg-black/10 backdrop-blur-lg rounded-2xl py-3 sm:py-5 md:py-8 px-4 sm:px-10 md:px-16 w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-4xl mx-auto overflow-x-auto border border-white/10">
@@ -501,8 +487,8 @@ const BecomeChallenger = () => {
                 height={60}
               />
               <p className="leading-snug text-left">
-                <span className="font-bold">PROMOTER SPOTS: </span>
-                ONLY 200 TOTAL (145 LEFT)
+                <span className="font-bold">{t("infoBoxes.box1.title")} </span>
+                {t("infoBoxes.box1.description")}
               </p>
             </div>
 
@@ -515,8 +501,8 @@ const BecomeChallenger = () => {
                 height={60}
               />
               <p className="leading-snug text-left">
-                <span className="font-bold">CHALLENGER PERKS: </span>
-                ONLY FOR PRE-LAUNCH SIGNUPS
+                <span className="font-bold">{t("infoBoxes.box2.title")} </span>
+                {t("infoBoxes.box2.description")}
               </p>
             </div>
 
@@ -529,80 +515,80 @@ const BecomeChallenger = () => {
                 height={60}
               />
               <p className="leading-snug text-left">
-                <span className="font-bold">JOINED 2,347 : </span>
-                PLAYERS ALREADY IN THE REVOLUTION
+                <span className="font-bold">{t("infoBoxes.box3.title")} </span>
+                {t("infoBoxes.box3.description")}
               </p>
             </div>
           </div>
 
           <div className="flex flex-col sm:flex-row justify-center items-center w-full font-satoshi px-4 py-10 gap-4">
-          <button
-      onClick={() => {
-        const el = document.getElementById("signup");
-        if (el) {
-          el.scrollIntoView({ behavior: "smooth", block: "start" });
-        } else {
-          console.warn("Signup section not found in DOM");
-        }
-      }}
-      className="flex items-center gap-1 px-3 py-2 bg-[#C6F812] text-[#1D4E00] rounded-md font-semibold uppercase text-base sm:text-lg tracking-wide hover:bg-lime-400 transition duration-200"
-      style={{
-        boxShadow: `
+            <button
+              onClick={() => {
+                const el = document.getElementById("signup");
+                if (el) {
+                  el.scrollIntoView({ behavior: "smooth", block: "start" });
+                } else {
+                  console.warn("Signup section not found in DOM");
+                }
+              }}
+              className="flex items-center gap-1 px-3 py-2 bg-[#C6F812] text-[#1D4E00] rounded-md font-semibold uppercase text-base sm:text-lg tracking-wide hover:bg-lime-400 transition duration-200"
+              style={{
+                boxShadow: `
           inset 0 1px 2px rgba(0, 0, 0, 0.3),
           0 2px 8px rgba(0, 0, 0, 0.2)
         `,
-      }}
-    >
-      RESERVE MY SPOT NOW
-      <span className="p-1.5 rounded-md flex items-center justify-center">
-        <Image
-          src={Image3}
-          alt="icon"
-          className="w-6 h-6 sm:w-7 sm:h-7"
-        />
-      </span>
-    </button>
+              }}
+            >
+              {t("buttons.reserveSpot")}
+              <span className="p-1.5 rounded-md flex items-center justify-center">
+                <Image
+                  src={Image3}
+                  alt="icon"
+                  className="w-6 h-6 sm:w-7 sm:h-7"
+                />
+              </span>
+            </button>
 
-            {/* Share Button */}
-           <button
-  onClick={() => {
-    const shareUrl = window.location.href; // current page URL
-    const shareTitle = "Join The Challenge!";
-    const shareText = "🚀 Become a challenger and unlock exclusive perks!";
+            <button
+              onClick={() => {
+                const shareUrl = window.location.href; // current page URL
+                const shareTitle = t("buttons.shareTitle");
+                const shareText = t("buttons.shareText");
 
-    if (navigator.share) {
-      navigator.share({
-        title: shareTitle,
-        text: shareText,
-        url: shareUrl,
-      })
-      .then(() => console.log("Share successful"))
-      .catch((err) => console.error("Share failed:", err));
-    } else {
-      // Fallback for unsupported browsers
-      navigator.clipboard.writeText(shareUrl).then(() => {
-        alert("Link copied to clipboard!");
-      });
-    }
-  }}
-  className="flex items-center gap-1 px-3 py-2 bg-[#C6F812] text-[#1D4E00] rounded-full font-semibold uppercase text-base sm:text-lg tracking-wide hover:bg-lime-400 transition duration-200"
-  style={{
-    boxShadow: `
+                if (navigator.share) {
+                  navigator
+                    .share({
+                      title: shareTitle,
+                      text: shareText,
+                      url: shareUrl,
+                    })
+                    .then(() => console.log("Share successful"))
+                    .catch((err) => console.error("Share failed:", err));
+                } else {
+                  // Fallback for unsupported browsers
+                  navigator.clipboard.writeText(shareUrl).then(() => {
+                    alert(t("buttons.shareCopied"));
+                  });
+                }
+              }}
+              className="flex items-center gap-1 px-3 py-2 bg-[#C6F812] text-[#1D4E00] rounded-full font-semibold uppercase text-base sm:text-lg tracking-wide hover:bg-lime-400 transition duration-200"
+              style={{
+                boxShadow: `
       inset 0 1px 2px rgba(0, 0, 0, 0.3),
       0 2px 8px rgba(0, 0, 0, 0.2)
     `,
-  }}
->
-  SHARE
-  <span className="p-1.5 rounded-full flex items-center justify-center">
-    <Image
-      src={Image2}
-      alt="icon"
-      className="w-6 h-6 sm:w-7 sm:h-7"
-    />
-  </span>
-</button>
-
+              }}
+            >
+              {" "}
+              {t("buttons.share")}
+              <span className="p-1.5 rounded-full flex items-center justify-center">
+                <Image
+                  src={Image2}
+                  alt="icon"
+                  className="w-6 h-6 sm:w-7 sm:h-7"
+                />
+              </span>
+            </button>
           </div>
         </div>
       </div>

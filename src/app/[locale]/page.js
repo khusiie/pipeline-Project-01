@@ -12,6 +12,7 @@ import BecomeChallenger from "./components/BecomeChallenger"
 import HereWhy from "./components/HereWhy"
 import Promoter from "./components/Promoter"
 export default function HomePage() {
+
   return (
     < >
     <Navbar/>

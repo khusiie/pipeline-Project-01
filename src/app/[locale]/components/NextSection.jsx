@@ -4,7 +4,7 @@ import React from "react";
 import { useTranslations } from "next-intl";
 
 const NextSection = () => {
-  const  t  = useTranslations("nextSection"); // namespace
+  const  t  = useTranslations("nextSection"); 
 
   return (
     <section>
