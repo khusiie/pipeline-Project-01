@@ -564,24 +564,45 @@ const BecomeChallenger = () => {
     </button>
 
             {/* Share Button */}
-            <button
-              className="flex items-center gap-1 px-3 py-2 bg-[#C6F812] text-[#1D4E00] rounded-full font-semibold uppercase text-base sm:text-lg tracking-wide hover:bg-lime-400 transition duration-200"
-              style={{
-                boxShadow: `
-        inset 0 1px 2px rgba(0, 0, 0, 0.3),
-        0 2px 8px rgba(0, 0, 0, 0.2)
-      `,
-              }}
-            >
-              SHARE
-              <span className="p-1.5 rounded-full flex items-center justify-center">
-                <Image
-                  src={Image2}
-                  alt="icon"
-                  className="w-6 h-6 sm:w-7 sm:h-7"
-                />
-              </span>
-            </button>
+           <button
+  onClick={() => {
+    const shareUrl = window.location.href; // current page URL
+    const shareTitle = "Join The Challenge!";
+    const shareText = "🚀 Become a challenger and unlock exclusive perks!";
+
+    if (navigator.share) {
+      navigator.share({
+        title: shareTitle,
+        text: shareText,
+        url: shareUrl,
+      })
+      .then(() => console.log("Share successful"))
+      .catch((err) => console.error("Share failed:", err));
+    } else {
+      // Fallback for unsupported browsers
+      navigator.clipboard.writeText(shareUrl).then(() => {
+        alert("Link copied to clipboard!");
+      });
+    }
+  }}
+  className="flex items-center gap-1 px-3 py-2 bg-[#C6F812] text-[#1D4E00] rounded-full font-semibold uppercase text-base sm:text-lg tracking-wide hover:bg-lime-400 transition duration-200"
+  style={{
+    boxShadow: `
+      inset 0 1px 2px rgba(0, 0, 0, 0.3),
+      0 2px 8px rgba(0, 0, 0, 0.2)
+    `,
+  }}
+>
+  SHARE
+  <span className="p-1.5 rounded-full flex items-center justify-center">
+    <Image
+      src={Image2}
+      alt="icon"
+      className="w-6 h-6 sm:w-7 sm:h-7"
+    />
+  </span>
+</button>
+
           </div>
         </div>
       </div>
