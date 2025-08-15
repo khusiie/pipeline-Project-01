@@ -220,48 +220,55 @@ export default function Navbar() {
         <div className="xl:hidden fixed inset-0 z-40 bg-black bg-opacity-50 backdrop-blur-sm">
           <div className="fixed top-24 left-4 right-4 bg-[#FFFFFF15] backdrop-blur-md rounded-[24px] border border-[#FFFFFF20] p-6">
             {/* Mobile Navigation Links */}
-            <ul className="space-y-6 text-center">
-              <li>
-                <Link
-                  href="/"
-                  className="block text-white text-lg uppercase tracking-wider border-b-2 border-transparent hover:border-lime-500 transition"
-                >
-                  {t("navigation.home")}
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/"
-                  className="block text-white text-lg uppercase tracking-wider border-b-2 border-transparent hover:border-lime-500 transition"
-                >
-                  {t("navigation.collection")}
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/"
-                  className="block text-white text-lg uppercase tracking-wider border-b-2 border-transparent hover:border-lime-500 transition"
-                >
-                  {t("navigation.services")}
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/"
-                  className="block text-white text-lg uppercase tracking-wider border-b-2 border-transparent hover:border-lime-500 transition"
-                >
-                  {t("navigation.news")}
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/"
-                  className="block text-white text-lg uppercase tracking-wider border-b-2 border-transparent hover:border-lime-500 transition"
-                >
-                  {t("navigation.pricing")}
-                </Link>
-              </li>
-            </ul>
+<ul className="space-y-6 text-center">
+  <li>
+    <Link
+      href="/"
+      className="inline-block text-white text-lg uppercase tracking-wider border-b-2 border-transparent 
+                 hover:border-lime-500 active:border-lime-500 focus:border-lime-500 transition"
+    >
+      {t("navigation.home")}
+    </Link>
+  </li>
+  <li>
+    <Link
+      href="/"
+      className="inline-block text-white text-lg uppercase tracking-wider border-b-2 border-transparent 
+                 hover:border-lime-500 active:border-lime-500 focus:border-lime-500 transition"
+    >
+      {t("navigation.collection")}
+    </Link>
+  </li>
+  <li>
+    <Link
+      href="/"
+      className="inline-block text-white text-lg uppercase tracking-wider border-b-2 border-transparent 
+                 hover:border-lime-500 active:border-lime-500 focus:border-lime-500 transition"
+    >
+      {t("navigation.services")}
+    </Link>
+  </li>
+  <li>
+    <Link
+      href="/"
+      className="inline-block text-white text-lg uppercase tracking-wider border-b-2 border-transparent 
+                 hover:border-lime-500 active:border-lime-500 focus:border-lime-500 transition"
+    >
+      {t("navigation.news")}
+    </Link>
+  </li>
+  <li>
+    <Link
+      href="/"
+      className="inline-block text-white text-lg uppercase tracking-wider border-b-2 border-transparent 
+                 hover:border-lime-500 active:border-lime-500 focus:border-lime-500 transition"
+    >
+      {t("navigation.pricing")}
+    </Link>
+  </li>
+</ul>
+
+
             {/* Mobile Language Selector - Updated Design */}
             <div className="mt-8 flex justify-center">
               <div className="relative">
