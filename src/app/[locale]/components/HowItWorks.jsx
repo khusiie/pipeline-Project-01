@@ -36,7 +36,7 @@ export default function HowItWorks() {
             />
 
             {/* Block 1 */}
-            <div className="absolute text-left text-[8px] sm:text-sm md:text-base leading-tight w-[70%] sm:w-[60%] md:w-[30%] left-[9%] sm:left-[10%] md:left-[10%] top-[102%] sm:top-[90%] md:top-[185%] uppercase">
+            <div className="absolute text-left text-[8px] sm:text-sm md:text-base leading-tight w-[70%] sm:w-[60%] md:w-[30%] left-[9%] sm:left-[10%] md:left-[10%] top-[99%] sm:top-[90%] md:top-[185%] uppercase">
               {t("block1").split("\n").map((line, i) => (
                 <React.Fragment key={i}>
                   {line}

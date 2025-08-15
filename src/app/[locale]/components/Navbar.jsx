@@ -1,5 +1,7 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
+
 import Logo from "../../../../public/logo.svg";
 import cancel from "../../../../public/cancel.svg";
 import Image2 from "../../../../public/Image2.png";
@@ -220,47 +222,46 @@ export default function Navbar() {
             {/* Mobile Navigation Links */}
             <ul className="space-y-6 text-center">
               <li>
-                <a
-                  href="#"
-                  className="block text-white text-lg uppercase tracking-wider hover:border-b-3 hover:border-lime-400 transition"
+                <Link
+                  href="/"
+                  className="block text-white text-lg uppercase tracking-wider border-b-2 border-transparent hover:border-lime-500 transition"
                 >
-                   {t("navigation.home")}
-                </a>
+                  {t("navigation.home")}
+                </Link>
               </li>
               <li>
-                <a
-                  href="#"
-                  className="block text-white text-lg uppercase tracking-wider hover:border-b-3 hover:border-lime-400 transition"
+                <Link
+                  href="/"
+                  className="block text-white text-lg uppercase tracking-wider border-b-2 border-transparent hover:border-lime-500 transition"
                 >
-                    {t("navigation.collection")}
-                </a>
+                  {t("navigation.collection")}
+                </Link>
               </li>
               <li>
-                <a
-                  href="#"
-                  className="block text-white text-lg uppercase tracking-wider hover:border-b-3  hover:text-lime-400 transition"
+                <Link
+                  href="/"
+                  className="block text-white text-lg uppercase tracking-wider border-b-2 border-transparent hover:border-lime-500 transition"
                 >
-                    {t("navigation.services")}
-                </a>
+                  {t("navigation.services")}
+                </Link>
               </li>
               <li>
-                <a
-                  href="#"
-                  className="block text-white text-lg uppercase tracking-wider hover:border-b-2 hover:border-lime-400 transition"
+                <Link
+                  href="/"
+                  className="block text-white text-lg uppercase tracking-wider border-b-2 border-transparent hover:border-lime-500 transition"
                 >
-               {t("navigation.news")}
-                </a>
+                  {t("navigation.news")}
+                </Link>
               </li>
               <li>
-                <a
-                  href="#"
-                  className="block text-white text-lg uppercase tracking-wider hover:border-b-2 hover:border-lime-400 transition"
+                <Link
+                  href="/"
+                  className="block text-white text-lg uppercase tracking-wider border-b-2 border-transparent hover:border-lime-500 transition"
                 >
-                      {t("navigation.pricing")}
-                </a>
+                  {t("navigation.pricing")}
+                </Link>
               </li>
             </ul>
-
             {/* Mobile Language Selector - Updated Design */}
             <div className="mt-8 flex justify-center">
               <div className="relative">

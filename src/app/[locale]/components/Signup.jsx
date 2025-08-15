@@ -1,89 +1,93 @@
 "use client";
-import { isValidPhoneNumber, parsePhoneNumberFromString } from 'libphonenumber-js'
+import {
+  isValidPhoneNumber,
+  parsePhoneNumberFromString,
+} from "libphonenumber-js";
 import React, { useState } from "react";
 import { supabase } from "../../../../lib/supabaseClient"; // adjust path if needed
 import Image from "next/image";
 import Image2 from "../../../../public/Image2.png";
 import PhoneInput from "react-phone-input-2";
-import 'react-phone-input-2/lib/style.css';
+import "react-phone-input-2/lib/style.css";
 import { useTranslations } from "next-intl";
-
+import Signupimage from "../../../../public/Signupimage.svg";
 
 export default function SignUp() {
-    const  t  = useTranslations("SignUp");
+  const t = useTranslations("SignUp");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [loading, setLoading] = useState(false);
   const [selected, setSelected] = useState("promoter");
 
-const handleSubmit = async (e) => {
-  e.preventDefault();
-  setLoading(true);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
 
-  // Email format check
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailRegex.test(email)) {
-    alert("Please enter a valid email address!");
-    setLoading(false);
-    return;
-  }
-
-   const fullNumber = "+" + phone; // phone includes country code from react-phone-input-2
-  const parsedNumber = parsePhoneNumberFromString(fullNumber);
-
-  if (!parsedNumber || !parsedNumber.isValid()) {
-    alert("Please enter a valid phone number!");
-    setLoading(false);
-    return;
-  }
-
-  // 1️⃣ Check if email already exists
-  const { data: existingUser, error: fetchError } = await supabase
-    .from("profile")
-    .select("id")
-    .eq("email", email)
-    .single();
-
-  if (fetchError && fetchError.code !== "PGRST116") {
-    alert("Error checking email: " + fetchError.message);
-    setLoading(false);
-    return;
-  }
-
-  if (existingUser) {
-    alert("This email is already registered!");
-    setLoading(false);
-    return;
-  }
-
-  // 2️⃣ Insert new record
-  const { error: insertError } = await supabase.from("profile").insert([
-    {
-      name,
-      email,
-      phone: `+${phone}`
-    },
-  ]);
-
-  if (insertError) {
-    if (insertError.code === "23505") {
-      alert("This email is already registered!");
-    } else {
-      alert("Failed to sign up: " + insertError.message);
+    // Email format check
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      alert("Please enter a valid email address!");
+      setLoading(false);
+      return;
     }
-  } else {
-    alert("Signup successful!");
-    setName("");
-    setEmail("");
-    setPhone("");
-  }
 
-  setLoading(false);
-};
+    const fullNumber = "+" + phone; // phone includes country code from react-phone-input-2
+    const parsedNumber = parsePhoneNumberFromString(fullNumber);
+
+    if (!parsedNumber || !parsedNumber.isValid()) {
+      alert("Please enter a valid phone number!");
+      setLoading(false);
+      return;
+    }
+
+    // 1️⃣ Check if email already exists
+    const { data: existingUser, error: fetchError } = await supabase
+      .from("profile")
+      .select("id")
+      .eq("email", email)
+      .single();
+
+    if (fetchError && fetchError.code !== "PGRST116") {
+      alert("Error checking email: " + fetchError.message);
+      setLoading(false);
+      return;
+    }
+
+    if (existingUser) {
+      alert("This email is already registered!");
+      setLoading(false);
+      return;
+    }
+
+    // 2️⃣ Insert new record
+    const { error: insertError } = await supabase.from("profile").insert([
+      {
+        name,
+        email,
+        phone: `+${phone}`,
+      },
+    ]);
+
+    if (insertError) {
+      if (insertError.code === "23505") {
+        alert("This email is already registered!");
+      } else {
+        alert("Failed to sign up: " + insertError.message);
+      }
+    } else {
+      alert("Signup successful!");
+      setName("");
+      setEmail("");
+      setPhone("");
+    }
+
+    setLoading(false);
+  };
 
   return (
-    <section id="signup" 
+    <section
+      id="signup"
       className="
         min-h-[50vh] sm:min-h-[70vh] md:min-h-[95vh]  lg:min-h-[85vh]
         bg-[#121212] text-white 
@@ -95,7 +99,7 @@ const handleSubmit = async (e) => {
       <div className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-7xl mt-2 mx-auto">
         <div className="text-center mb-6 sm:mb-10 lg:mb-12">
           <h1 className="text-5xl sm:text-5xl md:text-6xl pt-2 lg:text-7xl xl:text-7xl py-1 2xl:text-[9rem] font-bold uppercase leading-tight">
-                   {t("title")}
+            {t("title")}
           </h1>
 
           <div className="w-full overflow-x-auto">
@@ -120,7 +124,7 @@ const handleSubmit = async (e) => {
                     }`}
                 >
                   <span className="block transform skew-x-[20deg]">
-               {t("promoter")}
+                    {t("promoter")}
                   </span>
                 </span>
               </button>
@@ -145,7 +149,7 @@ const handleSubmit = async (e) => {
                     }`}
                 >
                   <span className="block transform skew-x-[20deg]">
-                      {t("challenger")}
+                    {t("challenger")}
                   </span>
                 </span>
               </button>
@@ -162,7 +166,7 @@ const handleSubmit = async (e) => {
           {/* Name */}
           <div className="flex items-center gap-3 sm:gap-4 border-b border-gray-500 focus-within:border-[#C6FF00] transition-colors py-1.5 sm:py-3">
             <label className="text-xs sm:text-sm lg:text-base w-20 sm:w-28">
-             {t("nameLabel")}
+              {t("nameLabel")}
             </label>
             <input
               type="text"
@@ -177,76 +181,73 @@ const handleSubmit = async (e) => {
           {/* Email */}
           <div className="flex items-center gap-3 sm:gap-4 border-b border-gray-500 focus-within:border-[#C6FF00] transition-colors py-1.5 sm:py-3">
             <label className="text-xs sm:text-sm lg:text-base w-20 sm:w-28">
-            {t("emailLabel")}
+              {t("emailLabel")}
             </label>
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-               placeholder={t("emailPlaceholder")}
+              placeholder={t("emailPlaceholder")}
               required
               className="flex-1 bg-transparent focus:outline-none text-xs sm:text-sm lg:text-base"
             />
           </div>
 
-       {/* Phone No. */}
+          {/* Phone No. */}
 
-<div className="flex items-center gap-4 border-b border-gray-500 focus-within:border-[#C6FF00] transition-colors py-2">
-  <label className="text-xs sm:text-sm lg:text-base w-20 sm:w-28 whitespace-nowrap text-gray-300">
-   {t("phoneLabel")}
-  </label>
+          <div className="flex items-center gap-4 border-b border-gray-500 focus-within:border-[#C6FF00] transition-colors py-2">
+            <label className="text-xs sm:text-sm lg:text-base w-20 sm:w-28 whitespace-nowrap text-gray-300">
+              {t("phoneLabel")}
+            </label>
 
-  <div className="flex-1">
-   <PhoneInput
-  country={'in'}
-  value={phone}
-  onChange={(value) => setPhone(value)}
-  placeholder={t("phonePlaceholder")}
-  inputStyle={{
-    width: "100%",
-    background: "transparent",
-    border: "none",
-    outline: "none",
-    fontSize: "14px",
-    color: "white",
-    paddingLeft: "52px", 
-  }}
-  buttonStyle={{
-    border: "none",
-    background: "transparent",
-    padding: 0,
-    margin: 0,
-    position: "absolute",
-    left: "0",
-    transform: "scale(1.4)", // increase size
-    transformOrigin: "center", // keep it aligned
-  }}
-  containerStyle={{
-    width: "100%",
-    position: "relative",
-  }}
-  dropdownStyle={{
-    width: "auto",
-    maxWidth: "300px",
-    minWidth: "200px",
-    backgroundColor: "#121212",
-    border: "1px solid #333",
-    color: "white",
-  }}
-/>
-
-  </div>
-</div>
-
-
+            <div className="flex-1">
+              <PhoneInput
+                country={"in"}
+                value={phone}
+                onChange={(value) => setPhone(value)}
+                placeholder={t("phonePlaceholder")}
+                inputStyle={{
+                  width: "100%",
+                  background: "transparent",
+                  border: "none",
+                  outline: "none",
+                  fontSize: "14px",
+                  color: "white",
+                  paddingLeft: "52px",
+                }}
+                buttonStyle={{
+                  border: "none",
+                  background: "transparent",
+                  padding: 0,
+                  margin: 0,
+                  position: "absolute",
+                  left: "0",
+                  transform: "scale(1.4)", // increase size
+                  transformOrigin: "center", // keep it aligned
+                }}
+                containerStyle={{
+                  width: "100%",
+                  position: "relative",
+                }}
+                dropdownStyle={{
+                  width: "auto",
+                  maxWidth: "300px",
+                  minWidth: "200px",
+                  backgroundColor: "#121212",
+                  border: "1px solid #333",
+                  color: "white",
+                }}
+              />
+            </div>
+          </div>
 
           <div className="flex justify-center">
             <button
               type="submit"
               disabled={loading}
-              className="mt-3 sm:mt-6 lg:mt-8 w-auto sm:w-auto inline-flex justify-center items-center gap-1.5 sm:gap-2 bg-[#C6FF00] text-[#1D4E00] font-medium py-1.5 sm:py-3 lg:py-3 px-3 sm:px-6 lg:px-8 rounded-md hover:bg-lime-300 transition text-xs sm:text-sm lg:text-base"
+              className="mt-4 mb-2 sm:mt-6 lg:mt-8 w-auto sm:w-auto inline-flex justify-center items-center gap-1.5 sm:gap-2 bg-[#C6FF00] text-[#1D4E00] font-medium py-1.5 sm:py-3 lg:py-3 px-3 sm:px-6 lg:px-8 rounded-md hover:bg-lime-300 transition text-xs sm:text-sm lg:text-base"
             >
-               {loading ? t("submitting") : t("submit")}
+              {loading ? t("submitting") : t("submit")}
               <span className="p-0.5 md:p-1 rounded-md flex items-center justify-center">
                 <Image
                   src={Image2}
