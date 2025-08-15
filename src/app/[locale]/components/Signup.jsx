@@ -10,7 +10,6 @@ import Image2 from "../../../../public/Image2.png";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import { useTranslations } from "next-intl";
-import Signupimage from "../../../../public/Signupimage.svg";
 
 export default function SignUp() {
   const t = useTranslations("SignUp");
@@ -252,7 +251,7 @@ export default function SignUp() {
                 <Image
                   src={Image2}
                   alt="icon"
-                  className="w-3 h-3 sm:w-4 sm:h-4 md:w-4 md:h-4"
+                  className="w-5 h-5 sm:w-4 sm:h-4 md:w-4 md:h-4"
                 />
               </span>
             </button>
