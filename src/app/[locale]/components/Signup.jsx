@@ -85,7 +85,7 @@ const handleSubmit = async (e) => {
   return (
     <section
       className="
-        min-h-[50vh] sm:min-h-[70vh] md:min-h-[80vh] lg:min-h-[85vh]
+        min-h-[50vh] sm:min-h-[70vh] md:min-h-[95vh] pt-25 lg:min-h-[85vh]
         bg-[#121212] text-white 
         flex flex-col items-center justify-center 
         px-3 sm:px-6 lg:px-8 
