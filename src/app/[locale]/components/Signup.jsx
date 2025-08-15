@@ -4,7 +4,7 @@ import {
   parsePhoneNumberFromString,
 } from "libphonenumber-js";
 import React, { useState } from "react";
-import { supabase } from "../../../../lib/supabaseClient"; // adjust path if needed
+import { supabase } from "../../../../lib/supabaseClient"; 
 import Image from "next/image";
 import Image2 from "../../../../public/Image2.png";
 import PhoneInput from "react-phone-input-2";
@@ -56,7 +56,7 @@ export default function SignUp() {
     const { error: otpError } = await supabase.auth.signInWithOtp({
       email,
       options: {
-        emailRedirectTo: `${window.location.origin}/complete-profile`,
+        emailRedirectTo:  `${process.env.NEXT_PUBLIC_SUPABASE_REDIRECT_URL}`,
       },
     });
 
