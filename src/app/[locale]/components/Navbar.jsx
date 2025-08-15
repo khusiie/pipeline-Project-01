@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import Logo from "../../../../public/logo.svg";
+import cancel from "../../../../public/cancel.svg";
 import Image2 from "../../../../public/Image2.png";
 import menu from "../../../../public/menu-11.png";
 import { FaChevronDown } from "react-icons/fa";
@@ -75,7 +76,7 @@ export default function Navbar() {
             <div className="flex items-center py-1 space-x-2">
               <Image src={Logo} alt="logo" width={120} height={40} />
             </div>
-            <ul className="flex space-x-8 text-sm uppercase tracking-wider">
+            <ul className="flex text-[12px] space-x-4  uppercase tracking-wider">
               <li>
                 <a href="#" className="hover:border-b-3 hover:border-lime-400">
                   {t("navigation.home")}
@@ -161,32 +162,32 @@ export default function Navbar() {
               </div>
 
               <div className="flex justify-center font-satoshi">
-         <button
-  onClick={() => {
-    const el = document.getElementById("signup");
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth", block: "start" });
-    } else {
-      console.warn("Signup section not found in DOM");
-    }
-  }}
-  className="flex items-center gap-3 px-4 py-2 bg-[#C6F812] text-[#1D4E00] rounded-sm font-bold text-medium uppercase tracking-wide hover:bg-lime-400 transition duration-200"
-  style={{
-    boxShadow: `
+                <button
+                  onClick={() => {
+                    const el = document.getElementById("signup");
+                    if (el) {
+                      el.scrollIntoView({ behavior: "smooth", block: "start" });
+                    } else {
+                      console.warn("Signup section not found in DOM");
+                    }
+                  }}
+                  className="flex items-center gap-3 px-4 py-2 bg-[#C6F812] text-[#1D4E00] rounded-sm font-bold text-medium uppercase tracking-wide hover:bg-lime-400 transition duration-200"
+                  style={{
+                    boxShadow: `
       inset 0 2px 4px rgba(0, 0, 0, 0.3),
       0 4px 15px rgba(0, 0, 0, 0.2)
     `,
-  }}
->
-  {t("navigation.joinToday")}
-  <span className="p-1.5 md:p-0.5 rounded-md flex items-center justify-center">
-    <Image
-      src={Image2}
-      alt="icon"
-      className="w-5 h-5 md:w-6 md:h-6"
-    />
-  </span>
-</button>
+                  }}
+                >
+                  {t("navigation.joinToday")}
+                  <span className="p-1.5 md:p-0.5 rounded-md flex items-center justify-center">
+                    <Image
+                      src={Image2}
+                      alt="icon"
+                      className="w-5 h-5 md:w-6 md:h-6"
+                    />
+                  </span>
+                </button>
               </div>
             </div>
           </div>
@@ -200,11 +201,11 @@ export default function Navbar() {
               />
             </div>
 
-            {/* Menu Icon */}
+            {/* Mobile Menu Icon */}
             <button onClick={toggleMobileMenu} className="h-[24px] w-[24px]">
               <Image
-                src={menu}
-                alt="Mobile Menu Icon"
+                src={isMobileMenuOpen ? cancel : menu} // swap image based on state
+                alt={isMobileMenuOpen ? "Close Menu" : "Open Menu"}
                 className="h-full w-full object-contain transition-transform duration-300"
               />
             </button>
@@ -221,41 +222,41 @@ export default function Navbar() {
               <li>
                 <a
                   href="#"
-                  className="block text-white text-lg uppercase tracking-wider hover:text-lime-400 transition"
+                  className="block text-white text-lg uppercase tracking-wider hover:border-b-3 hover:border-lime-400 transition"
                 >
-                  Home
+                   {t("navigation.home")}
                 </a>
               </li>
               <li>
                 <a
                   href="#"
-                  className="block text-white text-lg uppercase tracking-wider hover:text-lime-400 transition"
+                  className="block text-white text-lg uppercase tracking-wider hover:border-b-3 hover:border-lime-400 transition"
                 >
-                  Collection
+                    {t("navigation.collection")}
                 </a>
               </li>
               <li>
                 <a
                   href="#"
-                  className="block text-white text-lg uppercase tracking-wider hover:text-lime-400 transition"
+                  className="block text-white text-lg uppercase tracking-wider hover:border-b-3  hover:text-lime-400 transition"
                 >
-                  Services
+                    {t("navigation.services")}
                 </a>
               </li>
               <li>
                 <a
                   href="#"
-                  className="block text-white text-lg uppercase tracking-wider hover:text-lime-400 transition"
+                  className="block text-white text-lg uppercase tracking-wider hover:border-b-2 hover:border-lime-400 transition"
                 >
-                  News
+               {t("navigation.news")}
                 </a>
               </li>
               <li>
                 <a
                   href="#"
-                  className="block text-white text-lg uppercase tracking-wider hover:text-lime-400 transition"
+                  className="block text-white text-lg uppercase tracking-wider hover:border-b-2 hover:border-lime-400 transition"
                 >
-                  Pricing
+                      {t("navigation.pricing")}
                 </a>
               </li>
             </ul>
@@ -267,7 +268,7 @@ export default function Navbar() {
                   onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                   className="flex items-center gap-3 px-4 py-2.5 rounded-full bg-[#FFFFFF20] backdrop-blur-sm border-2 border-[#FFFFFF50] hover:bg-[#FFFFFF25] hover:border-[#FFFFFF70] transition-all duration-200 shadow-lg"
                 >
-                  <div className="flex items-center justify-center w-8 h-8 rounded-full bg-white">
+                  <div className="flex items-center justify-center w-8 h-8 rounded-full  bg-white/10">
                     <Image
                       src={selectedLanguage.logo}
                       alt={selectedLanguage.name}
@@ -295,7 +296,7 @@ export default function Navbar() {
                         onClick={() => handleLanguageSelect(language)}
                         className="w-full flex items-center gap-3 px-4 py-3 hover:bg-[#FFFFFF20] transition-colors duration-150 text-left text-white"
                       >
-                        <div className="flex items-center justify-center w-6 h-6 rounded-full bg-white">
+                        <div className="flex items-center justify-center w-6 h-6 rounded-full  bg-white/10">
                           <Image
                             src={language.logo}
                             alt={language.name}

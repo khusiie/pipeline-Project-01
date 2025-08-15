@@ -1,12 +1,15 @@
 {
+ 
   "navigation": {
     "home": "Home",
-    "collection": "Collection",
-    "services": "Services",
-    "news": "News",
-    "pricing": "Pricing",
+    "collection": "Become Promoter",
+    "services": "Become Challenger",
+    "news": "Reserve your Spot",
+    "pricing": "How it Works",
     "joinToday": "Join Today"
-  },
+  }
+,
+
   "languages": {
     "english": "English",
     "hindi": "Hindi",

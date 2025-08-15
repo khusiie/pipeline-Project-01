@@ -1,12 +1,14 @@
 {
+  
   "navigation": {
     "home": "होम",
-    "collection": "संग्रह",
-    "services": "सेवाएं",
-    "news": "समाचार",
-    "pricing": "मूल्य निर्धारण",
-    "joinToday": "आज शामिल हों"
+    "collection": "प्रमोटर बनें",
+    "services": "चैलेंजर बनें",
+    "news": "अपनी जगह सुरक्षित करें",
+    "pricing": "कैसे यह काम करता है",
+    "joinToday": "आज ही जुड़ें"
   },
+
   "languages": {
     "english": "English",
     "hindi": "हिंदी",
@@ -228,9 +230,6 @@
   "card5_title": "PIPELINE वादा",
   "card5_description": "पारदर्शिता के साथ बनाया गया। सभी मुकाबले असली हैं। सभी डेटा साफ हैं।"
 }
-
-
-
 
   },
 

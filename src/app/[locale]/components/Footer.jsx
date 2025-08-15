@@ -11,7 +11,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto md:py-10 grid grid-cols-1 md:grid-cols-3 gap-8 place-items-center text-center">
         {/* Left Section */}
         <div className="space-y-6 hidden md:flex flex-col items-center md:items-start">
-          <h2 className="text-white font-clash  lg:text-[25px] font-bold uppercase lg:max-w-[900px] mx-auto md:mx-0 lg:text-left">
+          <h2 className="text-white font-clash  text-2xl font-bold uppercase lg:max-w-[900px] mx-auto md:mx-0 lg:text-left">
         {t("heading").split("\n").map((line, i) => (
           <p key={i}>{line}</p>
         ))}
@@ -103,7 +103,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="block md:hidden text-left px-4 py-4 ">
+      <div className="block md:hidden text-4xl uppercase text-left font-bold px-4 py-4 ">
        {t("heading").split("\n").map((line, i) => (
           <p key={i}>{line}</p>
         ))}
