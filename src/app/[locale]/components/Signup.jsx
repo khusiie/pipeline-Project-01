@@ -234,7 +234,7 @@ export default function SignUp() {
             }}
             className="bg-[#C6FF00] text-[#1D4E00] font-medium py-3 px-8 rounded-md hover:bg-lime-300 transition"
           >
-            Continue to LandingPage
+            You’re  In!  Welcome  to  PIPELINE.
           </button>
         </div>
       </section>
