@@ -83,16 +83,16 @@ const handleSubmit = async (e) => {
 };
 
   return (
-    <section
+    <section id="signup" 
       className="
-        min-h-[50vh] sm:min-h-[70vh] md:min-h-[95vh] pt-25 lg:min-h-[85vh]
+        min-h-[50vh] sm:min-h-[70vh] md:min-h-[95vh]  lg:min-h-[85vh]
         bg-[#121212] text-white 
         flex flex-col items-center justify-center 
         px-3 sm:px-6 lg:px-8 
-        font-clash
+        font-clash pt-16
       "
     >
-      <div id="signup" className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-7xl mt-2 mx-auto">
+      <div className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-7xl mt-2 mx-auto">
         <div className="text-center mb-6 sm:mb-10 lg:mb-12">
           <h1 className="text-5xl sm:text-5xl md:text-6xl pt-2 lg:text-7xl xl:text-7xl py-1 2xl:text-[9rem] font-bold uppercase leading-tight">
                    {t("title")}
