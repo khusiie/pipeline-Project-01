@@ -11,6 +11,7 @@ import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import { useTranslations } from "next-intl";
 
+
 export default function SignUp() {
   const t = useTranslations("SignUp");
   const [name, setName] = useState("");
@@ -19,28 +20,20 @@ export default function SignUp() {
   const [loading, setLoading] = useState(false);
   const [selected, setSelected] = useState("promoter");
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
+ const handleSubmit = async (e) => {
+  e.preventDefault();
+  setLoading(true);
 
-    // Email format check
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-      alert("Please enter a valid email address!");
-      setLoading(false);
-      return;
-    }
+  // 1️⃣ Validate email
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    alert("Please enter a valid email address!");
+    setLoading(false);
+    return;
+  }
 
-    const fullNumber = "+" + phone; // phone includes country code from react-phone-input-2
-    const parsedNumber = parsePhoneNumberFromString(fullNumber);
-
-    if (!parsedNumber || !parsedNumber.isValid()) {
-      alert("Please enter a valid phone number!");
-      setLoading(false);
-      return;
-    }
-
-    // 1️⃣ Check if email already exists
+  try {
+    // 2️⃣ Optional: Check if user already exists in your profile table
     const { data: existingUser, error: fetchError } = await supabase
       .from("profile")
       .select("id")
@@ -59,30 +52,31 @@ export default function SignUp() {
       return;
     }
 
-    // 2️⃣ Insert new record
-    const { error: insertError } = await supabase.from("profile").insert([
-      {
-        name,
-        email,
-        phone: `+${phone}`,
+    // 3️⃣ Send email OTP
+    const { error: otpError } = await supabase.auth.signInWithOtp({
+      email,
+      options: {
+        emailRedirectTo: `${window.location.origin}/complete-profile`,
       },
-    ]);
+    });
 
-    if (insertError) {
-      if (insertError.code === "23505") {
-        alert("This email is already registered!");
-      } else {
-        alert("Failed to sign up: " + insertError.message);
-      }
-    } else {
-      alert("Signup successful!");
-      setName("");
-      setEmail("");
-      setPhone("");
+    if (otpError) {
+      console.error("Error sending email OTP:", otpError.message);
+      alert("Error sending verification email: " + otpError.message);
+      setLoading(false);
+      return;
     }
 
+    alert("We've sent you a confirmation email. Please check your inbox!");
     setLoading(false);
-  };
+  } catch (err) {
+    console.error(err);
+    alert("Something went wrong. Please try again.");
+    setLoading(false);
+  }
+};
+
+
 
   return (
     <section
