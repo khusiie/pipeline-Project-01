@@ -295,36 +295,37 @@ export default function Navbar() {
                   />
                 </button>
 
-                {/* Mobile Dropdown Menu */}
-                {isDropdownOpen && (
-                  <div className="absolute top-full mt-2 left-1/2 transform -translate-x-1/2 bg-[#FFFFFF1A] backdrop-blur-md rounded-[16px] border border-[#FFFFFF20] overflow-hidden min-w-[180px] shadow-lg">
-                    {languages.map((language) => (
-                      <button
-                        key={language.code}
-                        onClick={() => handleLanguageSelect(language)}
-                        className="w-full flex items-center gap-3 px-4 py-3 hover:bg-[#FFFFFF20] transition-colors duration-150 text-left text-white"
-                      >
-                        <div className="flex items-center justify-center w-6 h-6 rounded-full  bg-white/10">
-                          <Image
-                            src={language.logo}
-                            alt={language.name}
-                            width={16}
-                            height={16}
-                            className="w-4 h-4"
-                          />
-                        </div>
-                        <div className="flex flex-col">
-                          <span className="text-sm font-medium">
-                            {language.name}
-                          </span>
-                          <span className="text-xs text-gray-300">
-                            {language.code}
-                          </span>
-                        </div>
-                      </button>
-                    ))}
-                  </div>
-                )}
+               {/* Mobile Dropdown Menu */}
+{isDropdownOpen && (
+  <div className="absolute top-full mt-2 left-1/2 transform -translate-x-1/2 
+                  bg-[#FFFFFF1A] backdrop-blur-md rounded-[16px] border border-[#FFFFFF20] 
+                  overflow-hidden min-w-[180px] shadow-lg 
+                  max-h-60 overflow-y-auto scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-transparent">
+    {languages.map((language) => (
+      <button
+        key={language.code}
+        onClick={() => handleLanguageSelect(language)}
+        className="w-full flex items-center gap-3 px-4 py-3 hover:bg-[#FFFFFF20] 
+                   transition-colors duration-150 text-left text-white"
+      >
+        <div className="flex items-center justify-center w-6 h-6 rounded-full bg-white/10">
+          <Image
+            src={language.logo}
+            alt={language.name}
+            width={16}
+            height={16}
+            className="w-4 h-4"
+          />
+        </div>
+        <div className="flex flex-col">
+          <span className="text-sm font-medium">{language.name}</span>
+          <span className="text-xs text-gray-300">{language.code}</span>
+        </div>
+      </button>
+    ))}
+  </div>
+)}
+
               </div>
             </div>
           </div>
