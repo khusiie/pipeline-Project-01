@@ -1,7 +1,6 @@
 "use client";
 import { useTranslations } from "next-intl";
-import { supabase } from "../../../../lib/supabaseClient";
-
+import { supabase } from "../../../../lib/supabaseClient"; 
 import Image2 from "../../../../public/assests/becomechallenger/Image2.png";
 import React, { useEffect, useState, useRef } from "react";
 import gridimage1 from "../../../../public/assests/becomechallenger/gridimage1.png";
@@ -25,8 +24,8 @@ const BecomeChallenger = () => {
   const t = useTranslations("BecomeChallenger");
   const [spotsLeft, setSpotsLeft] = useState(200);
 
-  const [spotsLoading, setSpotsLoading] = useState(true);
-  const [spotsError, setSpotsError] = useState(false);
+const [spotsLoading, setSpotsLoading] = useState(true);
+const [spotsError, setSpotsError] = useState(false);
   // Countdown logic
   const calculateTimeLeft = () => {
     const targetDate = new Date("2025-09-16T23:59:59");
@@ -127,73 +126,70 @@ const BecomeChallenger = () => {
       behavior: "smooth",
     });
   };
-  // Replace the existing useEffect that fetches spot count with this:
+// Replace the existing useEffect that fetches spot count with this:
 
-  useEffect(() => {
-    const fetchSpotCount = async () => {
-      try {
-        setSpotsLoading(true);
+useEffect(() => {
+  const fetchSpotCount = async () => {
+    try {
+      setSpotsLoading(true);
+      
+      // NEW: Get spots from tickets_config table instead of counting profiles
+      const { data, error } = await supabase
+        .from('tickets_config')
+        .select('remaining_tickets')
+        .eq('id', 1)
+        .single();
 
-        // NEW: Get spots from tickets_config table instead of counting profiles
-        const { data, error } = await supabase
-          .from("tickets_config")
-          .select("remaining_tickets")
-          .eq("id", 1)
-          .single();
-
-        if (!error && data) {
-          setSpotsLeft(data.remaining_tickets);
-          setSpotsError(false);
-          console.log("✅ Spots loaded:", data.remaining_tickets);
-        } else {
-          console.error("❌ Error loading spots:", error);
-          setSpotsError(true);
-        }
-      } catch (err) {
-        console.error("❌ Error fetching spot count:", err);
+      if (!error && data) {
+        setSpotsLeft(data.remaining_tickets);
+        setSpotsError(false);
+        console.log('✅ Spots loaded:', data.remaining_tickets);
+      } else {
+        console.error('❌ Error loading spots:', error);
         setSpotsError(true);
-      } finally {
-        setSpotsLoading(false);
       }
-    };
+    } catch (err) {
+      console.error('❌ Error fetching spot count:', err);
+      setSpotsError(true);
+    } finally {
+      setSpotsLoading(false);
+    }
+  };
 
-    // Load spots when component first loads
-    fetchSpotCount();
+  // Load spots when component first loads
+  fetchSpotCount();
+  
+  // NEW: Real-time updates - spots will update instantly!
+  const ticketsChannel = supabase
+    .channel('tickets-live-updates')
+    .on(
+      'postgres_changes',
+      {
+        event: 'UPDATE',
+        schema: 'public',
+        table: 'tickets_config',
+        filter: 'id=eq.1'
+      },
+      (payload) => {
+        console.log('🎟️ LIVE UPDATE! New spots:', payload.new.remaining_tickets);
+        setSpotsLeft(payload.new.remaining_tickets);
+        setSpotsError(false);
+      }
+    )
+    .subscribe((status) => {
+      console.log('📡 Real-time connection:', status);
+    });
 
-    // NEW: Real-time updates - spots will update instantly!
-    const ticketsChannel = supabase
-      .channel("tickets-live-updates")
-      .on(
-        "postgres_changes",
-        {
-          event: "UPDATE",
-          schema: "public",
-          table: "tickets_config",
-          filter: "id=eq.1",
-        },
-        (payload) => {
-          console.log(
-            "🎟️ LIVE UPDATE! New spots:",
-            payload.new.remaining_tickets
-          );
-          setSpotsLeft(payload.new.remaining_tickets);
-          setSpotsError(false);
-        }
-      )
-      .subscribe((status) => {
-        console.log("📡 Real-time connection:", status);
-      });
-
-    // Backup: Still refresh every 60 seconds just in case
-    const interval = setInterval(fetchSpotCount, 60000);
-
-    // Clean up when component is destroyed
-    return () => {
-      console.log("🧹 Cleaning up real-time connection...");
-      ticketsChannel.unsubscribe();
-      clearInterval(interval);
-    };
-  }, []);
+  // Backup: Still refresh every 60 seconds just in case
+  const interval = setInterval(fetchSpotCount, 60000);
+  
+  // Clean up when component is destroyed
+  return () => {
+    console.log('🧹 Cleaning up real-time connection...');
+    ticketsChannel.unsubscribe();
+    clearInterval(interval);
+  };
+}, []);
 
   return (
     <section className="bg-[#121212] text-white  md:px-4">
@@ -510,36 +506,34 @@ const BecomeChallenger = () => {
           <h2 className="text-2xl md:text-5xl font-bold mb-4">
             {t("benefitsSection.date")}
           </h2>
-          <div className="flex items-center justify-center gap-3 mb-6">
-            <span className="text-xl font-normal text-white tracking-wide">
-              {t("benefitsSection.spotsTotal")}
+            <div className="flex items-center justify-center gap-3 mb-6">
+        <span className="text-xl font-normal text-white tracking-wide">
+          {t("benefitsSection.spotsTotal")}
+        </span>
+        <div className="flex items-center font-bold text-3xl gap-2">
+          {spotsLoading ? (
+            <div className="w-12 h-8 bg-gray-600 animate-pulse rounded"></div>
+          ) : spotsError ? (
+            <span className="text-gray-400">--</span>
+          ) : (
+            <span className={spotsLeft <= 50 ? 'text-red-400' : 'text-white'}>
+              {spotsLeft}
             </span>
-            <div className="flex items-center font-bold text-3xl gap-2">
-              {spotsLoading ? (
-                <div className="w-12 h-8 bg-gray-600 animate-pulse rounded"></div>
-              ) : spotsError ? (
-                <span className="text-gray-400">--</span>
-              ) : (
-                <span
-                  className={spotsLeft <= 50 ? "text-red-400" : "text-white"}
-                >
-                  {spotsLeft}
-                </span>
-              )}
-            </div>
-            <span className="text-2xl font-bold text-white tracking-wide">
-              {t("benefitsSection.spotsLeft")}
-            </span>
-          </div>
-
-          {/* Optional: Show urgency message when spots are low */}
-          {!spotsLoading && !spotsError && spotsLeft <= 50 && (
-            <div className="text-center mb-4">
-              <p className="text-red-400 text-sm font-semibold">
-                🔥 Only {spotsLeft} spots remaining!
-              </p>
-            </div>
           )}
+        </div>
+        <span className="text-2xl font-bold text-white tracking-wide">
+          {t("benefitsSection.spotsLeft")}
+        </span>
+      </div>
+
+      {/* Optional: Show urgency message when spots are low */}
+      {!spotsLoading && !spotsError && spotsLeft <= 50 && (
+        <div className="text-center mb-4">
+          <p className="text-red-400 text-sm font-semibold">
+            🔥 Only {spotsLeft} spots remaining!
+          </p>
+        </div>
+      )}
           <div className="inline-flex items-center gap-6 sm:gap-8 md:gap-16 bg-black/10 backdrop-blur-lg rounded-2xl py-3 sm:py-5 md:py-8 px-4 sm:px-10 md:px-16 w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-4xl mx-auto overflow-x-auto border border-white/10">
             {["Days", "Hours", "Minutes"].map((unit, i) => {
               const value =

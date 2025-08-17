@@ -1,16 +1,82 @@
 "use client";
-import React from "react";
+
 import Image from "next/image";
+import React, { useState, useEffect } from "react";
 import promoter from "../../../../public/assests/promoter/promoter.png";
 import dotSvg from "../../../../public/assests/promoter/dot.svg";
 import starSvg from "../../../../public/assests/star.svg";
 import Image2 from "../../../../public/Image2.png";
 import image1 from "../../../../public/assests/promoter/image1.png";
 import Image4 from "../../../../public/assests/promoter/Vector.png";
+import { supabase } from "../../../../lib/supabaseClient";
+
+
 import { useTranslations } from "next-intl";
 const Promoter = () => {
   const t = useTranslations("Promoter");
- const features = [
+
+  const [totalSpots, setTotalSpots] = useState(200);
+  const [spotsLeft, setSpotsLeft] = useState(200);
+  const [spotsLoading, setSpotsLoading] = useState(true);
+  const [spotsError, setSpotsError] = useState(false);
+
+  
+  // Real-time spots functionality
+  useEffect(() => {
+    const fetchSpotCount = async () => {
+      try {
+        setSpotsLoading(true);
+        
+        const { data, error } = await supabase
+          .from('tickets_config')
+          .select('total_tickets, remaining_tickets')
+          .eq('id', 1)
+          .single();
+
+        if (!error && data) {
+          setTotalSpots(data.total_tickets);
+          setSpotsLeft(data.remaining_tickets);
+          setSpotsError(false);
+          console.log('✅ Promoter spots loaded:', data);
+        } else {
+          console.error('❌ Error loading promoter spots:', error);
+          setSpotsError(true);
+        }
+      } catch (err) {
+        console.error('❌ Error fetching promoter spot count:', err);
+        setSpotsError(true);
+      } finally {
+        setSpotsLoading(false);
+      }
+    };
+
+    fetchSpotCount();
+    
+    const ticketsChannel = supabase
+      .channel('promoter-tickets-live')
+      .on('postgres_changes', {
+        event: 'UPDATE',
+        schema: 'public',
+        table: 'tickets_config',
+        filter: 'id=eq.1'
+      }, (payload) => {
+        console.log('🎟️ PROMOTER REAL-TIME UPDATE:', payload.new);
+        setTotalSpots(payload.new.total_tickets);
+        setSpotsLeft(payload.new.remaining_tickets);
+        setSpotsError(false);
+      })
+      .subscribe();
+
+    const interval = setInterval(fetchSpotCount, 60000);
+    
+    return () => {
+      ticketsChannel.unsubscribe();
+      clearInterval(interval);
+    };
+  }, []);
+
+
+  const features = [
     {
       title: t("features.0.title"),
       description: t("features.0.description"),
@@ -32,7 +98,6 @@ const Promoter = () => {
       description: t("features.4.description"),
     },
   ];
-
 
   return (
     <div className="bg-[#121212] text-white py-12 md:py-16 md:px-4">
@@ -87,24 +152,50 @@ const Promoter = () => {
             </p>
           </div>
 
-          {/* Seats Counter */}
-          <div className="mb-6 md:mb-8 w-full py-2 px-2 md:px-6">
-            <div className="inline-flex items-baseline gap-2 sm:gap-2 md:gap-3 lg:gap-4 text-base sm:text-sm md:text-lg lg:text-xl xl:text-xl 2xl:text-3xl flex-wrap justify-center w-full">
-              <span className="text-white">{t("seatsCounter.only")}</span>
-              <span className="text-lime-400 font-bold text-base sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl">
-                200
-              </span>
-              <span className="text-white">
-                {t("seatsCounter.promoterSeats")}
-              </span>
-              <span className="text-lime-400 font-bold text-xl sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl">
-                145
-              </span>
-              <span className="text-lime-400 text-xl  sm:text-sm md:text-lg lg:text-xl xl:text-2xl font-bold">
-                {t("seatsCounter.left")}
-              </span>
-            </div>
+           <div className="mb-6 md:mb-8 w-full py-2 px-2 md:px-6">
+        <div className="inline-flex items-baseline gap-2 sm:gap-2 md:gap-3 lg:gap-4 text-base sm:text-sm md:text-lg lg:text-xl xl:text-xl 2xl:text-3xl flex-wrap justify-center w-full">
+          <span className="text-white">{t("seatsCounter.only")}</span>
+          
+          <span className="text-lime-400 font-bold text-base sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl">
+            {spotsLoading ? (
+              <span className="animate-pulse bg-gray-600 rounded w-12 h-6 inline-block"></span>
+            ) : spotsError ? (
+              <span className="text-gray-400">--</span>
+            ) : (
+              totalSpots
+            )}
+          </span>
+          
+          <span className="text-white">
+            {t("seatsCounter.promoterSeats")}
+          </span>
+          
+          <span className={`font-bold text-xl sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl transition-colors duration-300 ${
+            spotsLeft <= 50 ? 'text-red-400' : 'text-lime-400'
+          }`}>
+            {spotsLoading ? (
+              <span className="animate-pulse bg-gray-600 rounded w-12 h-6 inline-block"></span>
+            ) : spotsError ? (
+              <span className="text-gray-400">--</span>
+            ) : (
+              spotsLeft
+            )}
+          </span>
+          
+          <span className="text-lime-400 text-xl sm:text-sm md:text-lg lg:text-xl xl:text-2xl font-bold">
+            {t("seatsCounter.left")}
+          </span>
+        </div>
+        
+        {/* Urgency message */}
+        {!spotsLoading && !spotsError && spotsLeft <= 20 && (
+          <div className="text-center mt-3">
+            <p className="text-red-400 text-sm font-semibold animate-pulse">
+              🔥 Only {spotsLeft} promoter spots left!
+            </p>
           </div>
+        )}
+      </div>
           <div className="flex justify-center items-center w-full font-satoshi px-4 py-4">
             <button
               onClick={() => {
