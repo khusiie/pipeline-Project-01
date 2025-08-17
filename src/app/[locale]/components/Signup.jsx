@@ -247,10 +247,10 @@ export default function SignUp() {
         <div className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-4xl mx-auto">
           <div className="text-center mb-8">
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold uppercase mb-4">
-              Verify Email
+            OTP Verification
             </h1>
             <p className="text-gray-300 mb-2">
-              We've sent a 6-digit code to
+            Enter the verification code we just sent to your email address
             </p>
             <p className="text-[#C6FF00] font-medium text-lg">{email}</p>
           </div>

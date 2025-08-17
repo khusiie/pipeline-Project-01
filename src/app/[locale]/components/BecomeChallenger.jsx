@@ -1,5 +1,6 @@
 "use client";
 import { useTranslations } from "next-intl";
+import { supabase } from "../../../../lib/supabaseClient"; 
 
 import Image2 from "../../../../public/assests/becomechallenger/Image2.png";
 import React, { useEffect, useState, useRef } from "react";
@@ -16,11 +17,16 @@ import gridlogo4 from "../../../../public/assests/becomechallenger/bot.svg";
 import becomechallengelogo from "../../../../public/assests/becomechallenger/challange.png";
 import vectorimage from "../../../../public/vector.png";
 import Image4 from "../../../../public/assests/becomechallenger/Vector.png";
+
 import Image from "next/image";
 
 import Image3 from "../../../../public/Image2.png";
 const BecomeChallenger = () => {
   const t = useTranslations("BecomeChallenger");
+  const [spotsLeft, setSpotsLeft] = useState(200);
+
+const [spotsLoading, setSpotsLoading] = useState(true);
+const [spotsError, setSpotsError] = useState(false);
   // Countdown logic
   const calculateTimeLeft = () => {
     const targetDate = new Date("2025-09-16T23:59:59");
@@ -50,54 +56,48 @@ const BecomeChallenger = () => {
     return () => clearInterval(timer);
   }, []);
 
-
   // Images & logos arrays
-const images = [gridimage1, gridimage2, gridimage3, gridimage4, gridimage5];
-const logos = [gridlogo2, gridlogo1, gridlogo3, gridlogo4, gridlogo5];
+  const images = [gridimage1, gridimage2, gridimage3, gridimage4, gridimage5];
+  const logos = [gridlogo2, gridlogo1, gridlogo3, gridlogo4, gridlogo5];
 
-
-const cards = [
+  const cards = [
     {
       title: t("mobileCards.card1_title"),
       description: t("mobileCards.card1_description"),
       image: images[0],
       logo: logos[0],
-      id: 1
+      id: 1,
     },
     {
       title: t("mobileCards.card2_title"),
       description: t("mobileCards.card2_description"),
       image: images[1],
       logo: logos[1],
-      id: 2
+      id: 2,
     },
     {
       title: t("mobileCards.card3_title"),
       description: t("mobileCards.card3_description"),
       image: images[2],
       logo: logos[2],
-      id: 3
+      id: 3,
     },
     {
       title: t("mobileCards.card4_title"),
       description: t("mobileCards.card4_description"),
       image: images[3],
       logo: logos[3],
-      id: 4
+      id: 4,
     },
     {
       title: t("mobileCards.card5_title"),
       description: t("mobileCards.card5_description"),
       image: images[4],
       logo: logos[4],
-      id: 5
+      id: 5,
     },
   ];
 
- 
-
-
-  
   // Mobile scroll functionality
   useEffect(() => {
     const container = scrollContainerRef.current;
@@ -127,6 +127,54 @@ const cards = [
       behavior: "smooth",
     });
   };
+// Replace the existing useEffect that fetches spot count with this:
+
+useEffect(() => {
+  const fetchSpotCount = async () => {
+    try {
+      setSpotsLoading(true);
+      
+      // Option 1: Use the tickets_config table directly
+      const { data, error } = await supabase
+        .from('tickets_config')
+        .select('remaining_tickets')
+        .eq('id', 1)
+        .single();
+
+      if (!error && data) {
+        setSpotsLeft(data.remaining_tickets);
+        setSpotsError(false);
+      } else {
+        console.error('Error fetching from tickets_config:', error);
+        setSpotsError(true);
+      }
+
+      // Option 2: Use the custom function (alternative approach)
+      // const { data, error } = await supabase.rpc('get_ticket_status');
+      // if (!error && data && data.length > 0) {
+      //   setSpotsLeft(data[0].remaining_tickets);
+      //   setSpotsError(false);
+      // } else {
+      //   setSpotsError(true);
+      // }
+      
+    } catch (err) {
+      console.error('Error fetching spot count:', err);
+      setSpotsError(true);
+    } finally {
+      setSpotsLoading(false);
+    }
+  };
+
+  // Initial fetch
+  fetchSpotCount();
+  
+  // Refresh every 30 seconds to get updates
+  const interval = setInterval(fetchSpotCount, 30000);
+  
+  return () => clearInterval(interval);
+}, []);
+
 
   return (
     <section className="bg-[#121212] text-white  md:px-4">
@@ -216,7 +264,7 @@ const cards = [
             src={becomechallengelogo}
             alt={t("headingAlt")}
             className="w-full md:w-auto h-auto max-h-[260px] md:max-h-[250px] object-contain"
-            width={800} // bigger base size for clarity
+            width={800}
             height={400}
             unoptimized
             priority
@@ -439,20 +487,38 @@ const cards = [
           >
             {t("benefitsSection.title")}
           </h3>
+
           <h2 className="text-2xl md:text-5xl font-bold mb-4">
             {t("benefitsSection.date")}
           </h2>
-          <div className="flex items-center justify-center gap-3 mb-6">
-            <span className="text-xl font-normal text-white tracking-wide">
-              {t("benefitsSection.spotsTotal")}
+            <div className="flex items-center justify-center gap-3 mb-6">
+        <span className="text-xl font-normal text-white tracking-wide">
+          {t("benefitsSection.spotsTotal")}
+        </span>
+        <div className="flex items-center font-bold text-3xl gap-2">
+          {spotsLoading ? (
+            <div className="w-12 h-8 bg-gray-600 animate-pulse rounded"></div>
+          ) : spotsError ? (
+            <span className="text-gray-400">--</span>
+          ) : (
+            <span className={spotsLeft <= 50 ? 'text-red-400' : 'text-white'}>
+              {spotsLeft}
             </span>
-            <div className="flex items-center font-bold  text-3xl gap-2">
-              145
-            </div>
-            <span className="text-2xl font-bold text-white tracking-wide">
-              {t("benefitsSection.spotsLeft")}
-            </span>
-          </div>
+          )}
+        </div>
+        <span className="text-2xl font-bold text-white tracking-wide">
+          {t("benefitsSection.spotsLeft")}
+        </span>
+      </div>
+
+      {/* Optional: Show urgency message when spots are low */}
+      {!spotsLoading && !spotsError && spotsLeft <= 50 && (
+        <div className="text-center mb-4">
+          <p className="text-red-400 text-sm font-semibold">
+            🔥 Only {spotsLeft} spots remaining!
+          </p>
+        </div>
+      )}
           <div className="inline-flex items-center gap-6 sm:gap-8 md:gap-16 bg-black/10 backdrop-blur-lg rounded-2xl py-3 sm:py-5 md:py-8 px-4 sm:px-10 md:px-16 w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-4xl mx-auto overflow-x-auto border border-white/10">
             {["Days", "Hours", "Minutes"].map((unit, i) => {
               const value =
