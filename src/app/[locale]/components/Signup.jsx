@@ -10,6 +10,8 @@ import Image2 from "../../../../public/Image2.png";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import { useTranslations } from "next-intl";
+import Signupimage from "../../../../public/Signupimage.svg"
+import tick from "../../../../public/tick.svg";
 
 export default function SignUp() {
   const t = useTranslations("SignUp");
@@ -208,119 +210,187 @@ export default function SignUp() {
     setError("");
     setResendCooldown(0);
   };
-
-  if (step === "success") {
-    return (
-      <section className="min-h-[50vh] sm:min-h-[70vh] md:min-h-[95vh] lg:min-h-[85vh] bg-[#121212] text-white flex flex-col items-center justify-center px-3 sm:px-6 lg:px-8 font-clash pt-16">
-        <div className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-4xl mx-auto text-center">
-          <div className="mb-8">
-            <div className="w-20 h-20 bg-[#C6FF00] rounded-full flex items-center justify-center mx-auto mb-6">
-              <svg className="w-10 h-10 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-              </svg>
-            </div>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold uppercase mb-4">
-              Welcome!
-            </h1>
-            <p className="text-gray-300 mb-6">
-              Your account has been created successfully as a {selected}.
-            </p>
-            <p className="text-[#C6FF00] font-medium">{email}</p>
+if (step === "success") {
+  return (
+    <section className="min-h-screen bg-[#121212] text-white flex flex-col items-center justify-center font-clash relative overflow-hidden">
+      {/* Background Image with Overlay */}
+      <div className="absolute inset-0 z-0">
+        <div 
+          className="bg-cover bg-center bg-no-repeat mt-10 sm:mt-20 md:mt-24
+                     mx-2 h-[75vh]
+                     md:mx-0 md:w-full md:h-[120vh]"
+          style={{
+            backgroundImage: `url('/Signupimage.svg')`
+          }}
+        />
+      </div>
+      
+      {/* Cross button in background image */}
+      <button 
+        onClick={() => {
+          window.location.href = '/';
+        }}
+        className="absolute top-20 right-6 sm:top-24 sm:right-8 md:top-28 md:right-10 text-white hover:text-gray-300 transition-colors z-10"
+      >
+        <svg width="24" height="24" className="sm:w-8 sm:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+      
+      <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+        {/* Main Content Row */}
+        <div className="flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-12">
+          {/* Tick Icon */}
+          <div className="flex-shrink-0">
+            <img 
+              src="/tick.svg"
+              alt="Success"
+              className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 mx-auto"
+            />
           </div>
+          
+          {/* Text Content */}
+          <div className="text-center lg:text-left">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 leading-tight">
+              You're In! Welcome to{' '}
+              <span className="text-[#C6FF00]">PIPELINE</span>
+            </h1>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+if (step === "verify") {
+  // Handle OTP input change for individual boxes
+  const handleOTPChange = (index, value) => {
+    if (!/^\d*$/.test(value)) return; // Only allow digits
+    
+    const newOTP = otp.split('');
+    newOTP[index] = value;
+    const updatedOTP = newOTP.join('');
+    setOtp(updatedOTP);
+    
+    // Auto-focus next input
+    if (value && index < 5) {
+      const nextInput = document.getElementById(`otp-${index + 1}`);
+      if (nextInput) nextInput.focus();
+    }
+  };
+
+  // Handle backspace to focus previous input
+  const handleKeyDown = (index, e) => {
+    if (e.key === 'Backspace' && !otp[index] && index > 0) {
+      const prevInput = document.getElementById(`otp-${index - 1}`);
+      if (prevInput) prevInput.focus();
+    }
+  };
+
+  return (
+    <section className="min-h-screen bg-[#121212] text-white flex flex-col items-center justify-center px-4 py-4 font-clash relative overflow-hidden">
+      {/* Background Image with same styling as success section */}
+      <div className="absolute inset-0 z-0">
+        <div 
+          className="bg-cover bg-center bg-no-repeat mt-10 sm:mt-20 md:mt-24
+                     mx-2 h-[75vh]
+                     md:mx-0 md:w-full md:h-[120vh]"
+          style={{
+            backgroundImage: `url('/Signupimage.svg')`
+          }}
+        />
+        {/* Additional gradient overlay from bottom */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
+      </div>
+
+      {/* Close button - matching success section positioning */}
+      <button 
+        onClick={resetForm}
+        className="absolute top-20 right-6 sm:top-24 sm:right-8 md:top-28 md:right-10 text-white hover:text-gray-300 transition-colors z-10"
+      >
+        <svg width="24" height="24" className="sm:w-8 sm:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+
+      <div className="w-full max-w-md mx-auto text-center relative z-10">
+        {/* Header */}
+        <div className="mb-8">
+          <h1 className="text-2xl font-bold text-white mb-4 drop-shadow-lg">
+            OTP Verification
+          </h1>
+          <p className="text-gray-300 text-sm mb-2 drop-shadow-md">
+            Enter the verification code we just sent to<br />
+            your email address
+          </p>
+        </div>
+
+        {/* Error Message */}
+        {error && (
+          <div className="mb-6 p-3 bg-red-900/20 border border-red-500 rounded-md backdrop-blur-sm">
+            <p className="text-red-400 text-sm">{error}</p>
+          </div>
+        )}
+
+        {/* OTP Input Boxes */}
+        <div className="mb-8">
+          <div className="flex justify-center gap-3 mb-6">
+            {[0, 1, 2, 3, 4, 5].map((index) => (
+              <input
+                key={index}
+                id={`otp-${index}`}
+                type="text"
+                value={otp[index] || ''}
+                onChange={(e) => handleOTPChange(index, e.target.value)}
+                onKeyDown={(e) => handleKeyDown(index, e)}
+                className="w-12 h-12 bg-black/40 backdrop-blur-sm border-2 border-lime-300 rounded-sm text-center text-xl font-mono text-white focus:border-[#C6FF00] focus:outline-none focus:bg-black/60 transition-all"
+                maxLength={1}
+                autoComplete="off"
+              />
+            ))}
+          </div>
+          
+          {/* Resend Timer */}
+          <p className="text-gray-400 text-sm mb-4 drop-shadow-md">
+            {resendCooldown > 0 ? (
+              `Resend OTP in ${resendCooldown}s`
+            ) : (
+              'Resend OTP in 60s'
+            )}
+          </p>
+        </div>
+
+        <div className="text-center mb-6">
           <button
-            onClick={() => {
-              // Redirect to dashboard or login page
-              window.location.href = '/';
-            }}
-            className="bg-[#C6FF00] text-[#1D4E00] font-medium py-3 px-8 rounded-md hover:bg-lime-300 transition"
+            onClick={handleOTPVerification}
+            disabled={loading || otp.length !== 6}
+            className="inline-flex bg-[#C6FF00] text-[#1D4E00] font-semibold py-3 px-8 rounded-md hover:bg-lime-300 transition-colors disabled:opacity-50 disabled:cursor-not-allowed items-center justify-center gap-2 shadow-lg hover:shadow-xl"
           >
-            You’re  In!  Welcome  to  PIPELINE.
+            {loading ? "VERIFYING..." : "VERIFY"}
+            {!loading && (
+              <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            )}
           </button>
         </div>
-      </section>
-    );
-  }
 
-  if (step === "verify") {
-    return (
-      <section className="min-h-[50vh] sm:min-h-[70vh] md:min-h-[95vh] lg:min-h-[85vh] bg-[#121212] text-white flex flex-col items-center justify-center px-3 sm:px-6 lg:px-8 font-clash pt-16">
-        <div className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-4xl mx-auto">
-          <div className="text-center mb-8">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold uppercase mb-4">
-            OTP Verification
-            </h1>
-            <p className="text-gray-300 mb-2">
-            Enter the verification code we just sent to your email address
-            </p>
-            <p className="text-[#C6FF00] font-medium text-lg">{email}</p>
-          </div>
-
-          {error && (
-            <div className="mb-6 p-4 bg-red-900/20 border border-red-500 rounded-md">
-              <p className="text-red-400 text-sm">{error}</p>
-            </div>
-          )}
-
-          <form onSubmit={handleOTPVerification} className="space-y-6">
-            <div className="flex items-center gap-4 border-b border-gray-500 focus-within:border-[#C6FF00] transition-colors py-3">
-              <label className="text-sm w-28 whitespace-nowrap">
-                Verification Code
-              </label>
-              <input
-                type="text"
-                value={otp}
-                onChange={(e) => setOtp(e.target.value.replace(/\D/g, '').slice(0, 6))}
-                placeholder="Enter 6-digit code"
-                className="flex-1 bg-transparent focus:outline-none text-lg font-mono tracking-widest text-center"
-                maxLength={6}
-                required
-              />
-            </div>
-
-            <div className="flex justify-center">
-              <button
-                type="submit"
-                disabled={loading || otp.length !== 6}
-                className="w-full sm:w-auto inline-flex justify-center items-center gap-2 bg-[#C6FF00] text-[#1D4E00] font-medium py-3 px-8 rounded-md hover:bg-lime-300 transition disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                {loading ? "Verifying..." : "Verify Code"}
-                <span className="p-1 rounded-md flex items-center justify-center">
-                  <Image src={Image2} alt="icon" className="w-4 h-4" />
-                </span>
-              </button>
-            </div>
-          </form>
-
-          <div className="text-center mt-6">
-            <p className="text-gray-400 text-sm mb-2">
-              Didn't receive the code?
-            </p>
+        <div className="text-center">
+          <p className="text-gray-400 text-sm drop-shadow-md">
+            Didn't receive a code?{' '}
             <button
               onClick={handleResendOTP}
               disabled={resendCooldown > 0 || loading}
-              className="text-[#C6FF00] hover:text-lime-300 font-medium text-sm disabled:text-gray-500 disabled:cursor-not-allowed"
+              className="text-[#C6FF00] hover:text-lime-300 font-medium text-sm disabled:text-gray-500 disabled:cursor-not-allowed underline drop-shadow-md ml-1"
             >
-              {resendCooldown > 0 ? (
-                `Resend in ${resendCooldown}s`
-              ) : (
-                'Resend Code'
-              )}
+              Resend
             </button>
-          </div>
-
-          <div className="text-center mt-4">
-            <button
-              onClick={resetForm}
-              className="text-gray-400 hover:text-gray-300 text-sm underline"
-            >
-              Change email address
-            </button>
-          </div>
+          </p>
         </div>
-      </section>
-    );
-  }
-
+      </div>
+    </section>
+  );
+}
   return (
     <section
       id="signup"
