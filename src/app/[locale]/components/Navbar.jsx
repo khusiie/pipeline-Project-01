@@ -1,13 +1,14 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
+import { useState, useEffect } from "react";
 
 import Logo from "../../../../public/logo.svg";
 import cancel from "../../../../public/cancel.svg";
 import Image2 from "../../../../public/Image2.png";
 import menu from "../../../../public/menu-11.png";
 import { FaChevronDown } from "react-icons/fa";
-import { useState } from "react";
+
 import { useTranslations } from "next-intl";
 import { useRouter, usePathname } from "next/navigation";
 import hindilogo from "../../../../public/assests/language/hindi.svg";
@@ -25,7 +26,7 @@ export default function Navbar() {
   const pathname = usePathname();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
+  const [scrollTarget, setScrollTarget] = useState(null);
   // Get current locale from pathname
   const currentLocale = pathname.split("/")[1] || "en";
 
@@ -66,8 +67,20 @@ export default function Navbar() {
   };
 
   const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
+    setIsMobileMenuOpen((prev) => !prev);
   };
+
+useEffect(() => {
+  document.body.style.overflow = isMobileMenuOpen ? "hidden" : "auto";
+
+  // NEW: Scroll to target section after menu is closed
+  if (!isMobileMenuOpen && scrollTarget) {
+    const el = document.getElementById(scrollTarget);
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    setScrollTarget(null); // reset target
+  }
+}, [isMobileMenuOpen, scrollTarget]);
+
 
   return (
     <>
@@ -78,33 +91,35 @@ export default function Navbar() {
             <div className="flex items-center py-1 space-x-2">
               <Image src={Logo} alt="logo" width={120} height={40} />
             </div>
-            <ul className="flex text-[12px] space-x-4  uppercase tracking-wider">
-              <li>
-                <a href="#" className="hover:border-b-3 hover:border-lime-400">
-                  {t("navigation.home")}
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:border-b-3 hover:border-lime-400">
-                  {t("navigation.collection")}
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:border-b-3 hover:border-lime-400">
-                  {t("navigation.services")}
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:border-b-3 hover:border-lime-400">
-                  {t("navigation.news")}
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:border-b-3 hover:border-lime-400">
-                  {t("navigation.pricing")}
-                </a>
-              </li>
+            <ul className="flex text-[12px] space-x-4 uppercase tracking-wider">
+              {[
+                { id: "home", label: t("navigation.home") },
+                { id: "promoter", label: t("navigation.collection") },
+                { id: "challenger", label: t("navigation.services") },
+                { id: "reservespot", label: t("navigation.news") },
+                { id: "howitworks", label: t("navigation.pricing") },
+              ].map((link) => (
+                <li key={link.id}>
+                  <button
+                    onClick={() => {
+                      const el = document.getElementById(link.id);
+                      if (el) {
+                        el.scrollIntoView({
+                          behavior: "smooth",
+                          block: "start",
+                        });
+                      } else {
+                        console.warn(`${link.id} section not found in DOM`);
+                      }
+                    }}
+                    className="text-white hover:border-b-3 hover:border-lime-400 uppercase tracking-wider"
+                  >
+                    {link.label}
+                  </button>
+                </li>
+              ))}
             </ul>
+
             <div className="flex items-center gap-10">
               {/* Language Selector Dropdown - Updated Design */}
               <div className="relative">
@@ -217,64 +232,37 @@ export default function Navbar() {
 
       {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (
-        <div className="xl:hidden fixed inset-0 z-40 bg-black bg-opacity-50 backdrop-blur-sm">
-          <div className="fixed top-24 left-4 right-4 bg-[#FFFFFF15] backdrop-blur-md rounded-[24px] border border-[#FFFFFF20] p-6">
+        <div className="xl:hidden fixed inset-0 z-40  bg-opacity-50 backdrop-blur-sm">
+          <div className="fixed top-24 left-4 right-4  bg-[#3A3A3A]  backdrop-blur-md rounded-[24px] border border-[#FFFFFF20] p-6">
             {/* Mobile Navigation Links */}
-<ul className="space-y-6 text-center">
-  <li>
-    <Link
-      href="/"
-      className="inline-block text-white text-lg uppercase tracking-wider border-b-2 border-transparent 
-                 hover:border-lime-500 active:border-lime-500 focus:border-lime-500 transition"
-    >
-      {t("navigation.home")}
-    </Link>
-  </li>
-  <li>
-    <Link
-      href="/"
-      className="inline-block text-white text-lg uppercase tracking-wider border-b-2 border-transparent 
-                 hover:border-lime-500 active:border-lime-500 focus:border-lime-500 transition"
-    >
-      {t("navigation.collection")}
-    </Link>
-  </li>
-  <li>
-    <Link
-      href="/"
-      className="inline-block text-white text-lg uppercase tracking-wider border-b-2 border-transparent 
-                 hover:border-lime-500 active:border-lime-500 focus:border-lime-500 transition"
-    >
-      {t("navigation.services")}
-    </Link>
-  </li>
-  <li>
-    <Link
-      href="/"
-      className="inline-block text-white text-lg uppercase tracking-wider border-b-2 border-transparent 
-                 hover:border-lime-500 active:border-lime-500 focus:border-lime-500 transition"
-    >
-      {t("navigation.news")}
-    </Link>
-  </li>
-  <li>
-    <Link
-      href="/"
-      className="inline-block text-white text-lg uppercase tracking-wider border-b-2 border-transparent 
-                 hover:border-lime-500 active:border-lime-500 focus:border-lime-500 transition"
-    >
-      {t("navigation.pricing")}
-    </Link>
-  </li>
-</ul>
-
+            <ul className="space-y-6 text-center">
+              {[
+                { id: "home", label: t("navigation.home") },
+                { id: "promoter", label: t("navigation.collection") },
+                { id: "challenger", label: t("navigation.services") },
+                { id: "reservespot", label: t("navigation.news") },
+                { id: "howitworks", label: t("navigation.pricing") },
+              ].map((link) => (
+                <li key={link.id}>
+                  <button
+                    onClick={() => {
+                      setScrollTarget(link.id); // NEW: store target section
+                      setIsMobileMenuOpen(false); // close menu first
+                    }}
+                    className="inline-block text-white text-lg uppercase tracking-wider border-b-2 border-transparent hover:border-lime-500 active:border-lime-500 focus:border-lime-500 transition"
+                  >
+                    {link.label}
+                  </button>
+                </li>
+              ))}
+            </ul>
 
             {/* Mobile Language Selector - Updated Design */}
             <div className="mt-8 flex justify-center">
               <div className="relative">
                 <button
                   onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                  className="flex items-center gap-3 px-4 py-2.5 rounded-full bg-[#FFFFFF20] backdrop-blur-sm border-2 border-[#FFFFFF50] hover:bg-[#FFFFFF25] hover:border-[#FFFFFF70] transition-all duration-200 shadow-lg"
+                  className="flex items-center gap-3 px-2 py-1 rounded-lg bg-[#FFFFFF20] backdrop-blur-sm   hover:bg-[#FFFFFF25]  transition-all duration-200 shadow-lg"
                 >
                   <div className="flex items-center justify-center w-8 h-8 rounded-full  bg-white/10">
                     <Image
@@ -285,9 +273,10 @@ export default function Navbar() {
                       className="w-5 h-5"
                     />
                   </div>
-                  <span className="text-white font-medium text-sm min-w-[50px] text-left">
+                  <span className="text-white font-medium text-sm min-w-[50px] text-left border border-white/30 rounded px-2 py-0.5">
                     {selectedLanguage.name}
                   </span>
+
                   <FaChevronDown
                     className={`text-white text-xs transition-transform duration-200 ${
                       isDropdownOpen ? "rotate-180" : ""
@@ -295,37 +284,42 @@ export default function Navbar() {
                   />
                 </button>
 
-               {/* Mobile Dropdown Menu */}
-{isDropdownOpen && (
-  <div className="absolute top-full mt-2 left-1/2 transform -translate-x-1/2 
-                  bg-[#FFFFFF1A] backdrop-blur-md rounded-[16px] border border-[#FFFFFF20] 
+                {/* Mobile Dropdown Menu */}
+                {isDropdownOpen && (
+                  <div
+                    className="absolute top-full mt-2 left-1/2 transform -translate-x-1/2 
+                  bg-[#2B2B2B] backdrop-blur-md rounded-[16px] border border-[#FFFFFF20] 
                   overflow-hidden min-w-[180px] shadow-lg 
-                  max-h-60 overflow-y-auto scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-transparent">
-    {languages.map((language) => (
-      <button
-        key={language.code}
-        onClick={() => handleLanguageSelect(language)}
-        className="w-full flex items-center gap-3 px-4 py-3 hover:bg-[#FFFFFF20] 
+                  max-h-60 overflow-y-auto scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-transparent"
+                  >
+                    {languages.map((language) => (
+                      <button
+                        key={language.code}
+                        onClick={() => handleLanguageSelect(language)}
+                        className="w-full flex items-center gap-3 px-4 py-3 hover:bg-[#FFFFFF20] 
                    transition-colors duration-150 text-left text-white"
-      >
-        <div className="flex items-center justify-center w-6 h-6 rounded-full bg-white/10">
-          <Image
-            src={language.logo}
-            alt={language.name}
-            width={16}
-            height={16}
-            className="w-4 h-4"
-          />
-        </div>
-        <div className="flex flex-col">
-          <span className="text-sm font-medium">{language.name}</span>
-          <span className="text-xs text-gray-300">{language.code}</span>
-        </div>
-      </button>
-    ))}
-  </div>
-)}
-
+                      >
+                        <div className="flex items-center justify-center w-6 h-6 rounded-full bg-white/10">
+                          <Image
+                            src={language.logo}
+                            alt={language.name}
+                            width={16}
+                            height={16}
+                            className="w-4 h-4"
+                          />
+                        </div>
+                        <div className="flex flex-col">
+                          <span className="text-sm font-medium">
+                            {language.name}
+                          </span>
+                          <span className="text-xs text-gray-300">
+                            {language.code}
+                          </span>
+                        </div>
+                      </button>
+                    ))}
+                  </div>
+                )}
               </div>
             </div>
           </div>

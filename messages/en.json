@@ -147,12 +147,11 @@
   "quickLinksTitle": "Quick Links",
   "quickLinks": {
     "home": "Home",
-    "whoWeAre": "Who We Are",
-    "pricing": "Pricing",
-    "collection": "Collection",
-    "services": "Services",
-    "news": "News",
-    "contactUs": "Contact Us"
+    "whoWeAre": "Become Promoter",
+    "pricing": "Become Challenger",
+    "collection": "Reserve your spot",
+    "services": "How it Works"
+
   }
 ,
 

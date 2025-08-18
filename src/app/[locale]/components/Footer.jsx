@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import footerlogo from "../../../../public/assests/Footer/Footerlogo.svg";
 import { useTranslations } from "next-intl";
 
@@ -12,10 +13,11 @@ export default function Footer() {
         {/* Left Section */}
         <div className="space-y-6 hidden md:flex flex-col items-center md:items-start">
           <h2 className="text-white font-clash  text-2xl font-bold uppercase lg:max-w-[900px] mx-auto md:mx-0 lg:text-left">
-        {t("heading").split("\n").map((line, i) => (
-          <p key={i}>{line}</p>
-        ))}
-     
+            {t("heading")
+              .split("\n")
+              .map((line, i) => (
+                <p key={i}>{line}</p>
+              ))}
           </h2>
 
           {/* Social Icons */}
@@ -60,24 +62,25 @@ export default function Footer() {
             <span className="h-2 w-2 rounded-full bg-lime-400"></span>
             <h3 className="uppercase font-bold">{t("quickLinksTitle")}</h3>
           </div>
+
           <div className="flex flex-wrap justify-center gap-2">
             {[
-                t('quickLinks.home'),
-          t('quickLinks.whoWeAre'),
-          t('quickLinks.pricing'),
-          t('quickLinks.collection'),
-          t('quickLinks.services'),
-          t('quickLinks.news'),
-          t('quickLinks.contactUs')
+              { label: t("quickLinks.home"), href: "#home" },
+              { label: t("quickLinks.whoWeAre"), href: "#promoter" },
+              { label: t("quickLinks.pricing"), href: "#challenger" },
+              { label: t("quickLinks.collection"), href: "#reservespot" },
+              { label: t("quickLinks.services"), href: "#howitworks" },
             ].map((link, index) => (
-              <button
+              <Link
                 key={index}
+                href={link.href}
+            
                 className="bg-[#171717] hover:bg-lime-400 focus:bg-lime-400 active:bg-lime-400
-                     text-white hover:text-black focus:text-black active:text-black
-                     px-4 py-2 rounded-full transition duration-300"
+                 text-white hover:text-black focus:text-black active:text-black
+                 px-4 py-2 rounded-full transition duration-300"
               >
-                {link}
-              </button>
+                {link.label}
+              </Link>
             ))}
           </div>
         </div>
@@ -90,50 +93,53 @@ export default function Footer() {
           </div>
           <ul className="space-y-2 text-sm text-center md:text-left">
             <li>{t("contact.email")}</li>
-           <li>{t("contact.phone")}</li>
+            <li>{t("contact.phone")}</li>
             <li>
-              {t("contact.address").split("\n").map((line, i) => (
-        <span key={i}>
-          {line}
-          <br />
-        </span>
-      ))}
+              {t("contact.address")
+                .split("\n")
+                .map((line, i) => (
+                  <span key={i}>
+                    {line}
+                    <br />
+                  </span>
+                ))}
             </li>
           </ul>
         </div>
       </div>
 
       <div className="block md:hidden text-4xl uppercase text-left font-bold px-4 py-4 ">
-       {t("heading").split("\n").map((line, i) => (
-          <p key={i}>{line}</p>
-        ))}
+        {t("heading")
+          .split("\n")
+          .map((line, i) => (
+            <p key={i}>{line}</p>
+          ))}
       </div>
 
       <div className="md:hidden grid grid-cols-[3fr_1fr] gap-6 max-w-full mx-auto mt-3 px-2">
-        {/* Quick Links */}
         <div>
           <h3 className="font-bold mb-4 flex items-center gap-2 text-sm">
             <span className="h-1 w-1 rounded-full bg-lime-400"></span>
-           {t("quickLinksTitle")}
+            {t("quickLinksTitle")}
           </h3>
           <div className="flex flex-wrap gap-2">
             {[
-            t('quickLinks.home'),
-          t('quickLinks.whoWeAre'),
-          t('quickLinks.pricing'),
-          t('quickLinks.collection'),
-          t('quickLinks.services'),
-          t('quickLinks.news'),
-          t('quickLinks.contactUs')
+              { label: t("quickLinks.home"), href: "#home" },
+              { label: t("quickLinks.whoWeAre"), href: "#promoter" },
+              { label: t("quickLinks.pricing"), href: "#challenger" },
+              { label: t("quickLinks.collection"), href: "#reservespot" },
+              { label: t("quickLinks.services"), href: "#howitworks" },
             ].map((link, index) => (
-              <button
+              <Link
                 key={index}
+                href={link.href}
+                
                 className="bg-[#171717] hover:bg-lime-400 focus:bg-lime-400 active:bg-lime-400
-                     text-white hover:text-black focus:text-black active:text-black
-                     px-3 py-1.5 text-xs rounded-full transition duration-300"
+                   text-white hover:text-black focus:text-black active:text-black
+                   px-3 py-1.5 text-xs rounded-full transition duration-300"
               >
-                {link}
-              </button>
+                {link.label}
+              </Link>
             ))}
           </div>
         </div>
@@ -141,18 +147,21 @@ export default function Footer() {
         {/* Contact Us */}
         <div>
           <h3 className="font-bold mb-4 flex items-center  gap-2 text-sm">
-            <span className="h-1 w-1 rounded-full bg-lime-400"></span> {t("contactTitle")}
+            <span className="h-1 w-1 rounded-full bg-lime-400"></span>{" "}
+            {t("contactTitle")}
           </h3>
           <ul className="space-y-2 text-xs">
             <li>{t("contact.email")}</li>
-           <li>{t("contact.phone")}</li>
+            <li>{t("contact.phone")}</li>
             <li>
-              {t("contact.address").split("\n").map((line, i) => (
-        <span key={i}>
-          {line}
-          <br />
-        </span>
-      ))}
+              {t("contact.address")
+                .split("\n")
+                .map((line, i) => (
+                  <span key={i}>
+                    {line}
+                    <br />
+                  </span>
+                ))}
             </li>
           </ul>
         </div>

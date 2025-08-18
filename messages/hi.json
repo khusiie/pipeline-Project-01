@@ -126,17 +126,14 @@
       "youtube": "यूट्यूब",
       "linkedin": "लिंक्डइन"
     },
-
- 
+    
   "quickLinksTitle": "त्वरित लिंक",
   "quickLinks": {
-    "home": "मुखपृष्ठ",
-    "whoWeAre": "हम कौन हैं",
-    "pricing": "मूल्य निर्धारण",
-    "collection": "संग्रह",
-    "services": "सेवाएं",
-    "news": "समाचार",
-    "contactUs": "संपर्क करें"
+    "home": "होम",
+    "whoWeAre": "प्रमोटर बनें",
+    "pricing": "चैलेंजर बनें",
+    "collection": "अपना स्थान सुरक्षित करें",
+    "services": "यह कैसे काम करता है"
   },
 
 

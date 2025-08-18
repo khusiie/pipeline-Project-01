@@ -16,16 +16,30 @@ export default function HomePage() {
   return (
     < >
     <Navbar/>
-    <HeroSection/>
+    <section id="home">
+      <HeroSection/>
+    </section>
+ 
     <NextSection/>
     <HereWhy/>
     {/* <NextSection/> */}
     <BuildplayerSection/>
-    <Promoter/>
-    <BecomeChallenger/>
+    <section id ="promoter">
+      <Promoter/>
+    </section>
+  
+  <section id="challenger">
+       <BecomeChallenger/>
+  </section>
+
+   <section  id="reservespot">
     <Signup/>
-    {/* <FeatureSection/> */}
-    <HowItWorks/>
+  </section>
+
+ <section id="howitworks">
+      <HowItWorks/>
+ </section>
+    
     <Footer/>
 
     </>

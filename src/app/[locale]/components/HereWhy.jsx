@@ -9,7 +9,7 @@ import { useTranslations } from "next-intl";
 const cards = [
   {
     id: 973,
-    titleKey: "cards.winningTeams", // <-- translation key
+    titleKey: "cards.winningTeams", 
     image: "/assests/hereiswhyimage/Winning.jpg",
   },
   {
