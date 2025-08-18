@@ -143,11 +143,11 @@ const Promoter = () => {
           </div>
           {/* Main Heading */}
           <div className="max-w-4xl mx-auto text-center px-2 md:px-4 -mt-10">
-            <h1 className="text-[14px] sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold mb-1 md:mb-4 leading-tight [word-spacing:0.3em]">
+            <h1 className="text-[16px] sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold mb-1 md:mb-4 leading-tight [word-spacing:0.3em]">
               {t("heading.main")}
             </h1>
 
-            <p className="text-[10px] sm:text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl text-gray-300 mb-2 md:mb-8 lg:mb-12 [word-spacing:0.50em]">
+            <p className="text-[13px] sm:text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl text-gray-300 mb-2 md:mb-8 lg:mb-12 [word-spacing:0.3em]">
               {t("heading.sub")}
             </p>
           </div>

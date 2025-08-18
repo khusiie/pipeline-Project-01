@@ -10,11 +10,11 @@ export default function HowItWorks() {
 
   return (
     <div>
-      <section className="relative bg-[#121212] text-white px-2 md:px-12 w-full pb-6 md:py-32 md:min-h-[800px] font-clash">
+      <section className="relative bg-[#121212] text-white px-2 md:px-12 w-full pt-20 sm:pt-20 md:pt-32 pb-6 md:pb-32 max-h-screen md:min-h-[800px] font-clash overflow-hidden">
         
         {/* Section Heading */}
         <div className="max-w-5xl mx-auto text-left font-bold md:mb-6">
-          <h2 className="text-4xl sm:text-4xl md:text-8xl font-bold uppercase px-4">
+          <h2 className="text-5xl sm:text-4xl md:text-8xl font-bold uppercase px-4">
             {t("heading").split("\n").map((line, i) => (
               <React.Fragment key={i}>
                 {line}
@@ -25,8 +25,8 @@ export default function HowItWorks() {
         </div>
 
         {/* Image + Positioned Text */}
-        <div className="relative max-w-5xl mx-auto md:mb-20">
-          <div className="w-full h-[100px] relative">
+        <div className="relative max-w-5xl mx-auto md:mb-20 flex-1 min-h-0">
+          <div className="w-full h-[100px] sm:h-[150px] md:h-[200px] relative">
             
             {/* SVG Line */}
             <Image
@@ -64,29 +64,25 @@ export default function HowItWorks() {
                 </React.Fragment>
               ))}
             </div>
-
-          </div>
+           </div>
         </div>
 
-        {/* Get Started Button */}
-        <div className="mt-10 md:mt-40 sm:mt-12 flex justify-end pr-2 sm:pr-4 pb-2 md:pr-24 font-satoshi">
+         <div className="mt-auto pt-16 sm:mt-12 md:mt-40 flex justify-end pr-2 sm:pr-4 pb-2 md:pr-24 font-satoshi">
           <button
             onClick={() => {
               const el = document.getElementById("signup");
               if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
             }}
-            className="bg-[#C6FF00] text-[#1D4E00] px-3 py-1.5 sm:px-6 sm:py-3 font-semibold rounded-sm sm:rounded-xl hover:bg-lime-300 transition flex items-center gap-1 sm:gap-2 text-xs sm:text-base"
+            className="bg-[#C4F612] text-[#1D4E00] px-4 py-2 sm:px-8 sm:py-4 md:px-10 md:py-5 font-semibold rounded-lg sm:rounded-xl hover:bg-lime-300 transition flex items-center gap-2 sm:gap-3 text-sm sm:text-base md:text-lg"
           >
             {t("buttonLabel")}
-            <span className="p-0.5 sm:p-1 rounded-md flex items-center justify-center">
-              <Image src={Image2} alt="icon" className="w-4 h-4 sm:w-5 sm:h-5" />
+            <span className="p-1 sm:p-1.5 md:p-2 rounded-md flex items-center justify-center">
+              <Image src={Image2} alt="icon" className="w-4 h-4 sm:w-6 sm:h-6 md:w-7 md:h-7" />
             </span>
           </button>
         </div>
-
-      </section>
-
-      <hr className="hidden sm:block h-0.5 bg-[#ffffff5f] max-w-5xl mx-auto relative z-10" />
+       </section>
+       <hr className="hidden sm:block h-0.5 bg-[#ffffff5f] max-w-5xl mx-auto relative z-10" />
     </div>
   );
 }
