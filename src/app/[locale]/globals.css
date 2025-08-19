@@ -181,3 +181,12 @@ input, textarea, select {
   background: transparent !important;
 }
 
+
+/* Add to your global CSS file */
+html {
+  scroll-padding-top: 80px; /* Adjust based on your navbar height */
+}
+
+section[id="promoter"] {
+  scroll-padding-top: 80px; 
+}

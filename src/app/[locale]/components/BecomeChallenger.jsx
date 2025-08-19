@@ -388,7 +388,7 @@ useEffect(() => {
                   className="shrink-0 w-8 h-8 sm:w-10 sm:h-10"
                 />
                 <p className="text-black text-sm sm:text-base leading-relaxed line-clamp-3 text-left">
-                    <span className="bg-[#C6F812] font-semibold"></span>
+                     
                      {t("cards.3.description")}
                 </p>
               </div>

@@ -14,7 +14,7 @@ export default function BuildplayerSection() {
   return (
     <section className="text-center px-0 sm:px-4 sm:py-10 relative bg-[#121212] text-white">
       {/* Background Star */}
-      <hr className="w-4/5 md:max-w-2xl mx-auto mb-8 border-0 h-0.5 bg-gradient-to-r from-[#C6F812] via-[#d9ff00] to-[#C6F812] rounded-full shadow-[0_0_20px_1px_#C6F812]" />
+      <hr   className="w-4/5 md:max-w-2xl mx-auto mb-8 border-0 h-0.5 bg-gradient-to-r from-[#C6F812] via-[#d9ff00] to-[#C6F812] rounded-full shadow-[0_0_20px_1px_#C6F812]" />
 
       <div className="relative z-10 py-8 sm:mt-16 lg:mt-30">
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-90 -z-10">
