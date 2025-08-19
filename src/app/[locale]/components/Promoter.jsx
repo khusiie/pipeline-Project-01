@@ -4,12 +4,11 @@ import Image from "next/image";
 import React, { useState, useEffect } from "react";
 import promoter from "../../../../public/assests/promoter/promoter.png";
 import dotSvg from "../../../../public/assests/promoter/dot.svg";
-import starSvg from "../../../../public/assests/star.svg";
+import star from "../../../../public/assests/promoter/star.png";
 import Image2 from "../../../../public/Image2.png";
 import image1 from "../../../../public/assests/promoter/image1.png";
 import Image4 from "../../../../public/assests/promoter/Vector.png";
 import { supabase } from "../../../../lib/supabaseClient";
-
 
 import { useTranslations } from "next-intl";
 const Promoter = () => {
@@ -20,30 +19,29 @@ const Promoter = () => {
   const [spotsLoading, setSpotsLoading] = useState(true);
   const [spotsError, setSpotsError] = useState(false);
 
-  
   // Real-time spots functionality
   useEffect(() => {
     const fetchSpotCount = async () => {
       try {
         setSpotsLoading(true);
-        
+
         const { data, error } = await supabase
-          .from('tickets_config')
-          .select('total_tickets, remaining_tickets')
-          .eq('id', 1)
+          .from("tickets_config")
+          .select("total_tickets, remaining_tickets")
+          .eq("id", 1)
           .single();
 
         if (!error && data) {
           setTotalSpots(data.total_tickets);
           setSpotsLeft(data.remaining_tickets);
           setSpotsError(false);
-          console.log('✅ Promoter spots loaded:', data);
+          console.log("✅ Promoter spots loaded:", data);
         } else {
-          console.error('❌ Error loading promoter spots:', error);
+          console.error("❌ Error loading promoter spots:", error);
           setSpotsError(true);
         }
       } catch (err) {
-        console.error('❌ Error fetching promoter spot count:', err);
+        console.error("❌ Error fetching promoter spot count:", err);
         setSpotsError(true);
       } finally {
         setSpotsLoading(false);
@@ -51,30 +49,33 @@ const Promoter = () => {
     };
 
     fetchSpotCount();
-    
+
     const ticketsChannel = supabase
-      .channel('promoter-tickets-live')
-      .on('postgres_changes', {
-        event: 'UPDATE',
-        schema: 'public',
-        table: 'tickets_config',
-        filter: 'id=eq.1'
-      }, (payload) => {
-        console.log('🎟️ PROMOTER REAL-TIME UPDATE:', payload.new);
-        setTotalSpots(payload.new.total_tickets);
-        setSpotsLeft(payload.new.remaining_tickets);
-        setSpotsError(false);
-      })
+      .channel("promoter-tickets-live")
+      .on(
+        "postgres_changes",
+        {
+          event: "UPDATE",
+          schema: "public",
+          table: "tickets_config",
+          filter: "id=eq.1",
+        },
+        (payload) => {
+          console.log("🎟️ PROMOTER REAL-TIME UPDATE:", payload.new);
+          setTotalSpots(payload.new.total_tickets);
+          setSpotsLeft(payload.new.remaining_tickets);
+          setSpotsError(false);
+        }
+      )
       .subscribe();
 
     const interval = setInterval(fetchSpotCount, 60000);
-    
+
     return () => {
       ticketsChannel.unsubscribe();
       clearInterval(interval);
     };
   }, []);
-
 
   const features = [
     {
@@ -108,22 +109,22 @@ const Promoter = () => {
             {/* Star Background */}
             <div className="absolute inset-0 flex items-center justify-center">
               <Image
-                src={starSvg}
+                src={star}
                 alt="Star background"
                 width={1000}
                 height={1000}
-                className="opacity-70 w-80 h-80 md:w-[28rem] md:h-[28rem] lg:w-[32rem] lg:h-[32rem]"
+                className="opacity-70 w-80 h-80 md:w-[28rem] md:h-[28rem] lg:w-[28rem] lg:h-[28rem]"
               />
             </div>
             {/* Badge Container */}
-            <div className="relative bg-gradient-to-r from-lime-400 to-yellow-300 rounded-sm md:rounded-xl shadow-2xl w-full max-w-lg  md:max-w-md md:w-auto">
+            <div className="relative bg-gradient-to-r from-lime-400 to-yellow-300 rounded-sm md:rounded-sm shadow-2xl w-full max-w-lg  md:max-w-md md:w-auto">
               <div className="bg-gradient-to-r from-lime-400 to-yellow-300 rounded-xl px-3 py-4  md:px-6 md:pt-5 md:pb-3 flex items-center gap-4 md:gap-5">
                 <Image
                   src={image1}
                   alt="image1"
                   width={45} // intrinsic width
                   height={45} // intrinsic height
-                  className="w-16 h-16 md:w-16 md:h-16 lg:w-36 lg:h-36"
+                  className="w-16 h-16 md:w-16 md:h-16 lg:w-16 lg:h-16"
                 />
 
                 <div className="text-black">
@@ -131,7 +132,7 @@ const Promoter = () => {
                     {t("badge.becomeA")}
                   </div>
 
-                  <div className="text-xl  md:text-2xl lg:text-3xl font-bold">
+                  <div className="text-xl  md:text-2xl lg:text-2xl font-bold">
                     {t("badge.pipeline")}{" "}
                     <span className="font-normal text-2xl">
                       {t("badge.promoter")}
@@ -143,59 +144,60 @@ const Promoter = () => {
           </div>
           {/* Main Heading */}
           <div className="max-w-4xl mx-auto text-center px-2 md:px-4 -mt-10">
-            <h1 className="text-[16px] sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold mb-1 md:mb-4 leading-tight [word-spacing:0.3em]">
+            <h1 className="text-[16px] sm:text-2xl md:text-3xl lg:text-3xl xl:text-5xl 2xl:text-6xl font-bold mb-1 md:mb-4 lg:mb-0 leading-tight [word-spacing:0.3em] lg:w-full sm:whitespace-nowrap">
               {t("heading.main")}
             </h1>
-
-            <p className="text-[13px] sm:text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl text-gray-300 mb-2 md:mb-8 lg:mb-12 [word-spacing:0.3em]">
+            <p className="text-[13px] sm:text-sm md:text-lg lg:text-3xl xl:text-4xl 2xl:text-3xl text-gray-300 mb-2 md:mb-8 lg:mb-12 [word-spacing:0.3em] lg:w-full lg:whitespace-nowrap">
               {t("heading.sub")}
             </p>
           </div>
 
-           <div className="mb-6 md:mb-8 w-full py-2 px-2 md:px-6">
-        <div className="inline-flex items-baseline gap-2 sm:gap-2 md:gap-3 lg:gap-4 text-base sm:text-sm md:text-lg lg:text-xl xl:text-xl 2xl:text-3xl flex-wrap justify-center w-full">
-          <span className="text-white">{t("seatsCounter.only")}</span>
-          
-          <span className="text-lime-400 font-bold text-base sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl">
-            {spotsLoading ? (
-              <span className="animate-pulse bg-gray-600 rounded w-12 h-6 inline-block"></span>
-            ) : spotsError ? (
-              <span className="text-gray-400">--</span>
-            ) : (
-              totalSpots
+          <div className="mb-6 md:mb-8 w-full py-2 px-2 md:px-6">
+            <div className="inline-flex items-baseline gap-2 sm:gap-2 md:gap-3 lg:gap-4 text-base sm:text-lg md:text-lg lg:text-4xl xl:text-4xl 2xl:text-3xl flex-wrap justify-center w-full">
+              <span className="text-white ">{t("seatsCounter.only")}</span>
+
+              <span className= " lg:text-6xl text-lime-400 font-bold text-base sm:text-xl md:text-2xl  xl:text-5xl 2xl:text-5xl">
+                {spotsLoading ? (
+                  <span className="animate-pulse bg-gray-600 rounded w-12 h-6 inline-block"></span>
+                ) : spotsError ? (
+                  <span className="text-gray-400">--</span>
+                ) : (
+                  totalSpots
+                )}
+              </span>
+
+              <span className="text-white">
+                {t("seatsCounter.promoterSeats")}
+              </span>
+
+              <span
+                className={`font-bold text-xl sm:text-xl md:text-2xl lg:text-5xl xl:text-5xl 2xl:text-5xl transition-colors duration-300 ${
+                  spotsLeft <= 50 ? "text-red-400" : "text-lime-400"
+                }`}
+              >
+                {spotsLoading ? (
+                  <span className="animate-pulse bg-gray-600 rounded w-12 h-6 inline-block"></span>
+                ) : spotsError ? (
+                  <span className="text-gray-400">--</span>
+                ) : (
+                  spotsLeft
+                )}
+              </span>
+
+              <span className="text-lime-400 text-xl sm:text-sm md:text-lg lg:text-xl xl:text-2xl font-bold">
+                {t("seatsCounter.left")}
+              </span>
+            </div>
+
+            {/* Urgency message */}
+            {!spotsLoading && !spotsError && spotsLeft <= 20 && (
+              <div className="text-center mt-3">
+                <p className="text-red-400 text-sm font-semibold animate-pulse">
+                  🔥 Only {spotsLeft} promoter spots left!
+                </p>
+              </div>
             )}
-          </span>
-          
-          <span className="text-white">
-            {t("seatsCounter.promoterSeats")}
-          </span>
-          
-          <span className={`font-bold text-xl sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl transition-colors duration-300 ${
-            spotsLeft <= 50 ? 'text-red-400' : 'text-lime-400'
-          }`}>
-            {spotsLoading ? (
-              <span className="animate-pulse bg-gray-600 rounded w-12 h-6 inline-block"></span>
-            ) : spotsError ? (
-              <span className="text-gray-400">--</span>
-            ) : (
-              spotsLeft
-            )}
-          </span>
-          
-          <span className="text-lime-400 text-xl sm:text-sm md:text-lg lg:text-xl xl:text-2xl font-bold">
-            {t("seatsCounter.left")}
-          </span>
-        </div>
-        
-        {/* Urgency message */}
-        {!spotsLoading && !spotsError && spotsLeft <= 20 && (
-          <div className="text-center mt-3">
-            <p className="text-red-400 text-sm font-semibold animate-pulse">
-              🔥 Only {spotsLeft} promoter spots left!
-            </p>
           </div>
-        )}
-      </div>
           <div className="flex justify-center items-center w-full font-satoshi px-4 py-4">
             <button
               onClick={() => {
@@ -254,7 +256,7 @@ const Promoter = () => {
                     </div>
 
                     {/* Content with Asterisk Heading */}
-                    <div className="flex-1 relative">
+                    <div className="flex-1 relative  -mt-4 mb-2">
                       {/* Asterisk Heading */}
 
                       {/* Star Image replacing the * */}
@@ -263,7 +265,7 @@ const Promoter = () => {
                         alt="Star icon"
                         width={20} // specify actual width
                         height={20} // specify actual height
-                        className="w-4 h-4"
+                        className="w-6 h-6"
                       />
 
                       {/* Feature Title */}

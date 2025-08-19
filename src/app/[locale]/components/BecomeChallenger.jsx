@@ -303,8 +303,8 @@ useEffect(() => {
                 <Image
                   src={gridlogo2}
                   alt="Logo"
-                  width={32}
-                  height={32}
+                  width={40}
+                  height={40}
                   className="shrink-0 w-8 h-8 sm:w-10 sm:h-10"
                 />
                 <p className="text-black text-sm sm:text-base leading-relaxed line-clamp-3 text-left">
@@ -388,7 +388,7 @@ useEffect(() => {
                   className="shrink-0 w-8 h-8 sm:w-10 sm:h-10"
                 />
                 <p className="text-black text-sm sm:text-base leading-relaxed line-clamp-3 text-left">
-                     
+                      <span className="bg-[#C6F812] font-semibold">{t("cards.3.title")}</span>
                      {t("cards.3.description")}
                 </p>
               </div>
@@ -412,6 +412,7 @@ useEffect(() => {
                   className="shrink-0 w-8 h-8 sm:w-10 sm:h-10"
                 />
                 <p className="text-black text-sm sm:text-base leading-relaxed line-clamp-3 text-left">
+                   <span className="bg-[#C6F812] font-semibold">{t("cards.4.title")}</span>
                   {t("cards.4.description")}
                 </p>
               </div>

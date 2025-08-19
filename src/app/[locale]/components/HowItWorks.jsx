@@ -83,7 +83,7 @@ export default function HowItWorks() {
         </div>
        </section>
       
-         <div className="hidden sm:block max-w-5xl mx-auto px-4 md:px-12">
+         <div className="hidden sm:block max-w-6xl mx-auto px-4 md:px-12">
          <div className="h-0.5 bg-[#ffffff5f] relative z-10"></div>
        </div>
     </div>
