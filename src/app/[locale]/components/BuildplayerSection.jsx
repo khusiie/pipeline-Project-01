@@ -27,11 +27,11 @@ export default function BuildplayerSection() {
           />
         </div>
 
-        <h2 className="text-[12px] sm:text-xl md:text-3xl lg:text-2xl xl:text-5xl font-medium uppercase tracking-widest px-2 text-white leading-tight [word-spacing:0.3rem]">
+        <h2 className="text-[12px] sm:text-xl md:text-3xl lg:text-2xl xl:text-4xl font-medium uppercase tracking-widest px-2 text-white leading-tight [word-spacing:0.3rem]">
           {t("headingAlt")}
         </h2>
 
-        <h1 className="text-4xl sm:text-4xl md:text-6xl lg:text-8xl xl:text-[140px] font-extrabold my-1 sm:my-2 text-white leading-none [word-spacing:0.5rem]">
+        <h1 className="text-4xl sm:text-4xl md:text-6xl lg:text-6xl xl:text-[120px] font-extrabold my-1 sm:my-2 text-white leading-none [word-spacing:0.5rem]">
           {t("mainHeading")}
         </h1>
 
