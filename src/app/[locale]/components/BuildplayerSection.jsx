@@ -5,8 +5,8 @@ import { useTranslations } from "next-intl";
 import star from "../../../../public/assests/star.svg";
 import buildplayer1 from "../../../../public/assests/buildplayer/frame1.png";
 import helmet from "../../../../public/assests/buildplayer/cricketHelmet.svg";
-import pipline from "../../../../public/assests/buildplayer/pipline.png";
-import mobile2 from "../../../../public/assests/buildplayer/mobile2.png";
+import pipline from "../../../../public/assests/buildplayer/pipline.svg";
+import mobile2 from "../../../../public/assests/buildplayer/mobile2.svg";
 
 export default function BuildplayerSection() {
   const t = useTranslations("BuildPlayerSection");
@@ -51,8 +51,13 @@ export default function BuildplayerSection() {
         </div>
 
         {/* Tablet & Desktop */}
-        <div className="hidden sm:block relative w-full sm:max-w-4xl">
-          <Image src={mobile2} alt="Pipeline Cricket Player - Website" className="shadow-lg w-full h-[240px] sm:h-[500px] lg:h-[350px] object-contain rounded-lg" />
+        <div className="hidden sm:block relative w-full sm:max-w-4xl lg:w-[1400px] mx-auto">
+           <Image
+  src={mobile2}
+  alt="Pipeline Cricket Player - Website"
+  className="shadow-lg w-full sm:w-auto lg:w-[1600px] h-[240px] sm:h-[500px] lg:h-[350px] object-contain rounded-lg"
+/>
+
           <Image src={pipline} alt="Overlay Graphic" className="absolute top-1/2 left-1/2 w-45 h-45 object-contain object-center transform -translate-x-1/2 -translate-y-[20%]" />
           <div className="absolute inset-0 flex items-end justify-center px-6 pb-4 sm:pb-8">
             <h2 className="text-white text-lg lg:text-xl font-normal max-w-[95%] text-center drop-shadow-md">{t("desktopText")}</h2>
@@ -80,7 +85,7 @@ export default function BuildplayerSection() {
               <Image width={30} height={30} className="w-8 h-8 sm:w-8 sm:h-8 md:w-10 md:h-10 flex-shrink-0" src={helmet} alt="helmet" />
               <span>{t("sectionList.item2")}</span>
             </li>
-            <li className="flex items-center gap-6 sm:gap-8 text-sm sm:text-base md:text-lg">
+            <li className="flex items-center gap-6 sm:gap-4 text-sm sm:text-base md:text-lg">
               <Image width={30} height={30} className="w-8 h-8 sm:w-8 sm:h-8 md:w-10 md:h-10 flex-shrink-0" src={helmet} alt="helmet" />
               <span>{t("sectionList.item3")}</span>
             </li>
