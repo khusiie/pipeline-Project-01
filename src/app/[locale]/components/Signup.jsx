@@ -1,3 +1,5 @@
+// Add this to your SignUp component - Enhanced with success notification
+
 "use client";
 import {
   isValidPhoneNumber,
@@ -14,6 +16,82 @@ import { useTranslations } from "next-intl";
 import Signupimage from "../../../../public/Signupimage.svg";
 import tick from "../../../../public/tick.svg";
 
+// Enhanced Toast Notification Component with different types
+const ToastNotification = ({ message, type = 'default', isVisible, onHide }) => {
+  useEffect(() => {
+    if (isVisible) {
+      const duration = type === 'success' ? 6000 : 4000; // Success messages stay longer
+      const timer = setTimeout(onHide, duration);
+      return () => clearTimeout(timer);
+    }
+  }, [isVisible, onHide, type]);
+
+  if (!isVisible) return null;
+
+  const getToastStyles = () => {
+    switch (type) {
+      case 'success':
+        return 'bg-gradient-to-r from-lime-300 to-lime-500 text-white border-lime-500 animate-pulse';
+      case 'warning':
+        return 'bg-[#C6FF00] text-black border-black animate-bounce';
+      default:
+        return 'bg-[#C6FF00] text-black border-black animate-bounce';
+    }
+  };
+
+  const getIcon = () => {
+    switch (type) {
+      case 'success':
+        return '🔥';
+      case 'warning':
+        return '🔥';
+      default:
+        return '🔥';
+    }
+  };
+
+  return (
+    <div className={`fixed top-4 right-4 z-50 px-6 py-4 rounded-lg shadow-lg border-2 ${getToastStyles()}`}>
+      <div className="flex items-center gap-3">
+        <span className="text-xl">{getIcon()}</span>
+        <div className="flex flex-col gap-1">
+          <span className="font-bold text-sm">{message}</span>
+          {type === 'success' && (
+    <span className="text-xs opacity-90">  Registered successfully</span>
+
+
+          )}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// Counter Display Component
+const LiveCounter = ({ spotsLeft, spotsLoading }) => {
+  return (
+    <div className="bg-black/20 backdrop-blur-sm border border-[#C6FF00]/30 rounded-lg p-4 mb-6">
+      <div className="text-center">
+        <p className="text-gray-300 text-sm mb-2">🔥 Limited Time Offer</p>
+        <div className="flex items-center justify-center gap-2">
+          <span className="text-white text-lg">Only</span>
+          {spotsLoading ? (
+            <div className="w-12 h-8 bg-gray-600 animate-pulse rounded"></div>
+          ) : (
+            <span className={`text-3xl font-bold ${spotsLeft <= 50 ? 'text-red-400 animate-pulse' : 'text-[#C6FF00]'}`}>
+              {spotsLeft}
+            </span>
+          )}
+          <span className="text-white text-lg">spots left!</span>
+        </div>
+        {spotsLeft <= 20 && (
+          <p className="text-red-400 text-xs mt-2 animate-pulse">⚡ Almost sold out!</p>
+        )}
+      </div>
+    </div>
+  );
+};
+
 export default function SignUp() {
   const t = useTranslations("SignUp");
   const [name, setName] = useState("");
@@ -23,21 +101,108 @@ export default function SignUp() {
   const [loading, setLoading] = useState(false);
   const [selected, setSelected] = useState("promoter");
 
-  // New states for OTP flow
-  const [step, setStep] = useState("signup"); // "signup" | "verify" | "success"
+  // OTP flow states
+  const [step, setStep] = useState("signup");
   const [resendCooldown, setResendCooldown] = useState(0);
   const [error, setError] = useState("");
+
+  // Real-time counter and notification states
+  const [spotsLeft, setSpotsLeft] = useState(200);
+  const [spotsLoading, setSpotsLoading] = useState(true);
+  const [showNotification, setShowNotification] = useState(false);
+  const [notificationMessage, setNotificationMessage] = useState("");
+  const [notificationType, setNotificationType] = useState("default");
+  const [userRegistrationNumber, setUserRegistrationNumber] = useState(null);
+
+  // Function to show notification with type
+  const showToast = (message, type = "default") => {
+    setNotificationMessage(message);
+    setNotificationType(type);
+    setShowNotification(true);
+  };
+
+  // Function to hide notification
+  const hideToast = () => {
+    setShowNotification(false);
+  };
+
+  // Real-time counter setup
+  useEffect(() => {
+    const fetchSpotCount = async () => {
+      try {
+        setSpotsLoading(true);
+        
+        const { data, error } = await supabase
+          .from('tickets_config')
+          .select('remaining_tickets')
+          .eq('id', 1)
+          .single();
+
+        if (!error && data) {
+          setSpotsLeft(data.remaining_tickets);
+          console.log('✅ Spots loaded:', data.remaining_tickets);
+        } else {
+          console.error('❌ Error loading spots:', error);
+        }
+      } catch (err) {
+        console.error('❌ Error fetching spot count:', err);
+      } finally {
+        setSpotsLoading(false);
+      }
+    };
+
+    // Load spots when component first loads
+    fetchSpotCount();
+    
+    // Real-time updates
+    const ticketsChannel = supabase
+      .channel('signup-tickets-updates')
+      .on(
+        'postgres_changes',
+        {
+          event: 'UPDATE',
+          schema: 'public',
+          table: 'tickets_config',
+          filter: 'id=eq.1'
+        },
+        (payload) => {
+          const newCount = payload.new.remaining_tickets;
+          const oldCount = payload.old.remaining_tickets;
+          
+          console.log('🎟️ LIVE UPDATE! New spots:', newCount);
+          setSpotsLeft(newCount);
+          
+         
+     
+          if (newCount < oldCount && step !== "verify") {
+            const peopleJoined = oldCount - newCount;
+            if (peopleJoined === 1) {
+              showToast(`Someone just registered! ${newCount} spots left`, "warning");
+            } else {
+              showToast(`${peopleJoined} people just registered! ${newCount} spots left`, "warning");
+            }
+          }
+        }
+      )
+      .subscribe((status) => {
+        console.log('📡 Real-time connection:', status);
+      });
+
+    // Cleanup
+    return () => {
+      ticketsChannel.unsubscribe();
+    };
+  }, [step]);
+
   // iOS keyboard handling
   useEffect(() => {
     const handleResize = () => {
-      // Force a reflow to prevent layout shifts on iOS
       if (window.visualViewport) {
         document.documentElement.style.height = `${window.visualViewport.height}px`;
       }
     };
 
     const handleFocus = (e) => {
-      // Prevent zoom on iOS
       if (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA") {
         setTimeout(() => {
           e.target.scrollIntoView({ behavior: "smooth", block: "center" });
@@ -46,7 +211,6 @@ export default function SignUp() {
     };
 
     const handleBlur = () => {
-      // Reset document height when keyboard closes
       document.documentElement.style.height = "";
     };
 
@@ -86,7 +250,7 @@ export default function SignUp() {
     setLoading(true);
     setError("");
 
-    // 1️⃣ Validate email
+    // Validate email
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       setError("Please enter a valid email address!");
@@ -94,7 +258,7 @@ export default function SignUp() {
       return;
     }
 
-    // 2️⃣ Validate phone number
+    // Validate phone number
     if (phone && !isValidPhoneNumber("+" + phone)) {
       setError("Please enter a valid phone number!");
       setLoading(false);
@@ -102,7 +266,7 @@ export default function SignUp() {
     }
 
     try {
-      // 3️⃣ Check if user already exists in your profile table
+      // Check if user already exists
       const { data: existingUser, error: fetchError } = await supabase
         .from("profile")
         .select("id")
@@ -163,7 +327,6 @@ export default function SignUp() {
     }
 
     try {
-      // Verify the OTP
       const { data, error: verifyError } = await supabase.auth.verifyOtp({
         email,
         token: otp,
@@ -177,8 +340,14 @@ export default function SignUp() {
         return;
       }
 
-      // OTP verified successfully, now create profile
       if (data.user) {
+        // Get the current spots count to calculate user's registration number
+        const { data: ticketsData } = await supabase
+          .from('tickets_config')
+          .select('remaining_tickets, total_tickets')
+          .eq('id', 1)
+          .single();
+
         const { error: profileError } = await supabase.from("profile").insert({
           id: data.user.id,
           email: email,
@@ -190,11 +359,18 @@ export default function SignUp() {
 
         if (profileError) {
           console.error("Error creating profile:", profileError.message);
-          setError(
-            "Account created but profile setup failed. Please contact support."
-          );
+          setError("Account created but profile setup failed. Please contact support.");
           setLoading(false);
           return;
+        }
+
+        // Calculate user's registration number and show success notification
+        if (ticketsData) {
+          const registrationNumber = (ticketsData.total_tickets || 200) - (ticketsData.remaining_tickets || 0) + 1;
+          setUserRegistrationNumber(registrationNumber);
+          
+          // Show success notification immediately
+          showToast(`Congratulations! #${registrationNumber}`, "success");
         }
 
         // Success!
@@ -231,7 +407,6 @@ export default function SignUp() {
         setError("Error resending OTP: " + otpError.message);
       } else {
         startResendCooldown();
-        // Clear any existing error
         setError("");
       }
     } catch (err) {
@@ -246,11 +421,21 @@ export default function SignUp() {
     setOtp("");
     setError("");
     setResendCooldown(0);
+    setUserRegistrationNumber(null);
   };
+
+  // Success page with enhanced messaging
   if (step === "success") {
     return (
       <section className="min-h-screen bg-[#121212] text-white flex flex-col items-center justify-center font-clash relative overflow-hidden">
-        {/* Background Image with Overlay */}
+        {/* Toast Notification - keep it visible on success page too */}
+        <ToastNotification 
+          message={notificationMessage}
+          type={notificationType}
+          isVisible={showNotification}
+          onHide={hideToast}
+        />
+
         <div className="absolute inset-0 z-0">
           <div
             className="bg-cover bg-center bg-no-repeat mt-10 sm:mt-20 md:mt-24
@@ -262,7 +447,6 @@ export default function SignUp() {
           />
         </div>
 
-        {/* Cross button in background image */}
         <button
           onClick={() => {
             window.location.href = "/";
@@ -287,9 +471,7 @@ export default function SignUp() {
         </button>
 
         <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
-          {/* Main Content Row */}
           <div className="flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-12">
-            {/* Tick Icon */}
             <div className="flex-shrink-0">
               <img
                 src="/tick.svg"
@@ -298,12 +480,13 @@ export default function SignUp() {
               />
             </div>
 
-            {/* Text Content */}
             <div className="text-center lg:text-left">
               <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 leading-tight">
                 You're In! Welcome to{" "}
                 <span className="text-[#C6FF00]">PIPELINE</span>
               </h1>
+              
+             
             </div>
           </div>
         </div>
@@ -311,24 +494,22 @@ export default function SignUp() {
     );
   }
 
+  // OTP verification page
   if (step === "verify") {
-    // Handle OTP input change for individual boxes
     const handleOTPChange = (index, value) => {
-      if (!/^\d*$/.test(value)) return; // Only allow digits
+      if (!/^\d*$/.test(value)) return;
 
       const newOTP = otp.split("");
       newOTP[index] = value;
       const updatedOTP = newOTP.join("");
       setOtp(updatedOTP);
 
-      // Auto-focus next input
       if (value && index < 5) {
         const nextInput = document.getElementById(`otp-${index + 1}`);
         if (nextInput) nextInput.focus();
       }
     };
 
-    // Handle backspace to focus previous input
     const handleKeyDown = (index, e) => {
       if (e.key === "Backspace" && !otp[index] && index > 0) {
         const prevInput = document.getElementById(`otp-${index - 1}`);
@@ -338,7 +519,14 @@ export default function SignUp() {
 
     return (
       <section className="min-h-screen bg-[#121212] text-white flex flex-col items-center justify-center px-4 py-4 font-clash relative overflow-hidden">
-        {/* Background Image with same styling as success section */}
+        {/* Toast Notification */}
+        <ToastNotification 
+          message={notificationMessage}
+          type={notificationType}
+          isVisible={showNotification}
+          onHide={hideToast}
+        />
+
         <div className="absolute inset-0 z-0">
           <div
             className="bg-cover bg-center bg-no-repeat mt-10 sm:mt-20 md:mt-24
@@ -348,11 +536,9 @@ export default function SignUp() {
               backgroundImage: `url('/Signupimage.svg')`,
             }}
           />
-          {/* Additional gradient overlay from bottom */}
           <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
         </div>
 
-        {/* Close button - matching success section positioning */}
         <button
           onClick={resetForm}
           className="absolute top-20 right-6 sm:top-24 sm:right-8 md:top-28 md:right-10 text-white hover:text-gray-300 transition-colors z-10"
@@ -375,7 +561,6 @@ export default function SignUp() {
         </button>
 
         <div className="w-full max-w-md mx-auto text-center relative z-10">
-          {/* Header */}
           <div className="mb-8">
             <h1 className="text-2xl font-bold text-white mb-4 drop-shadow-lg">
               OTP Verification
@@ -387,14 +572,12 @@ export default function SignUp() {
             </p>
           </div>
 
-          {/* Error Message */}
           {error && (
             <div className="mb-6 p-3 bg-red-900/20 border border-red-500 rounded-md backdrop-blur-sm">
               <p className="text-red-400 text-sm">{error}</p>
             </div>
           )}
 
-          {/* OTP Input Boxes */}
           <div className="mb-8">
             <div className="flex justify-center gap-3 mb-6">
               {[0, 1, 2, 3, 4, 5].map((index) => (
@@ -412,7 +595,6 @@ export default function SignUp() {
               ))}
             </div>
 
-            {/* Resend Timer */}
             <p className="text-gray-400 text-sm mb-4 drop-shadow-md">
               {resendCooldown > 0
                 ? `Resend OTP in ${resendCooldown}s`
@@ -462,24 +644,34 @@ export default function SignUp() {
       </section>
     );
   }
+
+  // Main signup form
   return (
     <section
       id="signup"
       className="
-min-h-screen
-bg-[#121212] text-white 
-flex flex-col items-center justify-center 
-px-3 sm:px-6 lg:px-8 
-font-clash
-relative
-safe-area-inset
-"
+        min-h-screen
+        bg-[#121212] text-white 
+        flex flex-col items-center justify-center 
+        px-3 sm:px-6 lg:px-8 
+        font-clash
+        relative
+        safe-area-inset
+      "
       style={{
         minHeight: "100vh",
-        minHeight: "100dvh", // Dynamic viewport height for iOS
-        minHeight: "100svh", // Small viewport height for mobile
+        minHeight: "100dvh",
+        minHeight: "100svh",
       }}
     >
+      {/* Toast Notification */}
+      <ToastNotification 
+        message={notificationMessage}
+        type={notificationType}
+        isVisible={showNotification}
+        onHide={hideToast}
+      />
+
       <div className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-7xl mt-4 sm:mt-6 md:mt-8 mx-auto">
         <div className="text-center mb-6 sm:mb-10 lg:mb-12">
           <h1 className="text-5xl sm:text-6xl md:text-7xl pt-4 sm:pt-6 lg:text-8xl xl:text-8xl py-2 sm:py-3 2xl:text-[10rem] font-bold uppercase leading-tight">
@@ -488,7 +680,6 @@ safe-area-inset
 
           <div className="w-full overflow-x-auto">
             <div className="flex justify-center gap-3 sm:gap-6 mt-4 sm:mt-6 whitespace-nowrap">
-              {/* PROMOTER Button */}
               <button
                 onClick={() => setSelected("promoter")}
                 className="relative group"
@@ -513,7 +704,6 @@ safe-area-inset
                 </span>
               </button>
 
-              {/* CHALLENGER Button */}
               <button
                 onClick={() => setSelected("challenger")}
                 className="relative group"
@@ -543,6 +733,9 @@ safe-area-inset
       </div>
 
       <div className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-4xl mx-auto mt-6 sm:mt-8 md:mt-10">
+        {/* Live Counter Display */}
+        <LiveCounter spotsLeft={spotsLeft} spotsLoading={spotsLoading} />
+
         {error && (
           <div className="mb-6 p-4 bg-red-900/20 border border-red-500 rounded-md">
             <p className="text-red-400 text-sm">{error}</p>
@@ -589,7 +782,7 @@ safe-area-inset
             />
           </div>
 
-          {/* Phone No. */}
+          {/* Phone */}
           <div className="flex items-center gap-4 border-b border-gray-500 focus-within:border-[#C6FF00] transition-colors py-3 sm:py-4 md:py-5">
             <label className="text-xs sm:text-sm lg:text-base w-20 sm:w-28 whitespace-nowrap text-gray-300 flex-shrink-0">
               {t("phoneLabel")}
@@ -605,7 +798,7 @@ safe-area-inset
                   background: "transparent",
                   border: "none",
                   outline: "none",
-                  fontSize: "16px", // Changed from 14px to 16px
+                  fontSize: "16px",
                   color: "white",
                   paddingLeft: "52px",
                 }}
@@ -659,16 +852,16 @@ safe-area-inset
 
         <hr
           className="
-  max-w-2xl
-  mx-auto
-  mt-20 sm:mt-12 md:mt-16
-  mb-0 sm:mb-12 md:mb-16
-  border-0
-  h-0.5
-  bg-gradient-to-r from-[#C6F812] via-[#d9ff00] to-[#C6F812]
-  rounded-full
-  shadow-[0_0_20px_1px_#C6F812]
-"
+            max-w-2xl
+            mx-auto
+            mt-20 sm:mt-12 md:mt-16
+            mb-0 sm:mb-12 md:mb-16
+            border-0
+            h-0.5
+            bg-gradient-to-r from-[#C6F812] via-[#d9ff00] to-[#C6F812]
+            rounded-full
+            shadow-[0_0_20px_1px_#C6F812]
+          "
         />
       </div>
     </section>
