@@ -1,5 +1,4 @@
 {
- 
   "navigation": {
     "home": "Home",
     "collection": "Become Promoter",
@@ -7,9 +6,7 @@
     "news": "Reserve your Spot",
     "pricing": "How it Works",
     "joinToday": "Join Today"
-  }
-,
-
+  },
   "languages": {
     "english": "English",
     "hindi": "Hindi",
@@ -20,21 +17,19 @@
     "malayalam": "Malayalam",
     "kannada": "Kannada"
   },
-    "Hero": {
-      "heading1": "FANTASY CRICKET'S",
-      "heading2": "YOUR GAME",
-      "subheading": "WHY LET PLATFORMS RIGG IT?",
-      "cta": "CLAIM YOUR SPOT NOW",
-      "joinToday": "Join Today"
-    },  
+  "Hero": {
+    "heading1": "FANTASY CRICKET'S",
+    "heading2": "YOUR GAME",
+    "subheading": "WHY LET PLATFORMS RIGG IT?",
+    "cta": "CLAIM YOUR SPOT NOW",
+    "joinToday": "Join Today"
+  },
 
-
-  "nextSection":{
-    
-  "realPlayers": "Real Players.",
-  "realPicks": "Real Picks.",
-  "realWins": "Real Wins."
-},
+  "nextSection": {
+    "realPlayers": "Real Players.",
+    "realPicks": "Real Picks.",
+    "realWins": "Real Wins."
+  },
 
   "HereWhy": {
     "headingAlt": "Here is Why Heading",
@@ -46,9 +41,7 @@
       "payMore": "To win more, pay more.",
       "grindProfit": "Your grind, their profit."
     }
-  
-},
-
+  },
 
   "BuildPlayerSection": {
     "headingAlt": "This isn't just another fantasy platform",
@@ -62,14 +55,8 @@
       "item2": "Let you monetize your skill legally",
       "item3": "How to grow the winner payout % from (industryavg) 12–15% to 35–40%"
     }
+  },
 
-} 
-
-
-
-
-
-,
   "promoterSection": {
     "mainHeading": "LEAD THE FANTASY CRICKET REVOLUTION",
     "subHeading": "BUILD YOUR EMPIRE LEGALLY, OPENLY, AND WITH RESPECT",
@@ -111,70 +98,78 @@
     ]
   },
 
-  "SignUp":{
-  "title": "Sign Up as",
-  "promoter": "PROMOTER",
-  "challenger": "CHALLENGER",
-  "nameLabel": "Name",
-  "namePlaceholder": "Enter your name",
-  "emailLabel": "Email",
-  "emailPlaceholder": "demo@gmail.com",
-  "phoneLabel": "Phone No.",
-  "phonePlaceholder": "000 - 000 - 0000",
-  "submit": "SUBMIT",
-  "submitting": "Submitting...",
-  "alerts": {
-    "invalidEmail": "Please enter a valid email address!",
-    "invalidPhone": "Please enter a valid phone number!",
-    "emailExists": "This email is already registered!",
-    "signupSuccess": "Signup successful!",
-    "signupFailed": "Failed to sign up: "
-  }
+  "SignUp": {
+    "title": "Sign Up as",
+    "promoter": "PROMOTER",
+    "challenger": "CHALLENGER",
+    "nameLabel": "Name",
+    "namePlaceholder": "Enter your name",
+    "emailLabel": "Email",
+    "emailPlaceholder": "demo@gmail.com",
+    "phoneLabel": "Phone No.",
+    "phonePlaceholder": "000 - 000 - 0000",
+    "submit": "SUBMIT",
+    "submitting": "Submitting...",
+    "alerts": {
+      "invalidEmail": "Please enter a valid email address!",
+      "invalidPhone": "Please enter a valid phone number!",
+      "emailExists": "This email is already registered!",
+      "signupSuccess": "Signup successful!",
+      "signupFailed": "Failed to sign up: "
+    },
 
-},
+    "titleotp": "OTP Verification",
+    "subtitle": "Enter the verification code \n we just sent to your email address",
+    "error": {
+      "invalidOtp": "Invalid OTP",
+      "expiredOtp": "OTP has expired"
+    },
+    "otpInput": {
+      "placeholder": "Enter digit"
+    },
 
-"Footer":
-{
-  "heading": "Join the movement.\nShape the winners\nlineup.",
-  "social": {
-    "facebook": "Facebook",
-    "instagram": "Instagram",
-    "youtube": "YouTube",
-    "linkedin": "LinkedIn"
+    "button": {
+      "verify": "VERIFY",
+      "verifying": "VERIFYING...",
+      "resend": "Resend"
+    },
+    "footer": {
+      "noCode": "Didn't receive a code?"
+    }
+    
   },
- 
 
-  "quickLinksTitle": "Quick Links",
-  "quickLinks": {
-    "home": "Home",
-    "whoWeAre": "Become Promoter",
-    "pricing": "Become Challenger",
-    "collection": "Reserve your spot",
-    "services": "How it Works"
+  "Footer": {
+    "heading": "Join the movement.\nShape the winners\nlineup.",
+    "social": {
+      "facebook": "Facebook",
+      "instagram": "Instagram",
+      "youtube": "YouTube",
+      "linkedin": "LinkedIn"
+    },
 
-  }
-,
-
-
-
-  "contactTitle": "Contact Us",
-  "contact": {
-    "email": "Pipeline@Studio.Com",
-    "phone": "+(3432) 555-0107",
-    "address": "4515 Washington Ave.\nManchester,\nKentucky 37495"
-  }
-
-
-},
-"HowItWorks": {
-  "heading": "How it\nWorks",
-  "block1": "Sign up as a\nPromoter or\nChallenger",
-  "block2": "Get Access link \n when add drops,\nyou’ll  receive early\naccess + your  \n earned PipeToken \n bonus.",
-  "block3": "Get Access \n  link when\n  add  drops,you’ll \n receive early\naccess + your  \n earned PipeToken \n bonus.",
-  "buttonLabel": "Get Started"
-}
-,
-
+    "quickLinksTitle": "Quick Links",
+    "quickLinks": {
+      "home": "Home",
+      "whoWeAre": "Become Promoter",
+      "pricing": "Become Challenger",
+      "collection": "Reserve your spot",
+      "services": "How it Works"
+    },
+    "contactTitle": "Contact Us",
+    "contact": {
+      "email": "Pipeline@Studio.Com",
+      "phone": "+(3432) 555-0107",
+      "address": "4515 Washington Ave.\nManchester,\nKentucky 37495"
+    }
+  },
+  "HowItWorks": {
+    "heading": "How it\nWorks",
+    "block1": "Sign up as a\nPromoter or\nChallenger",
+    "block2": "Get Access link \n when add drops,\nyou’ll  receive early\naccess + your  \n earned PipeToken \n bonus.",
+    "block3": "Get Access \n  link when\n  add  drops,you’ll \n receive early\naccess + your  \n earned PipeToken \n bonus.",
+    "buttonLabel": "Get Started"
+  },
   "BecomeChallenger": {
     "headingAlt": "BECOME CHALLENGER",
     "cards": [
@@ -199,7 +194,6 @@
         "description": "PIPELINE is built with one promise transparency. All matchups are real. All data is clean."
       }
     ],
-
 
     "benefitsSection": {
       "title": "THESE BENEFITS ARE ONLY AVAILABLE TILL",
@@ -233,26 +227,22 @@
       "shareTitle": "Join The Challenge!",
       "shareText": "Become a challenger and unlock exclusive perks!",
       "shareCopied": "Link copied to clipboard!"
+    },
+
+    "mobileCards": {
+      "card1_title": "2x Pipe Tokens",
+      "card1_description": "Bonus: Double rewards at launch.",
+      "card2_title": "15% Lifetime Fee Discount",
+      "card2_description": "Win more with savings on every contest, forever.",
+      "card3_title": "Verified Lineups",
+      "card3_description": "Play with confidence. Use strategies from trusted Promoters, no copycats.",
+      "card4_title": "Transparent Matchups",
+      "card4_description": "No Bots, No Drama: No shady deals, guaranteed payouts.",
+      "card5_title": "PIPELINE Promise",
+      "card5_description": "PIPELINE is built with transparency. All matchups are real. All data is clean."
     }
-
-    ,
-"mobileCards": {
-  "card1_title": "2x Pipe Tokens",
-  "card1_description": "Bonus: Double rewards at launch.",
-  "card2_title": "15% Lifetime Fee Discount",
-  "card2_description": "Win more with savings on every contest, forever.",
-  "card3_title": "Verified Lineups",
-  "card3_description": "Play with confidence. Use strategies from trusted Promoters, no copycats.",
-  "card4_title": "Transparent Matchups",
-  "card4_description": "No Bots, No Drama: No shady deals, guaranteed payouts.",
-  "card5_title": "PIPELINE Promise",
-  "card5_description": "PIPELINE is built with transparency. All matchups are real. All data is clean."
-}
-
-
-
   },
- 
+
   "Promoter": {
     "badge": {
       "becomeA": "Become a",
@@ -277,42 +267,27 @@
       "icon": "Icon"
     },
 
-      "features": [
-    {
-      "title": "MONETIZE YOUR TALENT",
-      "description": "Monetize your talent, earn up-to 10% royalties every time your lineups win for others."
-    },
-    {
-      "title": "DITCH RISKY GROUPS",
-      "description": "Avoid risky groups and secure your wins."
-    },
-    {
-      "title": "LIFETIME SAVINGS",
-      "description": "Save more with every contest and maximize your profits."
-    },
-    {
-      "title": "INVITE & EARN",
-      "description": "Invite friends and earn rewards when they play."
-    },
-    {
-      "title": "PIPELINE PROMISE",
-      "description": "Built with transparency. All matchups are real. All data is clean."
-    }
-  ]
-
-
+    "features": [
+      {
+        "title": "MONETIZE YOUR TALENT",
+        "description": "Monetize your talent, earn up-to 10% royalties every time your lineups win for others."
+      },
+      {
+        "title": "DITCH RISKY GROUPS",
+        "description": "Avoid risky groups and secure your wins."
+      },
+      {
+        "title": "LIFETIME SAVINGS",
+        "description": "Save more with every contest and maximize your profits."
+      },
+      {
+        "title": "INVITE & EARN",
+        "description": "Invite friends and earn rewards when they play."
+      },
+      {
+        "title": "PIPELINE PROMISE",
+        "description": "Built with transparency. All matchups are real. All data is clean."
+      }
+    ]
   }
-
 }
-
-
-
-
-
-
-
-
-
-
-
-

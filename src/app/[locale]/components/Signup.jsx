@@ -65,7 +65,7 @@ const ToastNotification = ({ message, type = 'default', isVisible, onHide }) => 
   );
 };
 
-// Counter Display Component
+
 const LiveCounter = ({ spotsLeft, spotsLoading }) => {
   return (
     <div className="bg-black/20 backdrop-blur-sm border border-[#C6FF00]/30 rounded-lg p-4 mb-6">
@@ -613,12 +613,10 @@ export default function SignUp() {
         <div className="w-full max-w-md mx-auto text-center relative z-10">
           <div className="mb-8">
             <h1 className="text-2xl font-bold text-white mb-4 drop-shadow-lg">
-              OTP Verification
+             {t("titleotp")}
             </h1>
             <p className="text-gray-300 text-sm mb-2 drop-shadow-md">
-              Enter the verification code we just sent to
-              <br />
-              your email address
+               {t("subtitle")}
             </p>
           </div>
 
@@ -646,7 +644,7 @@ export default function SignUp() {
             </div>
 
             <p className="text-gray-400 text-sm mb-4 drop-shadow-md">
-              {resendCooldown > 0
+               {resendCooldown > 0
                 ? `Resend OTP in ${resendCooldown}s`
                 : "Resend OTP in 60s"}
             </p>
@@ -658,7 +656,7 @@ export default function SignUp() {
               disabled={loading || otp.length !== 6}
               className="inline-flex bg-[#C6FF00] text-[#1D4E00] font-semibold py-3 px-8 rounded-md hover:bg-lime-300 transition-colors disabled:opacity-50 disabled:cursor-not-allowed items-center justify-center gap-2 shadow-lg hover:shadow-xl"
             >
-              {loading ? "VERIFYING..." : "VERIFY"}
+             {loading ? t("button.verifying") : t("button.verify")}
               {!loading && (
                 <svg
                   width="16"
@@ -680,13 +678,13 @@ export default function SignUp() {
 
           <div className="text-center">
             <p className="text-gray-400 text-sm drop-shadow-md">
-              Didn't receive a code?{" "}
+              {t("footer.noCode")}{" "}
               <button
                 onClick={handleResendOTP}
                 disabled={resendCooldown > 0 || loading}
                 className="text-[#C6FF00] hover:text-lime-300 font-medium text-sm disabled:text-gray-500 disabled:cursor-not-allowed underline drop-shadow-md ml-1"
               >
-                Resend
+                {t("button.resend")}
               </button>
             </p>
           </div>
