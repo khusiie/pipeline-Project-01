@@ -1,4 +1,4 @@
-// Add this to your SignUp component - Enhanced with success notification
+// Add this to your SignUp component - Enhanced with auto-scroll to verification screen
 
 "use client";
 import {
@@ -6,7 +6,7 @@ import {
   parsePhoneNumberFromString,
 } from "libphonenumber-js";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { supabase } from "../../../../lib/supabaseClient";
 import Image from "next/image";
 import Image2 from "../../../../public/Image2.png";
@@ -57,9 +57,7 @@ const ToastNotification = ({ message, type = 'default', isVisible, onHide }) => 
         <div className="flex flex-col gap-1">
           <span className="font-bold text-sm">{message}</span>
           {type === 'success' && (
-    <span className="text-xs opacity-90">  Registered successfully</span>
-
-
+            <span className="text-xs opacity-90">Registered successfully</span>
           )}
         </div>
       </div>
@@ -114,6 +112,10 @@ export default function SignUp() {
   const [notificationType, setNotificationType] = useState("default");
   const [userRegistrationNumber, setUserRegistrationNumber] = useState(null);
 
+  // Add refs for auto-scrolling
+  const verifyScreenRef = useRef(null);
+  const successScreenRef = useRef(null);
+
   // Function to show notification with type
   const showToast = (message, type = "default") => {
     setNotificationMessage(message);
@@ -124,6 +126,33 @@ export default function SignUp() {
   // Function to hide notification
   const hideToast = () => {
     setShowNotification(false);
+  };
+
+  // Auto-scroll function with smooth animation
+  const scrollToScreen = (screenRef, delay = 300) => {
+    setTimeout(() => {
+      if (screenRef.current) {
+        // Try multiple scroll methods for better cross-browser support
+        if (screenRef.current.scrollIntoView) {
+          screenRef.current.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'center',  // Center the element in the viewport
+            inline: 'center' 
+          });
+        }
+        
+        // Fallback scroll method
+        const elementTop = screenRef.current.offsetTop;
+        const elementHeight = screenRef.current.offsetHeight;
+        const windowHeight = window.innerHeight;
+        const scrollTop = elementTop - (windowHeight - elementHeight) / 2;
+        
+        window.scrollTo({
+          top: Math.max(0, scrollTop),
+          behavior: 'smooth'
+        });
+      }
+    }, delay);
   };
 
   // Real-time counter setup
@@ -172,8 +201,6 @@ export default function SignUp() {
           console.log('🎟️ LIVE UPDATE! New spots:', newCount);
           setSpotsLeft(newCount);
           
-         
-     
           if (newCount < oldCount && step !== "verify") {
             const peopleJoined = oldCount - newCount;
             if (peopleJoined === 1) {
@@ -192,6 +219,15 @@ export default function SignUp() {
     return () => {
       ticketsChannel.unsubscribe();
     };
+  }, [step]);
+
+  // Auto-scroll when step changes
+  useEffect(() => {
+    if (step === "verify") {
+      scrollToScreen(verifyScreenRef, 500); // Scroll to verify screen after 500ms
+    } else if (step === "success") {
+      scrollToScreen(successScreenRef, 500); // Scroll to success screen after 500ms
+    }
   }, [step]);
 
   // iOS keyboard handling
@@ -308,6 +344,8 @@ export default function SignUp() {
       setStep("verify");
       startResendCooldown();
       setLoading(false);
+      
+      // Auto-scroll will be handled by useEffect
     } catch (err) {
       console.error(err);
       setError("Something went wrong. Please try again.");
@@ -376,6 +414,8 @@ export default function SignUp() {
         // Success!
         setStep("success");
         setLoading(false);
+        
+        // Auto-scroll will be handled by useEffect
       }
     } catch (err) {
       console.error(err);
@@ -422,12 +462,21 @@ export default function SignUp() {
     setError("");
     setResendCooldown(0);
     setUserRegistrationNumber(null);
+    
+    // Scroll back to top smoothly
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
   };
 
   // Success page with enhanced messaging
   if (step === "success") {
     return (
-      <section className="min-h-screen bg-[#121212] text-white flex flex-col items-center justify-center font-clash relative overflow-hidden">
+      <section 
+        ref={successScreenRef}
+        className="min-h-screen bg-[#121212] text-white flex flex-col items-center justify-center font-clash relative overflow-hidden"
+      >
         {/* Toast Notification - keep it visible on success page too */}
         <ToastNotification 
           message={notificationMessage}
@@ -485,8 +534,6 @@ export default function SignUp() {
                 You're In! Welcome to{" "}
                 <span className="text-[#C6FF00]">PIPELINE</span>
               </h1>
-              
-             
             </div>
           </div>
         </div>
@@ -494,7 +541,7 @@ export default function SignUp() {
     );
   }
 
-  // OTP verification page
+  // OTP verification page with auto-scroll ref
   if (step === "verify") {
     const handleOTPChange = (index, value) => {
       if (!/^\d*$/.test(value)) return;
@@ -518,7 +565,10 @@ export default function SignUp() {
     };
 
     return (
-      <section className="min-h-screen bg-[#121212] text-white flex flex-col items-center justify-center px-4 py-4 font-clash relative overflow-hidden">
+      <section 
+        ref={verifyScreenRef}
+        className="min-h-screen bg-[#121212] text-white flex flex-col items-center justify-center px-4 py-4 font-clash relative overflow-hidden"
+      >
         {/* Toast Notification */}
         <ToastNotification 
           message={notificationMessage}
@@ -645,7 +695,7 @@ export default function SignUp() {
     );
   }
 
-  // Main signup form
+  // Main signup form - OPTIMIZED FOR SMALLER DESKTOP LAYOUT
   return (
     <section
       id="signup"
@@ -672,23 +722,24 @@ export default function SignUp() {
         onHide={hideToast}
       />
 
-      <div className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-7xl mt-4 sm:mt-6 md:mt-8 mx-auto">
-        <div className="text-center mb-6 sm:mb-10 lg:mb-12">
-          <h1 className="text-5xl sm:text-6xl md:text-7xl pt-4 sm:pt-6 lg:text-8xl xl:text-8xl py-2 sm:py-3 2xl:text-[10rem] font-bold uppercase leading-tight">
+      {/* TITLE SECTION - Smaller on desktop */}
+      <div className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-2xl xl:max-w-4xl mt-4 sm:mt-6 md:mt-8 mx-auto">
+        <div className="text-center mb-6 sm:mb-8 lg:mb-6">
+          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-6xl xl:text-7xl 2xl:text-8xl pt-4 sm:pt-6 lg:pt-2 py-2 sm:py-3 lg:py-1 font-bold uppercase leading-tight">
             {t("title")}
           </h1>
 
           <div className="w-full overflow-x-auto">
-            <div className="flex justify-center gap-3 sm:gap-6 mt-4 sm:mt-6 whitespace-nowrap">
+            <div className="flex justify-center gap-3 sm:gap-6 lg:gap-4 mt-4 sm:mt-6 lg:mt-3 whitespace-nowrap">
               <button
                 onClick={() => setSelected("promoter")}
                 className="relative group"
               >
                 <span
                   className={`inline-block 
-                    px-3 sm:px-6 md:px-8 
-                    py-1.5 sm:py-2.5 md:py-3 
-                    text-xs sm:text-sm md:text-base 
+                    px-3 sm:px-6 md:px-8 lg:px-6
+                    py-1.5 sm:py-2.5 md:py-3 lg:py-2
+                    text-xs sm:text-sm md:text-base lg:text-sm
                     font-bold tracking-widest 
                     transform -skew-x-[20deg] 
                     rounded-md transition-all duration-300 
@@ -710,9 +761,9 @@ export default function SignUp() {
               >
                 <span
                   className={`inline-block 
-                    px-3 sm:px-6 md:px-8 
-                    py-1.5 sm:py-2.5 md:py-3 
-                    text-xs sm:text-sm md:text-base 
+                    px-3 sm:px-6 md:px-8 lg:px-6
+                    py-1.5 sm:py-2.5 md:py-3 lg:py-2
+                    text-xs sm:text-sm md:text-base lg:text-sm
                     font-bold tracking-widest 
                     transform -skew-x-[20deg] 
                     rounded-md transition-all duration-300 
@@ -732,7 +783,8 @@ export default function SignUp() {
         </div>
       </div>
 
-      <div className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-4xl mx-auto mt-6 sm:mt-8 md:mt-10">
+      {/* FORM SECTION - Smaller max width for desktop */}
+      <div className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl 2xl:max-w-2xl mx-auto mt-6 sm:mt-8 lg:mt-4">
         {/* Live Counter Display */}
         <LiveCounter spotsLeft={spotsLeft} spotsLoading={spotsLoading} />
 
@@ -744,11 +796,11 @@ export default function SignUp() {
 
         <form
           onSubmit={handleSubmit}
-          className="space-y-6 sm:space-y-8 lg:space-y-10"
+          className="space-y-6 sm:space-y-8 lg:space-y-6"
         >
           {/* Name */}
-          <div className="flex items-center gap-3 sm:gap-4 border-b border-gray-500 focus-within:border-[#C6FF00] transition-colors py-3 sm:py-4 md:py-5">
-            <label className="text-xs sm:text-sm lg:text-base w-20 sm:w-28 flex-shrink-0">
+          <div className="flex items-center gap-3 sm:gap-4 border-b border-gray-500 focus-within:border-[#C6FF00] transition-colors py-3 sm:py-4 lg:py-3">
+            <label className="text-xs sm:text-sm lg:text-sm w-20 sm:w-28 lg:w-24 flex-shrink-0">
               {t("nameLabel")}
             </label>
             <input
@@ -757,7 +809,7 @@ export default function SignUp() {
               onChange={(e) => setName(e.target.value)}
               placeholder={t("namePlaceholder")}
               required
-              className="flex-1 bg-transparent focus:outline-none text-xs sm:text-sm lg:text-base min-w-0 touch-manipulation"
+              className="flex-1 bg-transparent focus:outline-none text-xs sm:text-sm lg:text-sm min-w-0 touch-manipulation"
               style={{ fontSize: "16px" }}
               autoComplete="name"
               autoCapitalize="words"
@@ -765,8 +817,8 @@ export default function SignUp() {
           </div>
 
           {/* Email */}
-          <div className="flex items-center gap-3 sm:gap-4 border-b border-gray-500 focus-within:border-[#C6FF00] transition-colors py-3 sm:py-4 md:py-5">
-            <label className="text-xs sm:text-sm lg:text-base w-20 sm:w-28 flex-shrink-0">
+          <div className="flex items-center gap-3 sm:gap-4 border-b border-gray-500 focus-within:border-[#C6FF00] transition-colors py-3 sm:py-4 lg:py-3">
+            <label className="text-xs sm:text-sm lg:text-sm w-20 sm:w-28 lg:w-24 flex-shrink-0">
               {t("emailLabel")}
             </label>
             <input
@@ -775,7 +827,7 @@ export default function SignUp() {
               onChange={(e) => setEmail(e.target.value)}
               placeholder={t("emailPlaceholder")}
               required
-              className="flex-1 bg-transparent focus:outline-none text-xs sm:text-sm lg:text-base min-w-0 touch-manipulation"
+              className="flex-1 bg-transparent focus:outline-none text-xs sm:text-sm lg:text-sm min-w-0 touch-manipulation"
               style={{ fontSize: "16px" }}
               autoComplete="email"
               autoCapitalize="none"
@@ -783,8 +835,8 @@ export default function SignUp() {
           </div>
 
           {/* Phone */}
-          <div className="flex items-center gap-4 border-b border-gray-500 focus-within:border-[#C6FF00] transition-colors py-3 sm:py-4 md:py-5">
-            <label className="text-xs sm:text-sm lg:text-base w-20 sm:w-28 whitespace-nowrap text-gray-300 flex-shrink-0">
+          <div className="flex items-center gap-4 border-b border-gray-500 focus-within:border-[#C6FF00] transition-colors py-3 sm:py-4 lg:py-3">
+            <label className="text-xs sm:text-sm lg:text-sm w-20 sm:w-28 lg:w-24 whitespace-nowrap text-gray-300 flex-shrink-0">
               {t("phoneLabel")}
             </label>
             <div className="flex-1 min-w-0">
@@ -836,14 +888,14 @@ export default function SignUp() {
             <button
               type="submit"
               disabled={loading}
-              className="mt-8 mb-4 sm:mt-10 lg:mt-12 w-auto sm:w-auto inline-flex justify-center items-center gap-1.5 sm:gap-2 bg-[#C6FF00] text-[#1D4E00] font-medium py-3 sm:py-4 lg:py-4 px-6 sm:px-8 lg:px-10 rounded-md hover:bg-lime-300 transition text-sm sm:text-base lg:text-lg disabled:opacity-50 touch-manipulation"
+              className="mt-8 mb-4 sm:mt-10 lg:mt-6 w-auto sm:w-auto inline-flex justify-center items-center gap-1.5 sm:gap-2 bg-[#C6FF00] text-[#1D4E00] font-medium py-3 sm:py-4 lg:py-3 px-6 sm:px-8 lg:px-6 rounded-md hover:bg-lime-300 transition text-sm sm:text-base lg:text-sm disabled:opacity-50 touch-manipulation"
             >
               {loading ? t("submitting") : t("submit")}
-              <span className="p-0.5 md:p-1 rounded-md flex items-center justify-center">
+              <span className="p-0.5 md:p-1 lg:p-0.5 rounded-md flex items-center justify-center">
                 <Image
                   src={Image2}
                   alt="icon"
-                  className="w-5 h-5 sm:w-4 sm:h-4 md:w-4 md:h-4"
+                  className="w-5 h-5 sm:w-4 sm:h-4 lg:w-3 lg:h-3"
                 />
               </span>
             </button>
@@ -852,10 +904,10 @@ export default function SignUp() {
 
         <hr
           className="
-            max-w-2xl
+            max-w-2xl lg:max-w-xl
             mx-auto
-            mt-20 sm:mt-12 md:mt-16
-            mb-0 sm:mb-12 md:mb-16
+            mt-20 sm:mt-12 md:mt-16 lg:mt-8
+            mb-0 sm:mb-12 md:mb-16 lg:mb-8
             border-0
             h-0.5
             bg-gradient-to-r from-[#C6F812] via-[#d9ff00] to-[#C6F812]
