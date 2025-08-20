@@ -87,7 +87,7 @@ useEffect(() => {
       <nav className="md:px-0 mx-auto fixed top-6 lg:top-6  left-0 right-0 z-50 s lg:px-4 px-2">
         <div className="lg:rounded-[50px] rounded-2xl  backdrop-blur text-white border border-[#ffffff33] shadow-[0_0_0.5px_1px_rgba(255,255,255,0.15)]">
           {/* Desktop Navigation */}
-          <div className="hidden md:flex justify-between items-center px-12 py-4  lg:px-[15px] lg:py-[12px]">
+          <div className="hidden lg:flex justify-between items-center px-12 py-4  lg:px-[15px] lg:py-[12px]">
             <div className="flex items-center py-1 space-x-2">
               <Image src={Logo} alt="logo" width={120} height={40} />
             </div>
@@ -208,7 +208,7 @@ useEffect(() => {
               </div>
             </div>
           </div>
-          <div className="md:hidden flex items-center justify-between px-4 py-3 mx-auto">
+          <div className="flex lg:hidden items-center justify-between px-4 py-3 mx-auto">
             {/* Logo */}
             <div className="flex items-center h-full">
               <Image

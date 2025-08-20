@@ -17,10 +17,15 @@ import Signupimage from "../../../../public/Signupimage.svg";
 import tick from "../../../../public/tick.svg";
 
 // Enhanced Toast Notification Component with different types
-const ToastNotification = ({ message, type = 'default', isVisible, onHide }) => {
+const ToastNotification = ({
+  message,
+  type = "default",
+  isVisible,
+  onHide,
+}) => {
   useEffect(() => {
     if (isVisible) {
-      const duration = type === 'success' ? 6000 : 4000; // Success messages stay longer
+      const duration = type === "success" ? 6000 : 4000; // Success messages stay longer
       const timer = setTimeout(onHide, duration);
       return () => clearTimeout(timer);
     }
@@ -30,41 +35,42 @@ const ToastNotification = ({ message, type = 'default', isVisible, onHide }) => 
 
   const getToastStyles = () => {
     switch (type) {
-      case 'success':
-        return 'bg-gradient-to-r from-lime-300 to-lime-500 text-white border-lime-500 animate-pulse';
-      case 'warning':
-        return 'bg-[#C6FF00] text-black border-black animate-bounce';
+      case "success":
+        return "bg-gradient-to-r from-lime-300 to-lime-500 text-white border-lime-500 animate-pulse";
+      case "warning":
+        return "bg-[#C6FF00] text-black border-black animate-bounce";
       default:
-        return 'bg-[#C6FF00] text-black border-black animate-bounce';
+        return "bg-[#C6FF00] text-black border-black animate-bounce";
     }
   };
 
   const getIcon = () => {
     switch (type) {
-      case 'success':
-        return '🔥';
-      case 'warning':
-        return '🔥';
+      case "success":
+        return "🔥";
+      case "warning":
+        return "🔥";
       default:
-        return '🔥';
+        return "🔥";
     }
   };
 
   return (
-    <div className={`fixed top-4 right-4 z-50 px-6 py-4 rounded-lg shadow-lg border-2 ${getToastStyles()}`}>
+    <div
+      className={`fixed top-4 right-4 z-50 px-6 py-4 rounded-lg shadow-lg border-2 ${getToastStyles()}`}
+    >
       <div className="flex items-center gap-3">
         <span className="text-xl">{getIcon()}</span>
         <div className="flex flex-col gap-1">
           <span className="font-bold text-sm">{message}</span>
-          {type === 'success' && (
-            <span className="text-xs opacity-90">Registered successfully</span>
+          {type === "success" && (
+            <span className="text-xs opacity-90">{t("Registered")}</span>
           )}
         </div>
       </div>
     </div>
   );
 };
-
 
 const LiveCounter = ({ spotsLeft, spotsLoading }) => {
   return (
@@ -76,14 +82,22 @@ const LiveCounter = ({ spotsLeft, spotsLoading }) => {
           {spotsLoading ? (
             <div className="w-12 h-8 bg-gray-600 animate-pulse rounded"></div>
           ) : (
-            <span className={`text-3xl font-bold ${spotsLeft <= 50 ? 'text-red-400 animate-pulse' : 'text-[#C6FF00]'}`}>
+            <span
+              className={`text-3xl font-bold ${
+                spotsLeft <= 50
+                  ? "text-red-400 animate-pulse"
+                  : "text-[#C6FF00]"
+              }`}
+            >
               {spotsLeft}
             </span>
           )}
           <span className="text-white text-lg">spots left!</span>
         </div>
         {spotsLeft <= 20 && (
-          <p className="text-red-400 text-xs mt-2 animate-pulse">⚡ Almost sold out!</p>
+          <p className="text-red-400 text-xs mt-2 animate-pulse">
+            ⚡ Almost sold out!
+          </p>
         )}
       </div>
     </div>
@@ -134,22 +148,22 @@ export default function SignUp() {
       if (screenRef.current) {
         // Try multiple scroll methods for better cross-browser support
         if (screenRef.current.scrollIntoView) {
-          screenRef.current.scrollIntoView({ 
-            behavior: 'smooth', 
-            block: 'center',  // Center the element in the viewport
-            inline: 'center' 
+          screenRef.current.scrollIntoView({
+            behavior: "smooth",
+            block: "center", // Center the element in the viewport
+            inline: "center",
           });
         }
-        
+
         // Fallback scroll method
         const elementTop = screenRef.current.offsetTop;
         const elementHeight = screenRef.current.offsetHeight;
         const windowHeight = window.innerHeight;
         const scrollTop = elementTop - (windowHeight - elementHeight) / 2;
-        
+
         window.scrollTo({
           top: Math.max(0, scrollTop),
-          behavior: 'smooth'
+          behavior: "smooth",
         });
       }
     }, delay);
@@ -160,21 +174,21 @@ export default function SignUp() {
     const fetchSpotCount = async () => {
       try {
         setSpotsLoading(true);
-        
+
         const { data, error } = await supabase
-          .from('tickets_config')
-          .select('remaining_tickets')
-          .eq('id', 1)
+          .from("tickets_config")
+          .select("remaining_tickets")
+          .eq("id", 1)
           .single();
 
         if (!error && data) {
           setSpotsLeft(data.remaining_tickets);
-          console.log('✅ Spots loaded:', data.remaining_tickets);
+          console.log("✅ Spots loaded:", data.remaining_tickets);
         } else {
-          console.error('❌ Error loading spots:', error);
+          console.error("❌ Error loading spots:", error);
         }
       } catch (err) {
-        console.error('❌ Error fetching spot count:', err);
+        console.error("❌ Error fetching spot count:", err);
       } finally {
         setSpotsLoading(false);
       }
@@ -182,37 +196,43 @@ export default function SignUp() {
 
     // Load spots when component first loads
     fetchSpotCount();
-    
+
     // Real-time updates
     const ticketsChannel = supabase
-      .channel('signup-tickets-updates')
+      .channel("signup-tickets-updates")
       .on(
-        'postgres_changes',
+        "postgres_changes",
         {
-          event: 'UPDATE',
-          schema: 'public',
-          table: 'tickets_config',
-          filter: 'id=eq.1'
+          event: "UPDATE",
+          schema: "public",
+          table: "tickets_config",
+          filter: "id=eq.1",
         },
         (payload) => {
           const newCount = payload.new.remaining_tickets;
           const oldCount = payload.old.remaining_tickets;
-          
-          console.log('🎟️ LIVE UPDATE! New spots:', newCount);
+
+          console.log("🎟️ LIVE UPDATE! New spots:", newCount);
           setSpotsLeft(newCount);
-          
+
           if (newCount < oldCount && step !== "verify") {
             const peopleJoined = oldCount - newCount;
             if (peopleJoined === 1) {
-              showToast(`Someone just registered! ${newCount} spots left`, "warning");
+              showToast(
+                `Someone just registered! ${newCount} spots left`,
+                "warning"
+              );
             } else {
-              showToast(`${peopleJoined} people just registered! ${newCount} spots left`, "warning");
+              showToast(
+                `${peopleJoined} people just registered! ${newCount} spots left`,
+                "warning"
+              );
             }
           }
         }
       )
       .subscribe((status) => {
-        console.log('📡 Real-time connection:', status);
+        console.log("📡 Real-time connection:", status);
       });
 
     // Cleanup
@@ -344,7 +364,7 @@ export default function SignUp() {
       setStep("verify");
       startResendCooldown();
       setLoading(false);
-      
+
       // Auto-scroll will be handled by useEffect
     } catch (err) {
       console.error(err);
@@ -381,9 +401,9 @@ export default function SignUp() {
       if (data.user) {
         // Get the current spots count to calculate user's registration number
         const { data: ticketsData } = await supabase
-          .from('tickets_config')
-          .select('remaining_tickets, total_tickets')
-          .eq('id', 1)
+          .from("tickets_config")
+          .select("remaining_tickets, total_tickets")
+          .eq("id", 1)
           .single();
 
         const { error: profileError } = await supabase.from("profile").insert({
@@ -397,16 +417,21 @@ export default function SignUp() {
 
         if (profileError) {
           console.error("Error creating profile:", profileError.message);
-          setError("Account created but profile setup failed. Please contact support.");
+          setError(
+            "Account created but profile setup failed. Please contact support."
+          );
           setLoading(false);
           return;
         }
 
         // Calculate user's registration number and show success notification
         if (ticketsData) {
-          const registrationNumber = (ticketsData.total_tickets || 200) - (ticketsData.remaining_tickets || 0) + 1;
+          const registrationNumber =
+            (ticketsData.total_tickets || 200) -
+            (ticketsData.remaining_tickets || 0) +
+            1;
           setUserRegistrationNumber(registrationNumber);
-          
+
           // Show success notification immediately
           showToast(`Congratulations! #${registrationNumber}`, "success");
         }
@@ -414,7 +439,7 @@ export default function SignUp() {
         // Success!
         setStep("success");
         setLoading(false);
-        
+
         // Auto-scroll will be handled by useEffect
       }
     } catch (err) {
@@ -462,23 +487,23 @@ export default function SignUp() {
     setError("");
     setResendCooldown(0);
     setUserRegistrationNumber(null);
-    
+
     // Scroll back to top smoothly
     window.scrollTo({
       top: 0,
-      behavior: 'smooth'
+      behavior: "smooth",
     });
   };
 
   // Success page with enhanced messaging
   if (step === "success") {
     return (
-      <section 
+      <section
         ref={successScreenRef}
         className="min-h-screen bg-[#121212] text-white flex flex-col items-center justify-center font-clash relative overflow-hidden"
       >
         {/* Toast Notification - keep it visible on success page too */}
-        <ToastNotification 
+        <ToastNotification
           message={notificationMessage}
           type={notificationType}
           isVisible={showNotification}
@@ -531,8 +556,8 @@ export default function SignUp() {
 
             <div className="text-center lg:text-left">
               <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 leading-tight">
-                You're In! Welcome to{" "}
-                <span className="text-[#C6FF00]">PIPELINE</span>
+                {t("success.title")}{" "}
+                <span className="text-[#C6FF00]">{t("success.highlight")}</span>
               </h1>
             </div>
           </div>
@@ -565,12 +590,12 @@ export default function SignUp() {
     };
 
     return (
-      <section 
+      <section
         ref={verifyScreenRef}
         className="min-h-screen bg-[#121212] text-white flex flex-col items-center justify-center px-4 py-4 font-clash relative overflow-hidden"
       >
         {/* Toast Notification */}
-        <ToastNotification 
+        <ToastNotification
           message={notificationMessage}
           type={notificationType}
           isVisible={showNotification}
@@ -613,10 +638,10 @@ export default function SignUp() {
         <div className="w-full max-w-md mx-auto text-center relative z-10">
           <div className="mb-8">
             <h1 className="text-2xl font-bold text-white mb-4 drop-shadow-lg">
-             {t("titleotp")}
+              {t("titleotp")}
             </h1>
             <p className="text-gray-300 text-sm mb-2 drop-shadow-md">
-               {t("subtitle")}
+              {t("subtitle")}
             </p>
           </div>
 
@@ -643,11 +668,10 @@ export default function SignUp() {
               ))}
             </div>
 
-            <p className="text-gray-400 text-sm mb-4 drop-shadow-md">
-               {resendCooldown > 0
-                ? `Resend OTP in ${resendCooldown}s`
-                : "Resend OTP in 60s"}
-            </p>
+       <p className="text-gray-400 text-sm mb-4 drop-shadow-md">
+  {t('otp.resend')} {resendCooldown > 0 ? `in ${resendCooldown}s` : "in 60s"}
+</p>
+
           </div>
 
           <div className="text-center mb-6">
@@ -656,7 +680,7 @@ export default function SignUp() {
               disabled={loading || otp.length !== 6}
               className="inline-flex bg-[#C6FF00] text-[#1D4E00] font-semibold py-3 px-8 rounded-md hover:bg-lime-300 transition-colors disabled:opacity-50 disabled:cursor-not-allowed items-center justify-center gap-2 shadow-lg hover:shadow-xl"
             >
-             {loading ? t("button.verifying") : t("button.verify")}
+              {loading ? t("button.verifying") : t("button.verify")}
               {!loading && (
                 <svg
                   width="16"
@@ -713,7 +737,7 @@ export default function SignUp() {
       }}
     >
       {/* Toast Notification */}
-      <ToastNotification 
+      <ToastNotification
         message={notificationMessage}
         type={notificationType}
         isVisible={showNotification}

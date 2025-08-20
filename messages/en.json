@@ -135,7 +135,20 @@
     },
     "footer": {
       "noCode": "Didn't receive a code?"
-    }
+    },
+
+    
+  "success": {
+    "title": "You're In! Welcome to",
+    "highlight": "PIPELINE"
+  },
+   "otp": {
+    "resend": "Resend OTP"
+  },
+  
+  "Registered":"Registered successfully"
+
+
     
   },
 
